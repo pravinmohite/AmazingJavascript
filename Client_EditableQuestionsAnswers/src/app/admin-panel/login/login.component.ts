@@ -13,6 +13,9 @@ export class LoginComponent implements OnInit {
    login:any={username:"",password:""};
 
   ngOnInit(): void {
+    if(localStorage.getItem('loggedIn')=="true") {
+      this.router.navigateByUrl('/admin-panel/updateInterviewQuestions');
+    }
   }
 
   loginToApplication() {
