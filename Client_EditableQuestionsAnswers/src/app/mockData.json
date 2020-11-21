@@ -1,0 +1,70 @@
+{
+    "noteTypes":[
+          {
+            "title":"What went well",
+            "id":101,
+            "notesList":[
+                {
+                  "id": 1,
+                  "note":"Angular upgrade went well",
+                  "vote":0 
+                },
+                {
+                    "id": 2,
+                    "note":"Unit tests completed",
+                    "vote":0  
+                },
+                {
+                    "id": 3,
+                    "note":"Angular second upgrade went well",
+                    "vote":0  
+                }
+
+            ]   
+        
+       },
+       {
+        "title":"What can be improved",
+        "id":102,
+        "notesList":[
+            {
+              "id": 1,
+              "note":"Code quality",
+              "vote":0  
+            },
+            {
+                "id": 2,
+                "note":"Client engagement",
+                "vote":0  
+            }
+        ]   
+      },
+      {
+        "title":"Start doing",
+        "id":102,
+        "notesList":[
+            {
+              "id": 1,
+              "note":"Clearing test debts", 
+              "vote":0 
+            },
+            {
+                "id": 2,
+                "note":"Fix pending defects",
+                "vote":0  
+            }
+        ]   
+      },
+      {
+        "title":"Action items",
+        "id":102,
+        "notesList":[
+            {
+              "id": 1,
+              "note":"Prepare sprint demo",
+              "vote":0  
+            }
+        ]   
+      }
+    ]
+}

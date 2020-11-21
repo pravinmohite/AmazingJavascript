@@ -1,0 +1,24 @@
+<div class="panel-container" [ngClass]="{'admin-panel':adminMode}" >
+   <div class="row">
+    <div class="col-12">
+      <button class="col-md-3 col-5 btn add-questions-btn hand-cursor" *ngIf="adminMode" (click)='openAddQuestionAnswerPopup()'>+ Add Q/A</button>
+      <button class="col-md-3 col-6 btn add-questions-btn hand-cursor" *ngIf="adminMode" (click)='openAddQuestionTypePopup()'>+ Add/Edit Q/A type</button>
+    </div> 
+  </div> 
+   <div class="panel-item" *ngFor="let questionAnswerItem of questionAnswerList;let i=index"> 
+        <div class="panel-header">
+          <div class="row">
+            <div class="col-xl-10 col-md-9">
+              <span>{{i+1}}. <span [innerHtml]="questionAnswerItem.question"></span></span>
+            </div>
+            <div class="col-xl-2 col-md-3 action-btns">
+              <fa-icon *ngIf="adminMode" class="hand-cursor edit-icon" [icon]="faEdit" (click)="editQuestionAnswer(questionAnswerItem)"></fa-icon><fa-icon *ngIf="adminMode" class="hand-cursor delete-icon" [icon]="faTrash" (click)="deleteQuestionAnswer(questionAnswerItem._id)"></fa-icon><button class="showHideAnswer hand-cursor btn-show-hide" (click)="toggleShowHideAnswer(questionAnswerItem)">{{questionAnswerItem.buttonText?questionAnswerItem.buttonText:"Show"}}</button>
+            </div>
+          </div>
+        </div>
+        <div class="panel-body" *ngIf="questionAnswerItem.showAnswer" [@slideInOut] [innerHtml]="questionAnswerItem.answer">
+        </div>
+  </div>  
+</div>
+<app-add-edit-interview-questions [editedItem]="editedItem" *ngIf="showQuestionAnswerModal" (popupEvent)="closeModal($event)"></app-add-edit-interview-questions>
+<app-add-edit-question-types *ngIf="showQuestionTypeModal" (popupEvent)="closeModal($event)"></app-add-edit-question-types>

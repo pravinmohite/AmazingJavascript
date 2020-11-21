@@ -1,0 +1,18 @@
+    <div class="note-type-container">
+      <div class="what-wentwell-container items" *ngFor="let noteTypeItems of noteTypes;let i=index">
+            <h2>{{noteTypeItems.title}}</h2>
+           <button class="hand-cursor" (click)="addItem(i)">+</button>
+            <div class="list-container">
+              <div class="notes-container" class="notes-container" *ngFor="let noteType of noteTypeItems.notesList;let j=index;" >
+                <div>{{noteType.note}}</div> 
+                <div class="action-btns">
+                  <button class="vote-btn" (click)="voteItem(noteTypeItems.notesList,j)">Vote {{noteType.vote}}</button>
+                  <button class="delete-btn" (click)="removeItem(noteTypeItems.notesList,j)" >x</button>
+                  <button class="edit-btn" (click)="editItem(noteTypeItems.notesList,j)">Edit</button>
+                </div>
+              </div>
+              <textarea class="notes-container" *ngIf="newNote && i==currentNote.index" [(ngModel)]="currentNote.note"  #whatWentWellElem (keydown)="saveContent(noteTypeItems.notesList,$event)"></textarea>
+            </div>
+          </div> 
+         <app-edit-notes-component *ngIf="showModal"(onSaveEditedItem)="saveEditedItem($event)" [editedItemDetails]="currentItemToBeEdited"></app-edit-notes-component> 
+    </div>      

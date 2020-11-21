@@ -1,0 +1,387 @@
+@import "./assets/scss/variables.scss";
+@import "./assets/scss/mixins.scss";
+/* You can add global styles to this file, and also import other style files */
+body {
+    font-family:cursive;
+   // background-image: url($img-path+$background-img);
+}
+.hand-cursor {
+    cursor: pointer;
+}
+.main-container {
+  .note-type-container {
+    display: flex;
+     flex-wrap:wrap;
+    .items{
+        width:50%;
+        @media only screen and (max-width: 768px) {
+            width:100%;
+        }
+        &.what-wentwell-container {
+            .notes-container {
+               background-color:bisque; 
+           }
+        }
+        &.what-canbeimproved-container {
+           .notes-container {
+            background: aliceblue;
+           }
+        }
+        &.start-doing-container {
+           .notes-container {
+            background: lightgreen;;
+           }
+        }
+        &.action-items-container {
+           .notes-container {
+           background: orangered;    
+          }
+        }
+        h2 {
+          display: inline;
+          padding:5px;
+        }
+        button {
+          background: green;
+          border-radius: 5px;
+          color: white;
+        }
+        
+        .list-container {
+            display: flex;
+            flex-wrap: wrap;
+            //----for reverse element
+            /*
+            justify-content: flex-end;
+            flex-direction: row-reverse;*/
+            .notes-container {
+                position: relative;
+                word-break: break-word;
+                width:25%;
+                margin:10px;
+                min-height: 100px;
+                border-radius: 0 0 10px 0;
+                box-shadow: 1px 1px grey;
+                border: solid 1px gainsboro;
+               .action-btns {
+                   position: absolute;
+                   bottom:0;
+                   right:0;   
+                   .edit-btn {
+                     background-color: dodgerblue;
+                     border: solid 1px gainsboro;
+                     @extend .hand-cursor;
+                   }
+                   .delete-btn {
+                     background-color:darkred;
+                     border: solid 1px gainsboro;
+                     @extend .hand-cursor;
+                   }
+                   .vote-btn {
+                     background: #e41a1a;
+                     color: whhite;
+                     border: solid 1px gainsboro;
+                     @extend .hand-cursor;
+                   }
+                }
+                
+                @media only screen and (max-width: 768px) {
+                    width:100%;
+                }
+            } 
+        }
+    }
+    .modal {
+        position:fixed;
+        z-index:1;
+        background-color:rgba(0,0,0,0.4);
+        top:0;
+        right:0;
+        padding-top:100px;
+        width:100%;
+        height:100%;
+        .modal-content {
+            background: bisque;
+            padding: 20px;
+            width:30%;
+            margin:auto;
+            min-height: 100px;
+            border-radius: 0 0 10px 0;
+            box-shadow: 1px 1px grey;
+            border: solid 1px gainsboro;
+            @media only screen and (max-width: 768px) {
+                width:80%;
+            }
+            .edit-notes {
+                min-height: 100px;
+                width:100%;
+                background: bisque;
+            }
+            .save-btn-container {
+                height:20px;
+                .save-btn {
+                    background: green;
+                    float: right;
+                    color: white;
+                    cursor: pointer;
+                }
+            }
+         
+        }
+    }
+ }
+}
+.heading {
+    text-align:  center;
+    margin-bottom: 30px;
+}
+
+
+//--------------for question answer listing page----------
+.amazing-js-container {
+  font-family:"Open Sans",sans-serif;
+  .panel-container {
+      width: 75%;
+      margin: auto;
+      margin-top: 30px;
+      margin-bottom:30px;
+      @media only screen and (max-width: 768px) {
+       width:90%;
+      }
+      .add-questions-btn {
+        margin-bottom: 15px;
+        background-color: white;
+        color: black;
+        margin-right: 10px;
+        border: solid 1px gainsboro;
+        box-shadow: 2px 2px 2px gainsboro;
+        margin-right:10px;
+      }
+      .panel-item {
+        border: solid 1px gainsboro;
+        margin-bottom: 10px;
+        .panel-header {
+          padding:10px;
+          background-image: url($img-path+$background-img);
+          color:$questions-theme-color;
+          z-index: 1000;
+          border-bottom: solid 1px gainsboro;
+          box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+          white-space: pre-wrap;
+          fa-icon {
+            padding:0px 6px 0px 6px;
+            &.edit-icon {
+              color:#61616b;
+              @media only screen and (max-width: 768px) { 
+                padding-right:15px;
+                font-size:24px;
+              }
+            }
+            &.delete-icon {
+              color:#ce4545;  
+              @media only screen and (max-width: 768px) { 
+                padding-right:15px;
+                font-size:24px;
+              }
+            }
+          }
+          .showHideAnswer {
+            border:solid 1px gainsboro;
+            color: $showHide-btn-color;
+            border-radius: 5px;
+            background-color:$showHide-btn-background;
+            box-shadow: 1px 1px 3px 2px gainsboro;
+            float:right;
+            outline:1px gainsboro;
+            height:28px;
+            @media only screen and (min-width: 768px) {
+               width: 76px;
+             }
+             @media only screen and (max-width: 768px) {
+              margin:5px auto auto auto;
+              width:100%;
+            }
+            &:hover {
+              color: black;
+              background: #fbfbfb;
+            }
+            &:focus {
+              border:solid 1px #b1aaaa;
+              background: #fbfbfb;
+            }
+          }
+        }
+        .panel-body {
+          padding:10px;
+          white-space: pre-wrap;
+        }
+      }
+    &.admin-panel {
+      .showHideAnswer {
+        @media only screen and (max-width: 768px) {
+          width:66% !important;
+        }
+      }
+    }
+
+  }
+  .login-panel-container {
+    border: solid 1px gainsboro;
+    width: 40%;
+    margin: 8% auto 0px auto;
+    padding: 30px;
+    @media only screen and (max-width: 768px) {
+      width:90%;
+    }
+  }
+  .page-header {
+    background-image: url($img-path+$background-img);
+    padding: 0.3rem;
+    color:#333;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    transition: all .5s ease-out;
+    -webkit-transition: all 200ms linear;
+    box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,.05);
+    .question-type {
+      height:30px;
+      @extend .hand-cursor;
+      @media only screen and (min-width: 768px) {
+        max-width:15.5%;
+       }
+    }
+    .project-name {
+      a {
+        color:$header-theme-color !important;
+        font-size:1.3rem;
+        font-family: cursive;
+        float: right;
+        margin-right: 15px;
+        padding-top: 5px;
+        @media only screen and (max-width: 768px) {
+          float: left;
+         }  
+        .project-name-text {
+          float:right;
+          margin-left:15px;
+          color:#716a6a;
+        }
+        .project-icon {
+          height:30px;
+        }
+      }
+    }
+    .btn-outline-success {
+      @extend .btn-brown-yellow-hover;
+    }
+  }
+  .hand-cursor {
+    cursor: pointer !important;
+  }
+  .btn-brown-yellow-hover {
+    border-color:$searchBtn-theme-background;
+    color:$searchBtn-theme-color;
+    background-color:$searchBtn-theme-background;
+   /* &:hover,&:active {
+      color:$button-theme-color;
+      background-color:$button-theme-background;
+      border-color:$searchBtn-theme-background;
+    }*/
+  }
+  pre {
+   white-space: pre-wrap;
+   margin: 5px 0px 5px 0px;
+  }
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  .modal {
+    position: fixed;
+    top:0;
+    padding-top:100px;
+    z-index:1;
+    display: block;
+    background: rgb(0,0,0,0.4);
+    .modal-content {
+      width: 70%;
+      margin: auto;
+      padding: 15px;
+      @media only screen and (max-width: 768px) {
+         width:90%;
+       }
+       &.modal-question-types {
+         width:50%;
+         @media only screen and (max-width: 768px) {
+          width:90%;
+        }
+       }
+       .question-type-item {
+         margin:0px 10px 0px 10px;
+       }
+       .edit-icon {
+         margin-right:10px;
+       }
+       .delete-icon {
+         color:#ce4545;
+         margin-right:10px;
+       }
+    }
+  }
+  fieldset {
+    legend {
+      border-bottom: solid 1px #bbbbbb;
+      margin: 20px 0px 20px 0px;
+      padding-bottom: 10px;
+    }
+ }
+ .btn-full-width {
+   width:100%;
+ }
+ .loader-container {
+    position:fixed;
+    z-index:1;
+    background-color:rgba(0,0,0,0.4);
+    top:0;
+    right:0;
+    padding-top:100px;
+    width:100%;
+    height:100%;
+
+  @include keyframes(spin) {
+    100%{
+      -webkit-tranform:rotate(360deg);
+      -moz-transform: rotate(360deg);
+      transform:rotate(360deg);
+    }
+  }
+  .loader {
+    top: 50%;
+    left: 50%;
+    height: 120px;
+    width: 120px;
+    margin-left: -60px;
+    margin-top: -60px;
+    position: absolute;
+    display: block;
+    img {
+      animation:spin 2s linear infinite;
+      height: 120px;
+      width: 120px;
+    }
+    .loading-text {
+      color:white;
+      font-size:20px;
+      margin-left:14px;
+    }
+  }
+ }
+}

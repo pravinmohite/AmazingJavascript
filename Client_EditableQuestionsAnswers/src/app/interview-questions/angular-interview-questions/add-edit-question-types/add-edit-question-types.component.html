@@ -1,0 +1,31 @@
+<div class="modal">
+    <div class="modal-content modal-question-types"> 
+        <div>
+         <fieldset>
+          <legend>Add/Edit Question Types:</legend>
+          <div class="form-group row">
+            <label for="question" class="col-4 col-form-label">Question Types</label> 
+            <div class="col-8">
+              <div *ngFor="let item of questionTypes">
+                <fa-icon class="hand-cursor edit-icon" [icon]="faEdit" (click)="editQuestionType(item)"></fa-icon><fa-icon class="hand-cursor delete-icon" [icon]="faTrash" (click)="deleteQuestionType(item._id)"></fa-icon><span class="question-type-item">{{item.questionType}}</span>
+              </div>
+            </div>
+          </div>  
+          <div class="form-group row">
+            <label for="question" class="col-4 col-form-label">Add/Edit Question Type</label> 
+            <div class="col-8">
+              <textarea id="question" name="question" [(ngModel)]="interviewQuestion.questionType" placeholder="Enter Question" type="text" class="form-control"></textarea>
+            </div>
+          </div>     
+          <div class="form-group row">
+            <div class="offset-4 col-md-3 col-4">
+              <button name="submit" type="submit" class="btn btn-primary btn-full-width" (click)="saveQuestionType()">{{editMode==true?'Update':'Submit'}}</button>
+            </div>
+            <div class="col-md-3 col-4">
+             <button name="submit" (click)="closeAddEditPopup()" type="submit" class="btn btn-danger btn-full-width">Cancel</button>
+            </div>
+          </div>
+         </fieldset> 
+        </div>
+    </div>
+</div>

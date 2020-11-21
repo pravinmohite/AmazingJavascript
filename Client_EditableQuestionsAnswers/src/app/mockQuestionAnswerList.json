@@ -1,0 +1,312 @@
+{
+    "questionTypes":[
+       "Angular",
+       "React",
+       "HTML5",
+       "CSS3",
+       "Javascript"
+    ],
+    "questionAnswerList":[
+        {
+            "question":"Advantages of Angular over angularJS",
+            "answer":"1. In angular the approach is modular and component based whereas in angularjs the approach is controller based which is not modular and hence is less efficient.<br> 2. The angular applications are much faster and more memory efficient as compared to Angularjs applications<br> 3. Angular uses typescript whereas Angularjs uses javascript. The typescript is object oriented , so there are many advantages due to this reason for example :<br> 1.encapsulation (i.e making private variables) becomes easy , <br>2. variables can be strictly typed which helps in keeping track of the data while developing the application.<br> 4. The routing modules of Angular are more efficient and simple as compared to that of the routing in Angularjs. Specially , if want to create child routes , it is much much simple in Angular. <br>5. The event bindings and the property bindings in angular are much more easy as compared to that of angularjs. <br>6. With Angular it is easy to make native and hybrid apps for mobiles as compared that of angularjs. <br>7. In angular we use observables instead of promises for handling the response of http requests. Observables have their own advantages - like <br>1. They can handle multiple events , <br>2. They can be subscribed and unsubscribed <br>3. They provide various functions like map(), pipe() etc to handle and manipulate the response.",
+            "type":"Angular",
+            "ranking":"1"
+        },
+        {
+            "question":"New features of html5",
+            "answer":"● There are new semantic elements - header , footer , section ,nav , article , aside <br>● New graphic elements like svg , canvas . <br>● New apis - localstorage , session storage , geolocation , drag and drop , server sent events , web workers <br>● Audio and video tags <br>● New form controls like datalist , output <br>● New form input types like color , range ,number , url , email , search , tel, datetime , time , month ,week etc. <br>● New input attributes like placeholder , multiple , autocomplete , autofocus , required, ,min and max , width and height ,list , formaction ,formnovalidate , formtarget , formmethod, formenctype etc. <br>● New form attributes autocomplete, novalidate",
+            "type":"HTML5",
+            "ranking":"3"
+        },
+        {
+            "question":"What are the data types in JavaScript ",
+            "answer":"string , boolean , number , undefined , null, object. <br> Object is a composite data type , rest all are primitive data types. ",
+            "type":"Javascript",
+            "ranking":"4"
+        },
+        {
+            "question":"How can we add an element at the start of a JavaScript array",
+            "answer":"<pre>method 1 : using unshift() -\nLet arr = [a,b, c]\narr.unshift(x);\nconsole.log(x) //output - [x,a,b,c]\nMethod 2 : use splice() method\nLet arr = [a,b, c]\narr.splice(0,0,x)\nconsole.log(arr) //output - [x,a,b,c]\nAbout splice() method :\nIt takes 3 parameters :\n1. The index from where to start\n2. Number of elements to remove starting from that index\n3. Comma seprated list of the elements to add</pre>",
+            "type":"Javascript",
+            "ranking":"5"
+        },
+        {
+            "question":"How to capitalise all the first letters of a given string",
+            "answer":"<pre><b>Css way</b> :\nText-transform : capitalize;\n <b>js way</b> :\nfunction capitalizeStr(str){\n let arr = str.split(\"\");\n arr[0] = arr[0].toUpperCase();\n for(let i in arr){\n if(arr[i-1] === \" \"){\n arr[i] = arr[i].toUpperCase();\n }\n }\n return a</pre>",
+            "type":"Javascript",
+            "ranking":"6"
+        },
+        {
+            "question":"Write a code to display which character is coming how many times in a given",
+            "answer":"<pre><b>Method 1</b> :\nlet str = \"hello mr. dj mera gaana please hai\";\nlet charCounts = {};\nwhile(str != \"\"){\nlet currrentChar = str.charAt(0)\nlet regex = new RegExp(currrentChar,\"g\");\nlet currentCharsMatches = str.match(regex);\ncharCounts[currrentChar] = currentCharsMatches.length;\nstr = str.replace(regex,'');\n}\nconsole.log(charCounts);\n<b>Method 2</b> :\nlet str = \"hello mr. dj mera gaana please hai\";\nlet charCounts = {};\nfor(i=0; i<str.length;i++){\nlet currentChar = str.charAt(i);\nif(currentChar in charCounts){\ncharCounts[currentChar] += 1;\n}else{\ncharCounts[currentChar] = 1;\n}\n}\nconsole.log(charCounts)\n</pre>",
+            "type":"Javascript",
+            "ranking":"7"
+        },
+        {
+            "question":"Can we set data in localstorage with expiry date or time and how to do it",
+            "answer":"<pre>There is no direct in-built property in localstorage to set items with expiry date , but we can implement it with some workarounds - Along with the item , we can also set another item in localstorage containing the time of storage , and next time when we would need that item we would first compare the present time with the time at which the item was stored on the basis of which we can keep or clear the item form localstorage. You can take the idea for this implementation from the below\ncode\nplayWithSessionStorage();\nfunction playWithSessionStorage(){\nif(sessionStorage.getItem('name') === null){\n sessionStorage['name'] = \"viresh\"\n setNewTimestamp();\n console.log(sessionStorage['name'])\n }else{\n //i.e. if name exists in sessionStorage check if time difference is\ngreater than 1 minute\n let currentTimeStamp = Date.now();\n if((currentTimeStamp - sessionStorage['nameSetTimeStamp'])/(60*1000)\n> 1){\n //note that timestamp is in milliseconds 1s = 1000ms\n sessionStorage['name'] = \"Viresh & charu\";\n setNewTimestamp();\n console.log(sessionStorage['name']);\n }else{\n console.log(sessionStorage['name']);\n }\n }\n}\nfunction setNewTimestamp(){\nsessionStorage['nameSetTimeStamp'] = Date.now();\n}\n\n</pre>",
+            "type":"javascript",
+            "ranking":"8"
+        },
+        {
+            "question":"How to create custom events in JavaScript",
+            "answer":"<pre>step 1 - <b>create custom event</b> :\n let happyEvent = new Event(\"vireshIsHappy\",{bubble: true, cancellable: true})\n or\n let event = new CustomEvent(\"vireshIsHappy\",{details: {reason: \"viresh is happy\nbecoz is going to hong kong\" },bubble: true, cancellable: true})\nstep 2 - <b>attach event to an html element and add event handler</b> :\n let element = document.getElementById(\"xyz\")\n element.addEventListener(\"vireshIsHappy\", handleHappyViresh , false);\nstep 3 - <b>fire the event</b>\nelement.dispatchEvent(happyEvent);\n//functions\nfunction handleHappyViresh (event){\n console.log(event);\n}\n\nNote that- for step 1 : the event name i.e \"vireshIsHappy\" is required , the second paramenter is optional . Prefer to use the CustomEvent constructor because it gives an additional property i.e. \"details\" by which we can add additional details to the event object for step 2 : event can can be attached to any element , even directly to the document as : document.addEventListener(happyEvent); the second parameter to the addEventListener() i.e. handleHappyViresh is the event Handler , the 3rd parameter is boolean which specifies the phase when the handler should be executed , 'true' means the handler will be executed in the capturing phase of the event 'false' means the event will be handler will be executed in the bubbling phase of the event.\n</pre>",
+            "type":"javascript",
+            "ranking":"8"
+        },
+        {
+            "question": "Difference between Ng serve and npm start",
+            "answer": "<pre>\n ng serve serves an Angular project via a development server\nnpm start runs an arbitrary command specified in the package's \"start\" property of its \"scripts\" object. If no \"start\" property is specified on the \"scripts\" object, it will run node server.js.\n 'Scripts' propert specifies a set of commands that can be given  like \"start\" , \"build\" etc., and the commands or  node scripts to be run for those commands.\nfor example :\n\"scripts\": {\n    \"dev\": \"webpack-dev-server --inline --progress --config build/webpack.dev.conf.js\",\n    \"start\": \"npm run dev\",\n    \"unit\": \"jest --config test/unit/jest.conf.js --coverage\",\n    \"test\": \"npm run unit\",\n    \"lint\": \"eslint --ext .js,.vue src test/unit\",\n    \"build\": \"node build/build.js\"\n  }\n</pre>",
+            "type": "angular",
+            "ranking": ""
+        },
+        {
+            "question": "What is the 'scripts' property for in the package.json",
+            "answer": "<pre>‘scripts’ property is basically an object in package.json file which contains the the scripts to be run on certain commands , for example - on npm start command the script that is needed to be run is configured here.We can also add our own custom commands and scripts in this object.\n\"scripts\": {\n    \"ng\": \"ng\",\n    \"start\": \"ng serve --proxy-config proxy.conf.json\",\n    \"build\": \"ng build\",\n    \"test\": \"ng test\",\n    \"lint\": \"ng lint\",\n    \"e2e\": \"ng e2e\"\n  }\n\n</pre>",
+            "type": "Angular",
+            "ranking": ""
+        },
+        {
+            "question": "Difference between for-in and for-of loop",
+            "answer": "<pre>for-of loop is used to iterate over the elements of an iterable object like array. Other examples of iterables are strings , map , set , generators , dom node collections etc.\nFor-in loop is used to iterate over the keys of an object or say to iterate over indexes in case of arrays.\nAdditional info :\niterable objects have Symbol.iterator property which is internally used by the for-of mechanism to loop over iterables , non-iterable objects don't have that property.\nSo For-of loop can not be used on non-iterable objects like the ones that are created by using curly braces { } .\n\nHow to get the index of an element while iterating using for of loop :\nThe for of loop does not offer any syntax to do this, but you can combine the destructuring syntax introduced in es6 with calling the entries() method on the array:\nExample :\nfor (let  [i, v] of ['a', 'b', 'c'].entries()) {\n  console.log(i, v)\n}\n\n\n</pre>",
+            "type": "javascript",
+            "ranking": ""
+        },
+        {
+            "question": "What is a Single page application",
+            "answer": "<pre>A single page application is web application which dynamically loads new data or new template into the same webpage instead of loading a new webapge everytime when the user is trying to navigate in the application. \n\n</pre>",
+            "type": "angular",
+            "ranking": ""
+        },
+        {
+            "question": "View state, session state",
+            "answer": "<pre>The data related to a particular view/page or say the values related to the controls on a particular view / page is called viewstate.\nSessionState is the data of a user session and is maintained on the server side. This data is generally available until user closes the browser or session time-outs.\n \n\n</pre>",
+            "type": "javascript",
+            "ranking": ""
+        },
+        {
+            "question": "How to use a custom pipe in .ts file",
+            "answer": "<pre>Import angular pipe in app.module.ts file and add it to the providers array.\nIn Component file, import angular pipe & inject the pipe into the constructor.\nAnd Finally use the angular pipe transform method & pass the required parameters according to pipe defination to format the values.\n            Example of how to use pipe in component  :\nimport { Component, OnInit } from '@angular/core';\nimport { DatePipe } from '@angular/common';\n \n@Component({\n  selector: 'app-angularpipe',\n  templateUrl: './angularpipe.component.html',\n  styleUrls: ['./angularpipe.component.scss']\n})\nexport class AngularpipeComponent implements OnInit {\n  datePipeString : string;\n  constructor(private datePipe: DatePipe) { \n    this.datePipeString = datePipe.transform(Date.now(),'yyyy-MM-dd');\n    console.log(this.datePipeString);\n//2019-07-22\n  }\n  ngOnInit() {\n  }\n}\n \nFor more info , refer :  https://www.angularjswiki.com/angular/how-to-use-angular-pipes-in-components-and-services/\n\n \n\n</pre>",
+            "type": "angular",
+            "ranking": ""
+        },
+        {
+            "question": "What things should be stored in local storage and what in session storage.",
+            "answer": "<pre>The data that we want to persist even after the browser tab or window getting closed should be stored in localstorage. The data related to a specific session should be stored in session storage.\n\n \n\n</pre>",
+            "type": "HTML5",
+            "ranking": ""
+        },
+        {
+            "question": "What is the difference between adding styles and scripts in angular.json and adding styles and scripts in index.html \n\n",
+            "answer": "<pre>The temptation is to add the external files directly to your index.html file. But if you do this, the files won’t get bundled. This wouldn’t be horrible, but it isn’t the Angular way. What we ultimately want to end up with is code that we can ship all as one unit.\n\n</pre>",
+            "type": "angular",
+            "ranking": ""
+        },
+        {
+            "question": "What is websocket",
+            "answer": "<pre>A websocket is basically a connection between the client and the server in a way that server can send data to the client whenever it wants without waiting for the client to make a http request.\nA request to a WebSocket connection is sent to the server from a client (or multiple clients) through a process called the WebSocket handshake, which starts with the client sending a regular HTTP request to the server. Part of this request includes an Upgrade header, which indicates to the server that the the client is trying to make a WebSocket connection. This request is called a WebSocket handshake.\n\nIf the server accepts the handshake and supports the protocol, the initial HTTP connection is replaced with a WebSocket connection using the same TCP / IP protocol. \n</pre>",
+            "type": "HTML5",
+            "ranking": ""
+        },
+        {
+            "question": "What is a module in typescript",
+            "answer": "<pre>In TypeScript, a module is a file containing values, functions or classes. You can make some of them public, i.e. visible from other modules, by exporting them.</pre>",
+            "type": "angular",
+            "ranking": ""
+        },
+        {
+            "question": "What is Multicasting in angular , how to implement",
+            "answer": "<pre>In multicasting when multiple subscribers subscribe to an observable then instead of ceating a seperate execution for each a subscriber , a single execution is creaed for all subscribers , so all the subscribers get the same value whenever the Observable gets a new value. (I think basically , the hot observables are multicast and cold observables are unicast)</pre>",
+            "type": "angular",
+            "ranking": ""
+        },
+        {
+            "question": "Custom directive in Angular2+",
+            "answer": "<pre><a target='_blank' href='https://codecraft.tv/courses/angular/custom-directives/creating-a-custom-directive/'>https://codecraft.tv/courses/angular/custom-directives/creating-a-custom-directive/</a></pre>",
+            "type": "angular",
+            "ranking": ""
+        },
+        {
+            "question": "Explain CanActivateChild routeguard",
+            "answer": "<pre><a target='_blank' href='https://www.tektutorialshub.com/angular/angular-canactivatechild-example/'>https://www.tektutorialshub.com/angular/angular-canactivatechild-example/</a></pre>",
+            "type": "angular",
+            "ranking": ""
+        },
+        {
+            "question": "What are mixins in SCSS",
+            "answer": "<pre><a target='_blank' href='https://sass-lang.com/documentation/at-rules/mixin'>https://sass-lang.com/documentation/at-rules/mixin</a></pre>",
+            "type": "CSS3",
+            "ranking": ""
+        },
+        {
+            "question": "Explain component communication in Angular",
+            "answer": "<pre><a target='_blank' href='https://fireship.io/lessons/sharing-data-between-angular-components-four-methods/'>https://fireship.io/lessons/sharing-data-between-angular-components-four-methods/</a></pre>",
+            "type": "angular",
+            "ranking": ""
+        },
+        {
+            "question": "For accessibility which screen reader is used for which browser",
+            "answer": "<pre><b>Following is the list of screen readers and browsers compatible with them:-</b>\nJAWS :IE \nNVDA :Firefox\nVoiceover: Safari browser of Mac and iphone(IOS) \nTalkBack: Android</pre>",
+            "type": "HTML5",
+            "ranking": ""
+        },
+        {
+            "question": "Explain variable hoisting in Javascript",
+            "answer": "<pre><a target='_blank' href='https://www.digitalocean.com/community/tutorials/understanding-hoisting-in-javascript'>https://www.digitalocean.com/community/tutorials/understanding-hoisting-in-javascript</a></pre>",
+            "type": "Javascript",
+            "ranking": ""
+        },
+        {
+            "question": "Explain Web workers",
+            "answer": "<pre><a target='_blank' href='https://www.w3schools.com/html/html5_webworkers.asp'>https://www.w3schools.com/html/html5_webworkers.asp</a></pre>",
+            "type": "HTML5",
+            "ranking": ""
+        },
+        {
+            "question": "What will be the output of the below code:- <pre>\n\n\nlet obj ={\na: 10\nvir : function(){\n  x();\n  function x(){\n  console.log(this.a)\n  }\n }\n}\nobj.vir();\n</pre>",
+            "answer": "<pre>The output of the above code will be ‘undefined’.Reason being that ‘this’ keyword when\ndirectly used inside an object’s method points to the object itself but in the above code ‘this’\nkeyword is present inside x() function of the vir() method , so its not being directly used in\nobject’s method vir() , so it would refer to window object and there is no variable ‘a’ in the\nwindow object so output will be ‘undefined’.\n\nlet obj ={\na: 10,\nvir : function(){\n  x();\n  console.log(this.a); //output 10\n  function x(){\n  console.log(this.a) // undefined\n  }\n }\n}\nobj.vir();\n</pre>",
+            "type": "Javascript",
+            "ranking": ""
+        },
+        {
+            "question": "What will be the output of the below code :-<pre>\n\n\nfor (var i= 0; i < 5; i++){\nsetTimeout(() => console.log(i));\n}\n</pre>",
+            "answer": "<pre>Output will be:-\n5\n5\n5\n5\n5\n</pre>",
+            "type": "Javascript",
+            "ranking": ""
+        },
+        {
+            "question": "Difference between cold observables and hot observables",
+            "answer": "<pre><a target='_blank' href='https://medium.com/@luukgruijs/understanding-hot-vs-cold-observables-62d04cf92e03'>https://medium.com/@luukgruijs/understanding-hot-vs-cold-observables-62d04cf92e03</a></pre>",
+            "type": "Angular",
+            "ranking": ""
+        },
+        {
+            "question": "What will be the output of the below code :- <pre>\nvar a = 90;\ndoit();\nfunction doit(){\n  console.log(a);\n var a = 10;\n}\n</pre>",
+            "answer": "<pre>Output of above will be undefined as inside function doit,variable 'a' will be hoisted at the top inside function scope and it will initialised as undefined.\n\nvar a = 90;\ndoit();\nfunction doit(){\n  console.log(a); // undefined\n  var a = 10;\n}</pre>",
+            "type": "Javascript",
+            "ranking": ""
+        },
+        {
+            "question": "Explain call(), bind() and apply() in JavaScript",
+            "answer": "<pre><a target='_blank' href='https://www.codementor.io/@niladrisekhardutta/how-to-call-apply-and-bind-in-javascript-8i1jca6jp'>https://www.codementor.io/@niladrisekhardutta/how-to-call-apply-and-bind-in-javascript-8i1jca6jp</a></pre>",
+            "type": "Javascript",
+            "ranking": ""
+        },
+        {
+            "question": "Advantage of using arrow functions",
+            "answer": "<pre>1. Shorter syntax\n2. Arrow function does not change the context(or say reference) for the ‘this’ keyword. The\ncontext for the ‘this’ keyword in an arrow function would remain the same as the context for\n‘this’ in the parent scope.\n</pre>",
+            "type": "Javascript",
+            "ranking": ""
+        },
+        {
+            "question": "What is Map in JavaScript",
+            "answer": "<pre><a target='_blank' href='https://www.geeksforgeeks.org/map-vs-object-in-javascript/'>https://www.geeksforgeeks.org/map-vs-object-in-javascript/</a></pre>",
+            "type": "Javascript",
+            "ranking": ""
+        },
+        {
+            "question": "When we pass an object to a function are they passed by reference or by value ?",
+            "answer": "<pre>Passed by reference</pre>",
+            "type": "Javascript",
+            "ranking": ""
+        },
+        {
+            "question": "Difference between prototype and _protot",
+            "answer": "<pre><a target='_blank' href='https://stackoverflow.com/questions/9959727/proto-vs-prototype-in-javascript'>https://stackoverflow.com/questions/9959727/proto-vs-prototype-in-javascript</a></pre>",
+            "type": "Javascript",
+            "ranking": ""
+        },
+        {
+            "question": "What is storybook in react , what is the alternative to storybook in angular",
+            "answer": "<pre><a target='_blank' href='https://www.learnstorybook.com/intro-to-storybook/angular/en/get-started/'>https://www.learnstorybook.com/intro-to-storybook/angular/en/get-started/</a></pre>",
+            "type": "Javascript",
+            "ranking": ""
+        },
+        {
+            "question": "What is webpack and babel",
+            "answer": "<pre><a target='_blank' href='https://medium.com/front-end-weekly/what-are-npm-yarn-babel-and-webpack-and-how-to-properly-use-them-d835a758f987'>https://medium.com/front-end-weekly/what-are-npm-yarn-babel-and-webpack-and-how-to-properly-use-them-d835a758f987</a></pre>",
+            "type": "Angular",
+            "ranking": ""
+        },
+        {
+            "question": "Difference between SVG and canvas",
+            "answer": "<pre><a target='_blank' href='https://www.tutorialspoint.com/What-is-the-difference-between-SVG-and-HTML5-Canvas'>https://www.tutorialspoint.com/What-is-the-difference-between-SVG-and-HTML5-Canvas</a></pre>",
+            "type": "Javascript",
+            "ranking": ""
+        },
+        {
+            "question": "What is Callback hell",
+            "answer": "<pre><b>The situation where callbacks are nested within other callbacks several levels deep, potentially making it difficult to understand and maintain the code.</b> \n\nFor e.g in below code we are calling checkAuth function which has callback function fetchUser in it and you can see that with two callback itself the readibility is poor.\n\nconst checkAuth=(cb)=>{\n setTimeout(()=>{\n   cb(true);\n },2000)\n}\n\nconst fetchUser=(cb)=>{\n  cb(true)\n}\n/*----old way---*/\n/*\ncheckAuth(function(test) {\n  console.log('called',test);\n})*/\n\ncheckAuth((auth)=>{\n  if(auth) {\n    fetchUser(result=>{\n\t  if(result)\n\t   console.log('user is fetched after authentication');\n\t});\n  }\n})</pre>",
+            "type": "Javascript",
+            "ranking": ""
+        },
+        {
+            "question": "Design patterns in javascript",
+            "answer": "<pre><a target='_blank' href='https://www.digitalocean.com/community/tutorial_series/javascript-design-patterns'>https://www.digitalocean.com/community/tutorial_series/javascript-design-patterns</a></pre>",
+            "type": "Javascript",
+            "ranking": ""
+        },
+        {
+            "question": "Explain prototypal inheritance in your JavaScript",
+            "answer": "<pre><b>In the following example we are creating a Function constructor employee with name and id property and we have created a prototype property companyName.\n\nIn EmployeeNew function constructor we are using Employee function constructor to set name and id property and also we are adding prototype property companyName using code:-\nEmployeeNew.prototype=Employee.prototype;\nEmployeeNew.prototype.constructor=EmployeeNew;\n\nFull Code:-</b>\n\nfunction Employee (name, id) {\n  this.name = name;\n  this.id = id;\n}\nEmployee.prototype.companyName=\"test company\";\n\nvar employee=new Employee(\"test\",3);\nconsole.log(employee.companyName); //test company\n\n//inheriting properties from Employee in EmployeeNew\n\nfunction EmployeeNew(name,id) {\n  Employee.call(this,name,id);\n}\nEmployeeNew.prototype=Employee.prototype;\nEmployeeNew.prototype.constructor=EmployeeNew;\n\nvar employeeNew=new EmployeeNew('test',2);\nconsole.log(employeeNew);\nconsole.log(employeeNew.companyName);/* only works when we add code i.e EmployeeNew.prototype=Employee.prototype and EmployeeNew.prototype.constructor=EmployeeNew;*/</pre>",
+            "type": "Javascript",
+            "ranking": ""
+        },
+        {
+            "question": "What are the properties inside @ngModule decorator",
+            "answer": "<pre><table class=\"is-full-width list-table option-overview\">\n  <thead>\n    <tr><th>Option</th><th>Description</th></tr>\n  </thead>\n  <tbody>\n    <tr class=\"option\">\n      <td>\n        providers?\n      </td>\n      <td><p>The set of injectable objects that are available in the injector\nof this module.</p>\n</td>\n    </tr>\n    \n    <tr class=\"option\">\n      <td>\n        declarations?\n      </td>\n      <td><p>The set of components, directives, and pipes (declarables)\nthat belong to this module.</p>\n</td>\n    </tr>\n    \n    <tr class=\"option\">\n      <td>\n       imports?\n      </td>\n      <td><p>The set of NgModules whose exported declarables\nare available to templates in this module.</p>\n</td>\n    </tr>\n    \n    <tr class=\"option\">\n      <td>\n       exports?\n      </td>\n      <td><p>The set of components, directives, and pipes declared in this\nNgModule that can be used in the template of any component that is part of an\nNgModule that imports this NgModule. Exported declarations are the module's public API.</p>\n</td>\n    </tr>\n    \n    <tr class=\"option\">\n      <td>\n        entryComponents?\n        </a>\n      </td>\n      <td><p>The set of components to compile when this NgModule is defined,\nso that they can be dynamically loaded into the view.</p>\n</td>\n    </tr>\n    \n    <tr class=\"option\">\n      <td>\n        bootstrap?\n      </td>\n      <td><p>The set of components that are bootstrapped when\nthis module is bootstrapped. The components listed here\nare automatically added to <code>entryComponents</code>.</p>\n</td>\n    </tr>\n    \n    <tr class=\"option\">\n      <td>\n       schemas?\n      </td>\n      <td><p>The set of schemas that declare elements to be allowed in the NgModule.\nElements and properties that are neither Angular components nor directives\nmust be declared in a schema.</p>\n</td>\n    </tr>\n    \n    <tr class=\"option\">\n      <td>\n       id?\n      </td>\n      <td><p>A name or path that uniquely identifies this NgModule in getModuleFactory\nIf left <code>undefined</code>, the NgModule is not registered with\n<code>getModuleFactory</code>.</p>\n</td>\n    </tr>\n    \n    <tr class=\"option\">\n      <td>\n       jit?\n      </td>\n      <td><p>When present, this module is ignored by the AOT compiler.\nIt remains in distributed code, and the JIT compiler attempts to compile it\nat run time, in the browser.\nTo ensure the correct behavior, the app must import <code>@angular/compiler</code>.</p>\n</td>\n    </tr>\n    </tbody>\n</table></pre>",
+            "type": "angular",
+            "ranking": ""
+        },
+        {
+            "question": "Explain promises in JavaScript",
+            "answer": "<pre><b>A promise is an object that may produce a single value some time in the future: either a resolved value, or a reason that it’s not resolved (e.g., a network error occurred). A promise may be in one of 3 possible states: fulfilled, rejected, or pending. Promise users can attach callbacks to handle the fulfilled value or the reason for rejection.\nPromises are eager, meaning that a promise will start doing whatever task you give it as soon as the promise constructor is invoked.\n\nExample code:-</b>\n\nconst testPromise=()=>{\n  return new Promise((resolve,reject)=>{\n   setTimeout(()=>{\n    resolve(true);\n\t},2000);\n  });\n}\n\nconst fetchUserPromise=()=>{\n  return new Promise((resolve,reject)=>{\n    resolve(true);\n  });\n}\n\n//calling testPromise and then on the basis of result calling fetchUserPromises and you can see that readability is better than callbacks.\n\ntestPromise()\n.then(auth=>{\n  if(auth)\n   return fetchUserPromise()\n})\n.then(result=>{\n  if(result)\n   console.log('Promise better:fetch user after authentication')\n})\n\n</pre>",
+            "type": "Javascript",
+            "ranking": ""
+        },
+        {
+            "question": "What do u understand by the terms mutable and immutable in JavaScript",
+            "answer": "<pre><a target='_blank' href='https://medium.com/nodejs-tips/mutable-immutable-in-javascript-988cc5c1f9a3'>https://medium.com/nodejs-tips/mutable-immutable-in-javascript-988cc5c1f9a3</a></pre>",
+            "type": "Javascript",
+            "ranking": ""
+        },
+        {
+            "question": " What is ‘Async’ and ‘await’ in JavaScript",
+            "answer": "<pre><a target='_blank' href='https://javascript.info/async-await'>https://javascript.info/async-await</a></pre>",
+            "type": "Javascript",
+            "ranking": ""
+        },
+        {
+            "question": "What are the features of React? ",
+            "answer": "<pre>Major features of React are listed below:\n\n1.It uses the virtual DOM instead of the real DOM.\n2.It uses server-side rendering.\n3.It follows uni-directional data flow or data binding.</pre>",
+            "type": "React",
+            "ranking": ""
+        },
+        {
+            "question": "List some of the major advantages of React ",
+            "answer": "<pre>Some of the major advantages of React are:\n\n1.It increases the application’s performance due to use of Virtual DOM.\n2.It can be conveniently used on the client as well as server side\n3.Because of JSX, code’s readability increases.\n4.Using React, writing UI test cases become extremely easy\n</pre>",
+            "type": "React",
+            "ranking": ""
+        },
+        {
+            "question": "What are the limitations of React? ",
+            "answer": "<pre>Limitations of React are listed below:\n\n1.React is just a library, not a full-blown framework\n2.It can be little difficult for the novice programmers to understand\n3.Coding gets complex as it uses inline templating and JSX</pre>",
+            "type": "React",
+            "ranking": ""
+        },
+        {
+            "question": "How to generate a component using cli command without creating its spec file",
+            "answer": "<pre><b>Updated for Angular >=8 CLI</b>\n\nFor one component use the following command:\n\nng generate component --skipTests=true component-name\nFor a single project, change or add the following in your angular.json:\n\n{ \n  \"projects\": {\n    \"{PROJECT_NAME}\": {\n      \"schematics\": {\n        \"@schematics/angular:component\": {\n          \"skipTests\": true\n        }\n      }\n    }\n  }\n}\nFor a global setting for all your projects, change or add the following in your angular.json:\n\n{ \n  \"schematics\": {\n    \"@schematics/angular:component\": {\n      \"skipTests\": true\n    }\n  }\n}\nOr by using the command line\n\nng config schematics.@schematics/angular:component.skipTests true\n<b>For Angular < 8</b>\n\nInside your angular-cli.json set the spec.component parameter to false:\n\n{\n   ...\n   \"defaults\" : {\n       ...\n       \"spec\": {\n           ...\n           \"component\": false\n       }\n   }\n}\nor use the --spec=false option during creation\n\nng generate component --spec=false component-name</pre>",
+            "type": "Angular",
+            "ranking": ""
+        },
+        {
+            "question": "How to align an element both vertically and horizontally at the center of it's parent element",
+            "answer": "<pre>css:-\n\n body {\n    display:flex;\n\talign-items:center;\n\tjustify-content:center;\n\twidth:100%;\n\theight:100%;\n\tposition:absolute;\n  }\n  .container {\n      border: 1px solid #ccc;\n    background-color: #f3f3f3;\n\twidth:100px;\n\theight:100px;\n\t\n  }\n\n //----other ways----  \n .container {\n    position:absolute;\n    top: 50%;\n    left: 50%;\n    width:100px;\n    height:100px;\n    margin-left:-50px;\n\tmargin-top:-50px;\n    border: 1px solid #ccc;\n    background-color: #f3f3f3;\n  }\n   \n  .container {\n    position:absolute;\n    top: 50%;\n    left: 50%;\n    width:100px;\n    height:100px;\n    transform:translate(-50%,-50%);\n    border: 1px solid #ccc;\n    background-color: #f3f3f3;\n  } \n\n HTML:-\n\n</pre> &lt;body&gt;\n    &lt;div&gt class=\"container\"&gt\n\t  &lt;div class=\"item item-1\"&gt;\n\t    1.Lorem Ipsum has been the industry's standard dummy text ev\n\t  &lt;/div&gt;\n\t&lt;/div&gt;\n  </body>\n",
+            "type": "CSS3",
+            "ranking": ""
+        }
+
+    ]
+}
