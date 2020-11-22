@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {style, animate, transition, trigger} from '@angular/animations';
 import { faTrash,faEdit } from '@fortawesome/free-solid-svg-icons';
 import {QuestionAnswerService} from './../../../services/question-answer-service/question-answer.service';
 
@@ -7,18 +6,7 @@ import {QuestionAnswerService} from './../../../services/question-answer-service
 @Component({
   selector: 'app-question-answer-panel',
   templateUrl: './question-answer-panel.component.html',
-  styleUrls: ['./question-answer-panel.component.scss'],
-  animations: [
-    trigger('slideInOut', [
-      transition(':enter', [
-        style({transform: 'translateY(-10%)'}),
-        animate('200ms ease-in', style({transform: 'translateY(0%)'}))
-      ]),
-      transition(':leave', [
-        animate('200ms ease-in', style({transform: 'translateY(-10%)'}))
-      ])
-    ])
-  ]
+  styleUrls: ['./question-answer-panel.component.scss']
 })
 export class QuestionAnswerPanelComponent implements OnInit {
   @Input() questionAnswerList;

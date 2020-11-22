@@ -222,8 +222,17 @@ body {
           }
         }
         .panel-body {
-          padding:10px;
           white-space: pre-wrap;
+          max-height: 0px;
+          transition: max-height 200ms;
+          overflow: hidden;
+          &.open {
+            max-height: 500px;
+            transition: max-height 300ms;
+          }
+          .panel-body-content {
+             padding:10px;
+          }
         }
       }
     &.admin-panel {
