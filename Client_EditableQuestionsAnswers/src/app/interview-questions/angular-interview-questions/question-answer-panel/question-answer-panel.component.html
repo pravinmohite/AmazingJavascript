@@ -17,7 +17,8 @@
             </div>
           </div>
         </div>
-        <div class="panel-body" *ngIf="questionAnswerItem.showAnswer" [@slideInOut] [innerHtml]="questionAnswerItem.answer">
+        <div class="panel-body" [ngClass]="{'open': questionAnswerItem.showAnswer ==true}">
+          <div class="panel-body-content" [innerHtml]="questionAnswerItem.answer"></div>
         </div>
   </div>  
 </div>
