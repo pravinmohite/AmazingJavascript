@@ -227,7 +227,7 @@ body {
           transition: max-height 200ms;
           overflow: hidden;
           &.open {
-            max-height: 500px;
+            max-height:2000px;
             transition: max-height 300ms;
           }
           .panel-body-content {
