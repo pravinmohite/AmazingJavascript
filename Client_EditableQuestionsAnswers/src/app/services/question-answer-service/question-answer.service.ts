@@ -14,7 +14,8 @@ export class QuestionAnswerService {
   questionTypeUrl:String="/api/questionType";
   questionAnswerUrl:String="/api/questionAnswer";
   loginDetailsUrl:String="/api/loginDetails";
-  devDomain:any="http://localhost:3000";
+  isProd:boolean=false;
+  devDomain:any= this.isProd?"http://13.229.134.0:3000":"http://localhost:3000";
   finalquestionTypeUrl:any=this.devDomain+this.questionTypeUrl;
   finalQuestionAnswerUrl:any=this.devDomain+this.questionAnswerUrl;
   finalloginDetailsUrl:any=this.devDomain+this.loginDetailsUrl;
