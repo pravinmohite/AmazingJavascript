@@ -1,11 +1,11 @@
 <header>
-  <div class="page-header d-flex flex-column flex-md-row align-items-center px-md-4 mb-3 border-bottom box-shadow">
-    <h5 class="col-md-2 col-12 font-weight-normal project-name hand-cursor">
+  <div class="page-header d-flex flex-column flex-md-row align-items-center px-md-4 mb-3 border-bottom box-shadow" role="img" aria-label="frontend interview questions">
+    <div class="col-md-2 col-12 font-weight-normal project-name hand-cursor">
       <a href="/">
-         <span class="d-block d-lg-none d-md-none d-sm-block project-name-text">Amazing Javascript</span>
-        <img src="../../../favicon.ico" class="project-icon"/>
+         <span class="d-block d-lg-none d-md-none d-sm-block project-name-text"><h1>Amazing Javascript</h1></span>
+        <img src="../../../favicon.ico" alt="Frontend interview questions" class="project-icon"/>
     </a>
-    </h5>
+  </div>
     <div class="form-inline col-md-5">
         <input #searchString class="form-control mr-sm-2 col-md-8" type="text" (keydown)="checkEnterKeyPressed(searchString.value,$event)" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0 col-md-2 hand-cursor" (click)="searchByQuestion(searchString.value)">Search</button>

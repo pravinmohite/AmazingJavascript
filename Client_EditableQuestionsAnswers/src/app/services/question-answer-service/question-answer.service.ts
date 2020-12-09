@@ -14,7 +14,7 @@ export class QuestionAnswerService {
   questionTypeUrl:String="/api/questionType";
   questionAnswerUrl:String="/api/questionAnswer";
   loginDetailsUrl:String="/api/loginDetails";
-  isProd:boolean=false;
+  isProd:boolean=true;
   devDomain:any= this.isProd?"http://13.229.134.0:3000":"http://localhost:3000";
   finalquestionTypeUrl:any=this.devDomain+this.questionTypeUrl;
   finalQuestionAnswerUrl:any=this.devDomain+this.questionAnswerUrl;
@@ -130,8 +130,7 @@ export class QuestionAnswerService {
 
  filterDataByQuestionTypeAndSearchString() {
   this.filterData={}
-  this.filterData.questionTypes=this.mockData.questionTypes;
-  this.filterData.questionAnswerList=this.mockData.questionAnswerList.filter((item,index)=>{
+  this.filterData=this.questionAnswerData.filter((item,index)=>{
     return ((item.question.toUpperCase().indexOf(this.currentSearchString.toUpperCase())>-1) && (item.questionType.toUpperCase()==this.currentQuestionTypeSelected.toUpperCase()));
    })
    this.data.next(this.filterData);

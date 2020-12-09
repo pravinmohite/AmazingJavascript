@@ -140,6 +140,9 @@ body {
 //--------------for question answer listing page----------
 .amazing-js-container {
   font-family:"Open Sans",sans-serif;
+  .display-none {
+    display: none;
+  }
   .panel-container {
       width: 75%;
       margin: auto;
@@ -151,6 +154,9 @@ body {
         color: black;
         font-family: cursive;
         text-align: center;
+        b {
+          font-weight:400;
+        }
         @media only screen and (max-width: 768px) {
           font-size: 1.4em;
          }
@@ -285,6 +291,9 @@ body {
           float:right;
           margin-left:15px;
           color:#716a6a;
+          h1 {
+            font-size:1.3em;
+          }
         }
         .project-icon {
           height:30px;

@@ -1,5 +1,8 @@
 <div class="panel-container" [ngClass]="{'admin-panel':adminMode}" >
-   <h1 class="page-heading">Front end interview questions</h1>
+  <b>
+    <h2 class="page-heading">Front end interview questions</h2>
+    <h3 class="display-none">UI interview questions</h3>
+  </b>
    <div class="row">
     <div class="col-12">
       <button class="col-md-3 col-5 btn add-questions-btn hand-cursor" *ngIf="adminMode" (click)='openAddQuestionAnswerPopup()'>+ Add Q/A</button>
@@ -7,7 +10,7 @@
     </div> 
   </div> 
    <div class="panel-item" *ngFor="let questionAnswerItem of questionAnswerList;let i=index"> 
-        <div class="panel-header">
+        <div class="panel-header" role="img" aria-label="frontend interview questions">
           <div class="row">
             <div class="col-xl-10 col-md-9">
               <span>{{i+1}}. <span [innerHtml]="questionAnswerItem.question"></span></span>
