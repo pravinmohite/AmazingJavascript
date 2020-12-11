@@ -70,7 +70,6 @@ export class QuestionAnswerService {
     this.http.get(this.finalQuestionAnswerUrl).subscribe(response=>{
       this.data.next(response);
       this.questionAnswerData=response;
-      this.loaderService.display(false);
     })
   } 
 
