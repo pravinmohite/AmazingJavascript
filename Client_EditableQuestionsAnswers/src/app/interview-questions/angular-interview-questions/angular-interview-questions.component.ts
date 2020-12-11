@@ -13,9 +13,9 @@ export class AngularInterviewQuestionsComponent implements OnInit {
 
   ngOnInit(): void {
     this.questionAnswerService.currentData.subscribe((data)=>{
-       this.questionAnswerList=data;
-       this.loaderService.display(false);
-    })
+      this.questionAnswerList=data;
+      this.loaderService.display(false);
+   })
+    this.questionAnswerService.getQuestionAnswerList();
   }
-
 }
