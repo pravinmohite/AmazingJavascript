@@ -25,7 +25,6 @@ export class QuestionAnswerService {
   currentData=this.data.asObservable();
   confirmationText="Are you sure you want to delete";
   constructor(private http:HttpClient,private loaderService:LoaderService) {
-     this.getQuestionAnswerList();
    }
 
    /*---------------for login details-------------*/

@@ -19,6 +19,7 @@ export class InterviewQuestionsPanelComponent implements OnInit {
       this.questionAnswerList=data;
       this.loaderService.display(false);
      })
+     this.questionAnswerService.getQuestionAnswerList();
    }
    else {
      this.router.navigateByUrl('/admin-panel');
