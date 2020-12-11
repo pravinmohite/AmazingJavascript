@@ -28,7 +28,6 @@ export class QuestionAnswerService {
    }
 
    /*---------------for login details-------------*/
-   
   getloginDetails() {
     return this.http.get(this.finalloginDetailsUrl);
   } 

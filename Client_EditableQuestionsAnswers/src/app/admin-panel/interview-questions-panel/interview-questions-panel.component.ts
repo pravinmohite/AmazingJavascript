@@ -25,5 +25,4 @@ export class InterviewQuestionsPanelComponent implements OnInit {
      this.router.navigateByUrl('/admin-panel');
    }
   }
-
 }

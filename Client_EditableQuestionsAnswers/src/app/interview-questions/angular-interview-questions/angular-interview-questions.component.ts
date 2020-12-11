@@ -18,5 +18,4 @@ export class AngularInterviewQuestionsComponent implements OnInit {
    })
     this.questionAnswerService.getQuestionAnswerList();
   }
-
 }
