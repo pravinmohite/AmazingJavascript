@@ -15,7 +15,8 @@ export class QuestionAnswerService {
   questionAnswerUrl:String="/api/questionAnswer";
   loginDetailsUrl:String="/api/loginDetails";
   isProd:boolean=true;
-  devDomain:any= this.isProd?"http://13.229.134.0:3000":"http://localhost:3000";
+  prodUrl:String="https://www.ssl.amazingjavascript.com";
+  devDomain:any= this.isProd?this.prodUrl:"http://localhost:3000";
   finalquestionTypeUrl:any=this.devDomain+this.questionTypeUrl;
   finalQuestionAnswerUrl:any=this.devDomain+this.questionAnswerUrl;
   finalloginDetailsUrl:any=this.devDomain+this.loginDetailsUrl;
