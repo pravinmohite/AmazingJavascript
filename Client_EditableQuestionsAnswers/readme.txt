@@ -20,6 +20,10 @@ ON AWS:-
 
     sudo service mongod status
 
+to change nodejs changes:-
+  git pull origin master 
+   -> to apply new changes on putty ec2
+
 ec2 server command prompt:-
 
   sudo rm -rf AmazingJavascript/ :- to delete a directory
