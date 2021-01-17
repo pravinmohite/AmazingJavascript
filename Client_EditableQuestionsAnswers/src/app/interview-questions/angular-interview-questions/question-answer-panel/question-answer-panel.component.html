@@ -16,7 +16,7 @@
               <span>{{i+1}}. <span [innerHtml]="questionAnswerItem.question"></span></span>
             </div>
             <div class="col-xl-2 col-md-3 action-btns">
-              <fa-icon *ngIf="adminMode" class="hand-cursor edit-icon" [icon]="faEdit" (click)="editQuestionAnswer(questionAnswerItem)"></fa-icon><fa-icon *ngIf="adminMode" class="hand-cursor delete-icon" [icon]="faTrash" (click)="deleteQuestionAnswer(questionAnswerItem._id)"></fa-icon><button class="showHideAnswer hand-cursor btn-show-hide" (click)="toggleShowHideAnswer(questionAnswerItem)">{{questionAnswerItem.buttonText?questionAnswerItem.buttonText:"Show"}}</button>
+              <fa-icon *ngIf="adminMode" class="hand-cursor edit-icon" [icon]="faEdit" (click)="editQuestionAnswer(questionAnswerItem)"></fa-icon><fa-icon *ngIf="adminMode" class="hand-cursor delete-icon" [icon]="faTrash" (click)="deleteQuestionAnswer(questionAnswerItem._id)"></fa-icon><button class="showHideAnswer hand-cursor btn-show-hide" (click)="toggleShowHideAnswer(questionAnswerItem)">{{questionAnswerItem.buttonText?questionAnswerItem.buttonText:"Show answer"}}</button>
             </div>
           </div>
         </div>
