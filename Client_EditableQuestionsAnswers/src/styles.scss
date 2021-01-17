@@ -159,6 +159,7 @@ body {
         }
         @media only screen and (max-width: 768px) {
           font-size: 1.4em;
+          font-family: system-ui;
          }
       }
       @media only screen and (max-width: 768px) {
@@ -259,7 +260,6 @@ body {
   }
   .page-header {
     background-image: url($img-path+$background-img);
-    padding: 0.3rem;
     color:#333;
     top: 0;
     z-index: 1000;
@@ -272,19 +272,24 @@ body {
     }
     .question-type {
       height:30px;
+      min-height:30px;
       @extend .hand-cursor;
       @media only screen and (min-width: 768px) {
         max-width:15.5%;
        }
     }
     .project-name {
+      @media only screen and (max-width: 768px) {
+        padding-top:10px;
+        padding-bottom: 10px;
+       }
       a {
         color:$header-theme-color !important;
         font-size:1.3rem;
         font-family: cursive;
         float: right;
         margin-right: 15px;
-        padding-top: 5px;
+        text-decoration: none;
         @media only screen and (max-width: 768px) {
           float: left;
          }  
@@ -298,6 +303,34 @@ body {
         }
         .project-icon {
           height:30px;
+          background: url('../src/assets/images/frontend.png');
+          margin-left:85px;
+          @media only screen and (max-width: 768px) {
+            margin-left:0px;
+           }  
+        }
+        .project-text {
+          width: 200px;
+          text-align: center;
+          font-size: 10px;
+          color: #666;
+          @media only screen and (max-width: 768px) {
+            display: inline;
+            margin-left:10px;
+          }  
+          h1 {
+            &.logo-text {
+              font-size: inherit;
+              @media only screen and (min-width:0px) and (max-width: 361px) {
+                display: inline;
+                font-size: 1.6em !important;
+              }
+              @media only screen and (max-width: 768px) {
+                display: inline;
+                font-size: 2em;
+              }
+            }
+          }
         }
       }
     }
@@ -312,11 +345,6 @@ body {
     border-color:$searchBtn-theme-background;
     color:$searchBtn-theme-color;
     background-color:$searchBtn-theme-background;
-   /* &:hover,&:active {
-      color:$button-theme-color;
-      background-color:$button-theme-background;
-      border-color:$searchBtn-theme-background;
-    }*/
   }
   pre {
    white-space: pre-wrap;
