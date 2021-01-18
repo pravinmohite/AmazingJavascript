@@ -27,7 +27,7 @@ export class QuestionAnswerPanelComponent implements OnInit {
     }
     else {
      questionAnswerItem.showAnswer=false;
-     questionAnswerItem.buttonText="Show"
+     questionAnswerItem.buttonText="Show answer"
     }
   }
 
