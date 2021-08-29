@@ -140,6 +140,17 @@ body {
 //--------------for question answer listing page----------
 .amazing-js-container {
   font-family:"Open Sans",sans-serif;
+  .affiliate-ads-container {
+    iframe {
+      margin-right:20px;
+    }
+    .amzn-ad-prod-detail {
+      #title {
+        max-height: 34px;
+        overflow: hidden;
+      }
+    }
+  }
   .display-none {
     display: none;
   }
