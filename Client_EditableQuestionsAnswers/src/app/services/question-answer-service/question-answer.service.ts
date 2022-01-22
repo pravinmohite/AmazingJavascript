@@ -17,7 +17,7 @@ export class QuestionAnswerService {
   isProd:boolean=true;
   /*---with ssl changed due to loadbalancer----can be done using nginx*/
   //prodUrl:String="https://www.ssl.frontendinterviewquestions.com";
-  prodUrl:String="http://13.229.134.0:3000";
+  prodUrl:String="http://54.255.150.70:3000";
   devDomain:any= this.isProd?this.prodUrl:"http://localhost:3000";
   finalquestionTypeUrl:any=this.devDomain+this.questionTypeUrl;
   finalQuestionAnswerUrl:any=this.devDomain+this.questionAnswerUrl;
