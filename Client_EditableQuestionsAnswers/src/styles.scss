@@ -140,6 +140,17 @@ body {
 //--------------for question answer listing page----------
 .amazing-js-container {
   font-family:"Open Sans",sans-serif;
+  .affiliate-ads-container {
+    iframe {
+      margin-right:20px;
+    }
+    .amzn-ad-prod-detail {
+      #title {
+        max-height: 34px;
+        overflow: hidden;
+      }
+    }
+  }
   .display-none {
     display: none;
   }
@@ -182,7 +193,6 @@ body {
           background-image: url($img-path+$background-img);
           color:$questions-theme-color;
           z-index: 1000;
-          border-bottom: solid 1px gainsboro;
           box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
           white-space: pre-wrap;
           fa-icon {
@@ -232,8 +242,8 @@ body {
           transition: max-height 200ms;
           overflow: hidden;
           &.open {
+            border-top: solid 1px gainsboro;
             max-height:2000px;
-            transition: max-height 300ms;
           }
           .panel-body-content {
              padding:10px;

@@ -7,13 +7,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AddEditInterviewQuestionsComponent } from './angular-interview-questions/add-edit-interview-questions/add-edit-interview-questions.component';
 import { FormsModule } from '@angular/forms';
 import { AddEditQuestionTypesComponent } from './angular-interview-questions/add-edit-question-types/add-edit-question-types.component';
+import { AffiliateAdsComponent } from './angular-interview-questions/question-answer-panel/affiliate-ads/affiliate-ads.component';
 
 @NgModule({
   declarations: [
     AngularInterviewQuestionsComponent,
     QuestionAnswerPanelComponent,
     AddEditInterviewQuestionsComponent,
-    AddEditQuestionTypesComponent
+    AddEditQuestionTypesComponent,
+    AffiliateAdsComponent
   ],
   imports: [
     CommonModule,

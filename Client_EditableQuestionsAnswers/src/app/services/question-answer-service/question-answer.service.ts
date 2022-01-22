@@ -15,7 +15,9 @@ export class QuestionAnswerService {
   questionAnswerUrl:String="/api/questionAnswer";
   loginDetailsUrl:String="/api/loginDetails";
   isProd:boolean=true;
-  prodUrl:String="https://www.ssl.amazingjavascript.com";
+  /*---with ssl changed due to loadbalancer----can be done using nginx*/
+  //prodUrl:String="https://www.ssl.frontendinterviewquestions.com";
+  prodUrl:String="http://54.255.150.70:3000";
   devDomain:any= this.isProd?this.prodUrl:"http://localhost:3000";
   finalquestionTypeUrl:any=this.devDomain+this.questionTypeUrl;
   finalQuestionAnswerUrl:any=this.devDomain+this.questionAnswerUrl;
