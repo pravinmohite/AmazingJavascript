@@ -1,0 +1,12 @@
+footer{
+    min-height: 40px;
+    background-image: url('/assets/background-img.png');
+    background-color: #f3f3f3;
+    bottom:0;
+    position:fixed;
+    width: 100%;
+    padding: 10px;
+    box-shadow: 4px 4px 4px 4px lightgrey;
+    -webkit-transition: all 200ms linear;
+    border-top: 1px solid #dee2e6!important;
+}
