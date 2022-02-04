@@ -8,7 +8,7 @@ import { faTwitter,  faFacebookF, faInstagramSquare } from '@fortawesome/free-br
 })
 export class FooterComponent implements OnInit {
   faFacebook = faFacebookF;
-
+  faTwitter = faTwitter;
   constructor() { }
 
   ngOnInit(): void {

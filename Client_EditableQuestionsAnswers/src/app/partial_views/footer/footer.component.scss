@@ -9,4 +9,24 @@ footer{
     box-shadow: 4px 4px 4px 4px lightgrey;
     -webkit-transition: all 200ms linear;
     border-top: 1px solid #dee2e6!important;
+    text-align: center;
+}
+
+#social-address-links{
+    list-style: none;
+    padding-left: 0;
+    display: inline;
+}
+
+#social-links-label{
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.social-link-item:nth-child(2){
+    margin-left: 20px;
+}
+
+.social-link-item{
+    display: inline-block;
 }
