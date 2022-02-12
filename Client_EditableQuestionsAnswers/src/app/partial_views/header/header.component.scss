@@ -23,5 +23,12 @@
 
 #about-us-and-social-links{
     padding-left: 10%;
-    display: none;
+}
+
+@media screen and (max-width: 768px){
+
+    #about-us-and-social-links{
+        display: none;
+    }
+
 }
