@@ -20,5 +20,23 @@
          {{item.questionType}}
         </option>
     </select>
+    <div id="about-us-and-social-links" class = "col-md-3">
+      <a [routerLink]='["/about-us"]'>About Us</a>
+      <div id = "follow-us-container">
+          <div id = "social-links-label">Social links :</div>
+          <ul id = "social-address-links">
+              <li class = "social-link-item">
+                  <a href = "https://www.facebook.com/Front-end-interview-questions-106067168139636" target = "_blank">
+                      <fa-icon [icon]="faFacebook"></fa-icon>
+                  </a>
+              </li>
+              <li class = "social-link-item">
+                  <a href = "https://twitter.com/amazingjavascr1" target = "_blank">
+                      <fa-icon [icon]="faTwitter"></fa-icon>
+                  </a>
+              </li>
+          </ul>
+      </div>
+    </div>
   </div>
 </header>

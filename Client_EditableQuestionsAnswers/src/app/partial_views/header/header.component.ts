@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {QuestionAnswerService} from "../../services/question-answer-service/question-answer.service";
+import { faTwitter,  faFacebookF, faInstagramSquare } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -8,6 +9,8 @@ import {QuestionAnswerService} from "../../services/question-answer-service/ques
 })
 export class HeaderComponent implements OnInit {
   questionTypes:any;
+  faFacebook = faFacebookF;
+  faTwitter = faTwitter;
   constructor(private questionAnswerService:QuestionAnswerService) { 
   }
 

@@ -1,3 +1,27 @@
 .question-type{
     min-height: 30px;
 }
+
+#social-address-links{
+    list-style: none;
+    padding-left: 0;
+    display: inline;
+}
+
+#social-links-label{
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.social-link-item:nth-child(2){
+    margin-left: 20px;
+}
+
+.social-link-item{
+    display: inline-block;
+}
+
+#about-us-and-social-links{
+    padding-left: 10%;
+    display: none;
+}

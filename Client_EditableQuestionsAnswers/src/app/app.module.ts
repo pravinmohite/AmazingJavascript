@@ -8,7 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './partial_views/header/header.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoaderComponent } from './partial_views/loader/loader.component';
-import { FooterComponent } from './partial_views/footer/footer.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 
 @NgModule({
@@ -16,7 +15,6 @@ import { AboutUsComponent } from './about-us/about-us.component';
     AppComponent,
     HeaderComponent,
     LoaderComponent,
-    FooterComponent,
     AboutUsComponent
   ],
   imports: [
