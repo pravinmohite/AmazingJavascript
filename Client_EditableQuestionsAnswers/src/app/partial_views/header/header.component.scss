@@ -8,11 +8,6 @@
     display: inline;
 }
 
-#social-links-label{
-    display: inline-block;
-    margin-right: 10px;
-}
-
 .social-link-item:nth-child(2){
     margin-left: 20px;
 }
@@ -23,6 +18,18 @@
 
 #about-us-and-social-links{
     padding-left: 10%;
+}
+
+#follow-us-container{
+    display: inline-block;
+    margin-left: 20px;
+    border: 1px solid lightgrey;
+    padding: 4px 10px;
+    border-radius: 11px;
+}
+
+#about-us-link{
+    vertical-align: middle;
 }
 
 @media screen and (max-width: 768px){
