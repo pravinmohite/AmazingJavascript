@@ -7,6 +7,7 @@ import { DataService } from './services/data.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent{
+  sideBarOpen:boolean = false;
 
   constructor(private dataService:DataService) {
   }

@@ -9,13 +9,15 @@ import { HeaderComponent } from './partial_views/header/header.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoaderComponent } from './partial_views/loader/loader.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { SidebarComponent } from './partial_views/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     LoaderComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

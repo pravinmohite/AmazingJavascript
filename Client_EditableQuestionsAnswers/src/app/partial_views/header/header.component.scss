@@ -32,10 +32,22 @@
     vertical-align: middle;
 }
 
+#menubars{
+    display: none;
+}
+
 @media screen and (max-width: 768px){
 
     #about-us-and-social-links{
         display: none;
+    }
+
+    #menubars{
+        display: inline;
+        float: right;
+        font-size: 1.2em;
+        margin-top: 5px;
+        margin-right: 10px;
     }
 
 }
