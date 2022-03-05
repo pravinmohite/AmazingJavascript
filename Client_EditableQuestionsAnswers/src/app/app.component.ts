@@ -13,4 +13,8 @@ export class AppComponent{
   }
 
   ngOnInit() {}
+
+  openOrCloseSidebar(sidebarStatus):void{
+    this.sideBarOpen = sidebarStatus === 'open' ? true : false;
+  }
 }

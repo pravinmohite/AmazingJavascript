@@ -1,7 +1,7 @@
 <div class="amazing-js-container">
     <app-loader></app-loader>
-    <app-header></app-header>
-    <app-sidebar *ngIf = "sideBarOpen"></app-sidebar>
+    <app-header  (sidebarStatus) = "openOrCloseSidebar($event)"></app-header>
+    <app-sidebar [isSideBarOpen] = "sideBarOpen" (sidebarStatus) = "openOrCloseSidebar($event)" [ngClass] ="{'sidebar-closed':!sideBarOpen,'sidebar-open':sideBarOpen}"></app-sidebar>
     <router-outlet></router-outlet>
 </div>
 

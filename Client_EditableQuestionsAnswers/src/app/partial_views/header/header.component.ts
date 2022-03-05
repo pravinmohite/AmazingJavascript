@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {QuestionAnswerService} from "../../services/question-answer-service/question-answer.service";
 import { faTwitter,  faFacebookF, faInstagramSquare } from '@fortawesome/free-brands-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
@@ -13,11 +13,16 @@ export class HeaderComponent implements OnInit {
   faFacebook = faFacebookF;
   faTwitter = faTwitter;
   faBars = faBars;
+  @Output('sidebarStatus') sidebarStatus = new EventEmitter();
   constructor(private questionAnswerService:QuestionAnswerService) { 
   }
 
   ngOnInit(): void {
     this.getQuestionTypes();
+  }
+
+  openSiderBar(): void{
+    this.sidebarStatus.emit('open');
   }
   getQuestionTypes(){
     this.questionAnswerService.getQuestionTypes().subscribe(response=>{

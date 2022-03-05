@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-sidebar',
@@ -6,10 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
-
+  faTimes = faTimes;
   constructor() { }
+  @Input('isSideBarOpen') isSideBarOpen;
+  @Output('sidebarStatus') sidebarStatus = new EventEmitter();
 
   ngOnInit(): void {
   }
 
+  closeSideBar(): void{
+    this.sidebarStatus.emit('close');
+    this.isSideBarOpen = false;
+  }
+
 }
+function input(arg0: string) {
+  throw new Error('Function not implemented.');
+}
+
