@@ -1,6 +1,22 @@
 <section>
-    <p>sidebar</p>
     <span id = "close-icon-container">
         <fa-icon [icon]="faTimes" (click) = "closeSideBar()" *ngIf = "isSideBarOpen"></fa-icon>
     </span>
+    <div id="about-us-and-social-links" class = "col-md-3">
+        <a [routerLink]='["/about-us"]' id = "about-us-link">About Us</a>
+        <div id = "follow-us-container">
+            <ul id = "social-address-links">
+                <li class = "social-link-item">
+                    <a href = "https://www.facebook.com/Front-end-interview-questions-106067168139636" target = "_blank">
+                        <fa-icon [icon]="faFacebook"></fa-icon>
+                    </a>
+                </li>
+                <li class = "social-link-item">
+                    <a href = "https://twitter.com/amazingjavascr1" target = "_blank">
+                        <fa-icon [icon]="faTwitter"></fa-icon>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </section>

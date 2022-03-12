@@ -4,3 +4,35 @@
     right: 10px;
     top: 10px;
 }
+
+#social-address-links{
+    list-style: none;
+    padding-left: 0;
+    display: inline;
+}
+
+.social-link-item:nth-child(2){
+    margin-left: 20px;
+}
+
+.social-link-item{
+    display: inline-block;
+}
+
+#about-us-and-social-links{
+    padding-left: 10%;
+    margin-top: 40px;
+}
+
+#follow-us-container{
+    border: 1px solid lightgrey;
+    padding: 4px 10px;
+    border-radius: 11px;
+    width: fit-content;
+    margin-top: 4px;
+    margin-left: -1px;
+}
+
+#about-us-link{
+    vertical-align: middle;
+}

@@ -3,22 +3,19 @@
     top: 0;
     right: 0;
     bottom: 0;
-    border: 1px solid grey;
     width: 180px;
     background: white;
     z-index: 1;
-    box-shadow: 0px 0px 4px 2px grey;
     animation: openSidebar 0.8s;
 }
 
 .sidebar-closed{
-    width: 0;
+    width: 180px;
     animation: closeSidebar 0.8s;
     position: fixed;
     top: 0;
-    right: 0;
+    right: -180px;
     bottom: 0;
-    border: 0px solid grey;
     background: white;
     z-index: 1;
 }
@@ -39,11 +36,11 @@
 }
 
 @keyframes openSidebar {
-    0%{width: 0}
-    100%{width: 180px}
+    0%{right: -180px}
+    100%{right: 0}
 }
 
 @keyframes closeSidebar {
-    0%{width: 180px;  border: 1px solid grey;}
-    100%{width: 0; border: 0px solid grey;}
+    0%{right: 0;}
+    100%{right: -180px;}
 }
