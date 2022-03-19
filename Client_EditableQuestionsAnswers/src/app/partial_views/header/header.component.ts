@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
   faTwitter = faTwitter;
   faBars = faBars;
   @Output('sidebarStatus') sidebarStatus = new EventEmitter();
+  @Output('openAboutUs') openAboutUs = new EventEmitter();
   constructor(private questionAnswerService:QuestionAnswerService) { 
   }
 
@@ -40,5 +41,8 @@ export class HeaderComponent implements OnInit {
     if(event.key=="Enter") {
       this.searchByQuestion(value)
     }
+  }
+  openAboutusModal(): void{
+    this.openAboutUs.emit()
   }
 }

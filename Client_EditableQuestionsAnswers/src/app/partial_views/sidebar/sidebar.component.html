@@ -3,7 +3,7 @@
         <fa-icon [icon]="faTimes" (click) = "closeSideBar()" *ngIf = "isSideBarOpen"></fa-icon>
     </span>
     <div id="about-us-and-social-links" class = "col-md-3">
-        <a [routerLink]='["/about-us"]' id = "about-us-link">About Us</a>
+        <a id = "about-us-label" (click) = "openAboutusModal()">About Us</a>
         <div id = "follow-us-container">
             <ul id = "social-address-links">
                 <li class = "social-link-item">

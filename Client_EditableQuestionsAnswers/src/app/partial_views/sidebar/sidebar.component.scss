@@ -33,6 +33,11 @@
     margin-left: -1px;
 }
 
-#about-us-link{
+#about-us-label{
     vertical-align: middle;
+    cursor: pointer;
+}
+
+#about-us-label:hover{
+    text-decoration: underline;
 }

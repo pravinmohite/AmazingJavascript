@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule , Routes } from '@angular/router';
-import { AboutUsComponent } from './about-us/about-us.component';
 
 let routes: Routes = [
   {
@@ -20,10 +19,6 @@ let routes: Routes = [
   {
     path: "frontend-interview-questions", 
     loadChildren: () => import('./interview-questions/interview-questions.module').then(m => m.InterviewQuestionsModule)
-  },
-  {
-    path: "about-us",
-    component: AboutUsComponent
   },
   { 
     path: '**',

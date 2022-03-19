@@ -1,9 +1,41 @@
 <div class="amazing-js-container">
     <app-loader></app-loader>
-    <app-header  (sidebarStatus) = "openOrCloseSidebar($event)"></app-header>
+    <app-header  (sidebarStatus) = "openOrCloseSidebar($event)" (openAboutUs) = "openModal(template)"></app-header>
     <div class = "sidebar-background" [ngClass] = "{'sidebar-background-hidden': !sideBarOpen}">
-        <app-sidebar [isSideBarOpen] = "sideBarOpen" (sidebarStatus) = "openOrCloseSidebar($event)" [ngClass] ="{'sidebar-closed':!sideBarOpen,'sidebar-open':sideBarOpen}"></app-sidebar>
+        <app-sidebar 
+        [isSideBarOpen] = "sideBarOpen" 
+        (sidebarStatus) = "openOrCloseSidebar($event)" 
+        (openAboutUs) = "openModal(template)" 
+        class = "sider-bar"
+        [ngClass] ="{'sider-bar-initially-closed':isSideBarUntouched,'sidebar-closed':!sideBarOpen && !isSideBarUntouched,'sidebar-open':sideBarOpen}"
+        >
+        </app-sidebar>
     </div>
     <router-outlet></router-outlet>
+
+    <!-- about us modal -->
+    <ng-template #template>
+        <div class="modal-header">
+            <h4 class="modal-title pull-left">About us</h4>
+            <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+            <span aria-hidden="true" class="visually-hidden">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div>
+                We are two passionate UI developers. This website is our attempt to help our fellow UI developers 
+                to prepare for interviews and grow in their career. In future we will keep on adding more sections 
+                to this website to help better.
+            </div>
+            <div class = "contact-us-container">
+             <div id="contact-us-label">Contact Us</div>
+             <div>For any queries or suggestions please contact us at following addresses:</div>
+             <ul>
+                 <li>vireshkhandelwal93@gmail.com</li>
+                 <li>pravinmohiteait@gmail.com</li>
+             </ul>
+            </div>
+        </div>
+    </ng-template>
 </div>
 

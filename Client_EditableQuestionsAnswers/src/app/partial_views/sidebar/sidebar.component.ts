@@ -14,6 +14,7 @@ export class SidebarComponent implements OnInit {
   constructor() { }
   @Input('isSideBarOpen') isSideBarOpen;
   @Output('sidebarStatus') sidebarStatus = new EventEmitter();
+  @Output('openAboutUs') openAboutUs = new EventEmitter();
 
   ngOnInit(): void {
   }
@@ -23,8 +24,9 @@ export class SidebarComponent implements OnInit {
     this.isSideBarOpen = false;
   }
 
-}
-function input(arg0: string) {
-  throw new Error('Function not implemented.');
+  openAboutusModal(): void{
+     this.openAboutUs.emit();
+  }
+
 }
 
