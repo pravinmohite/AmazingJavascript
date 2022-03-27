@@ -18,7 +18,22 @@ export class AppComponent{
     private modalService: BsModalService) {
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.createWebStorageDemo();
+  }
+
+  createWebStorageDemo(): void{
+    console.log(sessionStorage['dev1']);
+    console.log(localStorage['dev2']);
+    if( !sessionStorage['dev1']){
+      sessionStorage['dev1'] = 'viresh';
+      console.log('dev1 set')
+    }
+    if(!localStorage['dev2']){
+      localStorage['dev2'] = 'Praveen';
+      console.log('dev2 set')
+    }
+  }
 
   openOrCloseSidebar(sidebarStatus):void{
     this.sideBarOpen = sidebarStatus === 'open' ? true : false;
