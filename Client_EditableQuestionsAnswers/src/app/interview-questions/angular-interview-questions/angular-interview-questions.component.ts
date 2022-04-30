@@ -9,7 +9,9 @@ import {LoaderService} from './../../services/loader-service/loader.service';
 })
 export class AngularInterviewQuestionsComponent implements OnInit {
   questionAnswerList:any;
-  constructor(private questionAnswerService:QuestionAnswerService,private loaderService:LoaderService) { }
+  constructor(
+    private questionAnswerService:QuestionAnswerService,
+    private loaderService:LoaderService) { }
 
   ngOnInit(): void {
     this.questionAnswerService.currentData.subscribe((data)=>{

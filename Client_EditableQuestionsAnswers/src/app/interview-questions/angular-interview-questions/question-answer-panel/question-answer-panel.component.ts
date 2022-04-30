@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { faTrash,faEdit } from '@fortawesome/free-solid-svg-icons';
 import {QuestionAnswerService} from './../../../services/question-answer-service/question-answer.service';
 
@@ -13,12 +14,22 @@ export class QuestionAnswerPanelComponent implements OnInit {
   @Input() adminMode:boolean;
   showQuestionAnswerModal:Boolean=false;
   showQuestionTypeModal:Boolean=false;
+  searchKey: any;
   faTrash=faTrash;
   faEdit=faEdit;
   editedItem:any;
-  constructor(private questionAnswerService:QuestionAnswerService) { }
+  constructor(
+    private questionAnswerService:QuestionAnswerService,
+    private route: ActivatedRoute,
+    private router: Router) { }
   
   ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      console.log(params.get('searchKey'));
+      this.searchKey = params.get('searchKey');
+      this.questionAnswerService.setUrlSearchVal(this.searchKey);
+    });
+
   }
   toggleShowHideAnswer(questionAnswerItem) {
     if(!questionAnswerItem.showAnswer) {

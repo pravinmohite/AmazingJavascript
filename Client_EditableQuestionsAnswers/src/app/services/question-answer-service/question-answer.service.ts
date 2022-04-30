@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject} from 'rxjs';
+import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import * as questionAnswerList from '../../mockQuestionAnswerList.json';
 import {LoaderService} from './../../services/loader-service/loader.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -27,17 +28,30 @@ export class QuestionAnswerService {
   private data=new BehaviorSubject(null);
   currentData=this.data.asObservable();
   confirmationText="Are you sure you want to delete";
-  constructor(private http:HttpClient,private loaderService:LoaderService) {
+  $urlSearchVal = new Subject();
+  constructor(
+    private http:HttpClient,
+    private loaderService:LoaderService,
+    private route: ActivatedRoute,
+    private router: Router) {
    }
 
    /*---------------for login details-------------*/
   getloginDetails() {
     return this.http.get(this.finalloginDetailsUrl);
-  } 
+  }
 
   addloginDetails(data) {
     return this.http.post(this.finalloginDetailsUrl,data);
   } 
+
+  setUrlSearchVal(urlSearchVal): void{
+    this.$urlSearchVal.next(urlSearchVal);
+  }
+
+  getUrlSearchVal(): Observable<any>{
+    return this.$urlSearchVal;
+  }
  
   deleteloginDetails(id) {
     return this.http.delete(this.finalloginDetailsUrl+"/"+id);
@@ -124,7 +138,11 @@ export class QuestionAnswerService {
  }
 
  filterDataBySearchString(value) {
-  this.currentSearchString=value;
+  let urlParam = this.route.snapshot.paramMap.get('searchKey');
+  if(urlParam !== value){
+    this.router.navigate(['/frontend-interview-questions', value], { relativeTo: this.route });
+  }
+  this.currentSearchString = value;
   this.handleFilteringOfDataBySearchStringAndQuestionType();
  }
 
