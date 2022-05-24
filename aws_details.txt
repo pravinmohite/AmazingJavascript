@@ -1,0 +1,21 @@
+1)to remove temporary cloudfront redirection
+  ->got to route 53
+   
+   amazingjavascript.com	A	Simple	-	Yes	
+d8b74o8wwclr4.cloudfront.net
+
+1) amazingjavascript.com
+change above record property alias to cloud front distribution endpoint d8b74o8wwclr4.cloudfront.net  __ to s3 endpoint s3-website.ap-south-1.amazonaws.com
+
+2)www.amazingjavascript.com
+dx4ka0g359no2.cloudfront.net to s3-website.ap-south-1.amazonaws.com
+
+server ip url:-  http://13.229.134.0:3000";
+
+sudo npm install forever -g
+forever start -c "node app.js" ./
+
+
+find ip in ec2 instance:-
+
+curl icanhazip.com

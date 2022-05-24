@@ -1,4 +1,4 @@
-<div class="panel-container" [ngClass]="{'admin-panel':adminMode}" >
+<article class="panel-container" [ngClass]="{'admin-panel':adminMode}" >
   <b>
     <h2 class="page-heading">Front end interview questions</h2>
     <h3 class="display-none">UI interview questions</h3>
@@ -31,6 +31,6 @@
       <app-affiliate-ads [index]="i" [totalItems]="questionAnswerList.length"></app-affiliate-ads>
     </div>
   </div>  
-</div>
+</article>
 <app-add-edit-interview-questions [editedItem]="editedItem" *ngIf="showQuestionAnswerModal" (popupEvent)="closeModal($event)"></app-add-edit-interview-questions>
 <app-add-edit-question-types *ngIf="showQuestionTypeModal" (popupEvent)="closeModal($event)"></app-add-edit-question-types>
