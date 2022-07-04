@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { faTrash,faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faTrash,faEdit, faTimes } from '@fortawesome/free-solid-svg-icons';
 import {QuestionAnswerService} from './../../../services/question-answer-service/question-answer.service';
 
 
@@ -17,7 +17,9 @@ export class QuestionAnswerPanelComponent implements OnInit {
   searchKey: any;
   faTrash=faTrash;
   faEdit=faEdit;
+  faTimes=faTimes;
   editedItem:any;
+  showSearchTerm: boolean = false;
   constructor(
     private questionAnswerService:QuestionAnswerService,
     private route: ActivatedRoute,
@@ -28,6 +30,7 @@ export class QuestionAnswerPanelComponent implements OnInit {
       console.log(params.get('searchKey'));
       this.searchKey = params.get('searchKey');
       this.questionAnswerService.setUrlSearchVal(this.searchKey);
+      this.searchKey ? this.showSearchTerm = true : null;     
     });
 
   }
@@ -70,6 +73,11 @@ export class QuestionAnswerPanelComponent implements OnInit {
   editQuestionAnswer(data) {
     this.editedItem=data;
     this.showQuestionAnswerModal=true;
+  }
+
+  clearSearch(){
+    this.showSearchTerm = false;
+    this.router.navigate(['']);
   }
 
 }
