@@ -10,7 +10,10 @@
     </div> 
   </div> 
    
-  <!-- <span class="badge badge-pill badge-secondary">{{searchKey}}</span> -->
+  <div *ngIf="showSearchTerm" class="badge badge-secondary badge-pill search-term-container">
+    <span class="search-text">{{searchKey}}</span>
+    <span class="badge badge-light clear-search" (click) = "clearSearch()"><fa-icon [icon]="faTimes"></fa-icon></span>
+  </div>
   <div *ngFor="let questionAnswerItem of questionAnswerList;let i=index"> 
     <div class="panel-item">
       <div class="panel-header" role="img" aria-label="frontend interview questions">

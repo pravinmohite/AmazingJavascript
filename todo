@@ -1,0 +1,13 @@
+1. there is no option to reset/clear the search
+2. in the admin panel while writing answers if we write any code for example <form> tags or <input> tags  angular santizes those values.
+3. font family should be uniform 
+
+
+code improvement/new feature suggestions : 
+
+1. add search suggestions 
+2. create a dynamic page for each question
+1. add dark theme also
+2. add a section for blogs - create a seperate website and give a link to the new site from frontendinterviewquestions.com
+3. give option to the user to make personal notes related to a perticular topic , which the user can also refer when he revisits the site
+4. add java questions also - take list from Himani 
