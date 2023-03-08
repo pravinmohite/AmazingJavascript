@@ -16,14 +16,16 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~9.1.9",
-    "@angular/common": "~9.1.9",
-    "@angular/compiler": "~9.1.9",
-    "@angular/core": "~9.1.9",
-    "@angular/forms": "~9.1.9",
-    "@angular/platform-browser": "~9.1.9",
-    "@angular/platform-browser-dynamic": "~9.1.9",
-    "@angular/router": "~9.1.9",
+    "@angular-devkit/architect": "^0.1303.7",
+    "@angular-devkit/core": "^13.3.7",
+    "@angular/animations": "~13.3.10",
+    "@angular/common": "~13.3.10",
+    "@angular/compiler": "~13.3.10",
+    "@angular/core": "~13.3.10",
+    "@angular/forms": "~13.3.10",
+    "@angular/platform-browser": "~13.3.10",
+    "@angular/platform-browser-dynamic": "~13.3.10",
+    "@angular/router": "~13.3.10",
     "@fortawesome/angular-fontawesome": "^0.6.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
@@ -37,18 +39,18 @@
     "rxjs": "~6.5.4",
     "rxjs-compat": "^6.6.3",
     "tslib": "^1.10.0",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.11.5"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.901.7",
-    "@angular/cli": "^9.1.12",
-    "@angular/compiler-cli": "~9.1.9",
+    "@angular-devkit/build-angular": "^13.3.7",
+    "@angular/cli": "^13.3.7",
+    "@angular/compiler-cli": "~13.3.10",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
     "codelyzer": "^5.1.2",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
-    "karma": "~5.0.0",
+    "karma": "~6.3.20",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage-istanbul-reporter": "~2.1.0",
     "karma-jasmine": "~3.0.1",
@@ -56,6 +58,6 @@
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
-    "typescript": "~3.8.3"
+    "typescript": "~4.6.4"
   }
 }
