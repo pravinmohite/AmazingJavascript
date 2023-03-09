@@ -15,7 +15,7 @@ export class QuestionAnswerService {
   questionTypeUrl:String="/api/questionType";
   questionAnswerUrl:String="/api/questionAnswer";
   loginDetailsUrl:String="/api/loginDetails";
-  isProd:boolean=false;
+  isProd:boolean = true;
   /*---with ssl changed due to loadbalancer----can be done using nginx*/
   //prodUrl:String="https://www.ssl.frontendinterviewquestions.com";
   prodUrl:String="http://64.227.118.130";
