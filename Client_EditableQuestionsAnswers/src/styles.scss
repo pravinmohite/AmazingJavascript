@@ -257,7 +257,12 @@ body {
         }
       }
     }
-
+    h3 {
+      &.question-text {
+        font-size: 1em !important;
+        display: inline;
+      }
+    }
   }
   .login-panel-container {
     border: solid 1px gainsboro;

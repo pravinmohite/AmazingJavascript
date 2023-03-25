@@ -6,3 +6,8 @@ mongodb:-"C:\Program Files\MongoDB\Server\3.4\bin\mongod.exe" --dbpath I:\Passio
 to run dist folder locally:-
 
 I:\Passion_for_coding\Node_Projects\AmazingJavascript\Client_EditableQuestionsAnswers>angular-http-server --path I:\Passion_for_coding\Node_Projects\AmazingJavascript\Client_EditableQuestionsAnswers\dist\sample-task
+
+
+to install mongodbon digital ocean:-
+
+https://wiki.crowncloud.net/How_To_Install_Duf_On_Ubuntu_22_04?How_to_Install_Latest_MongoDB_on_Ubuntu_22_04

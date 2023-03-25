@@ -1,6 +1,0 @@
-issues :
-1. in the admin panel while writing answers if we write any code for example <form> tags or <input> tags  angular santizes those values.
-
-code improvement/new feature suggestions : 
-1. add a section for blogs - create a seperate website and give a link to the new site from frontendinterviewquestions.com
-2. give option to the user to make personal notes related to a perticular topic , which the user can also refer when he revisits the site
