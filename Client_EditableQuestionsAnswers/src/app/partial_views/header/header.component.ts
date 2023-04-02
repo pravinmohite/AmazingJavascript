@@ -1,8 +1,10 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, TemplateRef  } from '@angular/core';
 import {QuestionAnswerService} from "../../services/question-answer-service/question-answer.service";
 import { faTwitter,  faFacebookF, faInstagramSquare } from '@fortawesome/free-brands-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { SignupComponent } from '../modals/signup/signup.component';
 
 @Component({
   selector: 'app-header',
@@ -15,11 +17,13 @@ export class HeaderComponent implements OnInit {
   faTwitter = faTwitter;
   faBars = faBars;
   searchVal = '';
+  modalRef?: BsModalRef;
   @Output('sidebarStatus') sidebarStatus = new EventEmitter();
   @Output('openAboutUs') openAboutUs = new EventEmitter();
   constructor(
     private questionAnswerService:QuestionAnswerService,
     private route: ActivatedRoute,
+    private modalService: BsModalService
   ) { 
   }
 
@@ -55,5 +59,9 @@ export class HeaderComponent implements OnInit {
   }
   openAboutusModal(): void{
     this.openAboutUs.emit()
+  }
+
+  openSignUpModal() {
+    this.modalRef = this.modalService.show(SignupComponent);
   }
 }

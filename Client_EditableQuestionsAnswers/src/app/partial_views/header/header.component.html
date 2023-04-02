@@ -13,19 +13,17 @@
         <fa-icon [icon]="faBars" (click) = "openSiderBar()"></fa-icon>
       </span>
     </div>
-    <div class="form-inline col-md-5">
-        <!-- <form #myForm= "ngForm"> -->
-          <input name = "searchVal" #searchString [(ngModel)] = "searchVal" class="form-control mr-sm-2 col-md-8" type="text" (keydown)="checkEnterKeyPressed(searchString.value,$event)" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0 col-md-2 hand-cursor" (click)="searchByQuestion(searchString.value)">Search</button>
-        <!-- </form> -->
+    <div class="form-inline col-md-3">
+      <input name = "searchVal" #searchString [(ngModel)] = "searchVal" class="form-control mr-sm-2 col-md-8" type="text" (keydown)="checkEnterKeyPressed(searchString.value,$event)" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0 col-md-3 hand-cursor" (click)="searchByQuestion(searchString.value)">Search</button>
     </div>
-      <select class="col-md-2 col-11 question-type" #mySelect (change)='onOptionsSelected(mySelect.value)'>
+      <select class="col-md-2 col-11 ml-4 question-type" #mySelect (change)='onOptionsSelected(mySelect.value)'>
       <option value="All" title="Select question type...">Select question type...</option>
        <option *ngFor="let item of questionTypes" [value]="item.questionType">
          {{item.questionType}}
         </option>
     </select>
-    <div id="about-us-and-social-links" class = "col-md-3">
+    <div class = "col-md-3" id="about-us-and-social-links" >
       <span id = "about-us-label" (click) = "openAboutusModal()">About Us</span>
       <div id = "follow-us-container">
           <ul id = "social-address-links">
@@ -40,6 +38,12 @@
                   </a>
               </li>
           </ul>
+      </div>
+    </div>
+    <div class = "col-md-2" id="login-signup-container">
+      <div class="btn-group btn-group-sm">
+        <button type="button" class="btn btn-primary" (click) = "openSignUpModal()">Sign up</button>
+        <button type="button" class="btn btn-secondary">Log in</button>
       </div>
     </div>
   </div>

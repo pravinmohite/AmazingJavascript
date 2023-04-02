@@ -10,13 +10,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoaderComponent } from './partial_views/loader/loader.component';
 import { SidebarComponent } from './partial_views/sidebar/sidebar.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { SignupComponent } from './partial_views/modals/signup/signup.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     LoaderComponent,
-    SidebarComponent
+    SidebarComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +30,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     ModalModule.forRoot()
   ],
   providers: [],
+  entryComponents: [SignupComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
