@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/sample-task",
+            "outputPath": "dist/sample-task/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -36,6 +36,27 @@
             "scripts": []
           },
           "configurations": {
+            "development":{
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -71,6 +92,9 @@
             "browserTarget": "sample-task:build"
           },
           "configurations": {
+            "development": {
+              "browserTarget": "sample-task:build:development"
+               },
             "production": {
               "browserTarget": "sample-task:build:production"
             }
@@ -125,6 +149,67 @@
               "devServerTarget": "sample-task:serve:production"
             }
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/sample-task/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
+          "configurations": {
+            "development": {
+              "optimization": true,
+              "sourceMap": false,
+              "extractLicenses": true
+              },
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "sourceMap": false,
+              "extractLicenses": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "sample-task:build:development",
+              "serverTarget": "sample-task:server:development"
+            },
+            "production": {
+              "browserTarget": "sample-task:build:production",
+              "serverTarget": "sample-task:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "sample-task:build:production",
+              "serverTarget": "sample-task:server:production"
+            },
+            "development": {
+              "browserTarget": "sample-task:build:development",
+              "serverTarget": "sample-task:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

@@ -19,7 +19,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     SidebarComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
