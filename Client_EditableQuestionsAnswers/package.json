@@ -10,7 +10,7 @@
     "e2e": "ng e2e",
     "dev:ssr": "ng run sample-task:serve-ssr",
     "serve:ssr": "node dist/sample-task/server/main.js",
-    "build:ssr": "ng build && ng run sample-task:server",
+    "build:ssr": "node --max_old_space_size=8192 ./node_modules/@angular/cli/bin/ng build && ng run sample-task:server",
     "prerender": "ng run sample-task:prerender"
   },
   "browser": {
