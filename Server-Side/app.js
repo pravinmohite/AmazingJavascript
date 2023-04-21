@@ -23,7 +23,7 @@ mongoose.connection.on('error',(err)=>{
 
 const port=3000;
 
-const app_folder = './../Client_EditableQuestionsAnswers/dist/sample-task';
+const app_folder = './../Client_EditableQuestionsAnswers/dist/sample-task/browser';
 
 //cors
 app.use(cors());
