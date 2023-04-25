@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import * as questionAnswerList from '../../mockQuestionAnswerList.json';
 import {LoaderService} from './../../services/loader-service/loader.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DataStateService, QUESTION_ANSWER_LIST, QUESTION_TYPE_LIST } from '../data-state-service/data-state.service';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +32,7 @@ export class QuestionAnswerService {
   constructor(
     private http:HttpClient,
     private loaderService:LoaderService,
+    private dataStateService: DataStateService,
     private route: ActivatedRoute,
     private router: Router) {
    }
@@ -63,7 +65,11 @@ export class QuestionAnswerService {
   /*---------------for question types----------*/
 
   getQuestionTypes() {
-    return this.http.get(this.finalquestionTypeUrl);
+    return this.dataStateService.checkAndGetData(
+      QUESTION_TYPE_LIST,
+      this.http.get(this.finalquestionTypeUrl),
+      []
+  );
   } 
 
   addQuestionType(data) {
@@ -81,10 +87,14 @@ export class QuestionAnswerService {
 
   getQuestionAnswerList() {
     this.loaderService.display(true);
-    this.http.get(this.finalQuestionAnswerUrl).subscribe(response=>{
+    return this.dataStateService.checkAndGetData(
+      QUESTION_ANSWER_LIST,
+      this.http.get(this.finalQuestionAnswerUrl),
+      []
+    ).subscribe(response=>{
       this.data.next(response);
       this.questionAnswerData=response;
-    })
+    });
   } 
 
   addQuestionAnswer(data) {

@@ -1,5 +1,4 @@
 import { Component, Inject, PLATFORM_ID, TemplateRef } from '@angular/core';
-import { DataService } from './services/data.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { isPlatformBrowser } from '@angular/common';
 
@@ -15,7 +14,6 @@ export class AppComponent{
   platformId: Object;
 
   constructor(
-    private dataService:DataService,
     private modalService: BsModalService,
     @Inject(PLATFORM_ID) platformId: Object) {
       this.platformId = platformId;

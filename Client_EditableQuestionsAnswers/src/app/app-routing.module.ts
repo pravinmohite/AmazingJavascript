@@ -9,10 +9,6 @@ let routes: Routes = [
     pathMatch: 'full' 
   },
   {
-    path: "notes",
-    loadChildren: () => import('./notes-feature/notes-feature.module').then(m => m.NotesFeatureModule)
-  },
-  {
     path: "admin-panel",
     loadChildren: () => import('./admin-panel/admin-panel.module').then(m => m.AdminPanelModule)
   },
