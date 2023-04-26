@@ -18,11 +18,9 @@ export class DataStateService {
     @Inject(PLATFORM_ID) platformId: Object,
   ) {
     this.isServer = isPlatformServer(platformId);
-    console.log('is server', this.isServer);
   }
 
   checkAndGetData(key: StateKey<string>, getDataObservable: Observable<any>, defaultValue: any = []) {
-    console.log('key:',key, ' has key:', this.tstate.hasKey(key))
     if (this.tstate.hasKey(key)) {
       return Observable.of(this.tstate.get(key, defaultValue));
     } else {
@@ -30,12 +28,14 @@ export class DataStateService {
         tap((data) => {
           if (this.isServer) {
             this.tstate.set(key, data);
-            console.log('after tap key:',key, ' after tap has key:', this.tstate.hasKey(key));
-            console.log('data:', this.tstate.get(key, defaultValue));
           }
         })
       );
     }
+  }
+
+  removeStateKey(key: StateKey<string>) {
+    this.tstate.remove(key);
   }
 
   getDynamicStateKey(key: string) {

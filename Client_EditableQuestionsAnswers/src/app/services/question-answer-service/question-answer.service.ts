@@ -73,14 +73,17 @@ export class QuestionAnswerService {
   } 
 
   addQuestionType(data) {
+    this.dataStateService.removeStateKey(QUESTION_TYPE_LIST);
     return this.http.post(this.finalquestionTypeUrl,data);
   } 
  
   deleteQuestionType(id) {
+    this.dataStateService.removeStateKey(QUESTION_TYPE_LIST);
     return this.http.delete(this.finalquestionTypeUrl+"/"+id);
   }
 
   updateQuestionType(data) {
+    this.dataStateService.removeStateKey(QUESTION_TYPE_LIST);
     return this.http.patch(this.finalquestionTypeUrl+"/"+data._id,data)
   };
   /*-------------for question answers----------*/
@@ -99,6 +102,7 @@ export class QuestionAnswerService {
 
   addQuestionAnswer(data) {
     this.loaderService.display(true);
+    this.dataStateService.removeStateKey(QUESTION_ANSWER_LIST);
     this.http.post(this.finalQuestionAnswerUrl,data).subscribe(response=>{
       this.getQuestionAnswerList();
     })
@@ -106,6 +110,7 @@ export class QuestionAnswerService {
 
   deleteQuestionAnswer(id) {
     this.loaderService.display(true);
+    this.dataStateService.removeStateKey(QUESTION_ANSWER_LIST);
     this.http.delete(this.finalQuestionAnswerUrl+"/"+id).subscribe(response=>{
       this.getQuestionAnswerList();
     })
@@ -113,6 +118,7 @@ export class QuestionAnswerService {
 
   updateQuestionAnswer(data) {
     this.loaderService.display(true);
+    this.dataStateService.removeStateKey(QUESTION_ANSWER_LIST);
     this.http.patch(this.finalQuestionAnswerUrl+'/'+data._id,data).subscribe(response=>{
       this.getQuestionAnswerList();
     })
