@@ -31,8 +31,8 @@ export class QuestionAnswerPanelComponent implements OnInit {
       this.questionAnswerService.setUrlSearchVal(this.searchKey);
       this.searchKey ? this.showSearchTerm = true : null;     
     });
-
   }
+
   toggleShowHideAnswer(questionAnswerItem) {
     if(!questionAnswerItem.showAnswer) {
       questionAnswerItem.showAnswer=true;

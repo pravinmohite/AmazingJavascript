@@ -20,17 +20,22 @@ export class DataStateService {
     this.isServer = isPlatformServer(platformId);
   }
 
-  checkAndGetData(key: StateKey<string>, getDataObservable: Observable<any>, defaultValue: any = []) {
-    if (this.tstate.hasKey(key)) {
-      return Observable.of(this.tstate.get(key, defaultValue));
-    } else {
-      return getDataObservable.pipe(
-        tap((data) => {
-          if (this.isServer) {
-            this.tstate.set(key, data);
-          }
-        })
-      );
+  checkAndGetData(key: StateKey<string>, getDataObservable: Observable<any>, defaultValue: any = [], isTransferStateActive?) {
+    if(isTransferStateActive) {
+      if (this.tstate.hasKey(key)) {
+        return Observable.of(this.tstate.get(key, defaultValue));
+      } else {
+        return getDataObservable.pipe(
+          tap((data) => {
+            if (this.isServer) {
+              this.tstate.set(key, data);
+            }
+          })
+        );
+      }
+    }
+    else {
+      return getDataObservable;
     }
   }
 

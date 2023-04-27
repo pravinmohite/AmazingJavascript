@@ -29,6 +29,7 @@ export class QuestionAnswerService {
   currentData=this.data.asObservable();
   confirmationText="Are you sure you want to delete";
   $urlSearchVal = new Subject();
+  isTransferStateActive = false;
   constructor(
     private http:HttpClient,
     private loaderService:LoaderService,
@@ -68,22 +69,20 @@ export class QuestionAnswerService {
     return this.dataStateService.checkAndGetData(
       QUESTION_TYPE_LIST,
       this.http.get(this.finalquestionTypeUrl),
-      []
+      [],
+      this.isTransferStateActive
   );
   } 
 
   addQuestionType(data) {
-    this.dataStateService.removeStateKey(QUESTION_TYPE_LIST);
     return this.http.post(this.finalquestionTypeUrl,data);
   } 
  
   deleteQuestionType(id) {
-    this.dataStateService.removeStateKey(QUESTION_TYPE_LIST);
     return this.http.delete(this.finalquestionTypeUrl+"/"+id);
   }
 
   updateQuestionType(data) {
-    this.dataStateService.removeStateKey(QUESTION_TYPE_LIST);
     return this.http.patch(this.finalquestionTypeUrl+"/"+data._id,data)
   };
   /*-------------for question answers----------*/
@@ -93,7 +92,8 @@ export class QuestionAnswerService {
     return this.dataStateService.checkAndGetData(
       QUESTION_ANSWER_LIST,
       this.http.get(this.finalQuestionAnswerUrl),
-      []
+      [],
+      this.isTransferStateActive
     ).subscribe(response=>{
       this.data.next(response);
       this.questionAnswerData=response;
@@ -102,7 +102,6 @@ export class QuestionAnswerService {
 
   addQuestionAnswer(data) {
     this.loaderService.display(true);
-    this.dataStateService.removeStateKey(QUESTION_ANSWER_LIST);
     this.http.post(this.finalQuestionAnswerUrl,data).subscribe(response=>{
       this.getQuestionAnswerList();
     })
@@ -110,7 +109,6 @@ export class QuestionAnswerService {
 
   deleteQuestionAnswer(id) {
     this.loaderService.display(true);
-    this.dataStateService.removeStateKey(QUESTION_ANSWER_LIST);
     this.http.delete(this.finalQuestionAnswerUrl+"/"+id).subscribe(response=>{
       this.getQuestionAnswerList();
     })
@@ -118,7 +116,6 @@ export class QuestionAnswerService {
 
   updateQuestionAnswer(data) {
     this.loaderService.display(true);
-    this.dataStateService.removeStateKey(QUESTION_ANSWER_LIST);
     this.http.patch(this.finalQuestionAnswerUrl+'/'+data._id,data).subscribe(response=>{
       this.getQuestionAnswerList();
     })

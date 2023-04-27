@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
        }
      })
   }
+
   keyPressEvent(event) {
     if(event.keyCode==13) {
       this.loginToApplication();
