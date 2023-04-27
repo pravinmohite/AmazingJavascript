@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     if(localStorage.getItem('loggedIn')=="true") {
+      this.questionAnswerService.setIsAdmin(true);
       this.router.navigateByUrl('/admin-panel/updateInterviewQuestions');
     }
   }
@@ -23,6 +24,7 @@ export class LoginComponent implements OnInit {
       if(this.login.username==data[0].username && this.login.password==data[0].password)
        {
           localStorage.setItem('loggedIn','true');
+          this.questionAnswerService.setIsAdmin(true);
           this.router.navigateByUrl('/admin-panel/updateInterviewQuestions');
        }
      })

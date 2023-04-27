@@ -1,0 +1,39 @@
+@import "./../../../../assets/scss/variables.scss";
+
+.question-answer-detailcontainer {
+    &.panel-container {
+        margin-top: 50px !important
+    }
+}
+
+.question-error-container {
+    .error-content {
+        width: 30%;
+        text-align: left;
+        font-size: 25px;
+        border: solid 1px $error-content-bordercolor;
+        margin: auto;
+        padding: 10px;
+        border-radius: 10px;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        @media screen and (max-width:768px) {
+            width: 90%;
+        }
+
+        .error-triangle-icon {
+            font-size: 44px !important;
+            color: $error-icon-color;
+            vertical-align: text-top;
+        }
+
+        .error-inner-content {
+            font-size: 16px;
+            color: $error-innercontent-color;
+            text-align: left;
+        }
+    }
+}

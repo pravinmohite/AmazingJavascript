@@ -16,6 +16,7 @@ export class QuestionAnswerService {
   questionTypeUrl:String="/api/questionType";
   questionAnswerUrl:String="/api/questionAnswer";
   loginDetailsUrl:String="/api/loginDetails";
+  questionAnswerByParamsUrl = "/api/questionAnswerByParams";
   isProd:boolean = true;
   prodUrl:String="https://frontendinterviewquestions.com";
   //prodUrl:String="https://64.227.118.130";
@@ -23,6 +24,7 @@ export class QuestionAnswerService {
   finalquestionTypeUrl:any=this.devDomain+this.questionTypeUrl;
   finalQuestionAnswerUrl:any=this.devDomain+this.questionAnswerUrl;
   finalloginDetailsUrl:any=this.devDomain+this.loginDetailsUrl;
+  finalQuestionAnswerByParamsUrl = this.devDomain + this.questionAnswerByParamsUrl;
   mockData=(questionAnswerList as any).default;
   questionAnswerData:any;
   private data=new BehaviorSubject(null);
@@ -30,6 +32,7 @@ export class QuestionAnswerService {
   confirmationText="Are you sure you want to delete";
   $urlSearchVal = new Subject();
   isTransferStateActive = false;
+  isAdmin = false;
   constructor(
     private http:HttpClient,
     private loaderService:LoaderService,
@@ -85,7 +88,8 @@ export class QuestionAnswerService {
   updateQuestionType(data) {
     return this.http.patch(this.finalquestionTypeUrl+"/"+data._id,data)
   };
-  /*-------------for question answers----------*/
+
+  /*-------------start for question answer List----------*/
 
   getQuestionAnswerList() {
     this.loaderService.display(true);
@@ -120,6 +124,34 @@ export class QuestionAnswerService {
       this.getQuestionAnswerList();
     })
   }
+
+   /*-------------end for question answer List----------*/
+
+    /*------------start for question answer by params ---*/
+
+    getQuestionAnswerByParams(question) {
+      return this.http.get(this.finalQuestionAnswerByParamsUrl+'/' + question);
+    }
+  
+    
+    addQuestionAnswerByParams(data) {
+      this.loaderService.display(true);
+      return this.http.post(this.finalQuestionAnswerByParamsUrl, data);
+    }
+  
+    deleteQuestionAnswerByParams(id) {
+      this.loaderService.display(true);
+      return this.http.delete(this.finalQuestionAnswerByParamsUrl+"/"+id);
+    }
+  
+    updateQuestionAnswerByParams(data) {
+      this.loaderService.display(true);
+      return this.http.patch(this.finalQuestionAnswerByParamsUrl+'/'+data._id,data);
+    }
+  
+    /*------------end for question answer by params ---*/
+
+    /*------------reusable functions----------------*/
 
   filterDataByQuestionType(type) {
     this.currentQuestionTypeSelected=type;
@@ -169,5 +201,9 @@ export class QuestionAnswerService {
   confirmAction() {
      let result=confirm(this.confirmationText);
      return result;
+  }
+
+  setIsAdmin(isAdmin) {
+    this.isAdmin = isAdmin;
   }
 }
