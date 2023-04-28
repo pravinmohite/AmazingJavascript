@@ -72,14 +72,11 @@
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/what-will-be-the-output-of-the-below-code-:-</loc>
+  <loc>https://www.frontendinterviewquestions.com/what-will-be-the-output-of-the-below-code</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/what-will-be-the-output-of-the-below-code-:-
-  for (var i= 0; i < 5; i++){
-    setTimeout(() => console.log(i));
-  }</loc>
+  <loc>https://www.frontendinterviewquestions.com/what-will-be-the-output-of-the-below-code</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -332,13 +329,7 @@ alert('x');
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/ What will be the output of following code:-
-
-for (var i= 0; i < 5; i++){
-  (function(i) {
-    setTimeout( () => console.log(i))
-   })(i);
-}</loc>
+  <loc>https://www.frontendinterviewquestions.com/ What will be the output of following code</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
