@@ -33,6 +33,7 @@ export class QuestionAnswerService {
   $urlSearchVal = new Subject();
   isTransferStateActive = false;
   isAdmin = false;
+  questionAnswerDetailPageEvent = new Subject();
   constructor(
     private http:HttpClient,
     private loaderService:LoaderService,
@@ -182,10 +183,10 @@ export class QuestionAnswerService {
  }
 
  filterDataBySearchString(value) {
-  let urlParam = this.route.snapshot.paramMap.get('searchKey');
-  if(urlParam !== value){
-    this.router.navigate(['/frontend-interview-questions', value], { relativeTo: this.route });
-  }
+  // let urlParam = this.route.snapshot.paramMap.get('searchKey');
+  // if(urlParam !== value){
+  //   this.router.navigate(['/frontend-interview-questions', value], { relativeTo: this.route });
+  // }
   this.currentSearchString = value;
   this.handleFilteringOfDataBySearchStringAndQuestionType();
  }

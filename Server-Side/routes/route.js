@@ -174,7 +174,7 @@ router.patch('/questionAnswer/:id', (req, res, next) => {
 router.get('/questionAnswerByParams/:question', (req, res, next) => {
     QuestionAnswer.find((err, questionAnswerList) => {
         let result = questionAnswerList.find((item) => {
-            if (req.params.question == item.question) {
+            if (item.question.toLowerCase().indexOf(req.params.question.toLowerCase())>-1) {
                 return item;
             }
         })

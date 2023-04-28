@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import {QuestionAnswerService} from '../../services/question-answer-service/question-answer.service';
 import { Router } from '@angular/router';
 import {LoaderService} from './../../services/loader-service/loader.service';
@@ -11,10 +11,17 @@ import {LoaderService} from './../../services/loader-service/loader.service';
 export class InterviewQuestionsPanelComponent implements OnInit {
 
   questionAnswerList:any;
-  constructor(private questionAnswerService:QuestionAnswerService,private router:Router,private loaderService:LoaderService) { }
+  platformId: Object;
+  constructor(
+    private questionAnswerService:QuestionAnswerService,
+    private router:Router,private loaderService:LoaderService,
+    @Inject(PLATFORM_ID) platformId: Object
+  ) {
+      this.platformId = platformId;
+  }
 
   ngOnInit(): void {
-    if(localStorage.getItem('loggedIn')=="true") {
+    if(this.platformId && localStorage.getItem('loggedIn')=="true") {
       this.questionAnswerService.currentData.subscribe((data)=>{
       this.questionAnswerList=data;
       this.loaderService.display(false);
