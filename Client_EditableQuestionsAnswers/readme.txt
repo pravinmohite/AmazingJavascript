@@ -33,3 +33,11 @@ ec2 server command prompt:-
  Keep running your node application
   screen
   node app.js 
+
+  ->Steps to run On digital ocean 
+  -> run server
+     pm2 start/restart app.js
+
+  -> run universal Client
+
+      pm2 start/restart dist/sample-task/server/main.js
