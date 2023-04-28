@@ -108,7 +108,7 @@
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-webpac-and-babel</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-webpack-and-babel</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -128,7 +128,7 @@
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/What are the properties inside @ngModule decorator</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/What-are-the-properties-inside-@ngModule-decorator</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -365,7 +365,7 @@ alert('x');
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/explain software version nomenclature (semantic versioning) ?</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/explain-software-version-nomenclature-%28semantic-versioning%29-?</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -377,7 +377,7 @@ alert('x');
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/how would you implement a multi level drop-down in your angular application</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-would-you-implement-a-multi-level-drop-down-in-your-angular-application</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -385,7 +385,7 @@ alert('x');
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what is BOM (browser object model ) and what is the root object in it</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-bom-%28browser-object-model-%29-and-what-is-the-root-object-in-it</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -437,10 +437,7 @@ alert('x');
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-will-be-the-output-of-the-following :
-console.log(4.toString());
-console.log(4.2.toString());
-console.log(4*undefined);</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-will-be-the-output-of-the-following</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -448,11 +445,11 @@ console.log(4*undefined);</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/How to create a custom decorator in Angular/Javascript</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/How-to-create-a-custom-decorator-in-Angular</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/What is an impure/pure pipe in angular</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-an-impure</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -468,7 +465,7 @@ console.log(4*undefined);</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/difference between == and ===</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/difference-between-==-and-===</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -621,7 +618,7 @@ numbers , the output will be a+b.</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/Difference between ‘.’ and ‘[]’ notation of defining an object in javascript</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/Difference-between-‘.’-and-‘[]’-notation-of-defining-an-object-in-javascript</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -629,13 +626,11 @@ numbers , the output will be a+b.</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/Array's map method takes a function as an argument . This function has 1 required parameter which is the array's current iteration element's value . What are the other 2 optional parameters to this function ?</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/Array's-map-method-takes-a-function-as-an-argument-.-This-function-has-1-required-parameter-which-is-the-array's-current-iteration-element's-value-.-What-are-the-other-2-optional-parameters-to-this-function-?</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/Write a code to reverse all the words of a given string. For example :
-Input : “how are you”
-Output : “Woh era you”</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/Write-a-code-to-reverse-all-the-words-of-a-given-string</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -659,7 +654,7 @@ Output : “Woh era you”</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/explain-array's-sort-method-for-sorting-numbers-.-what-is-the-time-complexity-of-this-method-?</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/explain-array's-sort-method-for-sorting-numbers.-what-is-the-time-complexity-of-this-method-?</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -739,9 +734,7 @@ Output : “Woh era you”</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what will be the output of : 
-[x,...y,] = [1,2,3,4] ; 
-console.log(x,y)</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-will-be-the-output-of</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -793,11 +786,11 @@ console.log(x,y)</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/What is the meaning of 1. div ~ p  2. div + p   3. Div > p in CSS ?</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/What-is-the-meaning-of-1.-div-~-p</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/explain switch map , mergemap , forkjoin, combineLatest, concatMap . what would happen if any of the requests fails in switch map , merge map or forkjoin ? ?</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/explain-switch-map-,-mergemap-,-forkjoin,-combineLatest,-concatMap-.-what-would-happen-if-any-of-the-requests-fails-in-switch-map-,-merge-map-or-forkjoin-?-?</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
