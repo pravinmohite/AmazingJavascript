@@ -37,7 +37,45 @@
 events , web workers</li><li>Audio and video tags</li><li>New form controls like datalist , output</li><li>New form input types like color , range ,number , url , email , search , tel, datetime ,time , month ,week etc.</li><li>New input attributes like placeholder , multiple , autocomplete , autofocus , required,min and max , width and height ,list , formaction ,formnovalidate , formtarget ,formmethod, formenctype etc.</li><li>New form attributes autocomplete, novalidate</li></ul></div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"><app-affiliate-ads _ngcontent-sc65="" _nghost-sc62=""><!----><!----><!----><!----></app-affiliate-ads></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">2. <h3 _ngcontent-sc65="" class="question-text">What are the data types in JavaScript</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content"><ul><li>As of now there are 6 data types in JavaScript :
  string , boolean , number , undefined , null, object , symbol</li><li>Object is a composite data type and rest all are primitive data types</li><li>symbol is a new data type introduced in ES6</li></ul></div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"><app-affiliate-ads _ngcontent-sc65="" _nghost-sc62=""><!----><!----><!----><!----></app-affiliate-ads></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">3. <h3 _ngcontent-sc65="" class="question-text">Difference between ng add and npm install</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">“Ng add” would install a package and along with that it would run any installation scripts present in that package which can be used to edit the app configurations(like updating angular.json file) or installing additional dependencies
 
-“Npm install” just installs a package</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"><app-affiliate-ads _ngcontent-sc65="" _nghost-sc62=""><!----><!----><!----><!----></app-affiliate-ads></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">4. <h3 _ngcontent-sc65="" class="question-text">what are custom directives in Angular and how to create them</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">Please refer this cool codecraft link <a href="https://codecraft.tv/courses/angular/custom-directives/creating-a-custom-directive/" target="_blank">custom directives by codecraft</a> to get a perfect understanding of the custom directives .</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"><app-affiliate-ads _ngcontent-sc65="" _nghost-sc62=""><!----><!----><!----><!----></app-affiliate-ads></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">5. <h3 _ngcontent-sc65="" class="question-text">Difference between get and post methods</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content"><b>GET Requests :</b>
+“Npm install” just installs a package</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"><app-affiliate-ads _ngcontent-sc65="" _nghost-sc62=""><!----><!----><!----><!----></app-affiliate-ads></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">4. <h3 _ngcontent-sc65="" class="question-text">what are custom directives in Angular and how to create them</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">Custom directives are a feature in Angular that allow developers to extend the functionality of HTML by creating their own custom HTML elements or attributes. With custom directives, developers can define their own behavior, such as adding event listeners, modifying the DOM, or manipulating data.
+
+To create a custom directive in Angular, follow these steps:
+
+1)Create a new directive using the @Directive decorator. The decorator specifies the selector for the directive and any inputs, outputs, and other options.
+
+2)Define the directive class, which contains the logic for the directive. The class should implement the OnInit and OnDestroy interfaces to handle the initialization and destruction of the directive.
+
+3)Add the directive to the declarations array in the module that will use it. This tells Angular that the directive should be available for use in that module.
+
+Here is an example of a simple custom directive that changes the background color of an element:
+
+<code>
+import { Directive, ElementRef, Renderer2 } from '@angular/core';
+
+@Directive({
+  selector: '[appHighlight]'
+})
+export class HighlightDirective {
+  constructor(private el: ElementRef, private renderer: Renderer2) { }
+
+  ngOnInit() {
+    this.renderer.setStyle(this.el.nativeElement, 'background-color', 'yellow');
+  }
+
+  ngOnDestroy() {
+    this.renderer.removeStyle(this.el.nativeElement, 'background-color');
+  }
+}
+</code>
+In this example, the HighlightDirective sets the background color of an element to yellow when it is initialized, and removes the background color when it is destroyed. The ElementRef and Renderer2 classes are used to access and manipulate the element in the DOM.
+
+To use this directive in a template, simply add the appHighlight attribute to an element:
+
+  &lt;p appHighlight&gt;
+  This text will have a yellow background.
+ &lt;/p&gt;
+
+When the template is rendered, the HighlightDirective will be applied to the <p> element, changing its background color to yellow.</p></div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"><app-affiliate-ads _ngcontent-sc65="" _nghost-sc62=""><!----><!----><!----><!----></app-affiliate-ads></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">5. <h3 _ngcontent-sc65="" class="question-text">Difference between get and post methods</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content"><b>GET Requests :</b>
 GET is used to request data from a specified resource.
 GET requests can be cached
 GET requests remain in the browser history
@@ -2357,7 +2395,59 @@ console.log(x,y)</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md
 
 <b>Higher order function : </b>A function that receives another function as an argument or returns a new function or both.
 
-for more details visit the following link : <a href="https://www.geeksforgeeks.org/difference-between-first-class-and-higher-order-functions-in-javascript/#:~:text=Order%20Function%3A%2D-,First%2DOrder%20Function,a%20new%20function%20or%20both." target="_blank">Difference between First-Class and Higher-Order Functions in JavaScript</a></div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"><app-affiliate-ads _ngcontent-sc65="" _nghost-sc62=""><!----><!----><!----><!----></app-affiliate-ads></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">182. <h3 _ngcontent-sc65="" class="question-text">what is a unary function ?</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">A unary function is a function that takes only 1 argument.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"><app-affiliate-ads _ngcontent-sc65="" _nghost-sc62=""><!----><!----><!----><!----></app-affiliate-ads></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">183. <h3 _ngcontent-sc65="" class="question-text">how to implement routing in angular web components</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">...</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"><app-affiliate-ads _ngcontent-sc65="" _nghost-sc62=""><!----><!----><!----><!----></app-affiliate-ads></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">184. <h3 _ngcontent-sc65="" class="question-text">how to implement treeshaking in Angular ?</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">Angular AOT by default implements tree shaking when we run the command ng build --prod</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"><app-affiliate-ads _ngcontent-sc65="" _nghost-sc62=""><!----><!----><!----><!----></app-affiliate-ads></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">185. <h3 _ngcontent-sc65="" class="question-text">which compiler does angular use ?</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">Visit the following link : <a href="https://blog.angular.io/how-the-angular-compiler-works-42111f9d2549" target="_blank">How the Angular Compiler Works</a></div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"><app-affiliate-ads _ngcontent-sc65="" _nghost-sc62=""><!----><!----><!----><!----></app-affiliate-ads></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">186. <h3 _ngcontent-sc65="" class="question-text">what can be the values of 'providedIn' property of @injectable decorator ? <b> important</b></h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">@injectable decorator can have following values : 
+for more details visit the following link : <a href="https://www.geeksforgeeks.org/difference-between-first-class-and-higher-order-functions-in-javascript/#:~:text=Order%20Function%3A%2D-,First%2DOrder%20Function,a%20new%20function%20or%20both." target="_blank">Difference between First-Class and Higher-Order Functions in JavaScript</a></div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"><app-affiliate-ads _ngcontent-sc65="" _nghost-sc62=""><!----><!----><!----><!----></app-affiliate-ads></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">182. <h3 _ngcontent-sc65="" class="question-text">what is a unary function ?</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">A unary function is a function that takes only 1 argument.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"><app-affiliate-ads _ngcontent-sc65="" _nghost-sc62=""><!----><!----><!----><!----></app-affiliate-ads></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">183. <h3 _ngcontent-sc65="" class="question-text">how to implement routing in angular web components</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">Angular web components can be implemented with routing by following these steps:
+
+1) Create the web component using Angular's @Component decorator. This will define the component's template, styles, and any input or output properties.
+
+2) Define the routes for the web component using the Routes array in the component's module. Each route should include a path and a component.
+<code>
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { MyWebComponent } from './my-web-component.component';
+
+const routes: Routes = [
+  { path: 'my-component', component: MyWebComponent }
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
+export class MyWebComponentRoutingModule { }
+</code>
+
+3) Import the RouterModule and MyWebComponentRoutingModule modules into the component's module and add them to the imports array.
+<code>
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { MyWebComponent } from './my-web-component.component';
+import { MyWebComponentRoutingModule } from './my-web-component-routing.module';
+
+@NgModule({
+  declarations: [MyWebComponent],
+  imports: [
+    CommonModule,
+    RouterModule,
+    MyWebComponentRoutingModule
+  ],
+  exports: [MyWebComponent]
+})
+export class MyWebComponentModule { }
+</code>
+
+4) Use the router-outlet directive in the web component's template to display the routed components.
+
+&lt;router-outlet&gt;&lt;/router-outlet&gt;
+
+5) Use the routerLink directive in other components or templates to navigate to the web component's route.
+
+&lt;a routerLink="/my-component"&gt;My Web Component&lt;/a&gt;
+
+6) Build and serve the application to see the web component with routing in action.
+
+By following these steps, developers can create web components with routing using Angular. The routerLink directive can be used to navigate to the web component's route, and the router-outlet directive can be used to display routed components within the web component.
+</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"><app-affiliate-ads _ngcontent-sc65="" _nghost-sc62=""><!----><!----><!----><!----></app-affiliate-ads></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">184. <h3 _ngcontent-sc65="" class="question-text">how to implement treeshaking in Angular ?</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">Angular AOT by default implements tree shaking when we run the command ng build --prod</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"><app-affiliate-ads _ngcontent-sc65="" _nghost-sc62=""><!----><!----><!----><!----></app-affiliate-ads></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">185. <h3 _ngcontent-sc65="" class="question-text">which compiler does angular use ?</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">Visit the following link : <a href="https://blog.angular.io/how-the-angular-compiler-works-42111f9d2549" target="_blank">How the Angular Compiler Works</a></div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"><app-affiliate-ads _ngcontent-sc65="" _nghost-sc62=""><!----><!----><!----><!----></app-affiliate-ads></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">186. <h3 _ngcontent-sc65="" class="question-text">what can be the values of 'providedIn' property of @injectable decorator ? <b> important</b></h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">@injectable decorator can have following values : 
 
 1. 'providedIn': root - it means that the service is provided in the root injector of the application and is accessible in all modules and components of the application. Even if the application has lazy loaded modules , same serivce instance would be shared with them too. 
 
