@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { faTrash,faEdit, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import { LoaderService } from 'src/app/services/loader-service/loader.service';
 import { QuestionAnswerService } from 'src/app/services/question-answer-service/question-answer.service';
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-question-answer-detail',
@@ -20,7 +21,8 @@ export class QuestionAnswerDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private loaderService: LoaderService,
-    private questionAnswerService: QuestionAnswerService
+    private questionAnswerService: QuestionAnswerService,
+    private title: Title
   ) { 
     this.adminMode = this.questionAnswerService.isAdmin;
   }
@@ -33,10 +35,19 @@ export class QuestionAnswerDetailComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       if(params) {
         this.searchParam = this.formatQuestion(params);
+        this.setTitle();
         this.questionAnswerService.questionAnswerDetailPageEvent.next(true);
         this.getQuestionAnswerByParams();
       }
     });
+  }
+
+  setTitle() {
+    this.questionAnswerService.setTitle(this.searchParam);
+  }
+
+  updateDescription(description) {
+    this.questionAnswerService.updateDescription(description)
   }
 
   getQuestionAnswerByParams() {
@@ -44,6 +55,7 @@ export class QuestionAnswerDetailComponent implements OnInit {
     this.questionAnswerService.getQuestionAnswerByParams(this.searchParam).subscribe(response=>{
       this.loaderService.display(false);
       this.questionAnswerItem = response;
+      this.updateDescription(this.questionAnswerItem.answer);
     })
   }
 

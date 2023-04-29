@@ -1,10 +1,17 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import * as questionAnswerList from '../../mockQuestionAnswerList.json';
 import {LoaderService} from './../../services/loader-service/loader.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataStateService, QUESTION_ANSWER_LIST, QUESTION_TYPE_LIST } from '../data-state-service/data-state.service';
+import { Meta } from "@angular/platform-browser";
+import { Title } from "@angular/platform-browser";
+import { DOCUMENT } from '@angular/common';
+
+function _window(): any {
+  return window;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -34,12 +41,20 @@ export class QuestionAnswerService {
   isTransferStateActive = false;
   isAdmin = false;
   questionAnswerDetailPageEvent = new Subject();
+  platformId: Object;
   constructor(
     private http:HttpClient,
     private loaderService:LoaderService,
     private dataStateService: DataStateService,
     private route: ActivatedRoute,
-    private router: Router) {
+    private router: Router,
+    @Inject(PLATFORM_ID) platformId: Object,
+    @Inject(DOCUMENT) private _doc: Document,
+    private title: Title,
+    private meta: Meta
+    
+    ) {
+      this.platformId = platformId;
    }
 
    /*---------------for login details-------------*/
@@ -206,5 +221,54 @@ export class QuestionAnswerService {
 
   setIsAdmin(isAdmin) {
     this.isAdmin = isAdmin;
+  }
+
+  getWindow(): Window | null {
+    return this._doc.defaultView;
+  }
+
+  setTitle(title) {
+    this.title.setTitle(title);
+    this.updateMetaTitle(title);
+    this.updateKeywordsUrl(title);
+  }
+
+  updateTag(tag, content) {
+    this.meta.updateTag({ 
+      name: tag,
+      content: content
+    });
+  }
+
+  updateProperty(property, content) {
+    let selector = this._doc.querySelector('meta[property="'+ property +'"');
+    if(selector && selector['content']) {
+      selector['content'] = content;
+    }
+  }
+
+  updateMetaTitle(title) {
+    this.updateTag('title', title);
+ //   this.updateProperty('og:title', title);
+  }
+
+  updateKeywordsUrl(title) {
+    this.updateKeywords(title);
+    if(this.platformId) {
+      this.updateUrl(this.getWindow().location.href);
+    }
+  }
+
+  updateDescription(description) {
+   this.updateTag('description', description);
+ //  this.updateProperty('og:description', description);
+  }
+
+  updateKeywords(keywords) {
+    this.updateTag('keywords', keywords);
+  }
+
+  updateUrl(url){
+    this.updateTag('url', url);
   }
 }
