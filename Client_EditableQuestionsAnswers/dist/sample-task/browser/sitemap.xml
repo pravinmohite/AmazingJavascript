@@ -4,8 +4,6 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
 
 <url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/</loc>
@@ -52,7 +50,7 @@
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/difference-between-'dependencies'-and-dev-dependencies'-properties-in-package.json</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/difference-between-'dependencies'-and</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -192,7 +190,7 @@
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/How can we overwrite any JavaScript inbuilt property (like array.push())</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-can-we-overwrite-any-javaScript-inbuilt-property-%28like array.push()%29</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -236,7 +234,7 @@
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/What is the use of  aria-hidden attribute</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-the-use-of-aria-hidden-attribute</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -292,12 +290,7 @@ function x() {return 3}</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/What will be output of following code
-
-doit();
-var doit = function (){
-alert('x');
-}</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/What-will-be-output-of-following-code</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -333,7 +326,7 @@ alert('x');
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/difference-between-authorization-and-authentication-.-explain-the-basic-difference-and-also-in-the-context-of-an-angular-application</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/difference-between-authorization-and-authentication</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -377,7 +370,7 @@ alert('x');
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-would-you-implement-a-multi-level-drop-down-in-your-angular-application</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-would-you-implement-a-multi-level-dropdown-in-your-angular-application</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -421,7 +414,7 @@ alert('x');
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/Use of tilde(~) and caret(^) sign in package.json</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/use-of-tilde%28~%29-and-caret%28^%29-sign-in-package.json</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -485,7 +478,7 @@ alert('x');
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/What is CSS box-sizing property</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-css-box</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -493,7 +486,7 @@ alert('x');
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/Can we use jQuery in Angular2/4/5</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/can-we-use-jquery-in-angular</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -505,11 +498,11 @@ alert('x');
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/What is ng-inx used for ?</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-nginx-used-for-?</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/Write a function reverseString(str) to reverse a string using recursive strategy</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/write-a-function-reverseString%28str%29-to-reverse-a-string-using-recursive-strategy</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -541,7 +534,7 @@ alert('x');
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/What are enumerable and non-enumerable properties of javascript object , would we be able to get enumerable properties by using for-of ,for-in loops or Object.keys() method.</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-enumerable-and-non-enumerable-properties-of-javascript-object</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -553,7 +546,7 @@ alert('x');
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/do-we-have-reverse()-method-on-javascript-string-?</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/do-we-have-reverse%28%29-method-on-javascript-string-?</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -565,12 +558,11 @@ alert('x');
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/How to right a function ‘Sum’ such that on calling sum(a)(b), where a and b are 2
-numbers , the output will be a+b.</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-write-a-function-‘Sum’-such-that-on-calling-sum</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/How to right a function ‘Sum’ such that on calling sum(a)(b)(c)....()  where a,b,c etc are numbers , the output will be a+b+c+....(function calls with parameters).</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-write-a-function-‘Sum’-such-that-on-calling-sum%28a%29%28b%29%28c%29....%28%29--where-a,b,c-etc-are-numbers-,-the-output-will-be-a+b+c+....%28function calls with parameters%29.</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -606,7 +598,7 @@ numbers , the output will be a+b.</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/if-there-is a package(or say library) that is not available through NPM , then how would you use it in your angular application ?</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/if-there-is-a-package%28or-say-library%29-that-is-not-available-through-NPM-,-then-how-would-you-use-it-in-your-angular-application-?</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
