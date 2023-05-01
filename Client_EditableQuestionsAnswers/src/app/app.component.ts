@@ -1,6 +1,6 @@
-import { Component, TemplateRef } from '@angular/core';
-import { DataService } from './services/data.service';
+import { Component, Inject, PLATFORM_ID, TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -11,11 +11,12 @@ export class AppComponent{
   sideBarOpen:boolean = false;
   modalRef?: BsModalRef;
   isSideBarUntouched:boolean = true;
-
+  platformId: Object;
 
   constructor(
-    private dataService:DataService,
-    private modalService: BsModalService) {
+    private modalService: BsModalService,
+    @Inject(PLATFORM_ID) platformId: Object) {
+      this.platformId = platformId;
   }
 
   ngOnInit() {
@@ -23,15 +24,13 @@ export class AppComponent{
   }
 
   createWebStorageDemo(): void{
-    console.log(sessionStorage['dev1']);
-    console.log(localStorage['dev2']);
-    if( !sessionStorage['dev1']){
-      sessionStorage['dev1'] = 'viresh';
-      console.log('dev1 set')
-    }
-    if(!localStorage['dev2']){
-      localStorage['dev2'] = 'Praveen';
-      console.log('dev2 set')
+    if(isPlatformBrowser(this.platformId)) {
+      if( !sessionStorage['dev1']){
+        sessionStorage['dev1'] = 'viresh';
+      }
+      if(!localStorage['dev2']){
+        localStorage['dev2'] = 'Praveen';
+      }
     }
   }
 

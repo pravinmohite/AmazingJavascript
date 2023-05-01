@@ -8,6 +8,7 @@ import { AddEditInterviewQuestionsComponent } from './angular-interview-question
 import { FormsModule } from '@angular/forms';
 import { AddEditQuestionTypesComponent } from './angular-interview-questions/add-edit-question-types/add-edit-question-types.component';
 import { AffiliateAdsComponent } from './angular-interview-questions/question-answer-panel/affiliate-ads/affiliate-ads.component';
+import { QuestionAnswerDetailComponent } from './angular-interview-questions/question-answer-detail/question-answer-detail.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { AffiliateAdsComponent } from './angular-interview-questions/question-an
     QuestionAnswerPanelComponent,
     AddEditInterviewQuestionsComponent,
     AddEditQuestionTypesComponent,
-    AffiliateAdsComponent
+    AffiliateAdsComponent,
+    QuestionAnswerDetailComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +27,8 @@ import { AffiliateAdsComponent } from './angular-interview-questions/question-an
   ],
   exports:[
     AngularInterviewQuestionsComponent,
-    QuestionAnswerPanelComponent
+    QuestionAnswerPanelComponent,
+    QuestionAnswerDetailComponent
   ]
 })
 export class InterviewQuestionsModule { }

@@ -18,6 +18,7 @@ export class HeaderComponent implements OnInit {
   faBars = faBars;
   searchVal = '';
   modalRef?: BsModalRef;
+  showQuestionTypeDropdown = true;
   @Output('sidebarStatus') sidebarStatus = new EventEmitter();
   @Output('openAboutUs') openAboutUs = new EventEmitter();
   constructor(
@@ -29,11 +30,26 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.getQuestionTypes();
+    this.getUrlSearchValue();
+    this.handleSubscriptions();
+  }
+
+  getUrlSearchValue() {
     this.questionAnswerService.getUrlSearchVal().subscribe((searchVal:string) => {
       this.searchVal = searchVal;
       if(searchVal && searchVal != ''){
         setTimeout(() => this.searchByQuestion(searchVal),1000);
       }
+    })
+  }
+
+  handleSubscriptions() {
+    this.handleQuestionAnswerDetailPageEvent();
+  }
+
+  handleQuestionAnswerDetailPageEvent() {
+    this.questionAnswerService.questionAnswerDetailPageEvent.subscribe(data=>{
+       this.showQuestionTypeDropdown = false;
     })
   }
 
@@ -44,7 +60,6 @@ export class HeaderComponent implements OnInit {
     this.questionAnswerService.getQuestionTypes().subscribe(response=>{
       this.questionTypes=response;
     });
-    console.log(this.questionTypes);
   }
   onOptionsSelected(value) {
     this.questionAnswerService.filterDataByQuestionType(value);

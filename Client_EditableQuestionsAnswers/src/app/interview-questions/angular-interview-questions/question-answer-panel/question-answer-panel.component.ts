@@ -27,13 +27,12 @@ export class QuestionAnswerPanelComponent implements OnInit {
   
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-      console.log(params.get('searchKey'));
       this.searchKey = params.get('searchKey');
       this.questionAnswerService.setUrlSearchVal(this.searchKey);
       this.searchKey ? this.showSearchTerm = true : null;     
     });
-
   }
+
   toggleShowHideAnswer(questionAnswerItem) {
     if(!questionAnswerItem.showAnswer) {
       questionAnswerItem.showAnswer=true;

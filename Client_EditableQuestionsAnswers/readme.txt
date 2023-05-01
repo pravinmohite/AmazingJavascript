@@ -5,6 +5,8 @@ mongodb:-"C:\Program Files\MongoDB\Server\3.4\bin\mongod.exe" --dbpath I:\Passio
 
 "C:\Program Files\MongoDB\Server\3.4\bin\mongod.exe" --dbpath I:\Passion_for_coding\data\db
 
+"C:\Program Files\MongoDB\Server\5.0\bin\mongod.exe" --dbpath I:\Passion_for_coding\data\db
+
 /api/loginDetails
 
     {
@@ -31,3 +33,11 @@ ec2 server command prompt:-
  Keep running your node application
   screen
   node app.js 
+
+  ->Steps to run On digital ocean 
+  -> run server
+     pm2 start/restart app.js
+
+  -> run universal Client
+
+      pm2 start/restart dist/sample-task/server/main.js

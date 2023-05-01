@@ -17,7 +17,7 @@
       <input name = "searchVal" #searchString [(ngModel)] = "searchVal" class="form-control mr-sm-2 col-md-8" type="text" (keydown)="checkEnterKeyPressed(searchString.value,$event)" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0 col-md-3 hand-cursor" (click)="searchByQuestion(searchString.value)">Search</button>
     </div>
-      <select class="col-md-2 col-11 ml-4 question-type" #mySelect (change)='onOptionsSelected(mySelect.value)'>
+      <select [ngClass]="{'invisible d-none d-md-block': !showQuestionTypeDropdown }" class="col-md-2 col-11 question-type" #mySelect (change)='onOptionsSelected(mySelect.value)'>
       <option value="All" title="Select question type...">Select question type...</option>
        <option *ngFor="let item of questionTypes" [value]="item.questionType">
          {{item.questionType}}

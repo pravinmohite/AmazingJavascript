@@ -1,9 +1,17 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import * as questionAnswerList from '../../mockQuestionAnswerList.json';
 import {LoaderService} from './../../services/loader-service/loader.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DataStateService, QUESTION_ANSWER_LIST, QUESTION_TYPE_LIST } from '../data-state-service/data-state.service';
+import { Meta } from "@angular/platform-browser";
+import { Title } from "@angular/platform-browser";
+import { DOCUMENT } from '@angular/common';
+
+function _window(): any {
+  return window;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +23,7 @@ export class QuestionAnswerService {
   questionTypeUrl:String="/api/questionType";
   questionAnswerUrl:String="/api/questionAnswer";
   loginDetailsUrl:String="/api/loginDetails";
+  questionAnswerByParamsUrl = "/api/questionAnswerByParams";
   isProd:boolean = true;
   prodUrl:String="https://frontendinterviewquestions.com";
   //prodUrl:String="https://64.227.118.130";
@@ -22,17 +31,30 @@ export class QuestionAnswerService {
   finalquestionTypeUrl:any=this.devDomain+this.questionTypeUrl;
   finalQuestionAnswerUrl:any=this.devDomain+this.questionAnswerUrl;
   finalloginDetailsUrl:any=this.devDomain+this.loginDetailsUrl;
+  finalQuestionAnswerByParamsUrl = this.devDomain + this.questionAnswerByParamsUrl;
   mockData=(questionAnswerList as any).default;
   questionAnswerData:any;
   private data=new BehaviorSubject(null);
   currentData=this.data.asObservable();
   confirmationText="Are you sure you want to delete";
   $urlSearchVal = new Subject();
+  isTransferStateActive = false;
+  isAdmin = false;
+  questionAnswerDetailPageEvent = new Subject();
+  platformId: Object;
   constructor(
     private http:HttpClient,
     private loaderService:LoaderService,
+    private dataStateService: DataStateService,
     private route: ActivatedRoute,
-    private router: Router) {
+    private router: Router,
+    @Inject(PLATFORM_ID) platformId: Object,
+    @Inject(DOCUMENT) private _doc: Document,
+    private title: Title,
+    private meta: Meta
+    
+    ) {
+      this.platformId = platformId;
    }
 
    /*---------------for login details-------------*/
@@ -63,7 +85,12 @@ export class QuestionAnswerService {
   /*---------------for question types----------*/
 
   getQuestionTypes() {
-    return this.http.get(this.finalquestionTypeUrl);
+    return this.dataStateService.checkAndGetData(
+      QUESTION_TYPE_LIST,
+      this.http.get(this.finalquestionTypeUrl),
+      [],
+      this.isTransferStateActive
+  );
   } 
 
   addQuestionType(data) {
@@ -77,14 +104,20 @@ export class QuestionAnswerService {
   updateQuestionType(data) {
     return this.http.patch(this.finalquestionTypeUrl+"/"+data._id,data)
   };
-  /*-------------for question answers----------*/
+
+  /*-------------start for question answer List----------*/
 
   getQuestionAnswerList() {
     this.loaderService.display(true);
-    this.http.get(this.finalQuestionAnswerUrl).subscribe(response=>{
+    return this.dataStateService.checkAndGetData(
+      QUESTION_ANSWER_LIST,
+      this.http.get(this.finalQuestionAnswerUrl),
+      [],
+      this.isTransferStateActive
+    ).subscribe(response=>{
       this.data.next(response);
       this.questionAnswerData=response;
-    })
+    });
   } 
 
   addQuestionAnswer(data) {
@@ -107,6 +140,34 @@ export class QuestionAnswerService {
       this.getQuestionAnswerList();
     })
   }
+
+   /*-------------end for question answer List----------*/
+
+    /*------------start for question answer by params ---*/
+
+    getQuestionAnswerByParams(question) {
+      return this.http.get(this.finalQuestionAnswerByParamsUrl+'/' + question);
+    }
+  
+    
+    addQuestionAnswerByParams(data) {
+      this.loaderService.display(true);
+      return this.http.post(this.finalQuestionAnswerByParamsUrl, data);
+    }
+  
+    deleteQuestionAnswerByParams(id) {
+      this.loaderService.display(true);
+      return this.http.delete(this.finalQuestionAnswerByParamsUrl+"/"+id);
+    }
+  
+    updateQuestionAnswerByParams(data) {
+      this.loaderService.display(true);
+      return this.http.patch(this.finalQuestionAnswerByParamsUrl+'/'+data._id,data);
+    }
+  
+    /*------------end for question answer by params ---*/
+
+    /*------------reusable functions----------------*/
 
   filterDataByQuestionType(type) {
     this.currentQuestionTypeSelected=type;
@@ -137,10 +198,10 @@ export class QuestionAnswerService {
  }
 
  filterDataBySearchString(value) {
-  let urlParam = this.route.snapshot.paramMap.get('searchKey');
-  if(urlParam !== value){
-    this.router.navigate(['/frontend-interview-questions', value], { relativeTo: this.route });
-  }
+  // let urlParam = this.route.snapshot.paramMap.get('searchKey');
+  // if(urlParam !== value){
+  //   this.router.navigate(['/frontend-interview-questions', value], { relativeTo: this.route });
+  // }
   this.currentSearchString = value;
   this.handleFilteringOfDataBySearchStringAndQuestionType();
  }
@@ -156,5 +217,58 @@ export class QuestionAnswerService {
   confirmAction() {
      let result=confirm(this.confirmationText);
      return result;
+  }
+
+  setIsAdmin(isAdmin) {
+    this.isAdmin = isAdmin;
+  }
+
+  getWindow(): Window | null {
+    return this._doc.defaultView;
+  }
+
+  setTitle(title) {
+    this.title.setTitle(title);
+    this.updateMetaTitle(title);
+    this.updateKeywordsUrl(title);
+  }
+
+  updateTag(tag, content) {
+    this.meta.updateTag({ 
+      name: tag,
+      content: content
+    });
+  }
+
+  updateProperty(property, content) {
+    let selector = this._doc.querySelector('meta[property="'+ property +'"');
+    if(selector && selector['content']) {
+      selector['content'] = content;
+    }
+  }
+
+  updateMetaTitle(title) {
+    this.updateTag('title', title);
+ //   this.updateProperty('og:title', title);
+  }
+
+  updateKeywordsUrl(title) {
+    this.updateKeywords(title);
+    if(this.platformId) {
+      this.updateUrl(this.getWindow().location.href);
+    }
+  }
+
+  updateDescription(description) {
+   this.updateTag('description', description);
+ //  this.updateProperty('og:description', description);
+  }
+
+  updateKeywords(keywords) {
+    this.updateTag('keywords', keywords);
+  }
+
+  updateUrl(url){
+    this.updateTag('url', url);
   }
 }

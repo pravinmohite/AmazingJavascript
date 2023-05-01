@@ -1,0 +1,73 @@
+<!-- <div class="question-answer-detailcontainer"> 
+    <div class="panel-item">
+      <div class="panel-header" role="img" aria-label="frontend interview questions">
+        <div class="row">
+          <div class="col-xl-10 col-md-9">
+            <span><h3 class="question-text" [innerHtml]="questionAnswerItem.question"></h3></span>
+          </div>
+          <div class="col-xl-2 col-md-3 action-btns">
+            <fa-icon *ngIf="adminMode" class="hand-cursor edit-icon" [icon]="faEdit" (click)="editQuestionAnswer(questionAnswerItem)"></fa-icon><fa-icon *ngIf="adminMode" class="hand-cursor delete-icon" [icon]="faTrash" (click)="deleteQuestionAnswer(questionAnswerItem._id)"></fa-icon><button class="showHideAnswer hand-cursor btn-show-hide" (click)="toggleShowHideAnswer(questionAnswerItem)">{{questionAnswerItem.buttonText?questionAnswerItem.buttonText:"Show"}}</button>
+          </div>
+        </div>
+      </div>
+      <div class="panel-body" [ngClass]="{'open': questionAnswerItem.showAnswer ==true}">
+        <div class="panel-body-content" [innerHtml]="questionAnswerItem.answer"></div>
+      </div>
+    </div> 
+    <div class="affiliate-ads-container">
+      <app-affiliate-ads [index]="i" [totalItems]="questionAnswerList.length"></app-affiliate-ads>
+    </div>
+  </div>   -->
+
+
+<div class="panel-container question-answer-detailcontainer"
+    *ngIf="questionAnswerItem && questionAnswerItem.question && !questionAnswerItem.invalidQuestion">
+    <div class="panel-item">
+        <div class="panel-header" role="img" aria-label="frontend interview questions">
+            <div class="row">
+                <div class="col-xl-10 col-md-9">
+                    <span>
+                        <h3 class="question-text" [innerHtml]="questionAnswerItem.question"></h3>
+                    </span>
+                </div>
+                <div class="col-xl-2 col-md-3 action-btns">
+                    <fa-icon *ngIf="adminMode" class="hand-cursor edit-icon" [icon]="faEdit"
+                        (click)="editQuestionAnswer(questionAnswerItem)">
+                    </fa-icon>
+                    <fa-icon *ngIf="adminMode" class="hand-cursor delete-icon" [icon]="faTrash"
+                        (click)="deleteQuestionAnswer(questionAnswerItem._id)">
+                    </fa-icon>
+                    <!-- <button class="showHideAnswer hand-cursor btn-show-hide" (click)="toggleShowHideAnswer(questionAnswerItem)">
+                {{questionAnswerItem.buttonText?questionAnswerItem.buttonText:"Show"}}
+            </button> -->
+                </div>
+            </div>
+        </div>
+        <div class="panel-body" [ngClass]="{'open': true}">
+            <div class="panel-body-content" [innerHtml]="questionAnswerItem.answer"></div>
+        </div>
+    </div>
+    <div class="affiliate-ads-container">
+        <app-affiliate-ads></app-affiliate-ads>
+    </div>
+</div>
+
+<div class="question-error-container" *ngIf="questionAnswerItem && questionAnswerItem.invalidQuestion">
+    <div class="error-content">
+        <div class="row">
+            <div class="col-2">
+                <fa-icon class="hand-cursor error-triangle-icon" [icon]="faExclamationTriangle">
+                </fa-icon>
+            </div>
+            <div class="col-10">
+                <div class="error-header">
+                    <span>Page not found</span>
+                </div>
+                <div class="error-inner-content">
+                    <span>We're sorry, we couldn't find the page you requested.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
