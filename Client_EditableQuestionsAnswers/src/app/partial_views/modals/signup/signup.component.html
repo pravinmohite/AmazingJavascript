@@ -3,25 +3,23 @@
     <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
       <span aria-hidden="true" class="visually-hidden">&times;</span>
     </button>
-  </div>
-  <div class="modal-body">
-  </div>
-  <div class="modal-footer">
-    <form [formGroup]="signupForm" (ngSubmit) = "handleFormSubmit(signupForm.value)">
-      <div class = "form-group">
-        <label class = "mr-3"> Name: </label>
-        <input type="text" formControlName="name">
-      </div>
-      <div class = "form-group">
-        <label class = "mr-3"> Email: </label>
-        <input type="text" formControlName="email">
-      </div>
-      <div class = "form-group">
-        <label class = "mr-3"> Password: </label>
-        <input type="text" formControlName="password">
-      </div>
-      <div class = "form-group">
-        <button type="submit" class="btn btn-primary" (click)="bsModalRef.hide()">sign up</button>
-      </div>
-    </form>
-  </div>
+</div>
+<div class="modal-body">
+  <form [formGroup]="signupForm" (ngSubmit) = "handleFormSubmit(signupForm.value)">
+    <div class = "form-group">
+      <label class = "mr-3"> Name: </label>
+      <input type="text" formControlName="name">
+    </div>
+    <div class = "form-group">
+      <label class = "mr-3"> Email: </label>
+      <input type="text" formControlName="email">
+    </div>
+    <div class = "form-group">
+      <label class = "mr-3"> Password: </label>
+      <input type="text" formControlName="password">
+    </div>
+    <div class = "form-group">
+      <button type="submit" class="btn btn-primary" (click)="bsModalRef.hide()">sign up</button>
+    </div>
+  </form>
+</div>
