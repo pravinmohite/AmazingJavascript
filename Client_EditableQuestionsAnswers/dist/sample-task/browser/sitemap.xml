@@ -138,7 +138,7 @@
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-‘Async’-and-‘await’-in-javascript</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-‘async’-and-‘await’-in-javascript</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -398,7 +398,7 @@ function x() {return 3}</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-new-feature-in-css3</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-new-features-in-css3</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -490,7 +490,7 @@ function x() {return 3}</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-0auth-in-context-of-jwt</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-oauth-in-context-of-jwt</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -554,7 +554,7 @@ function x() {return 3}</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/write-a-function-to-check-whether-a-string-is-a-palindrome-or-not-with-timecomplexity-of-the-code</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/write-a-function-to-check-whether-a-string-is-a-palindrome-or-not-with-time-complexity-of-the-code</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -694,7 +694,7 @@ function x() {return 3}</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-the-latest-Angular-version-and-what-are-the-new-features-added-in-it-.</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-the-latest-Angular-version-and-what-are-the-new-features-added-in-it</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -774,7 +774,7 @@ function x() {return 3}</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-the-difference-between-canload-and-canactivate-roue-gaurds-?</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-the-difference-between-canload-and-canactivate-route-guards-?</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -824,5 +824,17 @@ function x() {return 3}</loc>
 <url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/how-do-you-create-a-responsive-design-using-css3?</loc>
   <lastmod>2023-04-29T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/difference-between-display-none-and-visibility-hidden?</loc>
+  <lastmod>2023-05-01T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-does-semantic-html-mean?</loc>
+  <lastmod>2023-05-01T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-the-difference-between-a-tag-and-an-attribute?</loc>
+  <lastmod>2023-05-01T14:45:59+00:00</lastmod>
 </url>
 </urlset>
