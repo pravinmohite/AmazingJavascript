@@ -35,15 +35,14 @@ export class QuestionAnswerDetailComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       if(params) {
         this.searchParam = this.formatQuestion(params);
-        this.setTitle();
         this.questionAnswerService.questionAnswerDetailPageEvent.next(true);
         this.getQuestionAnswerByParams();
       }
     });
   }
 
-  setTitle() {
-    this.questionAnswerService.setTitle(this.searchParam);
+  setTitle(title) {
+    this.questionAnswerService.setTitle(title);
   }
 
   updateDescription(description) {
@@ -55,6 +54,7 @@ export class QuestionAnswerDetailComponent implements OnInit {
     this.questionAnswerService.getQuestionAnswerByParams(this.searchParam).subscribe(response=>{
       this.loaderService.display(false);
       this.questionAnswerItem = response;
+      this.setTitle(this.questionAnswerItem.question)
       this.updateDescription(this.questionAnswerItem.answer);
     })
   }
