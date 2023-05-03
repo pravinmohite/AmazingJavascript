@@ -126,7 +126,7 @@
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/What-are-the-properties-inside-@ngModule-decorator</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-the-properties-inside-@ngModule-decorator</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -286,7 +286,7 @@
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/What-will-be-output-of-following-code</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-will-be-output-of-following-code</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -430,7 +430,7 @@
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/How-to-create-a-custom-decorator-in-Angular</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-create-a-custom-decorator-in-Angular</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -594,7 +594,7 @@
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/What-is-auth0-or-0auth-in-context-of-jwt-?</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-auth0-or-0auth-in-context-of-jwt-?</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -602,7 +602,7 @@
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/Difference-between-‘.’-and-‘[]’-notation-of-defining-an-object-in-javascript</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/difference-between-‘.’-and-‘[]’-notation-of-defining-an-object-in-javascript</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -750,7 +750,7 @@
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/What's-the-difference-between-observable-and-Subject-?</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what's-the-difference-between-observable-and-Subject-?</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -770,7 +770,7 @@
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/What-is-the-meaning-of-1.-div-~-p</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-the-meaning-of-1.-div-~-p</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -838,4 +838,18 @@
   <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-create-a-half-circle-using-css</loc>
   <lastmod>2023-05-02T14:45:59+00:00</lastmod>
 </url>
+
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-the-void-elements-in-html?</loc>
+  <lastmod>2023-05-03T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-the-various-formatting-tags-in-html?</loc>
+  <lastmod>2023-05-03T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/in-how-many-ways-you-can-display-html-elements?</loc>
+  <lastmod>2023-05-03T14:45:59+00:00</lastmod>
+</url>
+
 </urlset>
