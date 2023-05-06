@@ -159,6 +159,11 @@ body {
       margin: auto;
       margin-top: 24px;
       margin-bottom:30px;
+      .code-snippet {
+        background-color: $code-snippet-backgroundcolor;
+        display: flex;
+        padding-bottom: 20px;
+      }
       .page-heading {
         margin-bottom: 24px;
         font-size: 1.8em;
