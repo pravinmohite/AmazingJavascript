@@ -838,7 +838,6 @@
   <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-create-a-half-circle-using-css</loc>
   <lastmod>2023-05-02T14:45:59+00:00</lastmod>
 </url>
-
 <url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-the-void-elements-in-html?</loc>
   <lastmod>2023-05-03T14:45:59+00:00</lastmod>
@@ -859,5 +858,44 @@
   <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-the-different-types-of-selectors-in-css?</loc>
   <lastmod>2023-05-04T14:45:59+00:00</lastmod>
 </url>
-
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-rxjs</loc>
+  <lastmod>2023-05-08T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-rxjs-key-features</loc>
+  <lastmod>2023-05-08T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-do-you-handle-errors-in-rxjs-observables?</loc>
+  <lastmod>2023-05-08T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-do-you-implement-backpressure-in-rxjs?</loc>
+  <lastmod>2023-05-08T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-the-purpose-of-operators-in-rxjs,-and-can-you-give-an-example-of-a-common-operator?</loc>
+  <lastmod>2023-05-08T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-do-you-use-the-retry%28%29-operator-in-rxjs,-and-what-is-its-purpose?</loc>
+  <lastmod>2023-05-08T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/can-you-explain-what-is-the-purpose-of-using-schedulers-in-rxjs,-and-give-an-example-of-a-common-scheduler?</loc>
+  <lastmod>2023-05-08T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-the-difference-between-a-pipeable-operator-and-a-patch-operator-in-rxjs?</loc>
+  <lastmod>2023-05-08T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/in-how-many-ways-can-we-add-css-to-our-html-file?</loc>
+  <lastmod>2023-05-08T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-create-a-carousel-using-css</loc>
+  <lastmod>2023-05-08T14:45:59+00:00</lastmod>
+</url>
 </urlset>

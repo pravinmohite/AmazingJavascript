@@ -161,8 +161,10 @@ body {
       margin-bottom:30px;
       .code-snippet {
         background-color: $code-snippet-backgroundcolor;
+        color: $code-snippet-color;
         display: flex;
         padding-bottom: 20px;
+        padding-left: 10px;
       }
       .page-heading {
         margin-bottom: 24px;
