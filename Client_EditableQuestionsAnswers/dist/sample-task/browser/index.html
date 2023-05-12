@@ -2696,7 +2696,42 @@ Tags can also be pushed to remote repositories using the git push command, with 
 In summary, tagging in Git is a way to mark specific commits in a repository as important milestones or versions, and provides a convenient way to reference a particular version of the code.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"><app-affiliate-ads _ngcontent-sc65="" _nghost-sc62=""><!----><!----><!----><!----></app-affiliate-ads></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">162. <h3 _ngcontent-sc65="" class="question-text">what is a WebSocket ?</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content"> A websocket is basically a connection between the client and the server in a way that server can send data to the client whenever it wants without waiting for the client to make a http request.
 A request to a WebSocket connection is sent to the server from a client (or multiple clients) through a process called the WebSocket handshake, which starts with the client sending a regular HTTP request to the server. Part of this request includes an Upgrade header, which indicates to the server that the the client is trying to make a WebSocket connection. This request is called a WebSocket handshake
 </div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"><app-affiliate-ads _ngcontent-sc65="" _nghost-sc62=""><!----><!----><!----><!----></app-affiliate-ads></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">163. <h3 _ngcontent-sc65="" class="question-text">How to make multiple http calls in parallel in Angular ?</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">This can be achieved by using forkjoin . To get into details please visit the link <a href="https://medium.com/@swarnakishore/performing-multiple-http-requests-in-angular-4-5-with-forkjoin-74f3ac166d61" target="_blank">Forkjoin</a>
-</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"><app-affiliate-ads _ngcontent-sc65="" _nghost-sc62=""><!----><!----><!----><!----></app-affiliate-ads></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">164. <h3 _ngcontent-sc65="" class="question-text">What is a module in typescript ? </h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">In TypeScript, a module is a file containing values, functions or classes. You can make some of them public, i.e. visible from other modules, by exporting them.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"><app-affiliate-ads _ngcontent-sc65="" _nghost-sc62=""><!----><!----><!----><!----></app-affiliate-ads></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">165. <h3 _ngcontent-sc65="" class="question-text">How to use a service only for a specific component instead of the whole module ?</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">This can be achieved by putting the service name in the providers array of component's decorator instead of putting the service name in providers array of module's decorator , also don't provide the property :- provided in : root in the service's decorator . 
+</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"><app-affiliate-ads _ngcontent-sc65="" _nghost-sc62=""><!----><!----><!----><!----></app-affiliate-ads></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">164. <h3 _ngcontent-sc65="" class="question-text">What is a module in TypeScript, and how can you use it?</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">In TypeScript, a <b>module</b> is a way to organize code into reusable, self-contained units of code that can be imported and exported between different parts of an application. Modules can contain classes, functions, interfaces, and other code, and can be either internal to a project or external libraries.
+
+To use a module in TypeScript, you need to define it using the `export` keyword, which makes its members available to other parts of the application. You can then import the module using the `import` keyword, which allows you to use its members in your code.
+
+Here is an example of how to define and use a module in TypeScript:
+
+<div class="code-snippet">
+<code>
+// myModule.ts
+export function myFunction() {
+  // code here
+}
+
+export class MyClass {
+  // code here
+}
+</code>
+</div>
+In this example, we define a module called `myModule` that exports a function called `myFunction` and a class called `MyClass`. The `export` keyword makes these members available outside of the module.
+
+To use the members of the `myModule` module in another file, you can import them using the `import` keyword:
+
+<div class="code-snippet">
+<code>
+// main.ts
+import { myFunction, MyClass } from "./myModule";
+
+myFunction();
+const myInstance = new MyClass();
+</code>
+</div>
+In this example, we import the `myFunction` function and `MyClass` class from the `myModule` module using destructuring. We can then call the `myFunction` function and create an instance of the `MyClass` class, both using the imported names.
+
+There are different ways to import and export modules in TypeScript, such as importing all members using the `* as` syntax, importing default exports, or using aliases for imported members. It is important to understand the different syntaxes and their implications, depending on the size and complexity of the project.
+
+Using modules can help you write more modular and maintainable code in TypeScript, by isolating functionality and reducing naming conflicts. However, it is important to use them judiciously and not to create too many small modules, which can increase the complexity of the codebase.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"><app-affiliate-ads _ngcontent-sc65="" _nghost-sc62=""><!----><!----><!----><!----></app-affiliate-ads></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">165. <h3 _ngcontent-sc65="" class="question-text">How to use a service only for a specific component instead of the whole module ?</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">This can be achieved by putting the service name in the providers array of component's decorator instead of putting the service name in providers array of module's decorator , also don't provide the property :- provided in : root in the service's decorator . 
 
 </div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"><app-affiliate-ads _ngcontent-sc65="" _nghost-sc62=""><!----><!----><!----><!----></app-affiliate-ads></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">166. <h3 _ngcontent-sc65="" class="question-text">How to optimize angular application using onpush change detection strategy</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">Please find the video example <a href="https://www.youtube.com/watch?v=np6e7McMVCM">here</a><a></a></div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"><app-affiliate-ads _ngcontent-sc65="" _nghost-sc62=""><!----><!----><!----><!----></app-affiliate-ads></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">167. <h3 _ngcontent-sc65="" class="question-text">What are javascript iterators</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">The iterator protocol defines how to produce a sequence of values from an object.
 
@@ -3619,7 +3654,182 @@ let numberBox: Box = { value: 42 };
 let stringBox: Box = { value: "hello" };
 </code>
 </div>
-In this example, `numberBox` has the type `Box` and `stringBox` has the type `Box`.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"><app-affiliate-ads _ngcontent-sc65="" _nghost-sc62=""><!----><!----><!----><div _ngcontent-sc62=""><iframe _ngcontent-sc62="" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-in.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&amp;OneJS=1&amp;Operation=GetAdHtml&amp;MarketPlace=IN&amp;source=ac&amp;ref=tf_til&amp;ad_type=product_link&amp;tracking_id=frontend02-21&amp;marketplace=amazon&amp;region=IN&amp;placement=B071Z8M4KX&amp;asins=B071Z8M4KX&amp;linkId=bfcf87ed285ecddbf769819762713bf3&amp;show_border=true&amp;link_opens_in_new_window=true&amp;price_color=333333&amp;title_color=0066c0&amp;bg_color=ffffff" style="width: 120px; height: 240px;"></iframe><iframe _ngcontent-sc62="" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-in.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&amp;OneJS=1&amp;Operation=GetAdHtml&amp;MarketPlace=IN&amp;source=ac&amp;ref=tf_til&amp;ad_type=product_link&amp;tracking_id=frontend02-21&amp;marketplace=amazon&amp;region=IN&amp;placement=B072X7K4K4&amp;asins=B072X7K4K4&amp;linkId=19af7322756a5d9b77fb2926acaf8767&amp;show_border=true&amp;link_opens_in_new_window=true&amp;price_color=333333&amp;title_color=0066c0&amp;bg_color=ffffff" style="width: 120px; height: 240px;"></iframe></div><!----></app-affiliate-ads></div></div><!----></article><!----><!----></app-question-answer-panel></app-angular-interview-questions><!----><!----></div></app-root>
+In this example, `numberBox` has the type `Box` and `stringBox` has the type `Box`.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"><app-affiliate-ads _ngcontent-sc65="" _nghost-sc62=""><!----><!----><!----><!----></app-affiliate-ads></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">230. <h3 _ngcontent-sc65="" class="question-text">What is the difference between vh, px and percent?</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">1vh is equal to 1% of the viewport's height, with the viewport being the browser window. 1px is one physical pixel on the device's screen. Percent is the relative size compared to its parent element. For example, a div with 50% width inside another div will take up half of the outer div's width. 
+
+Vh and percent are both relative units, so they scale based on some factor of the device it is viewed on. Pixels are absolute, so a 100x100 pixel image will be larger on a low resolution screen, but very small on a screen with high pixel density.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"><app-affiliate-ads _ngcontent-sc65="" _nghost-sc62=""><!----><!----><!----><!----></app-affiliate-ads></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">231. <h3 _ngcontent-sc65="" class="question-text">What is the difference between rem and em?</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content"><b>rem</b>
+rem units are relational to the font-size value of the HTML tag. For example, if the font size of the HTML tag is 16px (that is the default size for an html document), then 1rem unit is equal to 16px. That makes .5rem=8px, 2rem=32px, etc.
+
+<b>em</b>
+em units are similar to rem units, but whereas a rem unit always references the HTML tag, an em unit is relational only to it's nearest defined parent element. For example, if the div wrapper for a callout is set to font-size:20px, then any child element set to 1em would be the equivalent of 20px, .5em=10px, 2em=40px, etc.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"><app-affiliate-ads _ngcontent-sc65="" _nghost-sc62=""><!----><!----><!----><!----></app-affiliate-ads></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">232. <h3 _ngcontent-sc65="" class="question-text">What is a namespace in TypeScript, and how can you use it?</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">In TypeScript, a <b>namespace</b> is a way to group related code together and prevent naming conflicts. It is similar to a module in that it can contain functions, classes, and other code, but it is primarily used for organizing code that doesn't need to be exported.
+
+To use a namespace in TypeScript, you can define it using the `namespace` keyword, followed by the namespace name and a block of code containing the definitions of its members. For example:
+
+<div class="code-snippet">
+<code>
+namespace MyNamespace {
+  export function myFunction() {
+    // code here
+  }
+
+  export class MyClass {
+    // code here
+  }
+}
+</code>
+</div>
+In this example, we define a namespace called `MyNamespace` that contains a function called `myFunction` and a class called `MyClass`. We also use the `export` keyword to make these members accessible outside of the namespace.
+
+To use the members of a namespace, you can reference them using the namespace name followed by a dot notation. For example:
+
+<div class="code-snippet">
+<code>
+MyNamespace.myFunction();
+const myInstance = new MyNamespace.MyClass();
+</code>
+</div>
+In this example, we call the `myFunction` function and create an instance of the `MyClass` class, both using the `MyNamespace` prefix.
+
+Using <b>namespaces</b> can help organize your code and prevent naming conflicts, especially when working on large projects with multiple developers. However, it is important to use them judiciously and not create too many layers of nesting, which can make the code harder to read and maintain.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"><app-affiliate-ads _ngcontent-sc65="" _nghost-sc62=""><!----><!----><!----><!----></app-affiliate-ads></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">233. <h3 _ngcontent-sc65="" class="question-text">How can you use decorators in TypeScript?</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">In TypeScript, <b>decorators</b> provide a way to add metadata or behavior to classes, methods, properties, and other declarations at design time. Decorators are applied using the `@` symbol followed by the decorator function name, which can be defined separately.
+
+To use a decorator in TypeScript, you can apply it to a declaration by placing it immediately before the declaration, with no space in between. For example, to apply a decorator called `myDecorator` to a class, you would write:
+
+<div class="code-snippet">
+<code>
+@myDecorator
+class MyClass {
+  // class definition here
+}
+</code>
+</div>
+You can also pass arguments to decorators by enclosing them in parentheses after the decorator name. For example:
+
+<div class="code-snippet">
+<code>
+@myDecorator("argument1", "argument2")
+class MyClass {
+  // class definition here
+}
+</code>
+</div>
+To define a decorator function in TypeScript, you need to follow a specific signature. A decorator function takes one, two or three arguments depending on where it's applied:
+
+- If the decorator is applied to a class, the decorator function takes one argument, which is the constructor function of the class.
+- If the decorator is applied to a method, property, or parameter, the decorator function takes three arguments: the target object (the prototype of the class for instance members), the member name, and a property descriptor.
+- If the decorator is applied to an accessor (getter or setter), the decorator function takes four arguments: the target object, the member name, the accessor descriptor, and an optional descriptor for the associated property.
+
+Here is an example of a decorator function that applies a timestamp to a class:
+
+<div class="code-snippet">
+<code>
+function timestamp(target: Function) {
+  target.prototype.timestamp = new Date();
+}
+</code>
+</div>
+In this example, the `timestamp` function takes one argument, which is the constructor function of the class. The function adds a `timestamp` property to the class prototype and sets it to the current date.
+
+You can then apply the `timestamp` decorator to a class, and the `timestamp` property will be added to the class:
+
+<div class="code-snippet">
+<code>@timestamp
+class MyClass {
+  // class definition here
+}
+
+const myInstance = new MyClass();
+console.log(myInstance.timestamp); // logs the current date
+</code>
+</div>
+Using decorators can help you write more expressive and modular code in TypeScript, and enable advanced features such as dependency injection and aspect-oriented programming. However, it's important to use decorators judiciously and not to abuse them, as they can make code harder to read and maintain if overused.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"><app-affiliate-ads _ngcontent-sc65="" _nghost-sc62=""><!----><!----><!----><!----></app-affiliate-ads></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">234. <h3 _ngcontent-sc65="" class="question-text">How can you use the "public", "private", and "protected" modifiers in TypeScript?</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">In TypeScript, you can use the <b>`public`, `private`,</b> and <b>`protected`</b> modifiers to control the visibility and accessibility of class members (properties and methods). These modifiers determine whether a member can be accessed from outside the class, or only from within the class or its subclasses.
+
+<b>- public:</b> A `public` member can be accessed from anywhere, both within and outside the class. This is the default modifier for class members in TypeScript, so you don't need to specify it explicitly.
+
+<div class="code-snippet">
+<code>
+class MyClass {
+  public myPublicProperty: string;
+  public myPublicMethod() {
+    // code here
+  }
+}
+
+const myInstance = new MyClass();
+myInstance.myPublicProperty = "value";
+myInstance.myPublicMethod();
+</code>
+</div>
+In this example, the `myPublicProperty` and `myPublicMethod` members are both `public`, so they can be accessed and modified from outside the class.
+
+<b>- private:</b> A `private` member can only be accessed from within the class. It cannot be accessed from outside the class or its subclasses.
+
+<div class="code-snippet">
+<code>
+class MyClass {
+  private myPrivateProperty: string;
+  private myPrivateMethod() {
+    // code here
+  }
+}
+
+const myInstance = new MyClass();
+myInstance.myPrivateProperty = "value"; // ERROR: private property cannot be accessed from outside the class
+myInstance.myPrivateMethod(); // ERROR: private method cannot be accessed from outside the class
+</code>
+</div>
+In this example, the `myPrivateProperty` and `myPrivateMethod` members are both `private`, so they cannot be accessed from outside the class.
+
+<b>- protected:</b> A `protected` member can be accessed from within the class or its subclasses. It cannot be accessed from outside the class or its subclasses.
+
+<div class="code-snippet">
+<code>
+class MyBaseClass {
+  protected myProtectedProperty: string;
+  protected myProtectedMethod() {
+    // code here
+  }
+}
+
+class MySubClass extends MyBaseClass {
+  myMethod() {
+    this.myProtectedProperty = "value"; // OK: can access protected property from subclass
+    this.myProtectedMethod(); // OK: can access protected method from subclass
+  }
+}
+
+const myInstance = new MySubClass();
+myInstance.myProtectedProperty = "value"; // ERROR: protected property cannot be accessed from outside the class hierarchy
+myInstance.myProtectedMethod(); // ERROR: protected method cannot be accessed from outside the class hierarchy
+</code>
+</div>
+In this example, the `myProtectedProperty` and `myProtectedMethod` members are both `protected`, so they can be accessed from within the `MySubClass` subclass, but not from outside the class hierarchy.
+
+Using the `public`, `private`, and `protected` modifiers can help you encapsulate and control access to class members in TypeScript, making your code more modular and maintainable.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"><app-affiliate-ads _ngcontent-sc65="" _nghost-sc62=""><!----><!----><!----><!----></app-affiliate-ads></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">235. <h3 _ngcontent-sc65="" class="question-text">What is a type assertion in TypeScript, and how can you use it?</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">In TypeScript, a <b>type assertion</b> is a way to tell the compiler the type of a value, even if the compiler cannot infer it automatically. This can be useful in situations where you know the type of a value, but the compiler does not, such as when working with external libraries or APIs that return values of unknown types.
+
+Type assertions are expressed using the `as` keyword, followed by the desired type. There are two forms of type assertions in TypeScript: "angle-bracket" syntax and "as" syntax.
+
+<b>- Angle-bracket syntax: </b>
+
+<div class="code-snippet">
+<code>
+let myValue: any = "Hello, TypeScript!";
+let myLength: number = (myValue).length;
+</code>
+</div>
+In this example, we use angle-bracket syntax to tell the compiler that `myValue` is a string, so we can access its `length` property. The `myLength` variable is assigned the length of the string.
+
+<b>- "as" syntax: </b>
+
+<div class="code-snippet">
+<code>
+let myValue: any = "Hello, TypeScript!";
+let myLength: number = (myValue as string).length;
+</code>
+</div>
+In this example, we use "as" syntax to tell the compiler that `myValue` is a string, so we can access its `length` property. The `myLength` variable is assigned the length of the string.
+
+Both forms of type assertions work in a similar way, but the "as" syntax is preferred in TypeScript, as it is more consistent with other language constructs and is easier to read.
+
+<b>Type assertions</b> should be used with caution, as they can override the compiler's type checks and lead to runtime errors if used incorrectly. It is generally better to use type annotations and let the compiler infer types wherever possible, to ensure type safety and maintainability of the codebase. However, type assertions can be a useful tool in some situations, such as when working with third-party libraries or legacy code.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"><app-affiliate-ads _ngcontent-sc65="" _nghost-sc62=""><!----><!----><!----><div _ngcontent-sc62=""><iframe _ngcontent-sc62="" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-in.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&amp;OneJS=1&amp;Operation=GetAdHtml&amp;MarketPlace=IN&amp;source=ac&amp;ref=tf_til&amp;ad_type=product_link&amp;tracking_id=frontend02-21&amp;marketplace=amazon&amp;region=IN&amp;placement=B071Z8M4KX&amp;asins=B071Z8M4KX&amp;linkId=bfcf87ed285ecddbf769819762713bf3&amp;show_border=true&amp;link_opens_in_new_window=true&amp;price_color=333333&amp;title_color=0066c0&amp;bg_color=ffffff" style="width: 120px; height: 240px;"></iframe><iframe _ngcontent-sc62="" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-in.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&amp;OneJS=1&amp;Operation=GetAdHtml&amp;MarketPlace=IN&amp;source=ac&amp;ref=tf_til&amp;ad_type=product_link&amp;tracking_id=frontend02-21&amp;marketplace=amazon&amp;region=IN&amp;placement=B072X7K4K4&amp;asins=B072X7K4K4&amp;linkId=19af7322756a5d9b77fb2926acaf8767&amp;show_border=true&amp;link_opens_in_new_window=true&amp;price_color=333333&amp;title_color=0066c0&amp;bg_color=ffffff" style="width: 120px; height: 240px;"></iframe></div><!----></app-affiliate-ads></div></div><!----></article><!----><!----></app-question-answer-panel></app-angular-interview-questions><!----><!----></div></app-root>
 <script src="runtime.8128c03fbe58262c.js" type="module"></script><script src="polyfills.01c6a84ce69b6f6d.js" type="module"></script><script src="main.50293336ab899547.js" type="module"></script>
 
 
