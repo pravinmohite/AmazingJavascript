@@ -11,6 +11,7 @@ import { LoaderComponent } from './partial_views/loader/loader.component';
 import { SidebarComponent } from './partial_views/sidebar/sidebar.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { SignupComponent } from './partial_views/modals/signup/signup.component';
+import { UserLoginComponent } from './partial_views/modals/user-login/user-login.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SignupComponent } from './partial_views/modals/signup/signup.component'
     HeaderComponent,
     LoaderComponent,
     SidebarComponent,
-    SignupComponent
+    SignupComponent,
+    UserLoginComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

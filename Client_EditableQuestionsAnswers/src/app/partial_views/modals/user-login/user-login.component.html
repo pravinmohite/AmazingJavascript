@@ -1,0 +1,23 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">Log in</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="loginForm" (ngSubmit) = "handleFormSubmit(loginForm.value)">
+    <div class = "form-group">
+      <label class = "mr-3"> Email: </label>
+      <input type="text" formControlName="email">
+      <div class = "text-danger" *ngIf="loginForm.controls.email.touched && loginForm.controls.email.errors !== null">Enter a Valid email</div>
+    </div>
+    <div class = "form-group">
+      <label class = "mr-3"> Password: </label>
+      <input type="text" formControlName="password">
+      <div class = "text-danger" *ngIf="loginForm.controls.password.touched && loginForm.controls.password.errors !== null">Enter a Valid password</div>
+    </div>
+    <div class = "form-group">
+      <button type="submit" class="btn btn-primary" (click)="bsModalRef.hide()">Log in</button>
+    </div>
+  </form>
+</div>

@@ -5,6 +5,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { SignupComponent } from '../modals/signup/signup.component';
+import { UserLoginComponent } from '../modals/user-login/user-login.component';
 
 @Component({
   selector: 'app-header',
@@ -78,5 +79,9 @@ export class HeaderComponent implements OnInit {
 
   openSignUpModal() {
     this.modalRef = this.modalService.show(SignupComponent);
+  }
+
+  openUserLoginModal(){
+    this.modalRef = this.modalService.show(UserLoginComponent);
   }
 }
