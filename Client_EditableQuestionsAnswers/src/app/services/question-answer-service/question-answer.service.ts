@@ -22,16 +22,20 @@ export class QuestionAnswerService {
   currentSearchString:String;
   questionTypeUrl:String="/api/questionType";
   questionAnswerUrl:String="/api/questionAnswer";
+  questionAnswerByTypeUrl = "/api/questionAnswerByType"
   loginDetailsUrl:String="/api/loginDetails";
   questionAnswerByParamsUrl = "/api/questionAnswerByParams";
-  isProd:boolean = true;
+  relatedQuestionAnswerUrl = "/api/relatedQuestionAnswer";
+  isProd:boolean = false;
   prodUrl:String="https://frontendinterviewquestions.com";
   //prodUrl:String="https://64.227.118.130";
   devDomain:any= this.isProd?this.prodUrl:"http://localhost:3000";
   finalquestionTypeUrl:any=this.devDomain+this.questionTypeUrl;
   finalQuestionAnswerUrl:any=this.devDomain+this.questionAnswerUrl;
+  finalQuestionAnswerByTypeUrl = this.devDomain + this.questionAnswerByTypeUrl;
   finalloginDetailsUrl:any=this.devDomain+this.loginDetailsUrl;
   finalQuestionAnswerByParamsUrl = this.devDomain + this.questionAnswerByParamsUrl;
+  finalRelatedQuestionAnswerUrl = this.devDomain + this.relatedQuestionAnswerUrl;
   mockData=(questionAnswerList as any).default;
   questionAnswerData:any;
   private data=new BehaviorSubject(null);
@@ -42,6 +46,7 @@ export class QuestionAnswerService {
   isAdmin = false;
   questionAnswerDetailPageEvent = new Subject();
   platformId: Object;
+  relatedQuestionAnswerCount = 3;
   constructor(
     private http:HttpClient,
     private loaderService:LoaderService,
@@ -115,8 +120,8 @@ export class QuestionAnswerService {
       [],
       this.isTransferStateActive
     ).subscribe(response=>{
-      this.data.next(response);
       this.questionAnswerData=response;
+      this.data.next(response);
     });
   } 
 
@@ -166,6 +171,33 @@ export class QuestionAnswerService {
     }
   
     /*------------end for question answer by params ---*/
+
+    /*------------start for related question answer data ---*/
+    getRelatedQuestionAnswer() {
+      return this.http.get(this.finalRelatedQuestionAnswerUrl+'/'+ this.relatedQuestionAnswerCount);
+    } 
+
+    /*------------end for related question answer data ---*/
+
+    /*------------start get question answer by type ----*/
+    getQuestionAnswerByType(type) {
+      return this.http.get(this.finalQuestionAnswerByTypeUrl+'/'+ type).subscribe(response=>{
+        this.questionAnswerData=response;
+        this.data.next(response);
+      });
+    } 
+
+    /*------------end get question answer by type ---*/
+
+    /*------------start get question answer by experience and type ----*/
+    getQuestionAnswerByExperienceAndType(experience, type?) {
+      return this.http.get(this.finalQuestionAnswerByTypeUrl+'/'+ experience + '/' + type).subscribe(response=>{
+        this.questionAnswerData=response;
+        this.data.next(response);
+      });
+    } 
+
+    /*------------end get question answer by experience and type ---*/
 
     /*------------reusable functions----------------*/
 
@@ -270,5 +302,47 @@ export class QuestionAnswerService {
 
   updateUrl(url){
     this.updateTag('url', url);
+  }
+
+  formatQuestionUrl(question: string) {
+    let result='';
+    question = question.toLowerCase();
+    for(let i=0;i< question.length ; i++ ){
+       switch(question[i]) {
+         case '(': 
+             result += '%28';
+             break;
+         case ')':
+             result += '%29';
+             break;
+         case ' ':
+             result += '-';    
+             break;  
+         case ':':
+             return result;
+         case '{':
+             return result;            
+          default:
+            result += question[i];
+            break;   
+       }
+    }
+    //  let result='';
+    //  question = question.toLowerCase();
+    //  if(this.checkIfPresent(question, '(')) {
+    //    question = question.replace('(', '%28');
+    //  }
+    //  if(this.checkIfPresent(question, ')')) {
+    //    question = question.replace(')', '%29');
+    //  }
+    //  let splitBySpace = question.split(" ");
+    //  result = splitBySpace.join("-");
+     return result;
+  }
+
+  checkIfPresent(str ,item) {
+    if(str.indexOf(item)> -1) {
+       return true;
+    }
   }
 }

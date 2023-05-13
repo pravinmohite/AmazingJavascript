@@ -168,6 +168,59 @@ router.patch('/questionAnswer/:id', (req, res, next) => {
 
 /*----end crud for question answer list-----------------*/
 
+/*----start get question answer by type --------------*/
+
+router.get('/questionAnswerByType/:type', (req, res, next) => {
+    QuestionAnswer.find((err, questionAnswerList) => {
+        let result = questionAnswerList.filter((item)=>{
+           if(item.questionType.toLowerCase() === req.params.type.toLocaleLowerCase()) {
+               return item;
+           }
+        })
+        if (!result || result.length == 0) {
+            let item = {
+                invalidQuestion: true
+            }
+            res.json(item);
+        }
+        else {
+            res.json(result);
+        }
+    })
+})
+
+
+/*----end get question answer by type ----------------*/
+
+/*----start get question answer by experience/rank --------------*/
+
+router.get('/questionAnswerByExperience/:experience/:type?', (req, res, next) => {
+    QuestionAnswer.find((err, questionAnswerList) => {
+        let result = questionAnswerList.filter((item)=>{
+           let difference = Math.abs(item.rank - req.params.experience);
+           if(req.params.type) {
+            if((difference == 1 || item.rank == req.params.experience)  && item.questionType.toLowerCase() === req.params.type.toLocaleLowerCase()) {
+                return item;
+            }
+           } 
+           else if(difference == 1 || item.rank == req.params.experience) {
+              return item;
+           }
+        })
+        if (!result || result.length == 0) {
+            let item = {
+                invalidQuestion: true
+            }
+            res.json(item);
+        }
+        else {
+            res.json(result);
+        }
+    })
+})
+
+
+/*----end get question answer by type ----------------*/
 
 /*----crud for question answer by params-----------------*/
 
@@ -241,6 +294,29 @@ router.patch('/questionAnswerByParams/:id', (req, res, next) => {
 });
 
 /*----end crud for question answer list-----------------*/
+
+/*----get related(random) question answer -----*/
+
+router.get('/relatedQuestionAnswer/:count', (req, res, next) => {
+
+    QuestionAnswer.find((err, questionAnswerList) => {
+        const array = questionAnswerList;
+        const n = req.params.count ? req.params.count : 5; // number of elements we want to get
+        const shuffledArray = array.sort(() => 0.5 - Math.random()); // shuffles array
+        const randomItems = shuffledArray.slice(0, n); // gets first n elements after shuffle
+        if (!randomItems || randomItems.length == 0) {
+            let item = {
+                noRelatedQuestionFound: true
+            }
+            res.json(item);
+        }
+        else {
+            res.json(randomItems);
+        }
+    })
+})
+
+/*----end get related(random) question answer ---*/
 
 //update question answer
 

@@ -26,11 +26,22 @@ export class QuestionAnswerPanelComponent implements OnInit {
     private router: Router) { }
   
   ngOnInit(): void {
+    this.handleRouteParamChangeSubscription();
+    this.handleRouteDataSubscription();
+  }
+
+  handleRouteParamChangeSubscription() {
     this.route.paramMap.subscribe(params => {
       this.searchKey = params.get('searchKey');
       this.questionAnswerService.setUrlSearchVal(this.searchKey);
       this.searchKey ? this.showSearchTerm = true : null;     
     });
+  }
+
+  handleRouteDataSubscription() {
+    this.route.data.subscribe(response=>{
+       this.questionAnswerService.setTitle(response.title);
+    })
   }
 
   toggleShowHideAnswer(questionAnswerItem) {

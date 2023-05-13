@@ -1,0 +1,13 @@
+@import "./../../../../assets/scss/variables.scss";
+
+.related-question-item {
+    margin-bottom: 12px;
+    .question-link {
+        color: $question-link-color;
+
+        &:hover {
+          text-decoration: none !important;
+          background: $question-link-hoverbackground !important;
+        }
+      }
+}

@@ -49,3 +49,7 @@
     </div>
 
 </div>
+
+<div class="related-questionanswer-template" *ngIf="questionAnswerItem && questionAnswerItem.question && !questionAnswerItem.invalidQuestion">
+    <app-related-interview-questions></app-related-interview-questions>
+</div>    

@@ -18,6 +18,8 @@ export class HeaderComponent implements OnInit {
   showQuestionTypeDropdown = true;
   @Output('sidebarStatus') sidebarStatus = new EventEmitter();
   @Output('openAboutUs') openAboutUs = new EventEmitter();
+  hideQuestionTypeDropdown = false;
+  hideSearchInput = false;
   constructor(
     private questionAnswerService:QuestionAnswerService,
     private route: ActivatedRoute,
@@ -45,7 +47,12 @@ export class HeaderComponent implements OnInit {
 
   handleQuestionAnswerDetailPageEvent() {
     this.questionAnswerService.questionAnswerDetailPageEvent.subscribe(data=>{
-       this.showQuestionTypeDropdown = false;
+       if(data && data['hideDropDown'] ){
+         this.hideQuestionTypeDropdown = true;
+       } else {
+        this.hideSearchInput = true;
+        this.hideQuestionTypeDropdown = true;
+       }
     })
   }
 

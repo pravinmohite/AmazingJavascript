@@ -1,0 +1,22 @@
+<!-- related list {{relatedQuestionAnswerList | json}} -->
+
+<div class="panel-container related-questionanswer-container">
+    <div class="panel-item">
+        <div class="panel-header" role="img" aria-label="frontend interview questions">
+            Related questions
+        </div>
+        <div class="panel-body open">
+            <div class="panel-body-content">
+                <div class="related-questions-container">
+                    <div *ngFor="let item of relatedQuestionAnswerList;let i = index"
+                        class="related-question-item"> 
+                        <a [routerLink] = "['/interview-questions/', item.questionUrl]" class="question-link">
+                            {{item.question}}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
