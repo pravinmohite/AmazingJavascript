@@ -35,7 +35,10 @@ export class QuestionAnswerDetailComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       if(params) {
         this.searchParam = this.formatQuestion(params);
-        this.questionAnswerService.questionAnswerDetailPageEvent.next(true);
+        this.questionAnswerService.questionAnswerDetailPageEvent.next({
+          hideQuestionTypeDropdown: true,
+          hideSearchInput: true
+        });
         this.getQuestionAnswerByParams();
       }
     });

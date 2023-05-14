@@ -47,11 +47,12 @@ export class HeaderComponent implements OnInit {
 
   handleQuestionAnswerDetailPageEvent() {
     this.questionAnswerService.questionAnswerDetailPageEvent.subscribe(data=>{
-       if(data && data['hideDropDown'] ){
-         this.hideQuestionTypeDropdown = true;
+       if(data){
+         this.hideQuestionTypeDropdown = data['hideQuestionTypeDropdown'];
+         this.hideSearchInput = data['hideSearchInput']
        } else {
-        this.hideSearchInput = true;
-        this.hideQuestionTypeDropdown = true;
+        this.hideSearchInput = false;
+        this.hideQuestionTypeDropdown = false;
        }
     })
   }

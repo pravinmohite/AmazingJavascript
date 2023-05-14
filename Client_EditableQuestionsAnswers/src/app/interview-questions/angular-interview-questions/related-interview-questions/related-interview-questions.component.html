@@ -8,12 +8,32 @@
         <div class="panel-body open">
             <div class="panel-body-content">
                 <div class="related-questions-container">
-                    <div *ngFor="let item of relatedQuestionAnswerList;let i = index"
+                    <article *ngFor="let item of relatedQuestionAnswerList;let i = index"
                         class="related-question-item"> 
                         <a [routerLink] = "['/interview-questions/', item.questionUrl]" class="question-link">
                             {{item.question}}
                         </a>
-                    </div>
+                    </article>
+                    <article class="related-question-item">
+                      <a [routerLink]= "['/interview-questions/', freshersInterviewQuestionsObj.path]" class="question-link">
+                        {{freshersInterviewQuestionsObj.title}}
+                      </a>
+                    </article>
+                    <article class="related-question-item">
+                        <a [routerLink]= "['/interview-questions/', threeYearsExperienceInterviewQuestionsObj.path]" class="question-link">
+                            {{threeYearsExperienceInterviewQuestionsObj.title}}
+                        </a>
+                      </article>
+                      <article class="related-question-item">
+                        <a [routerLink]= "['/interview-questions/', fiveYearsExperienceInterviewQuestionsObj.path]" class="question-link">
+                            {{fiveYearsExperienceInterviewQuestionsObj.title}}
+                        </a>
+                      </article>
+                      <article class="related-question-item">
+                        <a [routerLink]= "['/interview-questions/', topAngularInterviewQuestions.data.path, {data:topAngularInterviewQuestions.data}]" class="question-link">
+                            {{topAngularInterviewQuestions.data.title}}
+                        </a>
+                      </article>
                 </div>
             </div>
         </div>

@@ -23,16 +23,18 @@ export class QuestionAnswerService {
   questionTypeUrl:String="/api/questionType";
   questionAnswerUrl:String="/api/questionAnswer";
   questionAnswerByTypeUrl = "/api/questionAnswerByType"
+  questionAnswerByExperienceAndTypeUrl = "/api/questionAnswerByExperience";
   loginDetailsUrl:String="/api/loginDetails";
   questionAnswerByParamsUrl = "/api/questionAnswerByParams";
   relatedQuestionAnswerUrl = "/api/relatedQuestionAnswer";
-  isProd:boolean = true;
+  isProd:boolean = false;
   prodUrl:String="https://frontendinterviewquestions.com";
   //prodUrl:String="https://64.227.118.130";
   devDomain:any= this.isProd?this.prodUrl:"http://localhost:3000";
   finalquestionTypeUrl:any=this.devDomain+this.questionTypeUrl;
   finalQuestionAnswerUrl:any=this.devDomain+this.questionAnswerUrl;
   finalQuestionAnswerByTypeUrl = this.devDomain + this.questionAnswerByTypeUrl;
+  finalQuestionAnswerByExperienceAndTypeUrl = this.devDomain + this.questionAnswerByExperienceAndTypeUrl;
   finalloginDetailsUrl:any=this.devDomain+this.loginDetailsUrl;
   finalQuestionAnswerByParamsUrl = this.devDomain + this.questionAnswerByParamsUrl;
   finalRelatedQuestionAnswerUrl = this.devDomain + this.relatedQuestionAnswerUrl;
@@ -191,7 +193,7 @@ export class QuestionAnswerService {
 
     /*------------start get question answer by experience and type ----*/
     getQuestionAnswerByExperienceAndType(experience, type?) {
-      return this.http.get(this.finalQuestionAnswerByTypeUrl+'/'+ experience + '/' + type).subscribe(response=>{
+      return this.http.get(this.finalQuestionAnswerByExperienceAndTypeUrl+'/'+ experience + '/' + type).subscribe(response=>{
         this.questionAnswerData=response;
         this.data.next(response);
       });

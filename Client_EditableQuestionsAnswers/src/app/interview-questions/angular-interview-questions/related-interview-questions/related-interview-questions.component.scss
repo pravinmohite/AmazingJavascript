@@ -9,5 +9,11 @@
           text-decoration: none !important;
           background: $question-link-hoverbackground !important;
         }
+
+        &::before {
+          content:"• ";
+          font-size: 15px;
+          color: $questions-theme-color;
+        }
       }
 }

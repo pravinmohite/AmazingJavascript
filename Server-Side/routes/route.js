@@ -198,7 +198,7 @@ router.get('/questionAnswerByExperience/:experience/:type?', (req, res, next) =>
     QuestionAnswer.find((err, questionAnswerList) => {
         let result = questionAnswerList.filter((item)=>{
            let difference = Math.abs(item.rank - req.params.experience);
-           if(req.params.type) {
+           if(req.params.type != 'undefined' && req.params.type != null) {
             if((difference == 1 || item.rank == req.params.experience)  && item.questionType.toLowerCase() === req.params.type.toLocaleLowerCase()) {
                 return item;
             }

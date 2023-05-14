@@ -11,6 +11,7 @@ import {LoaderService} from './../../services/loader-service/loader.service';
 export class AngularInterviewQuestionsComponent implements OnInit {
   questionAnswerList:any;
   questionTypeFromUrl: any;
+  experienceFromUrl: any;
   constructor(
     private route: ActivatedRoute,
     private questionAnswerService:QuestionAnswerService,
@@ -28,14 +29,20 @@ export class AngularInterviewQuestionsComponent implements OnInit {
       this.loaderService.display(false);
    })
    this.checkRouteParamsDataAndGetQuestionAnswer();
-  //   this.questionAnswerService.getQuestionAnswerList();
   }
 
   checkRouteParamsDataAndGetQuestionAnswer() {
-     if(this.questionTypeFromUrl) {
+     if(this.experienceFromUrl || this.experienceFromUrl == 0) {
+      this.questionAnswerService.getQuestionAnswerByExperienceAndType(this.experienceFromUrl);
+      this.questionAnswerService.questionAnswerDetailPageEvent.next({
+        hideQuestionTypeDropdown: false,
+        hideSearchInput: false
+     });
+     } else if(this.questionTypeFromUrl) {
        this.questionAnswerService.getQuestionAnswerByType(this.questionTypeFromUrl);
        this.questionAnswerService.questionAnswerDetailPageEvent.next({
-          hideDropDown: true
+          hideQuestionTypeDropdown: true,
+          hideSearchInput: false
        });
      } else {
        this.questionAnswerService.getQuestionAnswerList();
@@ -43,7 +50,8 @@ export class AngularInterviewQuestionsComponent implements OnInit {
   }
 
   handleRouteDataSubscription() {
-    this.route.data.subscribe(response=>{
+    this.route.data.subscribe(response=> {
+       this.experienceFromUrl = response.experience;
        this.questionTypeFromUrl = response.type;
     })
   }

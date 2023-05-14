@@ -44,6 +44,33 @@ const routes: Routes = [
     }
   },
   {
+    path: UIConstants.topFresherFrontendInterviewQuestions.path, 
+    component: AngularInterviewQuestionsComponent,
+    data: {
+      title: UIConstants.topFresherFrontendInterviewQuestions.title,
+      experience: UIConstants.topFresherFrontendInterviewQuestions.experience,
+      type: UIConstants.topFresherFrontendInterviewQuestions.type
+    }
+  },
+  {
+    path: UIConstants.topThreeYearsExperienceFrontendInterviewQuestions.path, 
+    component: AngularInterviewQuestionsComponent,
+    data: {
+      title: UIConstants.topThreeYearsExperienceFrontendInterviewQuestions.title,
+      experience: UIConstants.topThreeYearsExperienceFrontendInterviewQuestions.experience,
+      type: UIConstants.topThreeYearsExperienceFrontendInterviewQuestions.type
+    }
+  },
+  {
+    path: UIConstants.topFiveYearsExperienceFrontendInterviewQuestions.path, 
+    component: AngularInterviewQuestionsComponent,
+    data: {
+      title: UIConstants.topFiveYearsExperienceFrontendInterviewQuestions.title,
+      experience: UIConstants.topFiveYearsExperienceFrontendInterviewQuestions.experience,
+      type: UIConstants.topFiveYearsExperienceFrontendInterviewQuestions.type
+    }
+  },
+  {
     path:':question', component: QuestionAnswerDetailComponent
   },
   {
