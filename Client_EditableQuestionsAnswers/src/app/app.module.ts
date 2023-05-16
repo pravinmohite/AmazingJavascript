@@ -10,13 +10,16 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoaderComponent } from './partial_views/loader/loader.component';
 import { SidebarComponent } from './partial_views/sidebar/sidebar.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { FooterComponent } from './partial_views/footer/footer.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     LoaderComponent,
-    SidebarComponent
+    SidebarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
