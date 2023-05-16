@@ -56,7 +56,7 @@ export class QuestionAnswerService {
     private route: ActivatedRoute,
     private router: Router,
     @Inject(PLATFORM_ID) platformId: Object,
-    @Inject(DOCUMENT) private _doc: Document,
+    @Inject(DOCUMENT) public _doc: Document,
     private title: Title,
     private meta: Meta
     

@@ -8,17 +8,25 @@ import { QuestionAnswerService } from '../services/question-answer-service/quest
 })
 export class PrivacyPolicyComponent implements OnInit {
 
+  pageHeaderClass = '.page-header';
   constructor(private questionAnswerService: QuestionAnswerService) { }
 
   ngOnInit(): void {
     this.hideNavbarItemsForPrivacyPolicy();
   }
 
+  ngAfterViewInit() {
+    if (this.questionAnswerService.platformId) {
+      const element = this.questionAnswerService.getWindow().document.querySelector(this.pageHeaderClass);
+      element.scrollIntoView();
+    }
+  }
+
   hideNavbarItemsForPrivacyPolicy() {
     this.questionAnswerService.questionAnswerDetailPageEvent.next({
       hideQuestionTypeDropdown: true,
       hideSearchInput: true
-   });
+    });
   }
-  
+
 }
