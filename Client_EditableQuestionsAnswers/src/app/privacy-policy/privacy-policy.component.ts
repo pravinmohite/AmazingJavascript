@@ -18,7 +18,9 @@ export class PrivacyPolicyComponent implements OnInit {
   ngAfterViewInit() {
     if (this.questionAnswerService.platformId) {
       const element = this.questionAnswerService.getWindow().document.querySelector(this.pageHeaderClass);
-      element.scrollIntoView();
+      if(element) {
+        element.scrollIntoView();
+      }
     }
   }
 

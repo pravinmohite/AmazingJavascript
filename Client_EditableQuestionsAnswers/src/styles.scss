@@ -250,7 +250,7 @@ body {
           overflow: hidden;
           &.open {
             border-top: solid 1px gainsboro;
-            max-height:2000px;
+            max-height: max-content !important;
           }
           .panel-body-content {
              padding:10px;
@@ -380,9 +380,12 @@ body {
   }
   
   td, th {
-    border: 1px solid #dddddd;
+    border: 1px solid $answer-tableitem-bordercolor;
     text-align: left;
     padding: 8px;
+  }
+  th {
+    box-shadow: 2px 2px $answer-th-boxshadowcolor;
   }
   .modal {
     position: fixed;

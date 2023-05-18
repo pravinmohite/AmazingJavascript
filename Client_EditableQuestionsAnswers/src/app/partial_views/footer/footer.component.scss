@@ -1,113 +1,162 @@
 @import '../../../assets/scss/variables.scss';
 
 .footer {
-  position: relative;
-  width: 100%;
-  float: left;
-  margin: 50px 0px 0px 0;
-  padding-top: 10px;
-  overflow: hidden;
+    position: relative;
+    width: 100%;
+    float: left;
+    margin: 50px 0px 0px 0;
+    padding-top: 10px;
+    overflow: hidden;
 
-  @media screen and (max-width: 768px){
-    margin-top: 20px !important;
-  }
+    @media screen and (max-width: 768px) {
+        margin-top: 20px !important;
+    }
 
-  .contact-us-part {
-    background: $contact-us-footer;
-    border-top: solid 1px $contact-us-border;
-    font-family: sans-serif;
+    .contact-us-part {
+        background: $contact-us-footer;
+        border-top: solid 1px $contact-us-border;
+        font-family: sans-serif;
 
-    .call-us-text {
-      padding-top: 15px;
+        .call-us-text {
+            padding-top: 15px;
 
-      @media screen and (max-width: 768px){
+            @media screen and (max-width: 768px) {
+                text-align: center;
+            }
+        }
+
+        .contact-email-container {
+            .contact-item {
+                margin-bottom: 0px;
+                padding-bottom: 15px !important;
+
+                .contact-us-icon {
+                    color: $contactus-linkicon-color  !important;
+                    display: inline-block;
+                    height: 2rem;
+                    width: 2rem;
+                    background-color: $contactus-icon-backgroundcolor;
+                    color: $contactus-icon-color  !important;
+                    border-radius: 100%;
+                    text-align: center;
+                    font-size: 1rem;
+                    line-height: 2rem;
+                    margin-right: 1rem;
+                    transition: all ease .5s;
+                }
+            }
+
+            .phone-contact {
+                padding-top: 20px;
+
+                .contact-us-icon {
+                    animation-name: ring;
+                    animation-duration: 1.5s;
+                    animation-iteration-count: infinite;
+                    animation-timing-function: linear;
+                }
+            }
+        }
+
+        a {
+            color: $contactus-linkicon-color  !important;
+        }
+
+        .email-contact {
+            margin-bottom: 0px;
+            padding-bottom: 5px;
+        }
+
+    }
+
+    .footer-info {
+        background-image: url('./../../../assets/images/background-img.png');
+        color: $contact-us-footercolor;
+        padding: 10px;
+        border-top: solid 1px $contact-us-border;
+    }
+
+    .copyright-info {
         text-align: center;
-     }
-    }
-  
-    .contact-email-container {
-      .contact-item {
-        margin-bottom:0px;
-        padding-bottom: 15px !important;
 
-        .contact-us-icon {
-          color: $contactus-linkicon-color !important;
-          display: inline-block;
-          height: 2rem;
-          width: 2rem;
-          background-color: $contactus-icon-backgroundcolor;
-          color: $contactus-icon-color !important;
-          border-radius: 100%;
-          text-align: center;
-          font-size: 1rem;
-          line-height: 2rem;
-          margin-right: 1rem;
-          transition: all ease .5s;
+        .copyright-links-container {
+
+            @media screen and (max-width: 768px) {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+
+            .copy-right-container {
+                text-align: right;
+
+                @media screen and (max-width: 768px) {
+                    text-align: center !important;
+                    margin: 10px 0px;
+                }
+            }
+
+            .links-container {
+                text-align: left;
+
+                @media screen and (max-width: 768px) {
+                    text-align: center !important;
+                }
+
+                .privacy-policy-link {
+                    margin-left: 15px;
+                }
+            }
         }
-      }
+    }
 
-      .phone-contact {
-         padding-top: 20px;
-        .contact-us-icon {
-          animation-name: ring;
-          animation-duration: 1.5s;
-          animation-iteration-count: infinite;
-          animation-timing-function: linear;
+    .ringing {
+        animation-name: ring;
+        animation-duration: 1.5s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+
+    @keyframes ring {
+
+        from {
+            transform: rotate3d(0, 0, 1, 0deg);
         }
-      }
-    }
-  
-    a {
-      color: $contactus-linkicon-color !important;
+
+        20%,
+        32%,
+        44%,
+        56%,
+        68% {
+            transform: rotate3d(0, 0, 1, 0deg);
+        }
+
+        23%,
+        35%,
+        47%,
+        59%,
+        71% {
+            transform: rotate3d(0, 0, 1, 15deg);
+        }
+
+        26%,
+        38%,
+        50%,
+        62%,
+        74% {
+            transform: rotate3d(0, 0, 1, 0deg);
+        }
+
+        29%,
+        41%,
+        53%,
+        65%,
+        77% {
+            transform: rotate3d(0, 0, 1, -15deg);
+        }
+
+        80% {
+            transform: rotate3d(0, 0, 1, 0deg);
+        }
     }
 
-    .email-contact {
-      margin-bottom: 0px;
-      padding-bottom: 5px;
-    }
-  
-  }
-
-  .footer-info {
-    background-image: url('./../../../assets/images/background-img.png');
-    color: $contact-us-footercolor;
-    padding: 10px;
-    border-top: solid 1px $contact-us-border;
-  }
-
-  .copyright-info {
-    text-align: center;
-  }
-
-  .ringing {
-    animation-name: ring;
-    animation-duration: 1.5s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-  }
-  @keyframes ring {
-
-    from {
-        transform:rotate3d(0, 0, 1, 0deg);
-    }
-    20%, 32%, 44%, 56%, 68% {
-        transform: rotate3d(0, 0, 1, 0deg);
-    }
-    23%, 35%, 47%, 59%, 71% {
-        transform: rotate3d(0,0,1,15deg);
-    }
-    26%, 38%, 50%, 62%, 74% {
-        transform: rotate3d(0,0,1,0deg);
-    }
-    29%, 41%, 53%, 65%, 77% {
-        transform: rotate3d(0,0,1,-15deg);
-    }
-    80% {
-        transform:rotate3d(0, 0, 1, 0deg);
-    }
-  }
-
-  .privacy-policy-link {
-    margin-left: 15px;
-  }
 }
