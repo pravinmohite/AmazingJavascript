@@ -1,0 +1,23 @@
+.privacy-policy-container {
+
+    .panel-header {
+        h1 {
+            margin-bottom: 0px !important;
+        }
+    }
+
+    h1,
+    h2 {
+        font-size: 23px;
+        margin-bottom: 15px !important;
+        word-wrap: break-word;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .panel-body {
+        max-height: max-content !important;
+    }
+}

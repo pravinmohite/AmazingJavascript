@@ -21,7 +21,14 @@ let routes: Routes = [
     path: "privacy-policy", 
     loadChildren: () => import('./privacy-policy/privacy-policy.module').then(m => m.PrivacyPolicyModule)
   },
-
+  {
+    path: "disclaimer", 
+    loadChildren: () => import('./disclaimer/disclaimer.module').then(m => m.DisclaimerModule)
+  },
+  {
+    path: "contact-us", 
+    loadChildren: () => import('./contact-us/contact-us.module').then(m => m.ContactUsModule)
+  },
   // {
   //   path: "interview-questions/searchKey/:searchKey", 
   //   loadChildren: () => import('./interview-questions/interview-questions.module').then(m => m.InterviewQuestionsModule)

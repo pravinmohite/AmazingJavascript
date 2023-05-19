@@ -1,14 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { faPhoneSquare, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { QuestionAnswerService } from '../services/question-answer-service/question-answer.service';
 
 @Component({
-  selector: 'app-privacy-policy',
-  templateUrl: './privacy-policy.component.html',
-  styleUrls: ['./privacy-policy.component.scss']
+  selector: 'app-contact-us',
+  templateUrl: './contact-us.component.html',
+  styleUrls: ['./contact-us.component.scss']
 })
-export class PrivacyPolicyComponent implements OnInit {
+export class ContactUsComponent implements OnInit {
+  faPhoneSquare= faPhoneSquare;
+  faEnvelope = faEnvelope;
   pageHeaderClass = '.page-header';
-
+  
   constructor(private questionAnswerService: QuestionAnswerService) { }
 
   ngOnInit(): void {
