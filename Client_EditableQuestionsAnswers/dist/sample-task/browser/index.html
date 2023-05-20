@@ -1213,38 +1213,51 @@ To ensure the correct behavior, the app must import <code>@angular/compiler</cod
 </td>
     </tr>
     </tbody>
-</table></div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">30. <h3 _ngcontent-sc65="" class="question-text">Explain promises in JavaScript</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content"><b>A promise is an object that may produce a single value some time in the future: either a resolved value, or a reason that it’s not resolved (e.g., a network error occurred). A promise may be in one of 3 possible states: fulfilled, rejected, or pending. Promise users can attach callbacks to handle the fulfilled value or the reason for rejection.
-Promises are eager, meaning that a promise will start doing whatever task you give it as soon as the promise constructor is invoked.
+</table></div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">30. <h3 _ngcontent-sc65="" class="question-text">Explain promises in JavaScript</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">In JavaScript, <b>promises</b> are a programming construct that helps manage asynchronous operations. They provide a way to handle the outcome of an asynchronous task, whether it succeeds or fails, and allow for more structured and readable code compared to using callbacks directly.
 
-Example code:-</b>
+A promise represents a future value or result of an asynchronous operation. It is an object that can be in one of three states:
 
-const testPromise=()=&gt;{
-  return new Promise((resolve,reject)=&gt;{
-   setTimeout(()=&gt;{
-    resolve(true);
-	},2000);
+<b>1. Pending: </b>The initial state when a promise is created, indicating that the asynchronous operation is still in progress.
+<b>2. Fulfilled:</b> The state when the asynchronous operation completes successfully, and the promise is resolved with a value.
+<b>3. Rejected:</b> The state when the asynchronous operation encounters an error or fails, and the promise is rejected with a reason or an error object.
+
+Promises have two main components:
+
+<b>1. Producer:</b> The code that initiates the asynchronous operation and returns a promise.
+<b>2. Consumer:</b> The code that consumes the promise and handles the eventual fulfillment or rejection.
+
+Here's an example that demonstrates the basic usage of promises:
+
+<div class="code-snippet">
+<code>
+// Producer code - Simulating an asynchronous operation
+function fetchData() {
+  return new Promise((resolve, reject) =&gt; {
+    setTimeout(() =&gt; {
+      const data = { message: "Data fetched successfully" };
+      resolve(data); // Promise is resolved with the data
+      // reject(new Error("Failed to fetch data")); // Uncomment to simulate a rejection
+    }, 2000);
   });
 }
 
-const fetchUserPromise=()=&gt;{
-  return new Promise((resolve,reject)=&gt;{
-    resolve(true);
+// Consumer code - Using the promise
+fetchData()
+  .then((data) =&gt; {
+    console.log(data.message);
+  })
+  .catch((error) =&gt; {
+    console.error(error);
   });
-}
+</code>
+</div>
+In this example, the `fetchData` function simulates an asynchronous operation using `setTimeout`. It returns a new promise that wraps the operation and passes in two callback functions, `resolve` and `reject`. Inside the callback, either `resolve` or `reject` is called based on the outcome of the operation.
 
-//calling testPromise and then on the basis of result calling fetchUserPromises and you can see that readability is better than callbacks.
+The consumer code uses the promise returned by `fetchData`. It chains a `.then()` method, which is called when the promise is resolved, and a `.catch()` method, which is called when the promise is rejected. If the promise is resolved, the `data` object is logged to the console. If the promise is rejected, the error is logged to the console.
 
-testPromise()
-.then(auth=&gt;{
-  if(auth)
-   return fetchUserPromise()
-})
-.then(result=&gt;{
-  if(result)
-   console.log('Promise better:fetch user after authentication')
-})
+<b>Promises</b> offer several advantages over traditional callback-based approaches, such as mitigating callback hell and providing a more structured and readable code flow. Promises can also be chained using multiple `.then()` calls to perform sequential or parallel asynchronous operations. Additionally, promises allow for error handling using `.catch()` or by chaining multiple `.then()` calls and handling errors within them.
 
-for more understanding of Promises please watch this YouTube tutorial : <a href="https://www.youtube.com/watch?v=DHvZLI7Db8E" target="_blank">JavaScript Promises In 10 Minutes</a></div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">31. <h3 _ngcontent-sc65="" class="question-text">What do u understand by the terms mutable and immutable in JavaScript</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">In JavaScript, mutable and immutable refer to the state of an object or value, and whether or not that state can be changed.
+In modern JavaScript, promises have been further enhanced with the introduction of `async/await` syntax, which provides a more synchronous-style code structure while still utilizing promises behind the scenes.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">31. <h3 _ngcontent-sc65="" class="question-text">What do u understand by the terms mutable and immutable in JavaScript</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">In JavaScript, mutable and immutable refer to the state of an object or value, and whether or not that state can be changed.
 
 An object or value is considered <b>mutable</b> if its internal state can be changed after it has been created. This means that the value can be updated or modified in-place, and any references to that value will reflect the updated state. Examples of mutable types in JavaScript include objects and arrays.
 
@@ -1277,77 +1290,123 @@ Next, we declare an immutable object immutableString, which is a string. Strings
 
 Notice that when we modify the mutable object mutableArray, the changes are reflected in the original array. However, when we "modify" the immutable object immutableString, we actually create a new string with the desired changes, and assign it to immutableString. The original string remains unchanged.
 
-This illustrates the key difference between mutable and immutable objects in JavaScript: mutable objects can be modified in-place, while immutable objects cannot be modified in-place and instead require the creation of a new object with the desired changes.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">32. <h3 _ngcontent-sc65="" class="question-text">What is ‘Async’ and ‘await’ in JavaScript</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content"><b>Async</b>
+This illustrates the key difference between mutable and immutable objects in JavaScript: mutable objects can be modified in-place, while immutable objects cannot be modified in-place and instead require the creation of a new object with the desired changes.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">32. <h3 _ngcontent-sc65="" class="question-text">What is ‘Async’ and ‘await’ in JavaScript</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">In JavaScript, `async` and `await` are keywords that work together to simplify asynchronous programming and provide a more synchronous-style code structure while still utilizing promises.
 
-The word “async” before a function means one simple thing: a function always returns a promise. Other values are wrapped in a resolved promise automatically.
+<b>1. `async`:</b> The `async` keyword is used to declare an asynchronous function. It can be placed before a function declaration, function expression, or method definition. When a function is marked as `async`, it always returns a promise, allowing the use of `await` within it.
 
-<b>Code e.g</b>
+Here's an example of an `async` function declaration:
 
-  1. async function test() {
-	let promise=new Promise((resolve,reject)=&gt;{ 
-	   setTimeout(()=&gt;{
-		 resolve('test result')
-	   },4000)
-	})
-       return promise
+<div class="code-snippet">
+<code>   
+async function fetchData() {
+     // Asynchronous operations
    }
-   console.log(test());
-   //output - [object Promise] { ... }
+</code>
+</div>
+And an `async` function expression:
 
-  2. async function giveMessage(){
-        return "hello guys"
-    }
-    console.log(giveMessage());
-    //output - [object Promise] { ... }
+ <div class="code-snippet">
+ <code>
+   const fetchData = async function() {
+     // Asynchronous operations
+   };
+</code>
+</div>
+<b>2. `await`:</b> The `await` keyword is used inside an `async` function to pause the execution and wait for a promise to be resolved or rejected. It can only be used within an `async` function.
 
-So , we can see that in above example 1 we are explicitly creating a promise and returning it whereas in example 2 we are just returning a string "hello guys" but in both cases the output is a promise because a function with async prefix will always return data in form of promise. 
+The `await` keyword is followed by a promise. If the promise is resolved, the value it resolves with is returned. If the promise is rejected, an error is thrown, which can be caught using `try/catch` blocks.
 
-<b>Await</b>
-The keyword await makes JavaScript wait until that promise resolves or rejects  and then returns the resolved or rejected value
+ Here's an example of using `await` to wait for a promise to resolve:
 
-<b>code e.g.</b>
+<div class="code-snippet">
+<code>
+   async function fetchData() {
+     const data = await fetch('https://api.example.com/data');
+     console.log(data); // Access the resolved value
+   }
+  </code>
+</div>
+In this example, the `fetchData` function pauses at the `await` expression until the `fetch` function's promise resolves with the fetched data. The resolved value is then stored in the `data` variable.
 
-1.  async function giveMessage(){
-    let promise = new Promise((resolve,reject) =&gt; {
-       resolve("hello people")
-    })
-    let result = promise
-    console.log(result)   //output - [object Promise] { ... }
-    return promise
- }
- giveMessage2();
+It's important to note that the use of `await` can only be done within an `async` function, so the calling function or code block must also be marked as `async` if it wants to use `await`.
 
-2.  async function giveMessage2(){
-    let promise = new Promise((resolve,reject) =&gt; {
-       resolve("hello people")
-    })
-    let result = await promise
-    console.log(result)      //output - 'hello people'
-    return promise
- }
- giveMessage2();
+<b> `async/await`</b> provides a more sequential and readable way of handling asynchronous operations compared to using callbacks or chaining promises with `.then()`. It eliminates the need for excessive nesting or complex chaining and allows for more structured error handling using `try/catch` blocks.
 
-so , we can see that in example the the value of 'result' is a promise object , whereas in example 2 as we have used await keyword therefore the variable 'result' gets the resolved value of promise i.e. 'hello people'
- </div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">33. <h3 _ngcontent-sc65="" class="question-text">What are the features of React?</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">Major features of React are listed below:
+It's worth mentioning that `async/await` is built on top of promises, so it's still important to understand promises and how they work in JavaScript.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">33. <h3 _ngcontent-sc65="" class="question-text">What are the features of React?</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content"><b>React</b> is a popular JavaScript library used for building user interfaces, particularly for single-page applications. It provides a number of key features that make it powerful and efficient for building interactive and scalable web applications. Here are some of the main features of React:
 
-1.It uses the virtual DOM instead of the real DOM.
-2.It uses server-side rendering.
-3.It follows uni-directional data flow or data binding.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">34. <h3 _ngcontent-sc65="" class="question-text"> List some of the major advantages of React</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">Some of the major advantages of React are:
+<b>1. Component-Based Architecture:</b> React follows a component-based architecture, where the user interface is divided into reusable and self-contained components. Components can be composed and nested to build complex UIs, making the code more modular, maintainable, and reusable.
 
-1.It increases the application’s performance due to use of Virtual DOM.
-2.It can be conveniently used on the client as well as server side
-3.Because of JSX, code’s readability increases.
-4.Using React, writing UI test cases become extremely easy</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">35. <h3 _ngcontent-sc65="" class="question-text">What are the limitations of React?</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">Limitations of React are listed below:
+<b>2. Virtual DOM:</b> React introduces a virtual representation of the DOM (Document Object Model) called the Virtual DOM. It maintains a lightweight copy of the actual DOM, allowing React to efficiently update and render only the necessary parts of the UI when the application state changes. This helps optimize performance and enhances the overall rendering speed.
 
-1.React is just a library, not a full-blown framework
-2.It can be little difficult for the novice programmers to understand
-3.Coding gets complex as it uses inline templating and JSX</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">36. <h3 _ngcontent-sc65="" class="question-text">How to generate a component using cli command without creating its spec file</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content"><b>Updated for Angular &gt;=8 CLI</b>
+<b>3. Declarative Syntax:</b> React uses a declarative syntax, which means you describe how the UI should look based on the application state, and React takes care of updating the actual DOM to match that state. It abstracts away the direct manipulation of the DOM, making the code more intuitive and easier to understand.
 
-For one component use the following command:
+<b>4. JSX: </b> JSX is a syntax extension used in React that allows you to write HTML-like code within JavaScript. It enables you to define the structure and appearance of React components in a familiar HTML-like syntax, while still leveraging the full power of JavaScript to handle dynamic content, logic, and data manipulation.
 
+<b>5. Component Lifecycle Methods:</b> React provides lifecycle methods that allow you to hook into specific moments during the lifecycle of a component, such as when it is created, updated, or removed from the DOM. These methods provide control over the initialization, rendering, and updating processes of components, allowing you to perform actions like fetching data, setting up event listeners, or cleaning up resources.
+
+<b>6. State Management:</b> React allows you to manage and manipulate the state of components using its built-in `state` object. The state represents the data that can change over time and influences the rendering of components. By managing state efficiently, React helps ensure that the UI remains in sync with the application's data and provides a smooth user experience.
+
+<b>7. Unidirectional Data Flow:</b> React follows a unidirectional data flow, also known as one-way data binding. Data flows from parent components to child components via props. Child components cannot directly modify the props received from their parent, ensuring a clear and predictable flow of data and making the application easier to understand and debug.
+
+<b>8. React Router:</b> React Router is a popular library for handling client-side routing in React applications. It provides a way to manage navigation and routing within a single-page application, allowing for dynamic rendering of components based on different URLs or routes. React Router enables building multi-page-like experiences in a single-page application.
+
+<b>9. React Hooks:</b> Introduced in React 16.8, hooks are functions that allow you to use state and other React features in functional components, which were previously limited to class components. Hooks enable the reuse of stateful logic, make components more concise, and promote better code organization and reusability.
+
+These are some of the core features that make <b>React</b> a powerful and widely adopted library for building modern user interfaces. React's emphasis on component reusability, performance optimization through the Virtual DOM, and its declarative nature contribute to the overall development experience and help create robust and scalable applications.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">34. <h3 _ngcontent-sc65="" class="question-text"> List some of the major advantages of React</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">React offers several advantages that have contributed to its popularity among developers. Here are some of the major advantages of using React:
+
+<b>1. Component Reusability:</b> React's component-based architecture promotes reusability. Components can be created once and reused throughout the application, reducing duplication of code and making development more efficient.
+
+<b>2. Virtual DOM and Efficient Rendering:</b> React utilizes a virtual representation of the DOM (Virtual DOM) and performs efficient diffing algorithms to update and render only the necessary parts of the UI. This optimizes performance and improves the overall rendering speed of React applications.
+
+<b>3. Declarative Syntax:</b> React uses a declarative syntax, allowing developers to describe how the UI should look based on the application state. This simplifies UI development by abstracting away the low-level manipulations of the actual DOM, resulting in more readable and intuitive code.
+
+<b>4. One-Way Data Flow:</b> React follows a unidirectional data flow, making it easier to understand and track the flow of data in the application. This ensures that changes to the application state are predictable, reducing bugs and making it easier to maintain and debug the codebase.
+
+<b>5. Community and Ecosystem:</b> React has a vast and active community, which means extensive community support, resources, and a wide range of third-party libraries and tools. This ecosystem provides developers with numerous options for enhancing development productivity and building complex applications.
+
+<b>6. SEO-Friendly:</b> React applications can be made search engine optimized (SEO) by rendering the components on the server (Server-Side Rendering, SSR). This allows search engines to crawl and index the content effectively, improving search engine visibility for React applications.
+
+<b>7. React Native:</b> React has a companion framework called React Native, which allows developers to build native mobile applications using React. By leveraging their existing React skills, developers can build cross-platform mobile apps with a single codebase, saving time and effort.
+
+<b>8. React Developer Tools:</b> React Developer Tools is a browser extension that provides powerful debugging and inspection capabilities specifically for React applications. It allows developers to inspect component hierarchies, inspect and modify component state, and analyze component performance, aiding in development and debugging processes.
+
+<b>9. Performance Optimization:</b> React offers various performance optimization techniques such as memoization, shouldComponentUpdate, and the React Profiler API. These tools and techniques help optimize rendering and improve the performance of React applications.
+
+<b>10. Easy Integration:</b> React can be easily integrated into existing projects, regardless of the underlying technology stack. It can be used alongside other frameworks and libraries, allowing developers to gradually adopt React into their applications.
+
+These advantages contribute to React's popularity and its suitability for building scalable, efficient, and maintainable user interfaces for web and mobile applications.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">35. <h3 _ngcontent-sc65="" class="question-text">What are the limitations of React?</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">While <b>React</b> has numerous advantages, it also has some limitations that developers should be aware of. Here are some of the limitations of React:
+
+<b>1. Steep Learning Curve:</b> React has a learning curve, especially for developers who are new to JavaScript frameworks or come from a non-React background. Understanding concepts like JSX, components, state management, and React's ecosystem may require some initial investment in learning.
+
+<b>2. Complexity of Tooling:</b> React's ecosystem includes various tools, libraries, and build systems. Setting up and configuring the development environment, build tools, and bundlers can be overwhelming for beginners. Managing the tooling complexity and staying up to date with the rapidly evolving React ecosystem can be a challenge.
+
+<b>3. Inadequate Documentation:</b> While React has official documentation that covers the core concepts, there may be instances where documentation is not comprehensive enough for specific use cases or lacks clear examples. This can sometimes make it difficult to find relevant information or best practices for certain scenarios.
+
+<b>4. Component Boilerplate:</b> React components may require additional code and setup compared to simpler frameworks or libraries. This can result in larger file sizes and increased complexity for smaller projects or simple UIs. However, various libraries and tools like React Router and Redux can help manage this complexity.
+
+<b>5. Performance Impact:</b> While React's Virtual DOM and diffing algorithm optimize rendering performance, excessive re-rendering or inefficient use of React's lifecycle methods and hooks can impact performance. It's essential to understand React's rendering process and employ optimization techniques like memoization and shouldComponentUpdate to mitigate performance issues.
+
+<b>6. Limited Opinion on State Management:</b> React itself doesn't provide a specific state management solution, leaving developers to choose from various options like local component state, context API, or external libraries like Redux or MobX. The absence of a built-in state management solution can lead to inconsistent patterns across different projects.
+
+<b>7. Mobile App Limitations:</b> While React Native allows building mobile apps using React, it may not provide the same level of native performance and access to device features as native app development. Certain advanced functionalities or UI elements may require custom native code or additional dependencies.
+
+<b>8. Potential Bundle Size:</b> If not properly optimized, React applications may have larger bundle sizes compared to smaller libraries or frameworks. This can impact initial load times, especially on slower network connections. Employing code splitting, lazy loading, and other bundling techniques can mitigate this issue.
+
+<b>9. Compatibility with Legacy Code:</b> Integrating React into an existing codebase or legacy system may require additional effort and modifications. It might involve rewriting parts of the codebase or adapting existing patterns and libraries to work seamlessly with React.
+
+Despite these limitations, <b>React</b> remains a widely adopted and mature framework that offers numerous benefits for building scalable and efficient user interfaces. Understanding these limitations and knowing how to work around them or find suitable solutions can help developers make the most of React in their projects.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">36. <h3 _ngcontent-sc65="" class="question-text">How to generate a component using cli command without creating its spec file</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content"><b>Updated for Angular &gt;=8 CLI</b>
+
+For one component, use the following command:
+
+<div class="code-snippet">
+<code>
 ng generate component --skipTests=true component-name
+</code>
+</div>
 For a single project, change or add the following in your angular.json:
 
+<div class="code-snippet">
+<code>
 { 
   "projects": {
     "{PROJECT_NAME}": {
@@ -1359,8 +1418,12 @@ For a single project, change or add the following in your angular.json:
     }
   }
 }
+</code>
+</div>
 For a global setting for all your projects, change or add the following in your angular.json:
 
+<div class="code-snippet">
+<code>
 { 
   "schematics": {
     "@schematics/angular:component": {
@@ -1368,13 +1431,21 @@ For a global setting for all your projects, change or add the following in your 
     }
   }
 }
+</code>
+</div>
 Or by using the command line
 
+<div class="code-snippet">
+<code>
 ng config schematics.@schematics/angular:component.skipTests true
-For Angular &lt; 8
+</code>
+</div>
+<b>For Angular &lt; 8</b>
 
 Inside your angular-cli.json set the spec.component parameter to false:
 
+<div class="code-snippet">
+<code>
 {
    ...
    "defaults" : {
@@ -1385,27 +1456,50 @@ Inside your angular-cli.json set the spec.component parameter to false:
        }
    }
 }
+</code>
+</div>
 or use the --spec=false option during creation
 
-ng generate component --spec=false component-name</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">37. <h3 _ngcontent-sc65="" class="question-text">How to align an element both vertically and horizontally at the center of it's parent element</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">css:-
+<div class="code-snippet">
+<code>
+ng generate component --spec=false component-name
+</code>
+</div></div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">37. <h3 _ngcontent-sc65="" class="question-text">How to align an element both vertically and horizontally at the center of it's parent element</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">To align an element both vertically and horizontally at the center of its parent element, you can use CSS flexbox,CSS Grid or Custom css with position absolute. Here are examples of both approaches:
 
- body {
-    display:flex;
-	align-items:center;
-	justify-content:center;
-	width:100%;
-	height:100%;
-	position:absolute;
-  }
-  .container {
-      border: 1px solid #ccc;
-    background-color: #f3f3f3;
-	width:100px;
-	height:100px;
-	
-  }
+<b>1. Using CSS Flexbox:</b>
 
- //----other ways----  
+ <div class="code-snippet">
+ <code>
+   .parent {
+     display: flex;
+     justify-content: center; /* Horizontal centering */
+     align-items: center; /* Vertical centering */
+   }
+</code>
+</div>
+In this example, the `.parent` class represents the parent element containing the element you want to center. By setting `display: flex` on the parent, its child elements become flex items. The `justify-content: center` property centers the child element horizontally, while `align-items: center` centers it vertically.
+
+<b>2. Using CSS Grid:</b>
+
+<div class="code-snippet">
+<code>
+   .parent {
+     display: grid;
+     place-items: center; /* Centers both horizontally and vertically */
+   }
+</code>
+</div>
+Here, the `.parent` class uses CSS Grid by setting `display: grid`. The `place-items: center` property centers the child element both horizontally and vertically within the grid cell.
+
+Remember to apply these styles to the parent element that contains the element you want to center. You can adjust the CSS selectors (`parent`) according to your HTML structure and class names.
+
+<b>3. Custom css with position absolute</b>
+
+<div class="code-snippet">
+<code>
+ .parent {
+   position: relative 
+  }
  .container {
     position:absolute;
     top: 50%;
@@ -1413,11 +1507,16 @@ ng generate component --spec=false component-name</div></div></div><div _ngconte
     width:100px;
     height:100px;
     margin-left:-50px;
-	margin-top:-50px;
+    margin-top:-50px;
     border: 1px solid #ccc;
     background-color: #f3f3f3;
   }
    
+or
+ 
+ .parent {
+   position: relative 
+  }
   .container {
     position:absolute;
     top: 50%;
@@ -1428,44 +1527,245 @@ ng generate component --spec=false component-name</div></div></div><div _ngconte
     border: 1px solid #ccc;
     background-color: #f3f3f3;
   } 
+</code>
+</div>
+In this approach, the parent element should have a non-static position, such as position: relative, to serve as the reference for absolute positioning. The child element is positioned absolutely using position: absolute. By setting top: 50% and left: 50%, the element is moved to the center of its parent. 
+Finally, transform: translate(-50%, -50%) shifts the element back by 50% of its own width and height, effectively centering it.
+You can also use margin-left and margin-top  to shift the element by 50 percent, in this case it will be margin-left:-50px; and margin-top:-50px; as height and width of element is 100px
 
  HTML:-
 
-&lt;body&gt; &lt;div&gt; class="container"&gt; &lt;div class="item item-1"&gt; 1.Lorem Ipsum has been the industry's standard dummy text ev &lt;/div&gt; &lt;/div&gt;
-&lt;/body&gt;</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">38. <h3 _ngcontent-sc65="" class="question-text">How can we add an element at the start of a JavaScript array</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">method 1 : using unshift() -
+<div class="code-snippet">
+<code>
+&lt;body&gt; class="parent" &lt;div&gt; class="container"&gt; &lt;div class="item item-1"&gt; 1.Lorem Ipsum has been the industry's standard dummy text ev &lt;/div&gt; &lt;/div&gt;
+&lt;/body&gt;
+</code>
+</div></div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">38. <h3 _ngcontent-sc65="" class="question-text">How can we add an element at the start of a JavaScript array</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content"><b>Method 1 : Using unshift() method</b>
 
-Let arr = [a,b, c]
-arr.unshift(x);
-console.log(x) //output - [x,a,b,c]
+To add an element at the start of a JavaScript array, you can use the `unshift()` method. Here's an example:
 
-Method 2 : use splice() method
+<div class="code-snippet">
+<code>
+const myArray = [2, 3, 4, 5];
+myArray.unshift(1); // Add 1 at the start of the array
+console.log(myArray); // Output: [1, 2, 3, 4, 5]
+</code>
+</div>
+In this example, the `unshift()` method is called on the `myArray` array and passed the element `1` as an argument. This adds the element at the beginning of the array. The existing elements are shifted to the right, and the length of the array is increased by one.
 
+<b>Method 2:  Using concat() method</b>
+
+Note that the `unshift()` method modifies the original array and returns the new length of the array. If you need a new array without modifying the original one, you can create a new array using the spread operator or the `concat()` method:
+
+<div class="code-snippet">
+<code>
+const myArray = [2, 3, 4, 5];
+const newArray = [1, ...myArray]; // Using spread operator
+console.log(newArray); // Output: [1, 2, 3, 4, 5]
+
+// Alternatively, using concat()
+const myArray = [2, 3, 4, 5];
+const newArray = [1].concat(myArray);
+console.log(newArray); // Output: [1, 2, 3, 4, 5]
+</code>
+</div>
+<b>Method 3 : Using splice() method</b>
+
+<div class="code-snippet">
+<code>
 Let arr = [a,b, c]
 arr.splice(0,0,x)
 console.log(arr) //output - [x,a,b,c]
+</code>
+</div>
 About splice() method :
 It takes 3 parameters :
 1. The index from where to start
 2. Number of elements to remove starting from that index
 3. Comma seprated list of the elements to add</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">39. <h3 _ngcontent-sc65="" class="question-text">How to capitalise all the first letters of a given string</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content"><b>Css way :</b>
-Text-transform : capitalize;
 
+<div class="code-snippet">
+<code>
+Text-transform : capitalize;
+</code>
+</div>
  <b>JS way :</b>
+
+<div class="code-snippet">
+<code>
 function capitalizeStr(str){
  let arr = str.split("");
  arr[0] = arr[0].toUpperCase();
  for(let i in arr){
- if(arr[i-1] === " "){
- arr[i] = arr[i].toUpperCase();
+    if(arr[i-1] === " "){
+        arr[i] = arr[i].toUpperCase();
+    }
  }
- }
- return a</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">40. <h3 _ngcontent-sc65="" class="question-text"> Difference between null and undefined</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">null is an assigned value. It means nothing.
- undefined typically means a variable has been declared but not defined yet</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">41. <h3 _ngcontent-sc65="" class="question-text">Is array a data type</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">No, Arrays are just regular objects
-In Javascript, there are only 6 data types defined – the primitives (boolean, number, string, null, undefined) and object (the only reference type). Arrays do not belong to this list because they are objects as well. ... You don't need a special data type for doing that in Javascript.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">42. <h3 _ngcontent-sc65="" class="question-text">In how many ways we can define an object in JavaScript</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">Please refer this link for ways to define an object in JavaScript <a href="https://dzone.com/articles/easy-javascript-part-13-four-ways-to-create-object#:~:text=There%20are%20four%20ways%20to,as%20using%20a%20function%20constructor).">link</a></div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">43. <h3 _ngcontent-sc65="" class="question-text">What are the lifecycle hook in an Angular component</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">Check the best answer in angular official website <a href="https://angular.io/guide/lifecycle-hooks">link</a></div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">44. <h3 _ngcontent-sc65="" class="question-text">What is lazy loading in angular</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">Please checkout this angular's official link to understand lazy loading - <a href="https://angular.io/guide/lazy-loading-ngmodules">Lazy loading in Angular </a><a></a></div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">45. <h3 _ngcontent-sc65="" class="question-text">How can we overwrite any JavaScript inbuilt property (like array.push())</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">Array.prototype.push=function() {
+ return arr.join('');
+}
+console.log(capitalizeStr('just to test')) //output: Just To Test
+</code>
+</div></div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">40. <h3 _ngcontent-sc65="" class="question-text"> Difference between null and undefined</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">In JavaScript, <b>`null`</b> and <b>`undefined`</b> are two distinct primitive values that represent the absence of a meaningful value. Although they are similar in some ways, they have subtle differences. Here's a breakdown of the differences between `null` and `undefined`:
+
+<b>1. Assignment:</b> `undefined` is a default value assigned to a variable that has been declared but has not been assigned a value. On the other hand, `null` is a value that can be assigned explicitly to a variable by the programmer to indicate the absence of an object or an empty value.
+
+<b>2. Type:</b> `undefined` is a type itself in JavaScript and represents the absence of a value. It is considered a primitive value. On the other hand, `null` is an object type, which means it is an empty object reference.
+
+<b>3. Usage:</b> `undefined` is commonly used to indicate the absence of a value, such as when a variable has not been assigned a value or when a function does not return a value explicitly. `null`, on the other hand, is typically used to indicate the intentional absence of an object or value.
+
+<b>4. Behavior:</b> When you try to access a variable that has been declared but not assigned a value, it will have the value of `undefined`. When a function does not return a value explicitly, it implicitly returns `undefined`. On the other hand, `null` must be assigned explicitly by the programmer and is not assigned automatically.
+
+<b>5. Strict Equality:</b> In JavaScript, `undefined` and `null` are not strictly equal to each other (`undefined === null` evaluates to `false`). They are distinct values with different types.
+
+<b>6. Type Coercion:</b> When performing loose equality comparisons (using `==`), `null` and `undefined` are loosely equal to each other (`null == undefined` evaluates to `true`). However, when using strict equality comparisons (using `===`), they are not equal (`null === undefined` evaluates to `false`).
+
+<b>7. Passing Arguments:</b> If a function parameter is not supplied with an argument, its value will be `undefined`. However, if you explicitly pass `null` as an argument, it will be assigned to that parameter.
+
+In summary, <b>`undefined`</b> represents the absence of a value or an uninitialized variable, while <b>`null`</b> represents the intentional absence of an object or an empty value. They have different types, behaviors, and use cases in JavaScript.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">41. <h3 _ngcontent-sc65="" class="question-text">Is array a data type?</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">In JavaScript, an <b>array</b> is not considered a distinct data type on its own. Instead, it is a built-in object type with specialized behavior for storing and organizing multiple values. Arrays are considered a subtype of the object data type.
+
+In JavaScript, the primitive data types are `undefined`, `null`, boolean, number, bigint, string, and symbol. These primitive types represent individual values. On the other hand, objects, including arrays, are non-primitive data types and can store multiple values or properties.
+
+Arrays in JavaScript are ordered, indexed collections of values. They can hold values of any data type, including other arrays, objects, and functions. Arrays have built-in methods and properties that allow you to manipulate and access their elements easily.
+
+To check if a variable is an array in JavaScript, you can use the `Array.isArray()` method. It returns `true` if the variable is an array and `false` otherwise:
+
+<div class="code-snippet">
+<code>
+const myArray = [1, 2, 3];
+console.log(Array.isArray(myArray)); // Output: true
+
+const myVariable = 'Hello';
+console.log(Array.isArray(myVariable)); // Output: false
+</code>
+</div>
+So while <b>arrays</b> are not a distinct data type in JavaScript, they are an important and commonly used object type for storing and working with collections of values.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">42. <h3 _ngcontent-sc65="" class="question-text">In how many ways we can define an object in JavaScript</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">In JavaScript, there are multiple ways to define an <b>object</b>. Here are the most common ways:
+
+<b>1. Object Literal:</b> The simplest way to create an object is using the object literal syntax, denoted by curly braces `{}`. Properties and their values can be defined within the braces using the key-value pair format.
+
+<div class="code-snippet">
+<code>
+   const person = {
+     name: 'John',
+     age: 25,
+     address: '123 Main St',
+   };
+  </code>
+</div>
+
+<b>2. Constructor Function:</b> You can define an object using a constructor function, which serves as a template for creating objects. Inside the constructor function, properties can be defined using the `this` keyword.
+
+<div class="code-snippet">
+<code>
+   function Person(name, age, address) {
+     this.name = name;
+     this.age = age;
+     this.address = address;
+   }
+
+   const person = new Person('John', 25, '123 Main St');
+  </code>
+</div>
+<b>3. Object.create():</b> The `Object.create()` method allows you to create a new object with a specified prototype object. You can define properties on the prototype object, which will be inherited by the created object.
+
+<div class="code-snippet">
+<code>
+   const personPrototype = {
+     greet: function () {
+       console.log('Hello!');
+     },
+   };
+
+   const person = Object.create(personPrototype);
+   person.name = 'John';
+   person.age = 25;
+  </code>
+</div>
+<b>4. Class:</b> Introduced in ECMAScript 2015 (ES6), JavaScript supports class syntax for creating objects. Classes are essentially constructor functions with a more concise and structured syntax.
+
+<div class="code-snippet">
+<code>
+   class Person {
+     constructor(name, age, address) {
+       this.name = name;
+       this.age = age;
+       this.address = address;
+     }
+   }
+
+   const person = new Person('John', 25, '123 Main St');
+</code>
+</div>
+These are the main ways to define objects in JavaScript. Each method has its own use cases and advantages, so choose the one that best fits your needs and coding style.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">43. <h3 _ngcontent-sc65="" class="question-text">What are the lifecycle hooks in an Angular component</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">In Angular, components have a lifecycle that consists of various phases and events. These phases are known as <b>lifecycle hooks</b>, and they provide opportunities to perform actions at specific moments during the component's creation, rendering, and destruction. The following are the lifecycle hooks available in an Angular component:
+
+<b>1. ngOnChanges:</b> This hook is called when the component receives input properties and is executed before `ngOnInit()`. It allows you to react to changes in the input properties.
+
+<b>2. ngOnInit:</b> This hook is called once, after the first `ngOnChanges()`, when the component is initialized. It is commonly used for initialization logic, such as retrieving data from a server.
+
+<b>3. ngDoCheck:</b> This hook is called during every change detection run, allowing you to implement your own custom change detection logic. It is invoked frequently, so use it judiciously to avoid performance issues.
+
+<b>4. ngAfterContentInit:</b> This hook is called after the component's content has been projected into its view. It is useful when you need to interact with content children components.
+
+<b>5. ngAfterContentChecked:</b> This hook is called after the content of the component has been checked by Angular's change detection mechanism. It is called after every check of the content children.
+
+<b>6. ngAfterViewInit:</b> This hook is called after the component's view has been initialized. It is useful when you need to interact with child components that are part of the view.
+
+<b>7. ngAfterViewChecked:</b> This hook is called after the view of the component has been checked by Angular's change detection mechanism. It is called after every check of the component's view and its child views.
+
+<b>8. ngOnDestroy:</b> This hook is called just before the component is destroyed and removed from the DOM. It is used to clean up resources, such as unsubscribing from observables or canceling timers.
+
+These <b>lifecycle hooks</b> allow you to perform specific actions at different stages of a component's lifecycle. By implementing and using these hooks, you can control the behavior and manage resources effectively throughout the component's lifespan.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">44. <h3 _ngcontent-sc65="" class="question-text">What is lazy loading in angular</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content"><b>Lazy loading</b> in Angular is a technique that allows you to load modules and their associated resources (components, services, etc.) on-demand, rather than loading everything upfront when the application starts. This helps to improve the initial loading time of the application and optimize the overall performance.
+
+By default, Angular loads all modules and their associated resources when the application is launched. However, with lazy loading, you can split your application into feature modules and load them dynamically only when they are needed. This way, you can reduce the initial bundle size and load only the necessary code for the current route or feature.
+
+To implement lazy loading in Angular, you need to follow these steps:
+
+<b>1. Create Feature Modules:</b> Divide your application into feature modules that encapsulate related components, services, and other resources. Each feature module will have its own routing configuration.
+
+<b>2. Configure Routes:</b> In the main routing configuration of your application, set up the routes for the feature modules using the `loadChildren` property instead of `component`. The `loadChildren` property specifies the path to the module file to be loaded lazily.
+
+<div class="code-snippet">
+<code>
+   const routes: Routes = [
+     { path: 'dashboard', component: DashboardComponent },
+     { path: 'products', loadChildren: () =&gt; import('./products/products.module').then(m =&gt; m.ProductsModule) },
+     // other routes...
+   ];
+  </code>
+</div>
+<b>3. Create Feature Module:</b> In each feature module, define its own routing configuration using the `RouterModule.forChild()` method.
+
+<div class="code-snippet">
+<code>
+   const routes: Routes = [
+     { path: '', component: ProductListComponent },
+     { path: 'details/:id', component: ProductDetailsComponent },
+     // other routes specific to the feature module...
+   ];
+
+   @NgModule({
+     imports: [RouterModule.forChild(routes)],
+     exports: [RouterModule]
+   })
+   export class ProductsRoutingModule { }
+  </code>
+</div>
+<b>4. Build and Serve:</b> Build your Angular application using the Angular CLI. When you navigate to a route associated with a lazy-loaded module, Angular will fetch and load the necessary module and its resources on-demand.
+
+<b>Lazy loading</b> allows you to optimize your application's performance by splitting it into smaller modules that can be loaded when needed. It helps reduce the initial loading time and improves the user experience, especially for larger applications with multiple features.
+
+For more details, checkout this angular's official link to understand lazy loading - <a href="https://angular.io/guide/lazy-loading-ngmodules">Lazy loading in Angular </a><a></a></div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">45. <h3 _ngcontent-sc65="" class="question-text">How can we overwrite any JavaScript inbuilt property (like array.push())</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">In JavaScript, you can overwrite or modify built-in properties and methods of objects, including those of the Array prototype. However, it is generally not recommended to modify the behavior of built-in objects because it can lead to unexpected consequences and compatibility issues with other code.
+
+That being said, if you still need to override a built-in property or method, you can achieve it by modifying the object's prototype. Here's an example of how you can override the push() method of the Array prototype:
+
+<div class="code-snippet">
+<code>
+Array.prototype.push=function() {
    console.log(this);
  }
  var arr=[1,2,3];
- arr.push(4);//it will console the array with values i.e [1,2,3] as push function has been overridden</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">46. <h3 _ngcontent-sc65="" class="question-text">What are the new features in ES6 , which were not there in previous JavaScript version
+ arr.push(4);//it will console the array with values i.e [1,2,3] as push function has been overridden
+</code>
+</div></div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">46. <h3 _ngcontent-sc65="" class="question-text">What are the new features in ES6 , which were not there in previous JavaScript version
 </h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content"><b>ES6 (ECMAScript 2015)</b> is a major update to the JavaScript language specification, and it introduced many new features and improvements to the language. Here are some of the key features introduced in ES6:
 
 let and const: New ways to declare variables with block scope.
@@ -1537,106 +1837,182 @@ Here is an example of using RxJS in JavaScript to create an Observable that emit
   }, 5000);
 </code>
 </div>
-In this example, we create an Observable called source$ that emits a sequence of numbers using the setInterval function. We then create a new Observable called filtered$ by applying the filter operator to the source$ Observable, which removes even numbers from the sequence. Finally, we subscribe to the filtered$ Observable and log the emitted values to the console, and after 5 seconds we unsubscribe from the subscription to stop the Observable from emitting any more values.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">49. <h3 _ngcontent-sc65="" class="question-text"> HttpClientModule was introduced in which version of Angular</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">Angular 4</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">50. <h3 _ngcontent-sc65="" class="question-text"> Difference between observable and a promise</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content"><b>Promise</b>
+In this example, we create an Observable called source$ that emits a sequence of numbers using the setInterval function. We then create a new Observable called filtered$ by applying the filter operator to the source$ Observable, which removes even numbers from the sequence. Finally, we subscribe to the filtered$ Observable and log the emitted values to the console, and after 5 seconds we unsubscribe from the subscription to stop the Observable from emitting any more values.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">49. <h3 _ngcontent-sc65="" class="question-text"> HttpClientModule was introduced in which version of Angular</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">The <b>HttpClientModule</b> was introduced in Angular version 4.3.0. 
 
-A Promise handles a single event when an async operation completes or fails.
-Note: There are Promise libraries out there that support cancellation, but ES6 Promise doesn't so far.
+Before Angular 4.3.0, the `HttpModule` was used to handle HTTP requests and responses. However, starting from Angular 4.3.0, the `HttpModule` was deprecated in favor of the new `HttpClientModule`.
 
-<b>Observable</b>
+The `HttpClientModule` provides a more modern and improved API for making HTTP requests and handling responses. It includes features like support for interceptors, response typing, and improved error handling.
 
-An Observable is like a Stream (in many languages) and allows to pass zero or more events where the callback is called for each event.
-Often Observable is preferred over Promise because it provides the features of Promise and more. With Observable it doesn't matter if you want to handle 0, 1, or multiple events. You can utilize the same API in each case.
+To use the `HttpClientModule`, you need to import it in your Angular module:
 
-Observable also has the advantage over Promise to be cancellable. If the result of an HTTP request to a server or some other expensive async operation isn't needed anymore, the Subscription of an Observable allows to cancel the subscription, while a Promise will eventually call the success or failed callback even when you don't need the notification or the result it provides anymore.
+<div class="code-snippet">
+<code>
+import { HttpClientModule } from '@angular/common/http';
 
-While a Promise starts immediately, an Observable only starts if you subscribe to it. This is why Observables are called lazy.
+@NgModule({
+  imports: [
+    HttpClientModule
+  ],
+  // ...
+})
+export class AppModule { }
+</code>
+</div>
 
-Observable provides operators like map, forEach, reduce, ... similar to an array
-There are also powerful operators like retry(), or replay(), ... that are often quite handy
+Once imported, you can inject the `HttpClient` service into your components or services to make HTTP requests.
 
-<b>Code example :</b>
-/*-----------------promises-------*/
-const testPromise=()=&gt;{
-  return new Promise((resolve,reject)=&gt;{
-   setTimeout(()=&gt;{
-    resolve(true);
-	},2000);
+<div class="code-snippet">
+<code>
+import { HttpClient } from '@angular/common/http';
+
+@Injectable()
+export class MyService {
+  constructor(private http: HttpClient) {
+  }
+
+  getData() {
+    return this.http.get('https://api.example.com/data');
+  }
+}
+</code>
+</div>
+
+Overall, the <b>`HttpClientModule`</b> provides a more robust and feature-rich way to work with HTTP in Angular applications, and it has been the recommended approach since Angular 4.3.0.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">50. <h3 _ngcontent-sc65="" class="question-text"> Difference between observable and a promise</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content"><b>Observables</b> and <b>Promises</b> are both constructs used for handling asynchronous operations in JavaScript, but they have some key differences. Here are the main differences between Observables and Promises:
+
+<b>1. Multiple Values vs. Single Value:</b> An Observable is a stream of values that can emit multiple values over time. It can represent ongoing processes, such as user events or data streams from servers. In contrast, a Promise represents a single value that will be available in the future once the asynchronous operation is completed.
+
+<b>2. Eager vs. Lazy Evaluation:</b> Promises are eager, meaning they start executing immediately upon creation. When a Promise is created, it initiates the asynchronous operation right away. On the other hand, Observables are lazy, meaning they do not start producing values until someone subscribes to them.
+
+<b>3. Cancellation:</b> Observables can be canceled by unsubscribing from them. This allows you to stop receiving values from an Observable and clean up resources. Promises, once initiated, cannot be canceled.
+
+<b>4. Composition:</b> Observables have powerful composition operators that allow you to transform, combine, and manipulate streams of values easily. Operators like `map`, `filter`, `merge`, and `combineLatest` provide a declarative way to work with asynchronous data. Promises, on the other hand, have limited composition capabilities and typically rely on chaining `then` and `catch` methods.
+
+<b>5. Error Handling:</b> Promises handle errors using the `catch` method, allowing you to handle errors in a centralized manner. Observables, however, provide more advanced error handling mechanisms, such as the `catchError` operator, which allows you to handle errors at various points in the stream.
+
+<b>6. Time:</b> Observables can handle time-related operations more easily, including scheduling and delaying emissions of values. Promises do not have built-in features for handling time-related operations.
+
+Overall, Promises are simpler and more straightforward for handling single asynchronous operations with a single result. Observables are more powerful and flexible, suitable for handling streams of values, ongoing processes, and complex asynchronous scenarios. They provide more fine-grained control, composition capabilities, and advanced features for handling asynchronous data.
+
+Here's a comparison between Observables and Promises with examples:
+
+<b>Example using Promises:</b>
+
+<div class="code-snippet">
+<code>
+function fetchData() {
+  return new Promise((resolve, reject) =&gt; {
+    setTimeout(() =&gt; {
+      resolve('Data fetched successfully');
+      // OR
+      // reject(new Error('Failed to fetch data'));
+    }, 2000);
   });
 }
-const fetchUserPromise=()=&gt;{
-  return new Promise((resolve,reject)=&gt;{
-    resolve(true);
+
+fetchData()
+  .then(data =&gt; {
+    console.log(data);
+  })
+  .catch(error =&gt; {
+    console.error(error);
+  });
+</code>
+</div>
+In this example, the `fetchData` function returns a Promise that resolves with the message `'Data fetched successfully'` after a delay of 2 seconds. The `then` method is used to handle the successful result, and the `catch` method is used to handle any errors that occur.
+
+<b>Example using Observables:</b>
+
+<div class="code-snippet">
+<code>
+import { Observable } from 'rxjs';
+
+function fetchData() {
+  return new Observable(observer =&gt; {
+    setTimeout(() =&gt; {
+      observer.next('Data fetched successfully');
+      // OR
+      // observer.error(new Error('Failed to fetch data'));
+      // OR
+      // observer.complete();
+    }, 2000);
   });
 }
-/*----promise messy way----*/
-testPromise()
-.then(auth=&gt;{
-  if(auth)
-   fetchUserPromise()
-   .then(result=&gt;{
-     if(result)
-	  console.log('Promise: user is fetched after authentication');
-   });
-})
-/*--------promise better way----*/
-testPromise()
-.then(auth=&gt;{
-  if(auth)
-   return fetchUserPromise()
-})
-.then(result=&gt;{
-  if(result)
-   console.log('Promise better:fetch user after authentication')
-})
-/*-----------------Observable snippet from angular----*/
-ngOninit() {
-    this.testObservable().pipe(
-      mergeMap(auth=&gt;{  //switchmap when we want to cancel the previous input like incase of autocomplete
-        if(auth)
-          return this.fetchUserObservable()
-      })
-    )
-    .subscribe(data=&gt;{
-      if(data)
-      console.log('Observable :-fetch user after auth')
-    });
-  }
-  testObservable() {
-    return new Observable((observer)=&gt;{
-      setTimeout(()=&gt;{
-        observer.next(true);
-      })
-    })
-  }
-  fetchUserObservable() {
-    return new Observable((observer)=&gt;{
-      observer.next(true);
-    })
-  }</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">51. <h3 _ngcontent-sc65="" class="question-text">Is it necessary to define a constructor in a component</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">Constructors define which parameters to provide when instantiate your objects. In TypeScript, you can also add modifiers like private or public to define in the same time class properties and set their values with the provided ones.
 
-For example:
+const subscription = fetchData().subscribe(
+  data =&gt; {
+    console.log(data);
+  },
+  error =&gt; {
+    console.error(error);
+  },
+  () =&gt; {
+    console.log('Observable completed');
+  }
+);
 
-class Car {
-  constructor(private engine:string, private tires:string, private doors:number){
+// Unsubscribe after 3 seconds
+setTimeout(() =&gt; {
+  subscription.unsubscribe();
+}, 3000);
+</code>
+</div>
+In this example, the `fetchData` function returns an Observable that emits the message `'Data fetched successfully'` after a delay of 2 seconds. The `subscribe` method is used to handle the emitted values, errors, and completion. The `unsubscribe` method is used to cancel the subscription after 3 seconds.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">51. <h3 _ngcontent-sc65="" class="question-text">Is it necessary to define a constructor in a component</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">No, it is not necessary to define a <b>constructor</b> in a component in Angular. Angular provides a default constructor for components, and if you don't define a constructor in your component class, the default constructor will be used.
+
+The default constructor provided by Angular does not require any parameters and is often empty. It is implicitly called when a component is instantiated.
+
+Here is an example of a component without a constructor:
+
+<div class="code-snippet">
+<code>
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-my-component',
+  template: '<p>Hello, Angular!</p>'
+})
+export class MyComponent {
+  // No explicit constructor defined
+}
+</code>
+</div>
+In this example, the `MyComponent` class does not have a constructor defined. Angular will automatically use the default constructor when creating an instance of `MyComponent`.
+
+However, if you need to perform any initialization or dependency injection in your component, you can define a constructor and provide the necessary parameters. The constructor is a way to inject dependencies and initialize component properties.
+
+<div class="code-snippet">
+<code>
+import { Component } from '@angular/core';
+import { MyService } from './my.service';
+
+@Component({
+  selector: 'app-my-component',
+  template: '<p>Hello, Angular!</p>'
+})
+export class MyComponent {
+  constructor(private myService: MyService) {
+    // Perform initialization or other logic here
   }
 }
-is similar to:
+</code>
+</div>
+In this example, the `MyComponent` class has a constructor that injects the `MyService` dependency. You can use the constructor to initialize properties or perform other necessary tasks when the component is created.
 
-class Car {
-  constructor(engine:string, tires:string, doors:number){
-    this.engine = engine;
-    this.tires = tires;
-    this.doors = doors;
-  }
-}
-In Angular2 constructors are used for dependency injection. The associated decorator (@Component or Injectable) collects metadata (types or hints within @Inject) to determine what to provide to the object to instantiate.
+So, while it is not necessary to define a constructor in a component, you can use it to inject dependencies and perform initialization if required.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">52. <h3 _ngcontent-sc65="" class="question-text">What are the security features in angular</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">Angular provides several security features and best practices to help developers build secure web applications. Here are some of the key security features in Angular, along with examples:
 
-Be aware that constructors aren't part of the component lifecycle. Properties can be set later by Angular2 at this level.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">52. <h3 _ngcontent-sc65="" class="question-text">What are the security features in angular</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content"><b>Below are some of the security features in angular</b>
+<b>1. Template Sanitization:</b>
+  Angular automatically sanitizes user-provided inputs in templates to prevent Cross-Site Scripting (XSS) attacks. For example, consider the following template:
 
-<b>1)Sanitization</b>
+<div class="code-snippet">
+<code>
+ <div>{{ user.name }}</div>
+ </code>
+</div>
+If the `user.name` property contains potentially harmful HTML code, Angular automatically sanitizes it and renders it as plain text, preventing any script execution.
 
-This is the process of validating untrusted values, and it depends on context. The security contexts are HTML (binding inner HTML), style (CSS), attributes (binding values), and resources (referring files). We should covert the untrusted values provided by users into trusted values with DomSanitizer
+-&gt;We have add code to sanitize untrusted values, The security contexts are HTML (binding inner HTML), style (CSS), attributes (binding values), and resources (referring files). We should covert the untrusted values provided by users into trusted values with DomSanitizer
 
+<div class="code-snippet">
+<code>
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -1656,75 +2032,226 @@ bypassSecurityTrustScript
 bypassSecurityTrustStyle
 bypassSecurityTrustUrl
 bypassSecurityTrustResourceUrl
+</code>
+</div>
+<b>2. Cross-Site Scripting (XSS) Protection:</b>
+Angular automatically escapes interpolated values and data bindings by default to prevent XSS attacks. For example, consider the following template:
 
-<b> 2) Avoid risky Angular APIs</b>
+<div class="code-snippet">
+<code>
+ <div>{{ user.bio }}</div>
+</code>
+</div>
+If the `user.bio` property contains a script tag or any other HTML code, Angular escapes the characters and renders it as plain text, preventing script execution.
+
+<b>3. Content Security Policy (CSP) Support:</b>
+   Angular allows you to enforce a strict Content Security Policy for your application. This helps protect against XSS attacks by defining the sources from which the application can load resources. For example, you can configure a CSP in the HTML header as follows:
+
+<div class="code-snippet">
+<code>
+&lt;meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://trusted-cdn.com;"&gt;
+</code>
+</div>
+This example restricts the loading of scripts to the same origin and a trusted CDN.
+
+<b>4. HTTP Interceptors:</b>
+Angular's HttpClient module provides interceptors that allow you to modify HTTP requests and responses. You can use interceptors to implement security-related features, such as adding authentication headers or handling CSRF tokens. For example, you can create an interceptor to add an authentication token to every outgoing request:
+
+<div class="code-snippet">
+<code>
+   import { Injectable } from '@angular/core';
+   import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
+   import { Observable } from 'rxjs';
+
+   @Injectable()
+   export class AuthInterceptor implements HttpInterceptor {
+     intercept(req: HttpRequest, next: HttpHandler): Observable&gt; {
+       const token = 'your-auth-token';
+       const authReq = req.clone({
+         headers: req.headers.set('Authorization', `Bearer ${token}`)
+       });
+       return next.handle(authReq);
+     }
+   }
+</code>
+</div>
+This interceptor adds an `Authorization` header with a bearer token to each outgoing HTTP request.
+
+<b>5. Authentication and Authorization:</b>
+ Angular provides a flexible framework for implementing authentication and authorization mechanisms. You can leverage features like route guards, authentication services, and token-based authentication (e.g., JWT) to secure routes and control access to protected resources. Here's an example of a route guard that restricts access to a specific route:
+
+<div class="code-snippet">
+<code>
+   import { Injectable } from '@angular/core';
+   import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
+   import { Observable } from 'rxjs';
+
+   @Injectable()
+   export class AuthGuard implements CanActivate {
+     constructor(private router: Router) {}
+
+     canActivate(
+       route: ActivatedRouteSnapshot,
+       state: RouterStateSnapshot
+     ): Observable | Promise | boolean | UrlTree {
+       // Check if user is authenticated, e.g., by verifying the presence of a valid token
+       const isAuthenticated = ...;
+
+       if (isAuthenticated) {
+         return true;
+       } else {
+         // Redirect to login page or show access denied message
+         this.router.navigate(['/login']);
+         return
+
+ false;
+       }
+     }
+   }
+</code>
+</div>
+This guard checks if the user is authenticated and allows or denies access to the protected route accordingly.
+
+<b> 6. Avoid risky Angular APIs</b>
 
 Avoid Angular APIs marked in the documentation as “Security Risk.” The most common risky API we use is <u>ElementRef</u>. It permits direct access to the DOM and can make your application more vulnerable to XSS attacks. Review any use of ElementRef in your code carefully. Use this API as a last resort when direct access to the DOM is needed. Use templating and data binding provided by Angular, instead. Alternatively, you can take a look at <u>Renderer2</u>, which provides an API that can safely be used even when direct access to native elements is not supported.
 
-Please more security features click <a href="https://www.syncfusion.com/blogs/post/top-5-best-practices-angular-app-security.aspx" target="_blank">here</a></div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">53. <h3 _ngcontent-sc65="" class="question-text">How to define a class in JavaScript</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">ECMAScript 2015, also known as ES6, introduced JavaScript Classes.
-JavaScript Classes are templates for JavaScript Objects.
+These are just a few examples of the security features provided by Angular. It's important to implement additional security measures based on your application's requirements, such as input validation, secure communication protocols (HTTPS), proper error handling, and regular security updates for dependencies and libraries used in the application.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">53. <h3 _ngcontent-sc65="" class="question-text">How to define a class in JavaScript</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">In JavaScript, you can define a <b>class</b> using the `class` keyword. Here's the basic syntax to define a class in JavaScript:
 
-e.g:-
+<div class="code-snippet">
+<code>
+class ClassName {
+  // Class properties
 
-class Car {
-  constructor(name, year) {
+  // Constructor
+  constructor() {
+    // Initialize properties
+  }
+
+  // Methods
+  methodName() {
+    // Method logic
+  }
+}
+</code>
+</div>
+Let's break down the syntax:
+
+- `class ClassName` declares a new class with the name "ClassName". You can replace "ClassName" with the desired name for your class.
+- The class body is wrapped in curly braces `{}` and contains the properties and methods of the class.
+- The `constructor` method is a special method that is executed when an instance of the class is created. It is used to initialize the class properties. You can define the constructor using the `constructor` keyword followed by parentheses `()`.
+- Inside the class body, you can define other methods that perform specific actions or computations. Methods are defined without the `function` keyword.
+
+Here's an example of defining a simple class in JavaScript:
+
+<div class="code-snippet">
+<code>
+class Person {
+  constructor(name, age) {
     this.name = name;
-    this.year = year;
+    this.age = age;
+  }
+
+  greet() {
+    console.log(`Hello, my name is ${this.name} and I'm ${this.age} years old.`);
   }
 }
 
-myCar = new Car("Ford", 2014);</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">54. <h3 _ngcontent-sc65="" class="question-text">How to apply conditional breakpoints in chrome browser debugging tool</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content"><b>Conditional breakpoints</b> can be very useful when debugging JavaScript code, as they allow you to pause execution only when certain conditions are met.
- Here's how to apply conditional breakpoints in the Chrome browser debugging tool:
+// Creating an instance of the Person class
+const john = new Person('John', 30);
+
+// Accessing properties and calling methods
+console.log(john.name); // Output: John
+console.log(john.age); // Output: 30
+john.greet(); // Output: Hello, my name is John and I'm 30 years old.
+</code>
+</div>
+In this example, the `Person` class has two properties (`name` and `age`) and a method (`greet`). The `constructor` initializes the `name` and `age` properties, and the `greet` method logs a greeting message to the console.
+
+You can create instances of the <b>class</b> using the `new` keyword, as shown in the example with the `john` object. Then you can access the properties and call the methods on the instance.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">54. <h3 _ngcontent-sc65="" class="question-text">How to apply conditional breakpoints in chrome browser debugging tool</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content"><b>Conditional breakpoints</b> can be very useful when debugging JavaScript code, as they allow you to pause execution only when certain conditions are met.
+Here's how to apply conditional breakpoints in the Chrome browser debugging tool:
 
 Open the Chrome DevTools by pressing F12 or right-clicking on a web page and selecting "Inspect".
 
-1) Navigate to the "Sources" tab in the DevTools.
+<b>1)</b> Navigate to the "Sources" tab in the DevTools.
 
-2) Find the JavaScript file that you want to debug in the file tree on the left-hand side.
+<b>2)</b> Find the JavaScript file that you want to debug in the file tree on the left-hand side.
 
-3) Set a regular breakpoint by clicking on the line number where you want to pause execution.
+<b>3)</b> Set a regular breakpoint by clicking on the line number where you want to pause execution.
 
-4) Right-click on the breakpoint and select "Edit breakpoint" from the context menu.
+<b>4)</b> Right-click on the breakpoint and select "Edit breakpoint" from the context menu.
 
-6) In the breakpoint editor, enter the condition that you want to use to trigger the breakpoint. For example, you might enter a variable name and a value to pause execution only when the variable has a specific value.
+<b>6)</b> In the breakpoint editor, enter the condition that you want to use to trigger the breakpoint. For example, you might enter a variable name and a value to pause execution only when the variable has a specific value.
 
-7) Click "Save" to apply the conditional breakpoint.
+<b>7)</b> Click "Save" to apply the conditional breakpoint.
 
-Now, when the code reaches the line with the conditional breakpoint, it will only pause execution if the condition is true. This can save you time and help you quickly identify issues in your code.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">55. <h3 _ngcontent-sc65="" class="question-text">What is testbed in Jasmine</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content"><b>Testbed</b> Configures and initializes environment for unit testing and provides methods for creating components and services in unit tests.
+Now, when the code reaches the line with the conditional breakpoint, it will only pause execution if the condition is true. This can save you time and help you quickly identify issues in your code.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">55. <h3 _ngcontent-sc65="" class="question-text">What is testbed in Jasmine</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">In the context of Jasmine, the <b>TestBed</b> is a utility provided by Angular for testing Angular components, directives, services, and other Angular constructs. The TestBed creates a testing module environment where you can configure and instantiate components and services to be tested.
 
-You need to configure the TestBed before each test, adding any components, modules and services you need for the test. It's just like configuring an regular @NgModule from scratch, but you just add what you need.
+The TestBed is part of the Angular Testing utilities and is commonly used in combination with other testing frameworks such as Karma or Jest. It provides an Angular-specific environment for testing that facilitates component creation, dependency injection, and change detection.
 
-import { async, TestBed } from '@angular/core/testing';
+Here's a basic example of using the TestBed in Jasmine:
 
-beforeEach(async(() =&gt; {
-  TestBed.configureTestingModule({
-    declarations: [ AppComponent ],
-    providers: [],
-    imports: []
-  })
-  .compileComponents();
-}));
+<div class="code-snippet">
+<code>
+import { TestBed } from '@angular/core/testing';
+import { MyComponent } from './my.component';
 
-it('...', () =&gt; {
-  let fixture = TestBed.createComponent(AppComponent);
+describe('MyComponent', () =&gt; {
+  beforeEach(async () =&gt; {
+    await TestBed.configureTestingModule({
+      declarations: [MyComponent],
+    }).compileComponents();
+  });
+
+  it('should create the component', () =&gt; {
+    const fixture = TestBed.createComponent(MyComponent);
+    const component = fixture.componentInstance;
+    expect(component).toBeTruthy();
+  });
+
+  // Other test cases...
 });
+</code>
+</div>
+In this example, the `beforeEach` function is called before each test case, and within it, `TestBed.configureTestingModule` is used to configure the testing module. The `declarations` property is used to declare the components to be tested, in this case, the `MyComponent`.
 
-<b>For more information follow these:-</b>
-<ul>
-<li><a href="https://medium.com/swlh/angular-unit-testing-jasmine-karma-step-by-step-e3376d110ab4" target="_blank">Testbed by Medium.com</a></li><li><a href="https://codecraft.tv/courses/angular/unit-testing/angular-test-bed/" target="_blank">Testbed by codecraft</a></li></ul></div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">56. <h3 _ngcontent-sc65="" class="question-text">What is the use of aria hidden attribute</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">Adding aria-hidden="true" to an element removes that element and all of its children from the accessibility tree. This can improve the experience for assistive technology users by hiding:
+The `compileComponents` function is an asynchronous operation that compiles the component's template and dependencies.
 
-purely decorative content, such as icons or images
-duplicated content, such as repeated text
-offscreen or collapsed content, such as menus
+Inside the individual test cases, `TestBed.createComponent` is used to create an instance of the component being tested. This returns a `ComponentFixture` object from which you can access the component instance (`componentInstance`) and the associated DOM element (`nativeElement`).
+
+Using the TestBed and ComponentFixture, you can interact with and test the component's properties, methods, and the rendered DOM.
+
+The <b>TestBed</b> provides other useful methods for configuring the testing module, such as providing mock services, configuring routes, and handling dependency injection.
+
+Overall, the TestBed in Jasmine provides a powerful testing environment for Angular applications, allowing you to create and test Angular components and services in an isolated and controlled manner.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">56. <h3 _ngcontent-sc65="" class="question-text">What is the use of aria hidden attribute</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">The <b>aria-hidden</b> attribute is an accessibility attribute in HTML that is used to indicate whether an element and its contents should be visible or hidden to assistive technologies, such as screen readers. This can improve the experience for assistive technology users by hiding:-
+
+<b>1)</b> Purely decorative content, such as icons or images
+<b>2)</b> Duplicated content, such as repeated text
+<b>3)</b> Offscreen or collapsed content, such as menus
+
 According to the fourth rule of ARIA, aria-hidden="true" should not be used on a focusable element. Additionally, since this attribute is inherited by an element's children, it should not be added onto the parent or ancestor of a focusable element. 
 
-Using aria-hidden="false" will not re-expose the element to assistive technology if any of its parents specify aria-hidden="true".</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">57. <h3 _ngcontent-sc65="" class="question-text">For accessibility which screen reader is used for which browser</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">1)JAWS - most compatible with Chrome , firefox and Internet explorer although it supports other browsers as well. It is expensive. Compatible only with windows OS. JAWS came in the market much before NVDA and is a slightly better as compared to NVDA for blind uers because of better braille support , more sounds and whistles and more configuration options. But still it's a better deal to use a free NVDA than to pay a heavy price for JAWS. Hence the users have now been shifting to NVDA and popularity of JAWS is decreasing.
-2) NVDA-  most compatible with Chrome , firefox and Edge although it supports other browsers as well. It is free of cost. Compatible only with windows OS
-3)Voiceover- Available and used by default with Macos(Mac laptops) and IOS(Iphones)
-4)Talkback - Available and used by default with Android phones</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">58. <h3 _ngcontent-sc65="" class="question-text">Explain variable hoisting</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content"><b>Variable hoisting</b> is a behavior in JavaScript where variable declarations are moved to the top of their respective scope, regardless of where the actual declaration occurs in the code. This means that variables can be used before they are declared, but they will have an initial value of undefined.
+Using aria-hidden="false" will not re-expose the element to assistive technology if any of its parents specify aria-hidden="true".
+
+Here's an example of how to use the aria-hidden attribute:
+<div class="code-snippet">
+<code>
+&lt;div aria-hidden="true"&gt;
+  This content is visually hidden but accessible to assistive technologies.
+&lt;/div&gt;
+</code>
+</div></div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">57. <h3 _ngcontent-sc65="" class="question-text">For accessibility which screen reader is used for which browser</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content"><b>1)JAWS -</b> most compatible with Chrome , firefox and Internet explorer although it supports other browsers as well. It is expensive. Compatible only with windows OS. JAWS came in the market much before NVDA and is a slightly better as compared to NVDA for blind uers because of better braille support , more sounds and whistles and more configuration options. But still it's a better deal to use a free NVDA than to pay a heavy price for JAWS. Hence the users have now been shifting to NVDA and popularity of JAWS is decreasing.
+
+<b>2) NVDA-</b>  most compatible with Chrome , firefox and Edge although it supports other browsers as well. It is free of cost. Compatible only with windows OS
+
+<b>3)Voiceover-</b> Available and used by default with Macos(Mac laptops) and IOS(Iphones)
+
+<b>4)Talkback -</b> Available and used by default with Android phones</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">58. <h3 _ngcontent-sc65="" class="question-text">Explain variable hoisting</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content"><b>Variable hoisting</b> is a behavior in JavaScript where variable declarations are moved to the top of their respective scope, regardless of where the actual declaration occurs in the code. This means that variables can be used before they are declared, but they will have an initial value of undefined.
 
 Here's an example of variable hoisting:
 
+<div class="code-snippet">
+<code>
 function foo() {
   console.log(x); // logs 'undefined'
   var x = 10;
@@ -1732,13 +2259,16 @@ function foo() {
 }
 
 foo();
-
+</code>
+</div>
 In this example, we've defined a function foo that logs the value of variable x before and after it is declared and assigned a value of 10. Even though x is used before it is declared, JavaScript will hoist the declaration to the top of the function, so it will be available throughout the function with an initial value of undefined.
 
 It's important to note that variable hoisting only applies to variable declarations, not to variable assignments. This means that if you try to use a variable before it is declared and assigned a value, you will still get a ReferenceError.
 
 Here's an example:
 
+<div class="code-snippet">
+<code>
 function bar() {
   console.log(y); // ReferenceError: y is not defined
   y = 20;
@@ -1746,20 +2276,67 @@ function bar() {
 }
 
 bar();
-
+</code>
+</div>
 In this example, we're trying to use variable y before it is declared. However, since there is no variable declaration for y, JavaScript will throw a ReferenceError. If we remove the first console.log statement and run the function again, we will see that y is assigned a value of 20.
 
-It's generally good practice to declare all variables at the top of their respective scope to avoid confusion and errors due to variable hoisting. This can be achieved using the let and const keywords, which have block scope and do not exhibit variable hoisting.
+It's generally good practice to declare all variables at the top of their respective scope to avoid confusion and errors due to <b>variable hoisting</b>. This can be achieved using the let and const keywords, which have block scope and do not exhibit variable hoisting.
 
-Please find the detailed explanation <a href="https://www.digitalocean.com/community/tutorials/understanding-hoisting-in-javascript" target="_blank">here</a></div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">59. <h3 _ngcontent-sc65="" class="question-text">What are web workers</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">Please checkout this w3schools link to get a simple understanding of web workers <a href="https://www.w3schools.com/html/html5_webworkers.asp" target="_blank">link</a></div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">60. <h3 _ngcontent-sc65="" class="question-text">How to check if a number is an integer without using math function and without converting number into string or array</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">1)Use the === operator (strict equality) as below,
+It's important to understand that variable hoisting only applies to variables declared with the <b>var </b> keyword. Variables declared with <b>let</b> and <b>const</b> are also hoisted but have a different behavior known as the "temporal dead zone" (TDZ). In the TDZ, accessing variables before their declaration results in a ReferenceError. This behavior ensures that variables declared with let and const are not accessible before they are explicitly declared in the code.
 
+Please find the detailed explanation <a href="https://www.digitalocean.com/community/tutorials/understanding-hoisting-in-javascript" target="_blank">here</a></div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">59. <h3 _ngcontent-sc65="" class="question-text">What are web workers</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content"><b>Web Workers</b> are a browser feature that allows you to run JavaScript code in the background, separate from the main browser thread. They enable concurrent execution and help prevent blocking the user interface during computationally intensive or time-consuming tasks.
+
+Here are some key points about web workers:
+
+<b>1. Background Execution:</b> Web Workers allow you to run scripts in the background without blocking the main thread. This keeps the user interface responsive and improves overall performance.
+
+<b>2. Separate Thread:</b> Web Workers run in a separate thread from the main JavaScript thread, often referred to as the "worker thread." This thread is isolated and doesn't share the same memory space as the main thread.
+
+<b>3. Communication:</b> Web Workers communicate with the main thread using messaging. They can receive messages from the main thread and post messages back to it. This messaging system allows data exchange and coordination between the worker and the main thread.
+
+<b>4. Limited Scope:</b> Web Workers have limited access to browser APIs and the DOM. They can't directly manipulate the DOM or access certain objects and methods available in the main thread. This limitation helps maintain security and prevents worker threads from interfering with the user interface.
+
+<b>5. Types of Web Workers:</b> There are two types of web workers: dedicated workers and shared workers. Dedicated workers are tied to a specific script and can communicate only with the script that created them. Shared workers can be accessed by multiple scripts or web pages running on the same origin, allowing them to share data and communicate with multiple sources.
+
+Web Workers are useful for various tasks such as heavy computations, parsing large datasets, performing complex algorithms, and offloading non-UI tasks. They can help improve the overall responsiveness and performance of web applications by distributing the workload across multiple threads.
+
+Here's a simple example of using a web worker:
+
+<div class="code-snippet">
+<code>
+// main.js (main thread)
+const worker = new Worker('worker.js');
+
+worker.onmessage = function(event) {
+  console.log('Message from web worker:', event.data);
+};
+
+worker.postMessage('Hello from main thread!');
+
+
+// worker.js (worker thread)
+self.onmessage = function(event) {
+  console.log('Message from main thread:', event.data);
+  self.postMessage('Hello from web worker!');
+};
+</code>
+</div>
+In this example, the main thread creates a <b>web worker</b> using the `Worker` constructor, specifying the script file (`worker.js`). The main thread sends a message to the web worker using `worker.postMessage()`. The web worker receives the message in its `onmessage` event handler, logs it, and sends a response back to the main thread using `self.postMessage()`. The main thread receives the response in its `onmessage` event handler and logs it.
+
+Web Workers are supported in modern browsers and provide a powerful tool for performing background tasks, improving performance, and enhancing the user experience of web applications.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">60. <h3 _ngcontent-sc65="" class="question-text">How to check if a number is an integer without using math function and without converting number into string or array</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content"><b>1)</b> Use the === operator (strict equality) as below,
+
+<div class="code-snippet">
+<code>
 if (data === parseInt(data, 10))
     alert("data is integer")
 else
     alert("data is not an integer")
+</code>
+</div>
+<b>2)</b>  Check if the type is number and then check the remainder
 
-2)  Check if the type is number and then check the remainder
-
+<div class="code-snippet">
+<code>
 var data = 22;
 
 if(typeof data === 'number'){
@@ -1768,10 +2345,14 @@ if(typeof data === 'number'){
     if(data % 1 === 0){
        // yes it's an integer.
     }
-}</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">61. <h3 _ngcontent-sc65="" class="question-text">Use of JavaScript clearInterval()</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">setInterval sets up a recurring timer. It returns a handle that you can pass into<b> clearInterval</b> to stop it from firing:
+}
+</code>
+</div></div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">61. <h3 _ngcontent-sc65="" class="question-text">Use of JavaScript clearInterval()</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">setInterval sets up a recurring timer. It returns a handle that you can pass into<b> clearInterval</b> to stop it from firing:
 
 <b>JS code:-</b>
 
+<div class="code-snippet">
+<code>
 var myVar = setInterval(myTimer, 1000);
 
 function myTimer() {
@@ -1782,32 +2363,80 @@ function myTimer() {
 
 function myStopFunction() {
   clearInterval(myVar);
-}</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">62. <h3 _ngcontent-sc65="" class="question-text"> How to animate in css</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content"><b>CSS:-</b>
+}
+</code>
+</div></div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">62. <h3 _ngcontent-sc65="" class="question-text"> How to animate in css</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">In CSS, you can create <b>animations</b> using the `@keyframes` rule and apply them to elements using the `animation` property. Here's a basic example of how to animate an element in CSS:
 
-div {
-  width: 100px;
-  height: 100px;
-  background-color: red;
-  animation-name: example;
-  animation-duration: 4s;
+<div class="code-snippet">
+<code>
+/* Define the animation keyframes */
+@keyframes myAnimation {
+  0% {
+    /* Initial state */
+    transform: scale(1);
+  }
+  50% {
+    /* Intermediate state */
+    transform: scale(1.5);
+  }
+  100% {
+    /* Final state */
+    transform: scale(1);
+  }
 }
 
-@keyframes example {
-  from {background-color: red;}
-  to {background-color: yellow;}
+/* Apply the animation to an element */
+.my-element {
+  animation: myAnimation 2s infinite;
+}
+</code>
+</div>
+In this example, we define an animation called `myAnimation` using the `@keyframes` rule. The `@keyframes` rule allows you to specify different stages of the animation by setting CSS properties at different percentage points. In this case, we define three stages: 0%, 50%, and 100%.
+
+Next, we apply the animation to an element with the class `.my-element` using the `animation` property. The <b>`animation`</b> property takes several values separated by spaces. The first value is the name of the animation (`myAnimation`), followed by the duration of the animation (`2s` in this case), and finally, any additional animation properties such as timing function or delay.
+
+In the example above, the animation will scale the element from its initial size to 1.5 times its size and then back to the initial size, creating a simple pulsating effect. The animation will repeat indefinitely (`infinite`) until stopped or removed.
+
+You can customize the animation by changing the CSS properties within the `@keyframes` rule and adjusting the animation properties applied to the element. You can animate various CSS properties such as `transform`, `opacity`, `color`, `width`, and more.
+
+CSS <b>animations</b> provide a wide range of possibilities for creating engaging and dynamic effects on web pages. You can explore different animation properties, timing functions, and keyframe percentages to achieve the desired animation effects.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">63. <h3 _ngcontent-sc65="" class="question-text">Explain closures in javascript</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">In JavaScript, a <b>closure</b> is a combination of a function and the lexical environment within which that function was declared. It allows a function to access and remember variables from its outer (enclosing) scope even when the function is executed outside that scope.
+
+To understand closures, it's important to grasp the concept of lexical scope. Lexical scope means that variables and functions are defined within their containing scope, and they have access to variables from their parent scopes. When a function is defined inside another function, the inner function has access to variables and parameters of the outer function.
+
+Here's an example to demonstrate closures in JavaScript:
+
+<div class="code-snippet">
+<code>
+function outer() {
+  var outerVariable = 'I am from outer';
+
+  function inner() {
+    console.log(outerVariable);
+  }
+
+  return inner;
 }
 
-<b>HTML:-</b>
+var closure = outer();
+closure(); // Output: I am from outer
+</code>
+</div>
+In this example, the `outer` function defines a variable called `outerVariable` and a nested function called `inner`. The `inner` function has access to the `outerVariable` even after the `outer` function has finished executing. When we invoke `outer()` and assign the returned `inner` function to the variable `closure`, we create a closure. The <b>closure</b> variable still holds a reference to the `inner` function along with its surrounding lexical environment, which includes the `outerVariable`. When we call `closure()`, it logs the value of `outerVariable`.
 
-&lt;div&gt;&lt;/div&gt;
-</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">63. <h3 _ngcontent-sc65="" class="question-text">Explain closures in javascript</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">please refer this w3schools link to understand closure functions : <a href="https://www.w3schools.com/js/js_function_closures.asp" target="_blank">JavaScript Closures</a></div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">64. <h3 _ngcontent-sc65="" class="question-text">How to define a private method or variable inside a class in JavaScript or es6</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content"><b>1. With ES6 classes</b>
+<b>Closures</b> are powerful because they enable functions to "remember" the variables in their lexical scope, even if the outer function has completed execution or the variables are not accessible in the current scope. This behavior allows for data encapsulation, private variables, and the creation of functions that can hold onto state information.
+
+Closures are commonly used in scenarios like creating private variables, implementing function factories, and working with asynchronous code where you want to maintain access to variables across asynchronous callbacks.
+
+It's important to note that <b>closures</b> can also lead to memory leaks if not handled carefully, as they keep references to the variables in their outer scopes, preventing them from being garbage collected. It's a good practice to be mindful of closure usage and avoid unnecessary memory consumption.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">64. <h3 _ngcontent-sc65="" class="question-text">How to define a private method or variable inside a class in JavaScript or es6</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content"><b>1. With ES6 classes</b>
+
 Read-only “power” property example:-
-For power property, let’s make it read-only. It sometimes happens that a property must be set at creation time only, and then never modified.
 
-That’s exactly the case for a coffee machine: power never changes.
+For power property, let’s make it read-only,  It sometimes happens that a property must be set at creation time only, and then never modified.That’s exactly the case for a coffee machine, power never changes.
 
 To do so, we only need to make getter, but not the setter:
 
+<div class="code-snippet">
+<code>
 class CoffeeMachine {
   constructor(power) {
     this._power = power;
@@ -1825,8 +2454,12 @@ let coffeeMachine = new CoffeeMachine(100);
 alert(`Power is: ${coffeeMachine.power}W`); // Power is: 100W
 
 coffeeMachine.power = 25; // Error (no setter)
-
+</code>
+</div>
 <b>2. With ES5</b>
+
+<div class="code-snippet">
+<code>
 //In below marks is private
 function Employee() {
   var marks=40;
@@ -1844,35 +2477,93 @@ console.log(test.getMarks()); //40
 test.setMarks(70);
 console.log(test.getMarks()); //70
 console.log(test.marks) // undefined
+</code>
+</div></div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">65. <h3 _ngcontent-sc65="" class="question-text">Explain CSS position properties</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">In CSS, there are several <b>position</b> properties that control the positioning of elements on a web page. Let's explore each of these position properties with examples:
 
-for more details , visit the following link : <a href="https://dev.to/bhagatparwinder/classes-in-js-public-private-and-protected-1lok" target="_blank">Classes in JS: Public, Private and Protected</a></div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">65. <h3 _ngcontent-sc65="" class="question-text">Explain CSS position properties</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">Please find the best explanation <a href="https://www.freecodecamp.org/news/learn-the-basics-the-css-position-property/#:~:text=The%20CSS%20position%20property%20defines,the%20position%20property%20can%20take." target="_blank">here</a></div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">66. <h3 _ngcontent-sc65="" class="question-text">What will be the output :
+<b>1. position:</b> This property specifies the positioning method for an element. It can take several values:
+   <b>- `static`:</b> This is the default value, and elements are positioned according to the normal document flow.
+  <b> - `relative`:</b> Elements are positioned relative to their normal position. You can use the `top`, `bottom`, `left`, and `right` properties to offset the element from its original position.
+  <b> - `absolute`:</b> Elements are positioned relative to the nearest positioned ancestor or the containing block. If there is no positioned ancestor, it will be positioned relative to the initial containing block (usually the `` element).
+  <b> - `fixed`:</b> Elements are positioned relative to the viewport and do not move even if the page is scrolled.
+   <b>- `sticky`:</b> Elements are positioned based on the user's scroll position. It behaves like `relative` within its container until a specific offset threshold is reached, after which it behaves like `fixed`.
+
+Here are some examples illustrating the usage of CSS position properties:
+
+<div class="code-snippet">
+<code>
+/* Example 1: Relative positioning */
+.relative-box {
+  position: relative;
+  top: 20px;
+  left: 50px;
+}
+
+/* Example 2: Absolute positioning */
+.absolute-box {
+  position: absolute;
+  top: 50px;
+  left: 100px;
+}
+
+/* Example 3: Fixed positioning */
+.fixed-box {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+/* Example 4: Sticky positioning */
+.sticky-box {
+  position: sticky;
+  top: 50px;
+}
+
+.container {
+  height: 2000px; /* To create a scrollable container for sticky positioning */
+}
+</code>
+</div>
+In Example 1, the `.relative-box` element is positioned relative to its normal position. It is shifted 20 pixels down from its original position and 50 pixels to the right.
+
+In Example 2, the `.absolute-box` element is positioned relative to its closest positioned ancestor or the containing block. It is shifted 50 pixels down from the top edge and 100 pixels to the right from the left edge of its container.
+
+In Example 3, the `.fixed-box` element is positioned relative to the viewport. It remains fixed in its position, regardless of scrolling. It is placed 20 pixels down from the top and 20 pixels from the right edge of the viewport.
+
+In Example 4, the `.sticky-box` element is initially positioned according to the normal flow of the document. Once the user scrolls past the offset of 50 pixels from the top edge of its containing block (in this case, the `.container`), it becomes "sticky" and behaves like `fixed`, remaining fixed at that position while scrolling.
+
+These examples demonstrate how CSS position properties can be used to control the positioning of elements on a web page.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">66. <h3 _ngcontent-sc65="" class="question-text">What will be the output :
 
 function x() {return 2}
 alert(x());
-function x() {return 3}</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content"><b>Output will be : 3 as functions are hoisted to the top</b> 
+function x() {return 3}</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content"><b>Output will be : 3</b>  as functions are hoisted to the top
 </div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">67. <h3 _ngcontent-sc65="" class="question-text">What are pseudo elements and pseudo classes
 </h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content"><b>Pseudo elements:</b>
 
 A CSS pseudo-element is used to style specified parts of an element.
 For example, it can be used to:
 
-Style the first letter, or line, of an element
-Insert content before, or after, the content of an element
+-&gt;Style the first letter, or line of an element
+-&gt;Insert content before, or after, the content of an element
 
+<div class="code-snippet">
+<code>
 p::first-line {
   color: #ff0000;
   font-variant: small-caps;
 }
-
+</code>
+</div>
 <b>Pseudo classes</b>
 
 A pseudo-class is used to define a special state of an element.
 For example, it can be used to:
 
-Style an element when a user mouses over it
-Style visited and unvisited links differently
-Style an element when it gets focus
+-&gt;Style an element when a user mouses over it
+-&gt;Style visited and unvisited links differently
+-&gt;Style an element when it gets focus
 
+<div class="code-snippet">
+<code>
 * unvisited link */
 a:link {
   color: red;
@@ -1891,78 +2582,141 @@ a:hover {
 /* selected link */
 a:active {
   color: blue;
-}</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">68. <h3 _ngcontent-sc65="" class="question-text">Difference between subject and behaviour Subject
-</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">A BehaviorSubject holds one value. When it is subscribed it emits the value immediately. A Subject doesn't hold a value.
+}
+</code>
+</div></div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">68. <h3 _ngcontent-sc65="" class="question-text">Difference between subject and behaviour Subject
+</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">In RxJS, a popular library for reactive programming in JavaScript, there are two types of subjects: <b>Subject</b> and <b>BehaviorSubject</b>. Both are implementations of the `Subject` class but have some key differences in behavior.
 
-Subject example (with RxJS 5 API):
+<b>1. Subject:</b> A `Subject` is a multicast observable that can be subscribed to by multiple observers. It acts as both an observable and an observer, meaning you can subscribe to it to receive values and also push values to it using its `next()` method. When a `Subject` emits a new value, all of its subscribed observers will receive that value.
 
-const subject = new Rx.Subject();
-subject.next(1);
-subject.subscribe(x =&gt; console.log(x));
-Console output will be empty
+<b>2. BehaviorSubject:</b> A `BehaviorSubject` is a type of `Subject` that has a notion of "current value". It maintains and emits the latest value to any new subscribers. When a `BehaviorSubject` is created, it requires an initial value. Any subscriber that subscribes to a `BehaviorSubject` will immediately receive the current value or the latest emitted value.
 
-BehaviorSubject example:
+Here are the key differences between `Subject` and `BehaviorSubject`:
 
-const subject = new Rx.BehaviorSubject(0);
-subject.next(1);
-subject.subscribe(x =&gt; console.log(x));
-Console output: 1
+<b>- Initial Value:</b> `Subject` doesn't have an initial value, while `BehaviorSubject` requires an initial value during its creation.
 
-In addition:
+<b>- Late Subscription:</b> If you subscribe to a `Subject`, you won't receive any previously emitted values. However, if you subscribe to a `BehaviorSubject` after it has emitted values, you will receive the latest emitted value immediately upon subscription.
 
-BehaviorSubject should be created with an initial value: new Rx.BehaviorSubject(1)
-Consider ReplaySubject if you want the subject to hold more than one value</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">69. <h3 _ngcontent-sc65="" class="question-text">What will be output of following code
+<b>- Default Value:</b> If no value has been emitted by a `BehaviorSubject` before subscription, it will emit the initial value provided during creation. This is useful for cases where you want subscribers to have a default value even if they subscribe after some values have been emitted.
+
+Here's an example to illustrate the difference:
+
+<div class="code-snippet">
+<code>
+import { Subject, BehaviorSubject } from 'rxjs';
+
+const subject = new Subject();
+const behaviorSubject = new BehaviorSubject('Initial Value');
+
+// Subscribe to Subject
+subject.subscribe(value =&gt; console.log('Subject:', value));
+
+// Subscribe to BehaviorSubject
+behaviorSubject.subscribe(value =&gt; console.log('BehaviorSubject:', value));
+
+// Emit values
+subject.next('Value 1');
+behaviorSubject.next('Value 2');
+
+// Subscribe after value emission
+subject.subscribe(value =&gt; console.log('Late Subscription to Subject:', value));
+behaviorSubject.subscribe(value =&gt; console.log('Late Subscription to BehaviorSubject:', value));
+</code>
+</div>
+Output:
+
+<div class="code-snippet">
+<code>
+Subject: Value 1
+BehaviorSubject: Initial Value
+BehaviorSubject: Value 2
+Late Subscription to Subject: // No output
+Late Subscription to BehaviorSubject: Value 2
+</code>
+</div>
+In the example, when we emit `'Value 1'` using the `subject`, only the subscriber that subscribed before the emission receives the value. However, when we emit `'Value 2'` using the `behaviorSubject`, both the existing subscriber and the late subscriber receive the latest value immediately upon subscription. The late subscriber also receives the initial value provided during the creation of the `behaviorSubject`.
+
+In summary, the main difference between <b>`Subject`</b> and <b>`BehaviorSubject`</b> is that `BehaviorSubject` has an initial value and maintains and emits the latest value to new subscribers. This makes it useful in scenarios where you need to ensure that subscribers receive a default or the latest value even if they subscribe after some values have been emitted.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">69. <h3 _ngcontent-sc65="" class="question-text">What will be output of following code
 
 doit();
 var doit = function (){
 alert('x');
 }</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content"><b>Output will be:- Uncaught TypeError: doit is not a function</b> because
-function expressions in JavaScript are not hoisted. Therefore, you cannot use function expressions before defining them</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">70. <h3 _ngcontent-sc65="" class="question-text">Difference between pass by value and pass by reference</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">The difference between pass-by-reference and pass-by-value is, pass-by-value creates a new space in memory and makes a copy of a value, whereas pass-by-reference does not. Instead of making a copy, pass-by-reference does exactly what it sounds like; a value stored in memory gets referenced
+function expressions in JavaScript are not hoisted. Therefore, you cannot use function expressions before defining them</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">70. <h3 _ngcontent-sc65="" class="question-text">Difference between pass by value and pass by reference</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">In programming, <b>pass by value</b> and <b>pass by reference</b> are two different approaches to parameter passing when invoking functions or methods. These concepts refer to how the values of arguments are assigned to parameters in function calls. 
 
-<b>Pass by reference e.g</b>
-let john = {
-	name: "John Smith",
-	age: 45,
-	gender: "male"
+<b>1. Pass by Value:</b> In pass by value, a copy of the value of the argument is passed to the function or method. Any changes made to the parameter within the function do not affect the original argument outside the function. This means that the function works with its own separate copy of the value.
+
+Example of pass by value in JavaScript:
+
+<div class="code-snippet">
+<code>
+function increment(value) {
+  value = value + 1;
+  console.log('Inside function:', value);
 }
 
-let newJohn = john 
-//{name: "John Smith", age: 45, gender: "male"}
+let num = 5;
+increment(num);
+console.log('Outside function:', num);
+</code>
+</div>
+Output:
 
-// Lets edit the name of newJohn variable
+<div class="code-snippet">
+<code>
+Inside function: 6
+Outside function: 5
+</code>
+</div>
+In this example, the `increment` function takes an argument `value` and increments it by 1. However, the increment operation only affects the local copy of `value` within the function. The original value of `num` outside the function remains unchanged.
 
-newJohn.name = "Tom Doe" // "Tom Doe"
+<b>2. Pass by Reference:</b> In pass by reference, a reference to the memory location of the argument is passed to the function or method. This means that changes made to the parameter within the function affect the original argument outside the function since they are pointing to the same memory location.
 
-console.log(newJohn) 
-//{name: "Tom Doe", age: 45, gender: "male"}
+Example of pass by reference in JavaScript:
 
-console.log(john) 
-// {name: "Tom Doe", age: 45, gender: "male"}
-
-<b>Pass by value e.g</b>
-const num = 25
-
-function passByValue (x){
- return x += 2
+<div class="code-snippet">
+<code>
+function changeName(obj) {
+  obj.name = 'John';
+  console.log('Inside function:', obj);
 }
 
-console.log(passByValue(num))
-// 27
+let person = { name: 'Alice' };
+changeName(person);
+console.log('Outside function:', person);
+</code>
+</div>
+Output:
 
-console.log('num:', num)
-// num: 25</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">71. <h3 _ngcontent-sc65="" class="question-text">Which html elements were used before HTML5 for embedding video into the website
-</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">Before HTML5, in order to have a video play on a webpage, you would need to use a plugin like Adobe Flash Player. With the introduction of HTML5, you can now place videos directly into the page itself.
+<div class="code-snippet">
+<code>
+Inside function: { name: 'John' }
+Outside function: { name: 'John' }
+</code>
+</div>
+In this example, the `changeName` function takes an argument `obj` which is an object. It modifies the `name` property of the object to `'John'`. Since the parameter `obj` holds a reference to the same object as `person`, the change made inside the function is reflected outside as well.
 
-The HTML5 &lt;video&gt; element is used to embed video in web documents. It may contain one or more video sources, represented using the src attribute or the source element.
+It's important to note that JavaScript is always pass by value, but when dealing with objects and arrays, the values being passed are references to the objects or arrays. So, in practical terms, the behavior may resemble pass by reference.
+
+In summary, the main difference between <b>pass by value</b> and <b>pass by reference</b> is that in pass by value, a copy of the value is passed, while in pass by reference, a reference to the original value is passed. Pass by value does not affect the original value outside the function, while pass by reference allows modifications to affect the original value outside the function.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">71. <h3 _ngcontent-sc65="" class="question-text">Which html elements were used before HTML5 for embedding video into the website
+</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content"><b>Before HTML5</b>, in order to have a video play on a webpage, you would need to use a plugin like Adobe Flash Player. With the introduction of HTML5, you can now place videos directly into the page itself.
+
+The <b>HTML5</b> &lt;video&gt; element is used to embed video in web documents. It may contain one or more video sources, represented using the src attribute or the source element.
 
 To embed a video file, just add this code snippet and change the src to the path of your video file:
 
+<div class="code-snippet">
+<code>
 &lt;video controls&gt;
   &lt;source src="test.ogg" type="video /ogg"&gt;
   &lt;source src="test.mp4" type="video /mpeg"&gt;
   Your browser does not support the video element. Kindly update it to latest version.
-&lt;/video&gt;</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">72. <h3 _ngcontent-sc65="" class="question-text">Write a code to display which character is coming how many times in a given string</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content"><b>Below is the function to print character and its occurences.</b>
+&lt;/video&gt;
+</code>
+</div></div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">72. <h3 _ngcontent-sc65="" class="question-text">Write a code to display which character is coming how many times in a given string</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content"><b>Below is the function to print character and its occurences.</b>
 
+<div class="code-snippet">
+<code>
 const countOccurences=(str)=&gt; {
   let exists={}
   for (let i= 0; i &lt; str.length; i++) {
@@ -1983,15 +2737,94 @@ countOccurences('malayalam')
 occurences of m is :2
 occurences of a is :4
 occurences of l is :2
-occurences of y is :1</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">73. <h3 _ngcontent-sc65="" class="question-text">Difference between display inline , display inline block and display block</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content"><b>Display properties and their usage:-</b>
+occurences of y is :1
+</code>
+</div></div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">73. <h3 _ngcontent-sc65="" class="question-text">Difference between display inline , display inline block and display block</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">In CSS, the <b>display</b> property controls how an element is rendered in the document flow. There are three commonly used values for the `display` property: <b>`inline`, `inline-block`</b>, and <b>`block`</b>. Here's a breakdown of the differences between them:
 
-1. inline:	Displays an element as an inline element (like <span>). Any height and width properties will have no effect.
-2. block:	Displays an element as a block element (like div tag). It starts on a new line, and takes up the whole width
-3.inline-block: Displays an element as an inline-level block container. The element itself is formatted as an inline element, but you can apply height and width values
+<b>1. `display: inline`:</b> Elements with `display: inline` are rendered as inline elements, meaning they flow within the text content of a line. Inline elements do not start on a new line and only take up as much width as necessary to contain their content. They cannot have a specified width or height, and margins and padding only affect their left and right sides, not top and bottom.
 
-For more information click <a href="https://www.w3schools.com/cssref/pr_class_display.asp" target="_blank">here
-</a></span></div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">74. <h3 _ngcontent-sc65="" class="question-text">Some important points related to accessibility</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content"><b>What accessibility is?</b>
-The expansion of the User Experience concept brings with it new, but old, other concepts related to this which will help the company to offer to its users a more needs focused experience and pleasant navigation through the product. One of the most important concepts that evolved, is accessibility. But what accessibility actually means? According to W3C, accessibility “means that websites, tools, and technologies are designed and developed so that people with disabilities can use them. More specifically, people can: perceive, understand, navigate, interact with the Web and contribute to the Web.” Web access is an umbrella term in which are encompassed all the disabilities that can affect the navigation on Web auditory, cognitive-motor, neurological, speech and visual.
+Example:
+
+<div class="code-snippet">
+<code>span {
+  display: inline;
+}
+</code>
+</div>
+<div class="code-snippet">
+<code>
+&lt;span&gt;This is an inline element.&lt;/span&gt;
+</code>
+</div>
+
+<b>2. `display: inline-block`:</b> Elements with `display: inline-block` are rendered as inline-level elements but with the ability to have a specific width, height, margins, and padding. They flow within the text content like inline elements, but they can have block-level properties applied to them. Inline-block elements start on the same line as the previous content, but they can have line breaks if necessary.
+
+Example:
+
+<div class="code-snippet">
+<code>
+div {
+  display: inline-block;
+  width: 200px;
+  height: 100px;
+  margin: 10px;
+  padding: 5px;
+}
+</code>
+</div>
+<div class="code-snippet">
+<code>
+&lt;div&gt;This is an inline-block element.&lt;/div&gt;
+</code>
+</div>
+<b>3. `display: block`:</b> Elements with `display: block` are rendered as block-level elements. They start on a new line and take up the full available width by default. Block-level elements can have a specific width, height, margins, and padding. They create a "block" that other elements cannot appear within on the same line.
+
+Example:
+
+<div class="code-snippet">
+<code>
+div {
+  display: block;
+  width: 300px;
+  height: 200px;
+  margin: 10px;
+  padding: 5px;
+}
+</code>
+</div>
+<div class="code-snippet">
+<code>
+&lt;div&gt;This is a block element.&lt;/div&gt;
+</code>
+</div>
+In summary, the key differences between `display: inline`, `display: inline-block`, and `display: block` are:
+<b>- `display: inline`</b> elements flow within the text content, cannot have a specified width or height, and have limited control over margins and padding.
+<b>- `display: inline-block`</b> elements flow within the text content but can have a specified width, height, margins, and padding.
+<b>- `display: block`</b> elements start on a new line, take up the full available width, and can have a specified width, height, margins, and padding.
+
+It's worth noting that there are additional values for the `display` property, such as `none` (hides the element), `table` (renders as a table), and `flex` (enables flexible box layout), among others. Each value serves a specific purpose and has its own set of behaviors and characteristics.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">74. <h3 _ngcontent-sc65="" class="question-text">Some important points related to accessibility</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content"><b>Accessibility</b> is an essential aspect of web development, ensuring that websites and applications are usable by people with disabilities. Here are some important points related to accessibility:
+
+<b>1. Semantic HTML:</b> Use appropriate HTML tags to convey the structure and meaning of the content. Use headings (`&lt;h1&gt;` to `&lt;h6&gt;`) to organize content, `&lt;p&gt;` for paragraphs, `&lt;nav&gt;` for navigation sections, `&lt;button&gt;` for interactive buttons, etc. This helps screen readers and assistive technologies understand the content and provide a better experience for users.
+
+<b>2. Keyboard Accessibility:</b> Ensure that all functionality can be accessed and operated using a keyboard alone. This is crucial for people with motor disabilities who rely on keyboard navigation. Make sure focus is properly managed and visible, and elements such as buttons, links, and form inputs are keyboard accessible and provide appropriate feedback.
+
+<b>3. Alt Text for Images:</b> Provide descriptive alternative text (`alt` attribute) for images. This allows screen readers to describe the content of images to visually impaired users. Use concise and meaningful descriptions that convey the purpose or information conveyed by the image.
+
+<b>4. Contrast and Color:</b> Use sufficient contrast between text and background colors to ensure readability. Low contrast can make it difficult for people with visual impairments or color blindness to read content. Consider using tools to check contrast ratios and ensure compliance with accessibility standards.
+
+<b>5. Forms and Labels:</b> Use proper form elements and labels to provide clear instructions and associations. Associate labels with form inputs using the `for` attribute or by wrapping the input within the label element. This helps screen readers understand the purpose of form inputs and improves usability for users with visual impairments.
+
+<b>6. Focus Indicators:</b> Ensure that focus indicators are clearly visible and distinguishable. When users navigate through a page using the keyboard, it's important to provide a visual indication of the focused element. This helps users with disabilities understand their location within the page and improves overall navigation.
+
+<b>7. ARIA Roles and Attributes:</b> Use ARIA (Accessible Rich Internet Applications) roles and attributes to enhance the accessibility of complex or custom UI components. ARIA attributes provide additional information to assistive technologies, helping them understand and navigate interactive elements like menus, tabs, and modals.
+
+<b>8. Responsive and Mobile Accessibility:</b> Ensure that your website is responsive and works well on different devices and screen sizes. Consider the needs of users with disabilities who may access your site using mobile devices or assistive technologies. Test your site's accessibility on mobile devices and use media queries to adapt the layout and design.
+
+<b>9. Testing and Auditing:</b> Regularly test and audit your website for accessibility. Use automated accessibility testing tools to identify common issues, and perform manual testing to understand the experience from the perspective of users with disabilities. Incorporate accessibility into your development process to catch and address issues early on.
+
+<b>10. Continuous Learning:</b> Stay updated with accessibility guidelines and best practices. Accessibility standards and techniques evolve, so it's important to continuously learn and improve your understanding of accessibility to create inclusive and usable experiences for all users.
+
+These points highlight some important considerations for creating accessible websites and applications. By following accessibility best practices, you can ensure that your content is available and usable by a wider range of users, regardless of their abilities or disabilities.
 
 <b>The WCAG 2.0 is organized in three different levels:</b>
 
@@ -2002,15 +2835,22 @@ Even level A is just the beginning, and the level AA embraced on large companies
 Let’s implement this with an example.
 
 <b>Promise e.g</b>
-const promise = new Promise((data) =&gt;
-{ data(1);
+
+<div class="code-snippet">
+<code>
+const promise = new Promise((data) =&gt; { 
+  data(1);
   data(2);
-  data(3); })
-.then(element =&gt; console.log(‘Promise ‘ + element));
+  data(3);
+ }).then(element =&gt; console.log(‘Promise ‘ + element));
 
 Output:- Promise 1
-
+</code>
+</div>
 <b>Observable e.g</b>
+
+<div class="code-snippet">
+<code>
 const observable = new Observable((data) =&gt; {
 data.next(1);
 data.next(2);
@@ -2020,19 +2860,59 @@ data.next(3);
 // Output
 Observable 1
 Observable 2
-Observable 3</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">76. <h3 _ngcontent-sc65="" class="question-text">What are maps in JavaScript</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">The Map object holds key-value pairs and remembers the original insertion order of the keys. Any value (both objects and primitive values) may be used as either a key or a value.
+Observable 3
+</code>
+</div></div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">76. <h3 _ngcontent-sc65="" class="question-text">What are Map in JavaScript</h3></span></div><div _ngcontent-sc65="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc65="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc65="" class="panel-body"><div _ngcontent-sc65="" class="panel-body-content">In JavaScript, <b>Map</b> is a built-in object that allows you to store key-value pairs and retrieve their values based on the keys. It provides a way to associate values with unique keys and offers various methods for manipulating and accessing the data stored within it.
 
-<b>Example</b>
+Here are some key features and characteristics of `Map`:
 
-let contacts = new Map()
-contacts.set('Jessie', {phone: "213-555-1234", address: "123 N 1st Ave"})
-contacts.has('Jessie') // true
-contacts.get('Hilary') // undefined
-contacts.set('Hilary', {phone: "617-555-4321", address: "321 S 2nd St"})
-contacts.get('Jessie') // {phone: "213-555-1234", address: "123 N 1st Ave"}
-contacts.delete('Raymond') // false
-contacts.delete('Jessie') // true
-console.log(contacts.size) // 1</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">77. <h3 _ngcontent-sc65="" class="question-text">What will be the output of following code:-
+<b>1. Key-Value Pairs:</b> Each entry in a `Map` consists of a key and its associated value. The key can be of any data type, including objects or primitive values.
+
+<b>2. Ordering:</b> Unlike the plain JavaScript object (`{}`), a `Map` preserves the order of key-value pairs. When iterating over a `Map`, the entries are retrieved in the order they were inserted.
+
+<b>3. Key Equality:</b> The keys in a `Map` are compared using the "SameValueZero" algorithm, which means that two keys are considered equal if they have the same value (in terms of JavaScript's equality comparison).
+
+<b>4. Iterability:</b> `Map` objects are iterable, meaning you can use `for...of` loops or the `forEach()` method to iterate over the entries in the `Map`.
+
+<b>5. Size:</b> The number of entries in a `Map` can be retrieved using the `size` property.
+
+<b>6. Adding and Removing Entries:</b> Entries can be added to a `Map` using the `set()` method and removed using the `delete()` method. The `clear()` method can be used to remove all entries from a `Map`.
+
+<b>7. Accessing Values:</b> The value associated with a specific key can be retrieved using the `get()` method. You can also check if a key exists in the `Map` using the `has()` method.
+
+<b>8. Iterating over Entries:</b> There are several methods available for iterating over the entries in a `Map`, such as `forEach()`, `for...of` loop, `keys()`, `values()`, and `entries()`.
+
+Here's an example that demonstrates the basic usage of a `Map`:
+
+<div class="code-snippet">
+<code>
+const map = new Map();
+
+map.set('name', 'John');
+map.set('age', 30);
+map.set('isStudent', false);
+
+console.log(map.get('name')); // Output: John
+console.log(map.has('age')); // Output: true
+console.log(map.size); // Output: 3
+
+map.forEach((value, key) =&gt; {
+  console.log(`${key}: ${value}`);
+});
+</code>
+</div>
+Output:
+
+<div class="code-snippet">
+<code>
+name: John
+age: 30
+isStudent: false
+</code>
+</div>
+In the example, we create a `Map` object, set key-value pairs using the `set()` method, retrieve values using the `get()` method, check if a key exists using the `has()` method, retrieve the size using the `size` property, and iterate over the entries using the `forEach()` method.
+
+The <b>Map</b> object provides a powerful and flexible way to store and retrieve key-value pairs, making it useful in scenarios where you need to associate data with unique identifiers or keys.</div></div></div><div _ngcontent-sc65="" class="affiliate-ads-container"></div></div><div _ngcontent-sc65=""><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc65="" class="row"><div _ngcontent-sc65="" class="col-xl-10 col-md-9"><span _ngcontent-sc65="">77. <h3 _ngcontent-sc65="" class="question-text">What will be the output of following code:-
 
 for (var i= 0; i &lt; 5; i++){
   (function(i) {
