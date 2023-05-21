@@ -15,6 +15,9 @@ export class RelatedInterviewQuestionsComponent implements OnInit {
   threeYearsExperienceInterviewQuestionsObj: any;
   fiveYearsExperienceInterviewQuestionsObj: any;
   topAngularInterviewQuestions: any;
+  topHTML5InterviewQuestions: any;
+  topCSS3InterviewQuestions: any;
+  topJavascriptInterviewQuestions: any;
 
   constructor(
     private loaderService: LoaderService,
@@ -29,15 +32,13 @@ export class RelatedInterviewQuestionsComponent implements OnInit {
   }
 
   setQuestionTitleByExperience() {
-     this.freshersInterviewQuestionsObj = UIConstants.topFresherFrontendInterviewQuestions;
-     this.threeYearsExperienceInterviewQuestionsObj  = UIConstants.topThreeYearsExperienceFrontendInterviewQuestions;
-     this.fiveYearsExperienceInterviewQuestionsObj  = UIConstants.topFiveYearsExperienceFrontendInterviewQuestions;
-     this.topAngularInterviewQuestions = {
-       data: {
-        title: UIConstants.topAngularInterviewQuestionsTitle,
-        path: UIConstants.topAngularInterviewQuestionsPath,
-       }
-     }
+    this.freshersInterviewQuestionsObj = UIConstants.topFresherFrontendInterviewQuestions;
+    this.threeYearsExperienceInterviewQuestionsObj = UIConstants.topThreeYearsExperienceFrontendInterviewQuestions;
+    this.fiveYearsExperienceInterviewQuestionsObj = UIConstants.topFiveYearsExperienceFrontendInterviewQuestions;
+    this.topAngularInterviewQuestions = UIConstants.topAngularInterviewQuestions;
+    this.topHTML5InterviewQuestions = UIConstants.topHTML5InterviewQuestions;
+    this.topCSS3InterviewQuestions = UIConstants.topCSS3InterviewQuestions;
+    this.topJavascriptInterviewQuestions = UIConstants.topJavascriptInterviewQuestions;
   }
 
   handleRouteChangeEvent() {

@@ -1,17 +1,48 @@
-.search-term-container{
+.search-term-container {
     padding: 5px 10px;
     margin-bottom: 10px;
     display: inline-block;
 }
 
-.clear-search{
+.clear-search {
     margin-left: 5px;
     font-weight: bold;
-    cursor:pointer;
+    cursor: pointer;
 }
 
-.search-text{
+.search-text {
     display: inline-block;
     vertical-align: -2px;
     font-size: 14px
+}
+
+.multiple-questions-container {
+    width: 100% !important;
+}
+
+.relation-questions-container {
+    &.col-12 {
+        float: left !important;
+    }
+    ::ng-deep {
+        .related-questionanswer-template {
+            .panel-container {
+                width: 90% !important;
+    
+                @media screen and (min-width: 769px) {
+                    margin-top: 83px !important;
+                }
+    
+                @media screen and (max-width: 768px) {
+                    width: 100% !important;
+                }
+            }
+        }
+    }
+}
+
+.main-questions-container {
+    &.col-12 {
+        float: left !important;
+    }
 }

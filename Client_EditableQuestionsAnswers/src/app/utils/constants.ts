@@ -16,6 +16,36 @@ export const topAngularInterviewQuestionsPath = 'top-50+-angular-interview-quest
 export const topAngularInterviewQuestionsTitle = 'Top 50+ Angular interview questions and answers';
 export const angularType = 'Angular'
 
+export const topFrontendInterviewQuestions = {
+    path: 'top-200+-frontend-developer-interview-questions-and-answers',
+    title: 'Top 200+ frontend developer interview questions and answers',
+}
+
+export const topHTML5InterviewQuestions = {
+    path: 'top-20+-html5-interview-questions-and-answers',
+    title: 'Top 20+ HTML5 interview questions and answers',
+    type: 'HTML5'
+}
+
+export const topCSS3InterviewQuestions = {
+    path: 'top-20+-css3-interview-questions-and-answers',
+    title: 'Top 20+ CSS3 interview questions and answers',
+    type: 'CSS3'
+}
+
+export const topJavascriptInterviewQuestions = {
+    path: 'top-100+-javascript-interview-questions-and-answers',
+    title: 'Top 100+ Javascript interview questions and answers',
+    type: 'Javascript'
+}
+
+
+export const topAngularInterviewQuestions = {
+    path: 'top-50+-angular-interview-questions-and-answers',
+    title: 'Top 50+ Angular interview questions and answers',
+    type: 'Angular'
+}
+
 export const topFresherFrontendInterviewQuestions = {
     path: 'frontend-developer-interview-questions-for-freshers',
     title: 'Front End Developer Interview Questions for Freshers',
