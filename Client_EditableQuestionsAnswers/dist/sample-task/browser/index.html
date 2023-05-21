@@ -2959,14 +2959,117 @@ In summary, the basic difference between authentication and authorization is tha
 <b>- Size Limit:</b> The maximum size for cookies is typically around 4KB.
 <b>- Usage:</b> Cookies are commonly used for storing small amounts of data, such as user preferences, session identifiers, or authentication tokens. They are sent with each request to the server, providing a way to maintain state or track user behavior.
 
-In summary, <b>LocalStorage</b> and <b>sessionStorage</b> are storage mechanisms provided by the browser for client-side data storage, with LocalStorage being more persistent and available across sessions, while sessionStorage is limited to the current session. Cookies, on the other hand, are small text files used for storing data that is sent to the server with each request, and they can have expiration dates for persistence. The choice of which storage mechanism to use depends on the specific requirements of the application and the desired lifespan of the data.</div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><div _ngcontent-sc66=""><div _ngcontent-sc66="" class="panel-item"><div _ngcontent-sc66="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc66="" class="row"><div _ngcontent-sc66="" class="col-xl-10 col-md-9"><span _ngcontent-sc66="">80. <h3 _ngcontent-sc66="" class="question-text"> What is shadow DOM and view encapsulation</h3></span></div><div _ngcontent-sc66="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc66="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc66="" class="panel-body"><div _ngcontent-sc66="" class="panel-body-content">An important aspect of web components is encapsulation — being able to keep the markup structure, style, and behavior hidden and separate from other code on the page so that different parts do not clash, and the code can be kept nice and clean. The Shadow DOM API is a key part of this, providing a way to attach a hidden separated DOM to an element.
+In summary, <b>LocalStorage</b> and <b>sessionStorage</b> are storage mechanisms provided by the browser for client-side data storage, with LocalStorage being more persistent and available across sessions, while sessionStorage is limited to the current session. Cookies, on the other hand, are small text files used for storing data that is sent to the server with each request, and they can have expiration dates for persistence. The choice of which storage mechanism to use depends on the specific requirements of the application and the desired lifespan of the data.</div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><div _ngcontent-sc66=""><div _ngcontent-sc66="" class="panel-item"><div _ngcontent-sc66="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc66="" class="row"><div _ngcontent-sc66="" class="col-xl-10 col-md-9"><span _ngcontent-sc66="">80. <h3 _ngcontent-sc66="" class="question-text"> What is shadow DOM and view encapsulation</h3></span></div><div _ngcontent-sc66="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc66="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc66="" class="panel-body"><div _ngcontent-sc66="" class="panel-body-content">Here's an explanation of Shadow DOM and view encapsulation with examples:
 
-In Angular there are 3 types of view encapsulation : 
-1. none  (no style encapsulation , no shadow DOM)
-2. emulated (this one is default provides style encapsulation but no shadow DOM)
-3. shadow DOM (style encapsulation + shadow dom)
+<b>1. Shadow DOM:</b>
 
-For detailed description please check this<a href="https://dzone.com/articles/what-is-viewencapsulation-in-angular#:~:text=Simply%20put%2C%20the%20Shadow%20DOM,and%20login%20of%20the%20element." target="_blank"> link</a></div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><div _ngcontent-sc66=""><div _ngcontent-sc66="" class="panel-item"><div _ngcontent-sc66="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc66="" class="row"><div _ngcontent-sc66="" class="col-xl-10 col-md-9"><span _ngcontent-sc66="">81. <h3 _ngcontent-sc66="" class="question-text">What is a Single page application</h3></span></div><div _ngcontent-sc66="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc66="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc66="" class="panel-body"><div _ngcontent-sc66="" class="panel-body-content">A single-page application is an app that doesn’t need to reload the page during its use and works within a browser.
+Shadow DOM is a web standard that allows for encapsulation of DOM elements within a host element. It provides a way to create a scoped subtree of DOM elements with its own styling and behavior. The encapsulated elements are isolated from the rest of the document, preventing styles and structure from leaking out or being affected by the surrounding page.
+
+Example:
+Let's say we want to create a custom button component that has its own styles and behavior. We can use the Shadow DOM to encapsulate the button's internal implementation.
+
+<div class="code-snippet">
+<code>
+// Create a custom button element
+class CustomButton extends HTMLElement {
+  constructor() {
+    super();
+    
+    // Create a shadow root
+    const shadow = this.attachShadow({ mode: 'open' });
+
+    // Create a button element
+    const button = document.createElement('button');
+    button.textContent = 'Click me';
+    
+    // Add styles to the button
+    const styles = document.createElement('style');
+    styles.textContent = `
+      button {
+        background-color: #e0e0e0;
+        color: #333;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      
+      button:hover {
+        background-color: #333;
+        color: #fff;
+      }
+    `;
+
+    // Append the button and styles to the shadow root
+    shadow.appendChild(styles);
+    shadow.appendChild(button);
+  }
+}
+
+// Define the custom element
+customElements.define('custom-button', CustomButton);
+</code>
+</div>
+Now, when you use the `&lt;custom-button&gt;` element in your HTML, the internal structure and styles defined within the Shadow DOM will be encapsulated and isolated from the surrounding page.
+
+<div class="code-snippet">
+<code>
+ &lt;!DOCTYPE html&gt; &lt;html&gt; 
+ &lt;head&gt; 
+ &lt;title&gt;
+   Shadow DOM Example
+ &lt;/title&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+ &lt;h1&gt;
+    My Web Page
+ &lt;/h1&gt;
+ &lt;!-- Custom button element with encapsulated styles --&gt;
+ &lt;custom-button&gt;&lt;/custom-button&gt;
+ &lt;script src="custom-button.js"&gt;&lt;/script&gt;
+ &lt;/body&gt;
+ &lt;/html&gt;
+</code>
+</div>
+
+<b>2. View Encapsulation:</b>
+
+View encapsulation is a concept commonly found in front-end frameworks like Angular. It ensures that the styles and structure of a component are encapsulated and scoped to that component only. The component's styles do not affect other components or the global styles of the application.
+
+Example:
+In Angular, view encapsulation can be achieved using various strategies, such as `Emulated`, `None`, or `ShadowDom`.
+
+<div class="code-snippet">
+<code>
+import { Component, ViewEncapsulation } from '@angular/core';
+
+@Component({
+  selector: 'app-custom-button',
+  template: `
+    Click me
+  `,
+  styles: [`
+    .custom-button {
+      background-color: #e0e0e0;
+      color: #333;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    .custom-button:hover {
+      background-color: #333;
+      color: #fff;
+    }
+  `],
+  encapsulation: ViewEncapsulation.Emulated // or ViewEncapsulation.None or ViewEncapsulation.ShadowDom
+})
+export class CustomButtonComponent {}
+</code>
+</div>
+
+In this example, the `styles` array contains the component's specific styles. The `encapsulation` property is set to <b>`ViewEncapsulation.Emulated`</b>, which is the default strategy in Angular. With this encapsulation strategy, Angular emulates the shadow DOM behavior by adding unique CSS selectors to the component's styles, scoping them to the component's template only</div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><div _ngcontent-sc66=""><div _ngcontent-sc66="" class="panel-item"><div _ngcontent-sc66="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc66="" class="row"><div _ngcontent-sc66="" class="col-xl-10 col-md-9"><span _ngcontent-sc66="">81. <h3 _ngcontent-sc66="" class="question-text">What is a Single page application</h3></span></div><div _ngcontent-sc66="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc66="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc66="" class="panel-body"><div _ngcontent-sc66="" class="panel-body-content">A <b>single-page application</b> is an app that doesn’t need to reload the page during its use and works within a browser.
 
 One of the best advantages of a correctly-configured SPA is the user experience (UX), where the user enjoys a natural environment of the app without having to wait for the page reloads and other things. You remain on the same page, which is powered by JavaScript programming language. 
 
@@ -2977,58 +3080,248 @@ MPA - multi-page application (a traditional app that loads new pages when you cl
 PWA - progressive web application (a website that is built using JavaScript or its frameworks and can act like an app, i.e., you can, for example, add it to your mobile phone homepage as an app)
 
 <b>Advantages</b>
-The main advantage of single-page applications is its speed. Most resources SPA needs (HTML + CSS + Scripts) are loaded at the launch of the app and don’t need to be reloaded during the usage. The only thing that changes is the data that is transmitted to and from the server. As a result, the application is very responsive to the user’s queries and doesn’t have to wait for client-server communication all the time.</div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><div _ngcontent-sc66=""><div _ngcontent-sc66="" class="panel-item"><div _ngcontent-sc66="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc66="" class="row"><div _ngcontent-sc66="" class="col-xl-10 col-md-9"><span _ngcontent-sc66="">82. <h3 _ngcontent-sc66="" class="question-text">What is view state and session state</h3></span></div><div _ngcontent-sc66="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc66="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc66="" class="panel-body"><div _ngcontent-sc66="" class="panel-body-content"><b>ViewState:</b>
- It is maintained at only one level that is page-level. Changes made on a single page is not visible on other pages. Information that is gathered in view state is stored for the clients only and cannot be transferred to any other place. View state is synonymous with serializable data only.
+
+The main advantage of <b>single-page</b> applications is its speed. Most resources SPA needs (HTML + CSS + Scripts) are loaded at the launch of the app and don’t need to be reloaded during the usage. The only thing that changes is the data that is transmitted to and from the server. As a result, the application is very responsive to the user’s queries and doesn’t have to wait for client-server communication all the time.</div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><div _ngcontent-sc66=""><div _ngcontent-sc66="" class="panel-item"><div _ngcontent-sc66="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc66="" class="row"><div _ngcontent-sc66="" class="col-xl-10 col-md-9"><span _ngcontent-sc66="">82. <h3 _ngcontent-sc66="" class="question-text">What is view state and session state</h3></span></div><div _ngcontent-sc66="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc66="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc66="" class="panel-body"><div _ngcontent-sc66="" class="panel-body-content"><b>ViewState:</b>
+It is maintained at only one level that is page-level. Changes made on a single page is not visible on other pages. Information that is gathered in view state is stored for the clients only and cannot be transferred to any other place. View state is synonymous with serializable data only.
 
 ViewState has a tendency for the persistence of page-instance-specific data. When view state is used, the values posted of a particular page persist in the browse area that the client is using and post back only when the entire operation is done. The data of the previous page is no longer available when another page is loaded. Also, Data is not secure in this case because it is exposed to clients. Encryption can be used for data security.
 
 <b>SessionState:</b>
- It is maintained at session-level and data can be accessed across all pages in the web application. The information is stored within the server and can be accessed by any person that has access to the server where the information is stored.
 
-SessionState has the tendency for the persistence of user-specific data and is maintained on the server-side. This data remains available until the time that the session is completed or the browser is closed by the user. The session state is only valid for type objects.</div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><div _ngcontent-sc66=""><div _ngcontent-sc66="" class="panel-item"><div _ngcontent-sc66="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc66="" class="row"><div _ngcontent-sc66="" class="col-xl-10 col-md-9"><span _ngcontent-sc66="">83. <h3 _ngcontent-sc66="" class="question-text">What is AOT in angular?</h3></span></div><div _ngcontent-sc66="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc66="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc66="" class="panel-body"><div _ngcontent-sc66="" class="panel-body-content">For better Understanding AOT it is first important to understand what is JIT which used to be default Angular compilation mode till Angular 8. After JIT , we will se how AOT works and how its different from JIT :
+It is maintained at session-level and data can be accessed across all pages in the web application. The information is stored within the server and can be accessed by any person that has access to the server where the information is stored.
 
-JIT
+SessionState has the tendency for the persistence of user-specific data and is maintained on the server-side. This data remains available until the time that the session is completed or the browser is closed by the user. The session state is only valid for type objects.</div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><div _ngcontent-sc66=""><div _ngcontent-sc66="" class="panel-item"><div _ngcontent-sc66="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc66="" class="row"><div _ngcontent-sc66="" class="col-xl-10 col-md-9"><span _ngcontent-sc66="">83. <h3 _ngcontent-sc66="" class="question-text">What is AOT in angular?</h3></span></div><div _ngcontent-sc66="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc66="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc66="" class="panel-body"><div _ngcontent-sc66="" class="panel-body-content">For better Understanding  it is first important to understand what is JIT which used to be default Angular compilation mode till Angular 8. After JIT , we will se how AOT works and how its different from JIT :
+
+<b>Just-in-Time (JIT)</b>
+
 In JIT compilation mode the TS code written by the developer is compiled to JS code during the build creation. Now, this compiled js code still contains some angular specific code ( for components, decorators, change detection, Dependency Injection etc.)which  is compiled at the browser end again at runtime ,with the help of JIT compiler sent along with the build .
 
 in JIT mode when Angular application is bootstrapped in the browser, the JIT compiler performs a lot of work to analyze the components in the application at runtime and generate code in memory. When the page is refreshed, all the work that has been done is thrown away, and the JIT compiler does the work all over again.
 
-AOT
+<b>Ahead-of-Time (AOT)</b>
+
 The TS code written by the developer is compiled to JS code, this js has already been compiled for angular as well. Now, this compiled js code is compiled by the browser again so that the html can be rendered. But, the catch here is that the features of angular have already been taken care of by AOT compiler and hence the browser don't have to worry much about component creation, change detection, Dependency Injection. So, we have :
 
-Faster rendering
+<b>Faster rendering</b>
 
 There's no need to download the Angular compiler if the app is already compiled. The compiler is roughly half of Angular itself, so omitting it dramatically reduces the application payload.
 
-Detect template errors earlier
+<b>Detect template errors earlier</b>
 
 The AOT compiler detects and reports template binding errors during the build step before users can see them.
 
-Better security
+<b>Better security</b>
 
 AOT compiles HTML templates and components into JavaScript files long before they are served to the client. With no templates to read and no risky client-side HTML or JavaScript evaluation, there are fewer opportunities for injection attacks.
 
-You can also refer Angular's official documentation link for understanding AOT <a href="https://angular.io/guide/aot-compiler" target="_blank">here</a></div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><div _ngcontent-sc66=""><div _ngcontent-sc66="" class="panel-item"><div _ngcontent-sc66="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc66="" class="row"><div _ngcontent-sc66="" class="col-xl-10 col-md-9"><span _ngcontent-sc66="">84. <h3 _ngcontent-sc66="" class="question-text">How to create custom pipe in Angular</h3></span></div><div _ngcontent-sc66="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc66="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc66="" class="panel-body"><div _ngcontent-sc66="" class="panel-body-content">Please checkout the best explanation <a href="https://codecraft.tv/courses/angular/pipes/custom-pipes/" target="">here</a> </div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><div _ngcontent-sc66=""><div _ngcontent-sc66="" class="panel-item"><div _ngcontent-sc66="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc66="" class="row"><div _ngcontent-sc66="" class="col-xl-10 col-md-9"><span _ngcontent-sc66="">85. <h3 _ngcontent-sc66="" class="question-text">What are inbuilt angular pipes</h3></span></div><div _ngcontent-sc66="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc66="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc66="" class="panel-body"><div _ngcontent-sc66="" class="panel-body-content"><b>Pipes Provided by Angular</b>
+You can also refer Angular's official documentation link for understanding AOT <a href="https://angular.io/guide/aot-compiler" target="_blank">here</a></div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><div _ngcontent-sc66=""><div _ngcontent-sc66="" class="panel-item"><div _ngcontent-sc66="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc66="" class="row"><div _ngcontent-sc66="" class="col-xl-10 col-md-9"><span _ngcontent-sc66="">84. <h3 _ngcontent-sc66="" class="question-text">How to create custom pipe in Angular</h3></span></div><div _ngcontent-sc66="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc66="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc66="" class="panel-body"><div _ngcontent-sc66="" class="panel-body-content">To create a <b>custom pipe</b> in Angular, you can follow these steps:
 
-CurrencyPipe
-DatePipe
-DecimalPipe
-JsonPipe
-LowerCasePipe
-UpperCasePipe
-PercentPipe
-SlicePipe
-AsyncPipe
+<b>1. Generate a new pipe:</b>
 
-For detail click <a href="https://codecraft.tv/courses/angular/pipes/built-in-pipes/" target="_blank">here</a></div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><div _ngcontent-sc66=""><div _ngcontent-sc66="" class="panel-item"><div _ngcontent-sc66="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc66="" class="row"><div _ngcontent-sc66="" class="col-xl-10 col-md-9"><span _ngcontent-sc66="">86. <h3 _ngcontent-sc66="" class="question-text">Explain Software version nomenclature (semantic versioning) ?</h3></span></div><div _ngcontent-sc66="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc66="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc66="" class="panel-body"><div _ngcontent-sc66="" class="panel-body-content">Given a version number MAJOR.MINOR.PATCH, increment the:
-1. MAJOR version when you make incompatible API changes,
-2. MINOR version when you add functionality in a backwards-compatible manner, and
-3. PATCH version when you make backwards-compatible bug fixes.
+Use the Angular CLI to generate a new pipe using the `ng generate pipe` command. Open your terminal and navigate to your Angular project's root directory, then run the following command:
 
-For a better and detailed understanding of semantic versioning you can refer this official npm youtube video - <a href="https://www.youtube.com/watch?v=kK4Meix58R4" target="_blank">Semantic versioning and npm</a>.
-you can also refer this npm blog - <a href="https://docs.npmjs.com/about-semantic-versioning" target="_blank">About semantic versioning</a>
-</div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><div _ngcontent-sc66=""><div _ngcontent-sc66="" class="panel-item"><div _ngcontent-sc66="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc66="" class="row"><div _ngcontent-sc66="" class="col-xl-10 col-md-9"><span _ngcontent-sc66="">87. <h3 _ngcontent-sc66="" class="question-text">What things should be stored in local storage and what in session storage</h3></span></div><div _ngcontent-sc66="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc66="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc66="" class="panel-body"><div _ngcontent-sc66="" class="panel-body-content">The data that we want to persist even after the browser tab or window getting
-closed should be stored in localstorage. The data related to a specific session should be
-stored in session storage.</div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><div _ngcontent-sc66=""><div _ngcontent-sc66="" class="panel-item"><div _ngcontent-sc66="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc66="" class="row"><div _ngcontent-sc66="" class="col-xl-10 col-md-9"><span _ngcontent-sc66="">88. <h3 _ngcontent-sc66="" class="question-text"> how to implement authentication in a website</h3></span></div><div _ngcontent-sc66="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc66="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc66="" class="panel-body"><div _ngcontent-sc66="" class="panel-body-content">Please find the detailed explanation <a href="https://medium.com/@vivekmadurai/different-ways-to-authenticate-a-web-application-e8f3875c254a#id_token=eyJhbGciOiJSUzI1NiIsImtpZCI6ImUxOTdiZjJlODdiZDE5MDU1NzVmOWI2ZTVlYjQyNmVkYTVkNTc0ZTMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYmYiOjE2MDc3OTE3OTAsImF1ZCI6IjIxNjI5NjAzNTgzNC1rMWs2cWUwNjBzMnRwMmEyamFtNGxqZGNtczAwc3R0Zy5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsInN1YiI6IjEwODcxNjM5NTg4OTkxMjY4Mjg5NCIsImVtYWlsIjoicHJhdmlubW9oaXRlYWl0QGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhenAiOiIyMTYyOTYwMzU4MzQtazFrNnFlMDYwczJ0cDJhMmphbTRsamRjbXMwMHN0dGcuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJuYW1lIjoicHJhdmluIG1vaGl0ZSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHaS0wUHZod2V5Ym1oQUFLVG4xX3Brd3dLYndLb19sZkhkdG8zTWY9czk2LWMiLCJnaXZlbl9uYW1lIjoicHJhdmluIiwiZmFtaWx5X25hbWUiOiJtb2hpdGUiLCJpYXQiOjE2MDc3OTIwOTAsImV4cCI6MTYwNzc5NTY5MCwianRpIjoiMjY4ZTY1NTM2ZmI3ZmZlZGU2YTk4MDNmMjg4ZDdjMWU4YjE5YTQ0NiJ9.I3nSWaXSx9QOtaoZ9WlduPI6LelluckIl_qECxTakz6-dLN06V_IEdhl93jT-Pc4Q5UMr86V4BqQmYHxOo2voiMQhDH1jMOUTRoTlXD8G7ISUklJArQOy5iCLhMwGIWvhnV645zV-Q1L5rfZoE74WAvSEZ1UQYhSTeP1AYK90zNYgJeejlPangAwwTHxXBSp57qTt1Bmxu5zwl66NUqiLkUJbiJ5Uyy9V0ad-FNGqGhZvZamFNzBi4D_oNmdmA1UOnvN7wnSEei_K9pxjTfGFl5Te5YPxhR59_CRUFzROJEyXV_rc8aAmAVUTez2JP8c6QPaVx_UuebsFbaetoI59ge" target="_blank">here</a></div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><div _ngcontent-sc66=""><div _ngcontent-sc66="" class="panel-item"><div _ngcontent-sc66="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc66="" class="row"><div _ngcontent-sc66="" class="col-xl-10 col-md-9"><span _ngcontent-sc66="">89. <h3 _ngcontent-sc66="" class="question-text">How would you implement a multi level dropdown in your angular application</h3></span></div><div _ngcontent-sc66="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc66="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc66="" class="panel-body"><div _ngcontent-sc66="" class="panel-body-content">&lt;link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"&gt;
+<div class="code-snippet">
+<code>
+ng generate pipe custom
+</code>
+</div>
+This will create a new file `custom.pipe.ts` and add it to the appropriate directory in your project.
+
+<b>2. Implement the pipe:</b>
+
+Open the `custom.pipe.ts` file and implement your custom pipe logic within the `transform` method of the `CustomPipe` class. The `transform` method takes an input value and optional parameters, performs the desired transformation, and returns the result.
+
+Here's an example of a custom pipe that doubles a given number:
+
+<div class="code-snippet">
+<code>
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'custom'
+})
+export class CustomPipe implements PipeTransform {
+  transform(value: number): number {
+    return value * 2;
+  }
+}
+</code>
+</div>
+In this example, the `transform` method receives a number as input (`value`) and returns the result of doubling the input number (`value * 2`).
+
+<b>3. Register the pipe:</b>
+
+To use the custom pipe in your Angular application, you need to register it in the module where it will be used. Open the corresponding module file (e.g., `app.module.ts`) and import the `CustomPipe` class. Then, add the `CustomPipe` to the `declarations` array in the module's decorator.
+
+<div class="code-snippet">
+<code>
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppComponent } from './app.component';
+import { CustomPipe } from './custom.pipe';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    CustomPipe
+  ],
+  imports: [
+    BrowserModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+</code>
+</div>
+<b>4. Use the custom pipe:</b>
+
+Now that the custom pipe is registered, you can use it in your templates by referencing its name. For example, in your component's template (`app.component.html`), you can use the custom pipe like this:
+
+<div class="code-snippet">
+<code>
+&lt;h1&gt;{{ 5 | custom }}&lt;/h1&gt;
+</code>
+</div>
+In this example, the `custom` pipe is applied to the value `5`, and the transformed result (10) will be displayed in the `&lt;h1&gt;` element.
+
+That's it! You have created a custom pipe in Angular. You can now use the pipe to perform custom transformations on data within your templates.</div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><div _ngcontent-sc66=""><div _ngcontent-sc66="" class="panel-item"><div _ngcontent-sc66="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc66="" class="row"><div _ngcontent-sc66="" class="col-xl-10 col-md-9"><span _ngcontent-sc66="">85. <h3 _ngcontent-sc66="" class="question-text">What are inbuilt angular pipes</h3></span></div><div _ngcontent-sc66="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc66="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc66="" class="panel-body"><div _ngcontent-sc66="" class="panel-body-content">Angular provides several <b>built-in</b> pipes that you can use out of the box to transform and format data in your Angular application. Here are some commonly used built-in Angular pipes:
+
+<b>1. DatePipe:</b> Formats a date value according to the specified format.
+
+<div class="code-snippet">
+<code>
+&lt;p&gt;{{ today | date }}&lt;/p&gt;
+
+
+&lt;p&gt;{{ today | date: 'short' }}&lt;/p&gt;
+
+</code>
+</div>
+<b>2. UpperCasePipe and LowerCasePipe:</b> Converts a string to uppercase or lowercase.
+
+<div class="code-snippet">
+<code>
+&lt;p&gt;{{ 'Hello World' | uppercase }}&lt;/p&gt;
+
+
+&lt;p&gt;{{ 'Hello World' | lowercase }}&lt;/p&gt;
+
+</code>
+</div>
+<b>3. DecimalPipe:</b> Formats a number as a decimal according to the specified precision.
+
+<div class="code-snippet">
+<code>
+&lt;p&gt;{{ 3.14159 | number: '1.2-3' }}&lt;/p&gt;
+
+</code>
+</div>
+<b>4. CurrencyPipe:</b> Formats a number as a currency according to the specified currency code.
+
+<div class="code-snippet">
+<code>
+&lt;p&gt;{{ 1000 | currency: 'USD' }}&lt;/p&gt;
+
+</code>
+</div>
+<b>5. PercentPipe:</b> Formats a number as a percentage.
+
+<div class="code-snippet">
+<code>
+&lt;p&gt;{{ 0.75 | percent }}&lt;/p&gt;
+
+</code>
+</div>
+<b>6. SlicePipe:</b> Returns a portion of a string or array.
+
+<div class="code-snippet">
+<code>
+&lt;p&gt;{{ 'Hello World' | slice: 0:5 }}&lt;/p&gt;
+
+
+&lt;p&gt;{{ [1, 2, 3, 4, 5] | slice: 0:3 }}&lt;/p&gt;
+
+</code>
+</div>
+<b>7. AsyncPipe:</b> Handles asynchronous values by subscribing to an observable or promise and updates the view automatically when the value changes.
+
+<div class="code-snippet">
+<code>
+&lt;p&gt;{{ asyncData$ | async }}&lt;/p&gt;
+
+</code>
+</div>
+These are just a few examples of the <b>built-in Angular pipes</b>. Angular provides more pipes, such as `KeyValuePipe`, `JsonPipe`, `PercentPipe`, and more, each serving specific purposes. You can also create your own custom pipes as explained in the previous response.</div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><div _ngcontent-sc66=""><div _ngcontent-sc66="" class="panel-item"><div _ngcontent-sc66="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc66="" class="row"><div _ngcontent-sc66="" class="col-xl-10 col-md-9"><span _ngcontent-sc66="">86. <h3 _ngcontent-sc66="" class="question-text">Explain Software version nomenclature (semantic versioning) ?</h3></span></div><div _ngcontent-sc66="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc66="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc66="" class="panel-body"><div _ngcontent-sc66="" class="panel-body-content"><b>Semantic Versioning</b>, also known as SemVer, is a versioning scheme used for software projects to convey information about the compatibility, features, and changes in different releases of the software. It follows a specific format: `..`.
+
+<b>1. Major Version (`&lt;major&gt;`):</b> The major version indicates significant changes that may introduce breaking changes or major updates to the software. This typically includes backward-incompatible changes, major new features, or significant architectural changes.
+
+<b>2. Minor Version (`&lt;minor&gt;`):</b> The minor version represents backward-compatible additions or enhancements to the software. It includes new features or functionalities that are added without breaking existing functionality.
+
+<b>3. Patch Version (`&lt;patch&gt;`):</b> The patch version indicates backward-compatible bug fixes, patches, or small updates that do not introduce any new features. These updates generally address issues, bugs, or security vulnerabilities in the software.
+
+Here are some examples of semantic versioning:
+
+<b>- Version `1.0.0`:</b> This is the initial release of the software, indicating that it has reached the stable state. Typically, the major version starts at `1` for the first stable release.
+
+<b>- Version `1.2.3`:</b> This version indicates that there have been backward-compatible feature additions or enhancements (`1`) since the last release, along with backward-compatible bug fixes or patches (`2`), and minor bug fixes or small updates (`3`).
+
+<b>- Version `2.0.0`:</b> This version signifies a major release that introduces backward-incompatible changes or major updates to the software.
+
+<b>Semantic Versioning</b> helps developers and users understand the impact of updates and changes in software versions. It provides a consistent and standardized way to communicate the compatibility and significance of different releases, allowing developers to manage dependencies, handle upgrades, and ensure compatibility across projects.
+
+It is worth noting that semantic versioning is not limited to software projects only. It can also be applied to libraries, APIs, frameworks, or any other project that follows a versioning scheme.</div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><div _ngcontent-sc66=""><div _ngcontent-sc66="" class="panel-item"><div _ngcontent-sc66="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc66="" class="row"><div _ngcontent-sc66="" class="col-xl-10 col-md-9"><span _ngcontent-sc66="">87. <h3 _ngcontent-sc66="" class="question-text">What things should be stored in local storage and what in session storage</h3></span></div><div _ngcontent-sc66="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc66="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc66="" class="panel-body"><div _ngcontent-sc66="" class="panel-body-content"><b>LocalStorage</b> and <b>sessionStorage</b> are both web storage options provided by web browsers to store data on the client-side. Here's a general guideline for what types of data are commonly stored in each:
+
+<b>LocalStorage:</b>
+
+LocalStorage is designed for persistent storage of data that needs to be available even after the browser is closed and reopened. It provides a larger storage capacity compared to sessionStorage. Typically, you would store the following types of data in LocalStorage:
+
+<b>1. User Preferences:</b> Storing user-specific settings, preferences, or configurations that persist across multiple sessions.
+<b>2. User Authentication Tokens:</b> Storing authentication tokens or session information to keep the user logged in.
+<b>3. Cached Data:</b> Caching data that can be reused across different sessions, such as static content, configuration data, or data fetched from APIs.
+<b>4. Application State:</b> Storing the state of the application, including user inputs or selections, to restore the application to its previous state when reopened.
+
+<b>SessionStorage:</b>
+
+SessionStorage is designed for storing data that is only needed during a particular browsing session. The data stored in sessionStorage is accessible within the same browser tab or window but is cleared once the tab or window is closed. Typically, you would store the following types of data in sessionStorage:
+
+<b>1. Temporary Data:</b> Storing temporary data or information that is only needed for a specific task or session.
+<b>2. Shopping Cart Data:</b> Storing items added to a shopping cart during the user's browsing session.
+<b>3. Form Data:</b> Storing form data temporarily, allowing users to navigate between form pages without losing their inputs.
+<b>4. Page State:</b> Storing the state of a specific page or component within the session to maintain its functionality during navigation.
+
+It's important to consider the sensitivity and security of the data being stored. Avoid storing sensitive data like passwords, personally identifiable information (PII), or confidential data in either LocalStorage or sessionStorage. Instead, sensitive data should be stored securely on the server-side.
+
+Remember that both <b>LocalStorage</b> and <b>sessionStorage</b> are limited to the client-side and are accessible by JavaScript, so it's important to be cautious about the data you store and ensure that it aligns with your application's security requirements and privacy policies.</div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><div _ngcontent-sc66=""><div _ngcontent-sc66="" class="panel-item"><div _ngcontent-sc66="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc66="" class="row"><div _ngcontent-sc66="" class="col-xl-10 col-md-9"><span _ngcontent-sc66="">88. <h3 _ngcontent-sc66="" class="question-text">How to implement authentication in a website</h3></span></div><div _ngcontent-sc66="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc66="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc66="" class="panel-body"><div _ngcontent-sc66="" class="panel-body-content">Implementing authentication in a website typically involves several steps. Here's a high-level overview of the process:
+
+<b>1. Design the Authentication System:</b> Determine the authentication requirements for your website. Consider factors like user registration, login, password management, session management, and user roles/permissions.
+
+<b>2. Choose an Authentication Method:</b> Select an appropriate authentication method based on your requirements. Common methods include username/password authentication, social media login (OAuth), single sign-on (SSO), or token-based authentication (JWT).
+
+<b>3. Backend Implementation:</b> Implement the authentication logic on the server-side (backend) of your website. This involves handling user registration, login, password hashing, session management, and token generation (if applicable). Use a secure and widely-accepted framework or library for authentication, such as Passport.js, Firebase Authentication, or ASP.NET Identity.
+
+<b>4. Frontend Integration:</b> Integrate the authentication system with the frontend of your website. This includes creating login and registration forms, handling form submissions, and making requests to the backend API for authentication.
+
+<b>5. Secure Communication:</b> Ensure that all communication between the frontend and backend is secure. Use HTTPS for encrypted data transmission to protect sensitive information, such as passwords or authentication tokens, from being intercepted.
+
+<b>6. User Registration:</b> Implement a user registration process to allow new users to create accounts. This typically involves validating user input, securely storing user credentials, and sending confirmation emails (if necessary).
+
+<b>7. User Login:</b> Implement the user login process, which verifies user credentials against stored information. Upon successful authentication, generate a session or token for the user to maintain their authenticated state.
+
+<b>8. Session Management:</b> If using session-based authentication, manage user sessions on the server-side. Track session identifiers, set expiration times, and handle session storage and retrieval. Ensure proper session handling practices, such as refreshing session tokens periodically or upon user actions.
+
+<b>9. Access Control and Authorization:</b> Implement access control mechanisms to enforce user permissions and protect resources. Define user roles and permissions, and check user authorization before granting access to restricted areas or performing specific actions.
+
+<b>10. Error Handling and Security Measures:</b> Implement proper error handling for authentication failures and security measures like account lockouts, brute-force protection, and password strength requirements. Protect against common security vulnerabilities, such as cross-site scripting (XSS) and cross-site request forgery (CSRF).
+
+<b>11. Remember Me and Session Persistence:</b> If desired, implement "Remember Me" functionality to allow users to stay logged in across sessions. This involves storing a long-lived token (e.g., a persistent cookie) to automatically authenticate the user on subsequent visits.
+
+<b>12. Password Reset and Account Management:</b> Provide functionality for users to reset their passwords, update their account information, or manage their profiles.
+
+<b>13. Testing and Security Auditing:</b> Thoroughly test the authentication system to identify and fix any vulnerabilities or bugs. Conduct security audits or penetration testing to ensure the system is secure and protected against common attacks.
+
+Remember that authentication is a critical part of a website's security. It's essential to follow best practices, keep software dependencies up to date, and regularly review and update your authentication system to address emerging security concerns.</div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><div _ngcontent-sc66=""><div _ngcontent-sc66="" class="panel-item"><div _ngcontent-sc66="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc66="" class="row"><div _ngcontent-sc66="" class="col-xl-10 col-md-9"><span _ngcontent-sc66="">89. <h3 _ngcontent-sc66="" class="question-text">How would you implement a multi level dropdown in your angular application</h3></span></div><div _ngcontent-sc66="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc66="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc66="" class="panel-body"><div _ngcontent-sc66="" class="panel-body-content">&lt;link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"&gt;
 &lt;script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"&gt;&lt;/script&gt;
 &lt;script src="//code.jquery.com/jquery-1.11.1.min.js"&gt;&lt;/script&gt;
 
@@ -4465,7 +4758,19 @@ so, for example if want to change the background of our complete page to black. 
 
 For a detailed explanation try this link - <a href="https://blog.angular-university.io/introduction-to-angular-2-forms-template-driven-vs-model-driven/" target="_blank">Angular Forms Guide: Template Driven and Reactive Forms</a></div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><div _ngcontent-sc66=""><div _ngcontent-sc66="" class="panel-item"><div _ngcontent-sc66="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc66="" class="row"><div _ngcontent-sc66="" class="col-xl-10 col-md-9"><span _ngcontent-sc66="">172. <h3 _ngcontent-sc66="" class="question-text">What are dynamic forms and how to create them in Angular</h3></span></div><div _ngcontent-sc66="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc66="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc66="" class="panel-body"><div _ngcontent-sc66="" class="panel-body-content">Refer following link for understanding dynamic forms - <a href="https://www.telerik.com/blogs/angular-basics-creating-dynamic-forms-using-formarray-angular" target="_blank">Creating Dynamic Forms Using FormArray in Angular</a></div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><div _ngcontent-sc66=""><div _ngcontent-sc66="" class="panel-item"><div _ngcontent-sc66="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc66="" class="row"><div _ngcontent-sc66="" class="col-xl-10 col-md-9"><span _ngcontent-sc66="">173. <h3 _ngcontent-sc66="" class="question-text">How to show error messages on form controls ?</h3></span></div><div _ngcontent-sc66="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc66="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc66="" class="panel-body"><div _ngcontent-sc66="" class="panel-body-content">Refer the following link for form control error messages - <a href="https://www.pluralsight.com/guides/how-to-display-validation-messages-using-angular" target="_blank">How to Display Validation or Error Messages in Angular Forms</a></div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><div _ngcontent-sc66=""><div _ngcontent-sc66="" class="panel-item"><div _ngcontent-sc66="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc66="" class="row"><div _ngcontent-sc66="" class="col-xl-10 col-md-9"><span _ngcontent-sc66="">174. <h3 _ngcontent-sc66="" class="question-text">can you put ngIf and ngFor on same element </h3></span></div><div _ngcontent-sc66="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc66="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc66="" class="panel-body"><div _ngcontent-sc66="" class="panel-body-content">from angular version 2 and above we cannot put more than 1 structural directive on 1 element.If we have to use ngIf and and ngFor together than we can put one of them inside ng-container.</div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><div _ngcontent-sc66=""><div _ngcontent-sc66="" class="panel-item"><div _ngcontent-sc66="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc66="" class="row"><div _ngcontent-sc66="" class="col-xl-10 col-md-9"><span _ngcontent-sc66="">175. <h3 _ngcontent-sc66="" class="question-text">what's the difference between for loop and for each loop ?</h3></span></div><div _ngcontent-sc66="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc66="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc66="" class="panel-body"><div _ngcontent-sc66="" class="panel-body-content">Visit following link - <a href="https://www.geeksforgeeks.org/difference-between-foreach-and-for-loop-in-javascript/" target="_blank">Difference between forEach and for loop in Javascript</a></div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><div _ngcontent-sc66=""><div _ngcontent-sc66="" class="panel-item"><div _ngcontent-sc66="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc66="" class="row"><div _ngcontent-sc66="" class="col-xl-10 col-md-9"><span _ngcontent-sc66="">176. <h3 _ngcontent-sc66="" class="question-text">what will be the output of : 
 [x,...y,] = [1,2,3,4] ; 
-console.log(x,y)</h3></span></div><div _ngcontent-sc66="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc66="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc66="" class="panel-body"><div _ngcontent-sc66="" class="panel-body-content">...</div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><div _ngcontent-sc66=""><div _ngcontent-sc66="" class="panel-item"><div _ngcontent-sc66="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc66="" class="row"><div _ngcontent-sc66="" class="col-xl-10 col-md-9"><span _ngcontent-sc66="">177. <h3 _ngcontent-sc66="" class="question-text">what is singleton design pattern and how to implement it in javascript ?</h3></span></div><div _ngcontent-sc66="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc66="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc66="" class="panel-body"><div _ngcontent-sc66="" class="panel-body-content">visit following youtube link : <a href="https://www.youtube.com/watch?v=C2NxMWQn85c" target="_blank">How to Create Singleton Classes in JavaScript - Design Patterns Tutorial</a></div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><div _ngcontent-sc66=""><div _ngcontent-sc66="" class="panel-item"><div _ngcontent-sc66="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc66="" class="row"><div _ngcontent-sc66="" class="col-xl-10 col-md-9"><span _ngcontent-sc66="">178. <h3 _ngcontent-sc66="" class="question-text">what's the difference between first class function and higher order function ?</h3></span></div><div _ngcontent-sc66="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc66="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc66="" class="panel-body"><div _ngcontent-sc66="" class="panel-body-content"><b>first class function : </b>These are functions which can be treated as a variable i.e. can be assigned to any other variable or passed as an argument to another function.
+console.log(x,y)</h3></span></div><div _ngcontent-sc66="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc66="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc66="" class="panel-body"><div _ngcontent-sc66="" class="panel-body-content">The output of the given code snippet would be:
+
+<div class="code-snippet">
+<code>
+1 [2, 3, 4]
+</code>
+</div>
+In this code snippet, an array destructuring assignment is used to assign values from the right-hand side array [1, 2, 3, 4] to variables x and y.
+
+- The first value 1 is assigned to the variable x.
+- The rest of the values 2, 3, 4 are collected into an array and assigned to the variable y.
+
+When we `console.log(x, y)`, it will output 1 for x and [2, 3, 4] for y.</div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><div _ngcontent-sc66=""><div _ngcontent-sc66="" class="panel-item"><div _ngcontent-sc66="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc66="" class="row"><div _ngcontent-sc66="" class="col-xl-10 col-md-9"><span _ngcontent-sc66="">177. <h3 _ngcontent-sc66="" class="question-text">what is singleton design pattern and how to implement it in javascript ?</h3></span></div><div _ngcontent-sc66="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc66="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc66="" class="panel-body"><div _ngcontent-sc66="" class="panel-body-content">visit following youtube link : <a href="https://www.youtube.com/watch?v=C2NxMWQn85c" target="_blank">How to Create Singleton Classes in JavaScript - Design Patterns Tutorial</a></div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><div _ngcontent-sc66=""><div _ngcontent-sc66="" class="panel-item"><div _ngcontent-sc66="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc66="" class="row"><div _ngcontent-sc66="" class="col-xl-10 col-md-9"><span _ngcontent-sc66="">178. <h3 _ngcontent-sc66="" class="question-text">what's the difference between first class function and higher order function ?</h3></span></div><div _ngcontent-sc66="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc66="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc66="" class="panel-body"><div _ngcontent-sc66="" class="panel-body-content"><b>first class function : </b>These are functions which can be treated as a variable i.e. can be assigned to any other variable or passed as an argument to another function.
 
 <b>Higher order function : </b>A function that receives another function as an argument or returns a new function or both.
 
@@ -5555,7 +5860,8 @@ Some of the advantages of using JSON include:
 
 <b>6. Flexible:</b> JSON can be used to represent complex data structures and can be easily extended to support new data types.
 
-Overall, JSON is a versatile and widely-used data interchange format that offers many advantages over other formats like XML.</div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><!----></article></div><div _ngcontent-sc66="" class="col-md-3 col-12 relation-questions-container"><div _ngcontent-sc66="" class="related-questionanswer-template"><app-related-interview-questions _ngcontent-sc66="" _nghost-sc63=""><div _ngcontent-sc63="" class="panel-container related-questionanswer-container"><div _ngcontent-sc63="" class="panel-item"><div _ngcontent-sc63="" role="img" aria-label="frontend interview questions" class="panel-header"> Related questions </div><div _ngcontent-sc63="" class="panel-body open"><div _ngcontent-sc63="" class="panel-body-content"><div _ngcontent-sc63="" class="related-questions-container"><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/what-can-be-the-values-of-'providedin'-property-of-@injectable-decorator-%3F-%3Cb%3E-important%3C%2Fb%3E"> what can be the values of 'providedIn' property of @injectable decorator ? &lt;b&gt; important&lt;/b&gt; </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/can-we-directly-run-a-javascript-file-into-browser-%3F"> Can we directly run a JavaScript file into browser ? </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/difference-between-%E2%80%98.%E2%80%99-and-%E2%80%98%5B%5D%E2%80%99-notation-of-defining-an-object-in-javascript"> Difference between ‘.’ and ‘[]’ notation of defining an object in javascript </a></article><!----><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/frontend-developer-interview-questions-for-freshers"> Front End Developer Interview Questions for Freshers </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/frontend-developer-interview-questions-for-3-years-experience"> Front End Developer Interview Questions for 3 years experience </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/frontend-developer-interview-questions-for-5-years-experience"> Front End Developer Interview Questions for 5 years experience </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/top-50%2B-angular-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 50+ Angular interview questions and answers </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/top-20%2B-html5-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 20+ HTML5 interview questions and answers </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/top-20%2B-css3-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 20+ CSS3 interview questions and answers </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/top-100%2B-javascript-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 100+ Javascript interview questions and answers </a></article></div></div></div></div></div></app-related-interview-questions></div></div></div></div><!----><!----></app-question-answer-panel></app-angular-interview-questions><!----></div><!----><app-footer _ngcontent-sc62="" _nghost-sc61=""><footer _ngcontent-sc61="" id="contact" class="footer"><div _ngcontent-sc61="" class="footer-info"><div _ngcontent-sc61="" class="text copyright-info"><div _ngcontent-sc61="" class="row copyright-links-container"><div _ngcontent-sc61="" class="col-md-7 copy-right-container"><span _ngcontent-sc61="">© 2023 frontendinterviewquestions.com</span></div><div _ngcontent-sc61="" class="col-md-5 links-container"><a _ngcontent-sc61="" class="privacy-policy-link" href="/privacy-policy">Privacy Policy</a><a _ngcontent-sc61="" class="privacy-policy-link" href="/disclaimer">Disclaimer</a><a _ngcontent-sc61="" class="privacy-policy-link" href="/contact-us">Contact Us</a></div></div></div></div></footer></app-footer></div></app-root>
+Overall, JSON is a versatile and widely-used data interchange format that offers many advantages over other formats like XML.</div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><!----></article></div><div _ngcontent-sc66="" class="col-md-3 col-12 relation-questions-container"><div _ngcontent-sc66="" class="related-questionanswer-template"><app-related-interview-questions _ngcontent-sc66="" _nghost-sc63=""><div _ngcontent-sc63="" class="panel-container related-questionanswer-container"><div _ngcontent-sc63="" class="panel-item"><div _ngcontent-sc63="" role="img" aria-label="frontend interview questions" class="panel-header"> Related questions </div><div _ngcontent-sc63="" class="panel-body open"><div _ngcontent-sc63="" class="panel-body-content"><div _ngcontent-sc63="" class="related-questions-container"><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/difference-between-pass-by-value-and-pass-by-reference"> Difference between pass by value and pass by reference </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/advantage-of-using-arrow-functions"> Advantage of using arrow functions </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/difference-between-display-none-and-visibility-hidden%0A"> Difference between Display none and Visibility hidden
+ </a></article><!----><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/frontend-developer-interview-questions-for-freshers"> Front End Developer Interview Questions for Freshers </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/frontend-developer-interview-questions-for-3-years-experience"> Front End Developer Interview Questions for 3 years experience </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/frontend-developer-interview-questions-for-5-years-experience"> Front End Developer Interview Questions for 5 years experience </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/top-50%2B-angular-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 50+ Angular interview questions and answers </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/top-20%2B-html5-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 20+ HTML5 interview questions and answers </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/top-20%2B-css3-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 20+ CSS3 interview questions and answers </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/top-100%2B-javascript-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 100+ Javascript interview questions and answers </a></article></div></div></div></div></div></app-related-interview-questions></div></div></div></div><!----><!----></app-question-answer-panel></app-angular-interview-questions><!----></div><!----><app-footer _ngcontent-sc62="" _nghost-sc61=""><footer _ngcontent-sc61="" id="contact" class="footer"><div _ngcontent-sc61="" class="footer-info"><div _ngcontent-sc61="" class="text copyright-info"><div _ngcontent-sc61="" class="row copyright-links-container"><div _ngcontent-sc61="" class="col-md-7 copy-right-container"><span _ngcontent-sc61="">© 2023 frontendinterviewquestions.com</span></div><div _ngcontent-sc61="" class="col-md-5 links-container"><a _ngcontent-sc61="" class="privacy-policy-link" href="/privacy-policy">Privacy Policy</a><a _ngcontent-sc61="" class="privacy-policy-link" href="/disclaimer">Disclaimer</a><a _ngcontent-sc61="" class="privacy-policy-link" href="/contact-us">Contact Us</a></div></div></div></div></footer></app-footer></div></app-root>
 <script src="runtime.3300e9178a8f8f2c.js" type="module"></script><script src="polyfills.01c6a84ce69b6f6d.js" type="module"></script><script src="main.e4204de1d9d7d208.js" type="module"></script>
 
 
