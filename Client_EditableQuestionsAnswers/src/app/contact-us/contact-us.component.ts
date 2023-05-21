@@ -19,12 +19,7 @@ export class ContactUsComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    if (this.questionAnswerService.platformId) {
-      const element = this.questionAnswerService.getWindow().document.querySelector(this.pageHeaderClass);
-      if(element) {
-        element.scrollIntoView();
-      }
-    }
+    this.questionAnswerService.scrollToTheTopOfThePage();
   }
 
   hideNavbarItemsForPrivacyPolicy() {

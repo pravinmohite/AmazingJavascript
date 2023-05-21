@@ -49,6 +49,7 @@ export class QuestionAnswerService {
   questionAnswerDetailPageEvent = new Subject();
   platformId: Object;
   relatedQuestionAnswerCount = 3;
+  pageHeaderClass = '.page-header';
   constructor(
     private http:HttpClient,
     private loaderService:LoaderService,
@@ -329,22 +330,21 @@ export class QuestionAnswerService {
             break;   
        }
     }
-    //  let result='';
-    //  question = question.toLowerCase();
-    //  if(this.checkIfPresent(question, '(')) {
-    //    question = question.replace('(', '%28');
-    //  }
-    //  if(this.checkIfPresent(question, ')')) {
-    //    question = question.replace(')', '%29');
-    //  }
-    //  let splitBySpace = question.split(" ");
-    //  result = splitBySpace.join("-");
      return result;
   }
 
   checkIfPresent(str ,item) {
     if(str.indexOf(item)> -1) {
        return true;
+    }
+  }
+
+  scrollToTheTopOfThePage() {
+    if (this.platformId) {
+      const element = this.getWindow().document.querySelector(this.pageHeaderClass);
+      if(element && element.scrollIntoView) {
+        element.scrollIntoView();
+      }
     }
   }
 }

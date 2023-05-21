@@ -31,6 +31,10 @@ export class QuestionAnswerDetailComponent implements OnInit {
      this.routeParamEvent();
   }
 
+  ngAfterViewInit() {
+    this.questionAnswerService.scrollToTheTopOfThePage();
+  }
+
   routeParamEvent() {
     this.route.paramMap.subscribe(params => {
       if(params) {

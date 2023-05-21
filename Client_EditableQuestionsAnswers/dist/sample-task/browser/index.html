@@ -3062,7 +3062,88 @@ stored in session storage.</div></div></div><div _ngcontent-sc66="" class="affil
             &lt;/ul&gt;
         &lt;/div&gt;
     &lt;/div&gt;
-&lt;/div&gt;</div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><div _ngcontent-sc66=""><div _ngcontent-sc66="" class="panel-item"><div _ngcontent-sc66="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc66="" class="row"><div _ngcontent-sc66="" class="col-xl-10 col-md-9"><span _ngcontent-sc66="">90. <h3 _ngcontent-sc66="" class="question-text">How would you implement pagination using JavaScript</h3></span></div><div _ngcontent-sc66="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc66="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc66="" class="panel-body"><div _ngcontent-sc66="" class="panel-body-content">Please checkout <a href="https://jasonwatmore.com/post/2018/08/07/javascript-pure-pagination-logic-in-vanilla-js-typescript" target="_blank">this</a> article</div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><div _ngcontent-sc66=""><div _ngcontent-sc66="" class="panel-item"><div _ngcontent-sc66="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc66="" class="row"><div _ngcontent-sc66="" class="col-xl-10 col-md-9"><span _ngcontent-sc66="">91. <h3 _ngcontent-sc66="" class="question-text">what is BOM (browser object model ) and what is the root object in it</h3></span></div><div _ngcontent-sc66="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc66="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc66="" class="panel-body"><div _ngcontent-sc66="" class="panel-body-content">The Browser Object Model (BOM) is used to interact with the browser.
+&lt;/div&gt;</div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><div _ngcontent-sc66=""><div _ngcontent-sc66="" class="panel-item"><div _ngcontent-sc66="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc66="" class="row"><div _ngcontent-sc66="" class="col-xl-10 col-md-9"><span _ngcontent-sc66="">90. <h3 _ngcontent-sc66="" class="question-text">How would you implement pagination using JavaScript</h3></span></div><div _ngcontent-sc66="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc66="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc66="" class="panel-body"><div _ngcontent-sc66="" class="panel-body-content">To implement <b>pagination</b> using JavaScript, you can follow these general steps:
+
+<b>1. Retrieve the data:</b> Fetch or obtain the data that you want to display and paginate. This could be an array of items, a list from an API, or any other data source.
+
+<b>2. Set up the HTML structure:</b> Create an HTML element, such as a `&lt;div&gt;`, to hold the paginated content. Additionally, add elements for navigation, such as previous and next buttons, and a container to display the current page number.
+
+<b>3. Determine the number of items per page:</b> Decide how many items you want to display per page. This will determine the size of each "page" of content.
+
+<b>4. Calculate the number of pages:</b> Based on the total number of items and the number of items per page, calculate the total number of pages.
+
+<b>5. Display the initial page:</b> Write a function to display the initial page of items. This function should take the data and the current page number as arguments and populate the HTML element created in step 2 with the corresponding items.
+
+<b>6. Handle navigation:</b> Implement functions to handle navigation, such as going to the previous or next page, or directly jumping to a specific page. These functions should update the current page number and call the display function to show the corresponding items.
+
+<b>7. Attach event listeners:</b> Add event listeners to the navigation elements (e.g., previous and next buttons) so that when clicked, they trigger the corresponding navigation functions.
+
+Here's an example implementation of the above steps:
+
+<div class="code-snippet">
+<code>
+const itemsPerPage = 10; // Number of items to display per page
+let currentPage = 1; // Initial page number
+const data = []; // Your data source, such as an array of items or API response
+
+function displayItems(data, page) {
+  const startIndex = (page - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const pageItems = data.slice(startIndex, endIndex);
+
+  // Clear previous content
+  const container = document.getElementById('pagination-container');
+  container.innerHTML = '';
+
+  // Display current page items
+  pageItems.forEach(item =&gt; {
+    const itemElement = document.createElement('div');
+    itemElement.textContent = item;
+    container.appendChild(itemElement);
+  });
+
+  // Display current page number
+  const pageContainer = document.getElementById('page-number');
+  pageContainer.textContent = `Page ${page} of ${Math.ceil(data.length / itemsPerPage)}`;
+}
+
+function goToPreviousPage() {
+  if (currentPage &gt; 1) {
+    currentPage--;
+    displayItems(data, currentPage);
+  }
+}
+
+function goToNextPage() {
+  if (currentPage &lt; Math.ceil(data.length / itemsPerPage)) {
+    currentPage++;
+    displayItems(data, currentPage);
+  }
+}
+
+function goToPage(page) {
+  if (page &gt;= 1 &amp;&amp; page &lt;= Math.ceil(data.length / itemsPerPage)) {
+    currentPage = page;
+    displayItems(data, currentPage);
+  }
+}
+
+// Attach event listeners
+document.getElementById('previous-button').addEventListener('click', goToPreviousPage);
+document.getElementById('next-button').addEventListener('click', goToNextPage);
+document.getElementById('jump-button').addEventListener('click', () =&gt; {
+  const input = document.getElementById('jump-input');
+  const pageNumber = parseInt(input.value);
+  goToPage(pageNumber);
+});
+
+// Display initial page
+displayItems(data, currentPage);
+</code>
+</div>
+In this example, you would need to create the necessary HTML structure in your document with elements like `&lt;div id="pagination-container"&gt;` for displaying the items, `&lt;span id="page-number"&gt;` for displaying the current page number, and buttons with appropriate IDs (`previous-button`, `next-button`, `jump-button`) for navigation. You can customize the HTML structure and styling to fit your needs.
+
+Remember to replace the `data` array with your actual data source or API response.</div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><div _ngcontent-sc66=""><div _ngcontent-sc66="" class="panel-item"><div _ngcontent-sc66="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc66="" class="row"><div _ngcontent-sc66="" class="col-xl-10 col-md-9"><span _ngcontent-sc66="">91. <h3 _ngcontent-sc66="" class="question-text">what is BOM (browser object model ) and what is the root object in it</h3></span></div><div _ngcontent-sc66="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc66="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc66="" class="panel-body"><div _ngcontent-sc66="" class="panel-body-content">The Browser Object Model (BOM) is used to interact with the browser.
 
 The default object of browser is window means you can call all the functions of window by specifying window or directly.
 
@@ -5474,9 +5555,8 @@ Some of the advantages of using JSON include:
 
 <b>6. Flexible:</b> JSON can be used to represent complex data structures and can be easily extended to support new data types.
 
-Overall, JSON is a versatile and widely-used data interchange format that offers many advantages over other formats like XML.</div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><!----></article></div><div _ngcontent-sc66="" class="col-md-3 col-12 relation-questions-container"><div _ngcontent-sc66="" class="related-questionanswer-template"><app-related-interview-questions _ngcontent-sc66="" _nghost-sc63=""><div _ngcontent-sc63="" class="panel-container related-questionanswer-container"><div _ngcontent-sc63="" class="panel-item"><div _ngcontent-sc63="" role="img" aria-label="frontend interview questions" class="panel-header"> Related questions </div><div _ngcontent-sc63="" class="panel-body open"><div _ngcontent-sc63="" class="panel-body-content"><div _ngcontent-sc63="" class="related-questions-container"><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/how-to-make-multiple-http-calls-in-parallel-in-angular-%3F"> How to make multiple http calls in parallel in Angular ? </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/what-are-pseudo-elements-and-pseudo-classes%0A"> What are pseudo elements and pseudo classes
- </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/explain-prototypal-inheritance-in-javascript"> Explain prototypal inheritance in JavaScript </a></article><!----><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/frontend-developer-interview-questions-for-freshers"> Front End Developer Interview Questions for Freshers </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/frontend-developer-interview-questions-for-3-years-experience"> Front End Developer Interview Questions for 3 years experience </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/frontend-developer-interview-questions-for-5-years-experience"> Front End Developer Interview Questions for 5 years experience </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/top-50%2B-angular-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 50+ Angular interview questions and answers </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/top-20%2B-html5-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 20+ HTML5 interview questions and answers </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/top-20%2B-css3-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 20+ CSS3 interview questions and answers </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/top-100%2B-javascript-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 100+ Javascript interview questions and answers </a></article></div></div></div></div></div></app-related-interview-questions></div></div></div></div><!----><!----></app-question-answer-panel></app-angular-interview-questions><!----></div><!----><app-footer _ngcontent-sc62="" _nghost-sc61=""><footer _ngcontent-sc61="" id="contact" class="footer"><div _ngcontent-sc61="" class="footer-info"><div _ngcontent-sc61="" class="text copyright-info"><div _ngcontent-sc61="" class="row copyright-links-container"><div _ngcontent-sc61="" class="col-md-7 copy-right-container"><span _ngcontent-sc61="">© 2023 frontendinterviewquestions.com</span></div><div _ngcontent-sc61="" class="col-md-5 links-container"><a _ngcontent-sc61="" class="privacy-policy-link" href="/privacy-policy">Privacy Policy</a><a _ngcontent-sc61="" class="privacy-policy-link" href="/disclaimer">Disclaimer</a><a _ngcontent-sc61="" class="privacy-policy-link" href="/contact-us">Contact Us</a></div></div></div></div></footer></app-footer></div></app-root>
-<script src="runtime.5aed1ec3faba08f7.js" type="module"></script><script src="polyfills.01c6a84ce69b6f6d.js" type="module"></script><script src="main.ea54a1243d49a3eb.js" type="module"></script>
+Overall, JSON is a versatile and widely-used data interchange format that offers many advantages over other formats like XML.</div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><!----></article></div><div _ngcontent-sc66="" class="col-md-3 col-12 relation-questions-container"><div _ngcontent-sc66="" class="related-questionanswer-template"><app-related-interview-questions _ngcontent-sc66="" _nghost-sc63=""><div _ngcontent-sc63="" class="panel-container related-questionanswer-container"><div _ngcontent-sc63="" class="panel-item"><div _ngcontent-sc63="" role="img" aria-label="frontend interview questions" class="panel-header"> Related questions </div><div _ngcontent-sc63="" class="panel-body open"><div _ngcontent-sc63="" class="panel-body-content"><div _ngcontent-sc63="" class="related-questions-container"><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/what-can-be-the-values-of-'providedin'-property-of-@injectable-decorator-%3F-%3Cb%3E-important%3C%2Fb%3E"> what can be the values of 'providedIn' property of @injectable decorator ? &lt;b&gt; important&lt;/b&gt; </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/can-we-directly-run-a-javascript-file-into-browser-%3F"> Can we directly run a JavaScript file into browser ? </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/difference-between-%E2%80%98.%E2%80%99-and-%E2%80%98%5B%5D%E2%80%99-notation-of-defining-an-object-in-javascript"> Difference between ‘.’ and ‘[]’ notation of defining an object in javascript </a></article><!----><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/frontend-developer-interview-questions-for-freshers"> Front End Developer Interview Questions for Freshers </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/frontend-developer-interview-questions-for-3-years-experience"> Front End Developer Interview Questions for 3 years experience </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/frontend-developer-interview-questions-for-5-years-experience"> Front End Developer Interview Questions for 5 years experience </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/top-50%2B-angular-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 50+ Angular interview questions and answers </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/top-20%2B-html5-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 20+ HTML5 interview questions and answers </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/top-20%2B-css3-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 20+ CSS3 interview questions and answers </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/top-100%2B-javascript-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 100+ Javascript interview questions and answers </a></article></div></div></div></div></div></app-related-interview-questions></div></div></div></div><!----><!----></app-question-answer-panel></app-angular-interview-questions><!----></div><!----><app-footer _ngcontent-sc62="" _nghost-sc61=""><footer _ngcontent-sc61="" id="contact" class="footer"><div _ngcontent-sc61="" class="footer-info"><div _ngcontent-sc61="" class="text copyright-info"><div _ngcontent-sc61="" class="row copyright-links-container"><div _ngcontent-sc61="" class="col-md-7 copy-right-container"><span _ngcontent-sc61="">© 2023 frontendinterviewquestions.com</span></div><div _ngcontent-sc61="" class="col-md-5 links-container"><a _ngcontent-sc61="" class="privacy-policy-link" href="/privacy-policy">Privacy Policy</a><a _ngcontent-sc61="" class="privacy-policy-link" href="/disclaimer">Disclaimer</a><a _ngcontent-sc61="" class="privacy-policy-link" href="/contact-us">Contact Us</a></div></div></div></div></footer></app-footer></div></app-root>
+<script src="runtime.3300e9178a8f8f2c.js" type="module"></script><script src="polyfills.01c6a84ce69b6f6d.js" type="module"></script><script src="main.e4204de1d9d7d208.js" type="module"></script>
 
 
 <script id="serverApp-state" type="application/json">{}</script></body><!-- This page was prerendered with Angular Universal --></html>

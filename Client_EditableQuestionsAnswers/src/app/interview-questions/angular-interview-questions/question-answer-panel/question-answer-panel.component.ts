@@ -30,6 +30,10 @@ export class QuestionAnswerPanelComponent implements OnInit {
     this.handleRouteDataSubscription();
   }
 
+  ngAfterViewInit() {
+    this.questionAnswerService.scrollToTheTopOfThePage();
+  }
+
   handleRouteParamChangeSubscription() {
     this.route.paramMap.subscribe(params => {
       this.searchKey = params.get('searchKey');
