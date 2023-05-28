@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LoaderService } from 'src/app/services/loader-service/loader.service';
 import { QuestionAnswerService } from 'src/app/services/question-answer-service/question-answer.service';
@@ -23,6 +23,7 @@ export class RelatedInterviewQuestionsComponent implements OnInit {
     private loaderService: LoaderService,
     private questionAnswerService: QuestionAnswerService,
     private route: ActivatedRoute,
+    private cd: ChangeDetectorRef
   ) { 
      this.setQuestionTitleByExperience();
   }
@@ -53,6 +54,7 @@ export class RelatedInterviewQuestionsComponent implements OnInit {
        this.loaderService.display(false);
        this.relatedQuestionAnswerList= response;
        this.formatQuestionUrl();
+       this.cd.detectChanges();
     })
   }
 

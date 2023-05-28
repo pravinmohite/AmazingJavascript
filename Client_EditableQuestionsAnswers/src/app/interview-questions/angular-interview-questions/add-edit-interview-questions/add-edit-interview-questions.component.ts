@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import {QuestionAnswerService} from "../../../services/question-answer-service/question-answer.service";
 import {LoaderService} from './../../../services/loader-service/loader.service';
@@ -15,7 +15,11 @@ export class AddEditInterviewQuestionsComponent implements OnInit {
   @Input() editedItem;
   editMode:Boolean=true;
   @Output() popupEvent=new EventEmitter();
-  constructor(private questionAnswerService:QuestionAnswerService,private loaderService:LoaderService) { 
+  constructor(
+    private questionAnswerService:QuestionAnswerService,
+    private loaderService:LoaderService,
+    private cd: ChangeDetectorRef
+    ) { 
   }
 
   ngOnInit(): void {
@@ -23,6 +27,7 @@ export class AddEditInterviewQuestionsComponent implements OnInit {
       this.editMode=false;
     this.interviewQuestion=JSON.parse(JSON.stringify(this.editedItem));
     this.getQuestionTypes();
+    this.cd.detectChanges();
   }
   getQuestionTypes(){
     this.loaderService.display(true);

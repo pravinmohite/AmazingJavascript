@@ -4,6 +4,7 @@ import { faTrash,faEdit, faExclamationTriangle } from '@fortawesome/free-solid-s
 import { LoaderService } from 'src/app/services/loader-service/loader.service';
 import { QuestionAnswerService } from 'src/app/services/question-answer-service/question-answer.service';
 import { Title } from "@angular/platform-browser";
+import { HightlightService } from 'src/app/services/highlight-service/hightlight.service';
 
 @Component({
   selector: 'app-question-answer-detail',
@@ -22,7 +23,8 @@ export class QuestionAnswerDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private loaderService: LoaderService,
     private questionAnswerService: QuestionAnswerService,
-    private title: Title
+    private title: Title,
+    private highlightService: HightlightService,
   ) { 
     this.adminMode = this.questionAnswerService.isAdmin;
   }
@@ -63,6 +65,7 @@ export class QuestionAnswerDetailComponent implements OnInit {
       this.questionAnswerItem = response;
       this.setTitle(this.questionAnswerItem.question)
       this.updateDescription(this.questionAnswerItem.answer);
+      this.highlightService.highlightAll();
     })
   }
 

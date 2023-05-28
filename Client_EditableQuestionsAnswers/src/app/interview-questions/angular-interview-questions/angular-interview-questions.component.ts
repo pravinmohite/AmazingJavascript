@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { HightlightService } from 'src/app/services/highlight-service/hightlight.service';
 import {QuestionAnswerService} from "../../services/question-answer-service/question-answer.service";
 import {LoaderService} from './../../services/loader-service/loader.service';
 
@@ -15,7 +16,9 @@ export class AngularInterviewQuestionsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private questionAnswerService:QuestionAnswerService,
-    private loaderService:LoaderService) {
+    private loaderService:LoaderService,
+    private highlightService: HightlightService,
+    ) {
       this.handleRouteDataSubscription();
      }
 
@@ -27,6 +30,7 @@ export class AngularInterviewQuestionsComponent implements OnInit {
     this.questionAnswerService.currentData.subscribe((data)=>{
       this.questionAnswerList=data;
       this.loaderService.display(false);
+      this.highlightService.hightLightAgain();
    })
    this.checkRouteParamsDataAndGetQuestionAnswer();
   }
