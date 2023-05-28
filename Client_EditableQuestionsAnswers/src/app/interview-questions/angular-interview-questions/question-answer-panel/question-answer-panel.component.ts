@@ -22,7 +22,6 @@ export class QuestionAnswerPanelComponent implements OnInit {
   faTimes=faTimes;
   editedItem:any;
   showSearchTerm: boolean = false;
-  highlighted = false;
   constructor(
     private questionAnswerService:QuestionAnswerService,
     private route: ActivatedRoute,

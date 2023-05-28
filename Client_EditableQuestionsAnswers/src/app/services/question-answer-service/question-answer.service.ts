@@ -48,7 +48,7 @@ export class QuestionAnswerService {
   isAdmin = false;
   questionAnswerDetailPageEvent = new Subject();
   platformId: Object;
-  relatedQuestionAnswerCount = 3;
+  relatedQuestionAnswerCount = 4;
   pageHeaderClass = '.page-header';
   constructor(
     private http:HttpClient,
