@@ -22,7 +22,7 @@ declare var Prism: any;
   providedIn: 'root'
 })
 export class HightlightService {
-  languageHtmlClass = '.language-html';
+  languageHtmlCssJavascriptClass = '.language-html,.language-javascript,.language-css';
   highlighted = false;
   startTagSymbol = '&lt';
   endTagSymbol = '&gt';
@@ -57,7 +57,7 @@ export class HightlightService {
 
   convertHtmlIntoStringForAllElements() {
     if (this.questionAnswerService.platformId && !this.highlighted) {
-      let contents = this.questionAnswerService.getWindow().document.querySelectorAll(this.languageHtmlClass);
+      let contents = this.questionAnswerService.getWindow().document.querySelectorAll(this.languageHtmlCssJavascriptClass);
       if (contents && contents.length > 0) {
         for (let i = 0; i < contents.length; i++) {
           let content = contents[i];
