@@ -196,8 +196,8 @@ These are just a few examples of semantic elements in HTML. Using semantic tags 
 <div class="code-snippet">
 <pre><code class="language-html">
    <video controls="">
-     <source src="videofile.mp4" type="video/mp4">
-     <source src="videofile.webm" type="video/webm">
+     <source src="" type="video/mp4">
+     <source src="" type="video/webm">
      Your browser does not support the video element.
    </video>
 </code>
@@ -209,8 +209,8 @@ These are just a few examples of semantic elements in HTML. Using semantic tags 
 <div class="code-snippet">
 <pre><code class="language-html">
    <video controls="">
-     <source src="videofile.mp4" type="video/mp4">
-     <track src="captions.vtt" kind="captions" label="English" srclang="en">
+     <source src="" type="video/mp4">
+     <track src="" kind="captions" label="English" srclang="en">
      Your browser does not support the video element.
    </video>
 </code>
@@ -221,7 +221,7 @@ These are just a few examples of semantic elements in HTML. Using semantic tags 
 
 <div class="code-snippet">
 <pre><code class="language-html">
-   &lt;embed src="flashfile.swf" width="400" height="300"&gt;
+   &lt;embed src="" width="400" height="300"&gt;
 </code>
 </pre>
 </div>
@@ -604,8 +604,109 @@ In this improved example:
 6. The `lang` attribute is set to `"en"` to specify the language of the web page.
 7. The `&lt;header&gt;` element marks the header section of the page, and the `&lt;footer&gt;` element marks the footer section.
 
-By incorporating these <b>HTML5 accessibility</b> features and best practices, you make the web page more structured, navigable, and understandable for users with disabilities and assistive technologies. Additionally, remember to ensure proper color contrast, provide descriptive link text, and consider keyboard accessibility to further improve the overall accessibility of your web page.</div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><div _ngcontent-sc66=""><div _ngcontent-sc66="" class="panel-item"><div _ngcontent-sc66="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc66="" class="row"><div _ngcontent-sc66="" class="col-xl-10 col-md-9"><span _ngcontent-sc66="">2. <h3 _ngcontent-sc66="" class="question-text">What are the data types in JavaScript</h3></span></div><div _ngcontent-sc66="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc66="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc66="" class="panel-body"><div _ngcontent-sc66="" class="panel-body-content"><ul><li>As of now there are 6 data types in JavaScript :
- string , boolean , number , undefined , null, object , symbol</li><li>Object is a composite data type and rest all are primitive data types</li><li>symbol is a new data type introduced in ES6</li></ul></div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><div _ngcontent-sc66=""><div _ngcontent-sc66="" class="panel-item"><div _ngcontent-sc66="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc66="" class="row"><div _ngcontent-sc66="" class="col-xl-10 col-md-9"><span _ngcontent-sc66="">3. <h3 _ngcontent-sc66="" class="question-text">Difference between ng add and npm install</h3></span></div><div _ngcontent-sc66="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc66="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc66="" class="panel-body"><div _ngcontent-sc66="" class="panel-body-content">“Ng add” would install a package and along with that it would run any installation scripts present in that package which can be used to edit the app configurations(like updating angular.json file) or installing additional dependencies
+By incorporating these <b>HTML5 accessibility</b> features and best practices, you make the web page more structured, navigable, and understandable for users with disabilities and assistive technologies. Additionally, remember to ensure proper color contrast, provide descriptive link text, and consider keyboard accessibility to further improve the overall accessibility of your web page.</div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><div _ngcontent-sc66=""><div _ngcontent-sc66="" class="panel-item"><div _ngcontent-sc66="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc66="" class="row"><div _ngcontent-sc66="" class="col-xl-10 col-md-9"><span _ngcontent-sc66="">2. <h3 _ngcontent-sc66="" class="question-text">What are the data types in JavaScript</h3></span></div><div _ngcontent-sc66="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc66="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc66="" class="panel-body"><div _ngcontent-sc66="" class="panel-body-content">In JavaScript, <b>data types</b> can be categorized into two main groups: primitive and non-primitive (also known as reference types) data types. Here's an explanation of each:
+
+<b>1. Primitive Data Types: </b>
+
+These are immutable data types that store a single value.
+
+ <b>a. Boolean:</b> epresents a logical value, either true or false. It is commonly used for conditions and branching in JavaScript.
+
+<div class="code-snippet">
+<pre><code class="language-typescript">
+let isTrue = true;
+let isFalse = false;
+console.log(isTrue);   // Output: true
+console.log(isFalse);  // Output: false
+</code>
+</pre>
+</div>
+  <b> b. Number:</b> Represents numeric values, including integers and floating-point numbers.
+
+<div class="code-snippet">
+<pre><code class="language-typescript">
+let count = 10;
+let price = 4.99;
+console.log(count);  // Output: 10
+console.log(price);  // Output: 4.99
+</code>
+</pre>
+</div>
+   <b>c. String:</b> Represents a sequence of characters enclosed in single or double quotes. Strings are used to represent textual data.
+
+<div class="code-snippet">
+<pre><code class="language-typescript">
+let message = "Hello, world!";
+console.log(message);  // Output: Hello, world!
+</code>
+</pre>
+</div>
+   <b>d. Null:</b> Represents the intentional absence of any object value. It is often assigned to a variable to indicate that it has no value or that the value is unknown.
+<div class="code-snippet">
+<pre><code class="language-typescript">
+let value = null;
+console.log(value);  // Output: null
+</code>
+</pre>
+</div>
+   <b>e. Undefined:</b> Represents an uninitialized or undeclared variable. If a variable is declared but not assigned a value, it will have the value of undefined.
+
+<div class="code-snippet">
+<pre><code class="language-typescript">
+let variable;
+console.log(variable);  // Output: undefined
+</code>
+</pre>
+</div>
+   <b>f. Symbol:</b> Represents a unique identifier. Symbols are typically used as keys in objects to avoid naming conflicts.
+
+<div class="code-snippet">
+<pre><code class="language-typescript">
+let id = Symbol("unique");
+console.log(id);  // Output: Symbol(unique)
+</code>
+</pre>
+</div>
+
+<b>2. Non-Primitive (Reference) Data Types:</b>
+
+ These are mutable data types that store references to memory locations rather than the actual values.
+
+   <b>a. Object:</b> Represents a collection of key-value pairs and provides a way to group related data and functionality together. Objects can be created using object literals {}, constructor functions, or the class syntax introduced in ECMAScript 2015.
+
+<div class="code-snippet">
+<pre><code class="language-typescript">
+let person = {
+  name: "John",
+  age: 30,
+  isAdmin: false
+};
+console.log(person);  // Output: { name: 'John', age: 30, isAdmin: false }
+</code>
+</pre>
+</div>
+   <b>b. Array:</b> Represents an ordered list of values. Arrays can hold values of any type, and their elements are accessed using numeric indices starting from 0.
+
+<div class="code-snippet">
+<pre><code class="language-typescript">
+let numbers = [1, 2, 3, 4, 5];
+console.log(numbers);  // Output: [1, 2, 3, 4, 5]
+</code>
+</pre>
+</div>
+   <b>c. Function:</b> Represents executable code that can be invoked and performs a specific task. Functions are one of the fundamental building blocks in JavaScript and can be defined using function declarations or function expressions.
+
+<div class="code-snippet">
+<pre><code class="language-typescript">
+function greet(name) {
+  console.log("Hello, " + name + "!");
+}
+
+greet("Alice");  // Output: Hello, Alice!
+</code>
+</pre>
+</div>
+<b>Non-primitive</b> data types, such as objects, arrays, and functions, are passed by reference, meaning that when you assign them to a variable or pass them as arguments to functions, you are working with a reference to the original value stored in memory. Primitive data types, on the other hand, are passed by value, meaning that when you assign them to a variable or pass them as arguments, a copy of the value is created.</div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><div _ngcontent-sc66=""><div _ngcontent-sc66="" class="panel-item"><div _ngcontent-sc66="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc66="" class="row"><div _ngcontent-sc66="" class="col-xl-10 col-md-9"><span _ngcontent-sc66="">3. <h3 _ngcontent-sc66="" class="question-text">Difference between ng add and npm install</h3></span></div><div _ngcontent-sc66="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc66="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc66="" class="panel-body"><div _ngcontent-sc66="" class="panel-body-content">“Ng add” would install a package and along with that it would run any installation scripts present in that package which can be used to edit the app configurations(like updating angular.json file) or installing additional dependencies
 
 “Npm install” just installs a package</div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><div _ngcontent-sc66=""><div _ngcontent-sc66="" class="panel-item"><div _ngcontent-sc66="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc66="" class="row"><div _ngcontent-sc66="" class="col-xl-10 col-md-9"><span _ngcontent-sc66="">4. <h3 _ngcontent-sc66="" class="question-text">what are custom directives in Angular and how to create them</h3></span></div><div _ngcontent-sc66="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc66="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc66="" class="panel-body"><div _ngcontent-sc66="" class="panel-body-content">Custom directives are a feature in Angular that allow developers to extend the functionality of HTML by creating their own custom HTML elements or attributes. With custom directives, developers can define their own behavior, such as adding event listeners, modifying the DOM, or manipulating data.
 
@@ -7183,7 +7284,7 @@ Here's how Angular's change detection works:
 
 <b>10. Performance optimizations:</b> Angular's change detection system includes several performance optimizations. It skips unnecessary change detection cycles for components that have not been affected by changes. Angular also supports the OnPush change detection strategy, which allows components to specify that they should only be checked for changes when their input properties change.
 
-By efficiently detecting and propagating changes, <b>Angular's change detection system</b> helps keep the application's UI in sync with the underlying data model, ensuring a responsive and up-to-date user experience.</div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><!----></article></div><div _ngcontent-sc66="" class="col-md-3 col-12 relation-questions-container"><div _ngcontent-sc66="" class="related-questionanswer-template"><app-related-interview-questions _ngcontent-sc66="" _nghost-sc63=""><div _ngcontent-sc63="" class="panel-container related-questionanswer-container"><div _ngcontent-sc63="" class="panel-item"><div _ngcontent-sc63="" role="img" aria-label="frontend interview questions" class="panel-header"> Related questions </div><div _ngcontent-sc63="" class="panel-body open"><div _ngcontent-sc63="" class="panel-body-content"><div _ngcontent-sc63="" class="related-questions-container"><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/what-is-the-hardest-part-of-frontend%3F"> What is the hardest part of frontend? </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/what-is-replay-subject-in-angular"> What is replay subject in angular </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/explain-call%2528%2529,-bind%2528%2529-and-apply%2528%2529-in-javascript"> Explain call(), bind() and apply() in JavaScript </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/what-is-map-in-javascript"> What is Map in JavaScript </a></article><!----><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/frontend-developer-interview-questions-for-freshers"> Front End Developer Interview Questions for Freshers </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/frontend-developer-interview-questions-for-3-years-experience"> Front End Developer Interview Questions for 3 years experience </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/frontend-developer-interview-questions-for-5-years-experience"> Front End Developer Interview Questions for 5 years experience </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/top-50%2B-angular-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 50+ Angular interview questions and answers </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/top-20%2B-html5-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 20+ HTML5 interview questions and answers </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/top-20%2B-css3-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 20+ CSS3 interview questions and answers </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/top-100%2B-javascript-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 100+ Javascript interview questions and answers </a></article></div></div></div></div></div></app-related-interview-questions></div></div></div></div><!----><!----></app-question-answer-panel></app-angular-interview-questions><!----></div><!----><app-footer _ngcontent-sc62="" _nghost-sc61=""><footer _ngcontent-sc61="" id="contact" class="footer"><div _ngcontent-sc61="" class="footer-info"><div _ngcontent-sc61="" class="text copyright-info"><div _ngcontent-sc61="" class="row copyright-links-container"><div _ngcontent-sc61="" class="col-md-7 copy-right-container"><span _ngcontent-sc61="">© 2023 frontendinterviewquestions.com</span></div><div _ngcontent-sc61="" class="col-md-5 links-container"><a _ngcontent-sc61="" class="privacy-policy-link" href="/privacy-policy">Privacy Policy</a><a _ngcontent-sc61="" class="privacy-policy-link" href="/disclaimer">Disclaimer</a><a _ngcontent-sc61="" class="privacy-policy-link" href="/contact-us">Contact Us</a></div></div></div></div></footer></app-footer></div></app-root>
+By efficiently detecting and propagating changes, <b>Angular's change detection system</b> helps keep the application's UI in sync with the underlying data model, ensuring a responsive and up-to-date user experience.</div></div></div><div _ngcontent-sc66="" class="affiliate-ads-container"></div></div><!----></article></div><div _ngcontent-sc66="" class="col-md-3 col-12 relation-questions-container"><div _ngcontent-sc66="" class="related-questionanswer-template"><app-related-interview-questions _ngcontent-sc66="" _nghost-sc63=""><div _ngcontent-sc63="" class="panel-container related-questionanswer-container"><div _ngcontent-sc63="" class="panel-item"><div _ngcontent-sc63="" role="img" aria-label="frontend interview questions" class="panel-header"> Related questions </div><div _ngcontent-sc63="" class="panel-body open"><div _ngcontent-sc63="" class="panel-body-content"><div _ngcontent-sc63="" class="related-questions-container"><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/what-is-the-difference-between-a-tag-and-an-attribute"> What is the difference between a tag and an attribute </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/is-array-a-data-type%3F"> Is array a data type? </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/what-is-the-difference-between-adding-styles-and-scripts-in-angular.json-and-adding-styles-and-scripts-in-index.html"> What is the difference between adding styles and scripts in angular.json and adding styles and scripts in index.html </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/difference-between-get-and-post-methods"> Difference between get and post methods </a></article><!----><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/frontend-developer-interview-questions-for-freshers"> Front End Developer Interview Questions for Freshers </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/frontend-developer-interview-questions-for-3-years-experience"> Front End Developer Interview Questions for 3 years experience </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/frontend-developer-interview-questions-for-5-years-experience"> Front End Developer Interview Questions for 5 years experience </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/top-50%2B-angular-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 50+ Angular interview questions and answers </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/top-20%2B-html5-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 20+ HTML5 interview questions and answers </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/top-20%2B-css3-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 20+ CSS3 interview questions and answers </a></article><article _ngcontent-sc63="" class="related-question-item"><a _ngcontent-sc63="" class="question-link" href="/interview-questions/top-100%2B-javascript-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 100+ Javascript interview questions and answers </a></article></div></div></div></div></div></app-related-interview-questions></div></div></div></div><!----><!----></app-question-answer-panel></app-angular-interview-questions><!----></div><!----><app-footer _ngcontent-sc62="" _nghost-sc61=""><footer _ngcontent-sc61="" id="contact" class="footer"><div _ngcontent-sc61="" class="footer-info"><div _ngcontent-sc61="" class="text copyright-info"><div _ngcontent-sc61="" class="row copyright-links-container"><div _ngcontent-sc61="" class="col-md-7 copy-right-container"><span _ngcontent-sc61="">© 2023 frontendinterviewquestions.com</span></div><div _ngcontent-sc61="" class="col-md-5 links-container"><a _ngcontent-sc61="" class="privacy-policy-link" href="/privacy-policy">Privacy Policy</a><a _ngcontent-sc61="" class="privacy-policy-link" href="/disclaimer">Disclaimer</a><a _ngcontent-sc61="" class="privacy-policy-link" href="/contact-us">Contact Us</a></div></div></div></div></footer></app-footer></div></app-root>
 <script src="runtime.665d51004b6f97fc.js" type="module"></script><script src="polyfills.01c6a84ce69b6f6d.js" type="module"></script><script src="main.694763151ebdf8be.js" type="module"></script>
 
 
