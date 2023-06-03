@@ -11,6 +11,7 @@ import { AffiliateAdsComponent } from './angular-interview-questions/question-an
 import { QuestionAnswerDetailComponent } from './angular-interview-questions/question-answer-detail/question-answer-detail.component';
 import { RelatedInterviewQuestionsComponent } from './angular-interview-questions/related-interview-questions/related-interview-questions.component';
 import { RouterModule } from '@angular/router';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { RouterModule } from '@angular/router';
     InterviewQuestionsRoutingModule,
     FontAwesomeModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    NgxPaginationModule
   ],
   exports:[
     AngularInterviewQuestionsComponent,

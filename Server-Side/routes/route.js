@@ -4,7 +4,8 @@ const router = express.Router();
 const QuestionType = require('../models/questionType');
 const QuestionAnswer = require('../models/questionAnswer');
 const Login = require('../models/login');
-let loginEndPoint = "/loginDetails"
+let loginEndPoint = "/loginDetails";
+let defaultItemsPerPage = 10;
 
 /*--------crud for login details-----------*/
 router.get(loginEndPoint, (req, res, next) => {
@@ -215,6 +216,85 @@ router.get('/questionAnswerByExperience/:experience/:type?', (req, res, next) =>
         }
         else {
             res.json(result);
+        }
+    })
+})
+
+
+/*----end get question answer by type ----------------*/
+
+/*----start get question answer by experience/rank --------------*/
+
+checkExperience =(item, experience)=> {
+    if(experience == undefined || experience == null) {
+        return true;
+    }
+    let difference = Math.abs(item.rank - experience);
+    if(difference == 1 || item.rank == experience) {
+        return true;
+    }
+    return false;
+}
+
+checkQuestionType =(item, questionType)=> {
+    if(!questionType) {
+        return true;
+    }
+    if(item.questionType.toLowerCase() === questionType.toLocaleLowerCase()) {
+        return true;
+    }
+    return false;
+}
+
+checkSearchTerm =(item, searchTerm)=> {
+    if(!searchTerm) {
+        return true;
+    }
+    if(
+        item.question.toLowerCase().indexOf(searchTerm.toLocaleLowerCase())>-1 ||
+        item.answer.toLowerCase().indexOf(searchTerm.toLocaleLowerCase())>-1
+    ) {
+        return true;
+    }
+    return false;
+}
+
+checkPageNumberSize =(result, reqBody)=> {
+    if(!reqBody.currentPage && !reqBody.itemsPerPage) {
+        reqBody.currentPage = 1;
+        reqBody.itemsPerPage = defaultItemsPerPage;
+    }
+    let finalResult = result.slice((reqBody.currentPage-1) * reqBody.itemsPerPage, reqBody.currentPage * reqBody.itemsPerPage);
+    return finalResult;
+}
+
+router.post('/questionAnswerServerSide', (req, res, next) => {
+    QuestionAnswer.find((err, questionAnswerList) => {
+        let result = questionAnswerList.filter((item)=>{
+           if(
+               checkExperience(item, req.body.experience) &&
+               checkQuestionType(item, req.body.questionType) &&
+               checkSearchTerm(item, req.body.searchTerm) 
+            ) {
+                return item;
+            }
+        })
+        if (!result || result.length == 0) {
+            let totalItems = result.length;
+            const serverSideObj= {
+                result,
+                totalItems: totalItems
+            }
+            res.json(serverSideObj);
+        }
+        else {
+            let totalItems = result.length;
+            result = checkPageNumberSize(result, req.body);
+            const serverSideObj= {
+                result,
+                totalItems: totalItems
+            }
+            res.json(serverSideObj);
         }
     })
 })

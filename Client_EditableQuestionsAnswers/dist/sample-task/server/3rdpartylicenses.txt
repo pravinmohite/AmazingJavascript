@@ -1271,6 +1271,9 @@ SOFTWARE.
 
 
 
+ngx-pagination
+MIT
+
 nth-check
 BSD-2-Clause
 Copyright (c) Felix Böhm

@@ -74,6 +74,14 @@ const routes: Routes = [
     path:':question', component: QuestionAnswerDetailComponent
   },
   {
+    path: 'page/:pageNumber',
+    component: AngularInterviewQuestionsComponent,
+  },
+  {
+    path: 'page/:pageNumber/:searchTerm/:questionType',
+    component: AngularInterviewQuestionsComponent,
+  },
+  {
     path: '',
     component: AngularInterviewQuestionsComponent,
   },

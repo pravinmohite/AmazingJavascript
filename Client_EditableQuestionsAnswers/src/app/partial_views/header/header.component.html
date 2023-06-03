@@ -16,10 +16,10 @@
     <div class="form-inline col-md-5" [ngClass]="{'invisible d-none d-md-block': hideSearchInput }">
         <!-- <form #myForm= "ngForm"> -->
           <input name = "searchVal" #searchString [(ngModel)] = "searchVal" class="form-control mr-sm-2 col-md-8" type="text" (keydown)="checkEnterKeyPressed(searchString.value,$event)" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0 col-md-2 hand-cursor" (click)="searchByQuestion(searchString.value)">Search</button>
+          <button class="btn btn-outline-success my-2 my-sm-0 col-md-2 hand-cursor" (click)="searchByQuestionAnswer(searchString.value)">Search</button>
         <!-- </form> -->
     </div>
-      <select [ngClass]="{'invisible d-none d-md-block': hideQuestionTypeDropdown }" class="col-md-2 col-11 question-type" #mySelect (change)='onOptionsSelected(mySelect.value)'>
+      <select [ngClass]="{'invisible d-none d-md-block': hideQuestionTypeDropdown }" class="col-md-2 col-11 question-type" [(ngModel)] = "questionTypeVal" #mySelect (change)='onOptionsSelected(mySelect.value)'>
       <option value="All" title="Select question type...">Select question type...</option>
        <option *ngFor="let item of questionTypes" [value]="item.questionType">
          {{item.questionType}}

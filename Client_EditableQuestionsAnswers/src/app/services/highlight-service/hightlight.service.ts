@@ -51,8 +51,9 @@ export class HightlightService {
 
   convertHtmlIntoString(text: string) {
     return text
-      .replace(new RegExp('&', 'g'), '&amp;')
-      .replace(new RegExp('<', 'g'), '&lt;');
+//      .replace(new RegExp('&', 'g'), '&amp;')
+      .replace(new RegExp('<', 'g'), '&lt;')
+      .replace(new RegExp('>', 'g'), '&gt;');
   }
 
   convertHtmlIntoStringForAllElements() {
@@ -66,6 +67,20 @@ export class HightlightService {
           }
         }
         this.highlighted = true;
+      }
+    }
+  }
+
+  convertHtmlIntoStringForCodeContent(answerElement) {
+    if (this.questionAnswerService.platformId) {
+      let contents = answerElement.querySelectorAll(this.languageHtmlCssJavascriptClass);
+      if (contents && contents.length > 0) {
+        for (let i = 0; i < contents.length; i++) {
+          let content = contents[i];
+//          if(content.innerHTML.indexOf(this.startTagSymbol) == -1 && content.innerHTML.indexOf(this.endTagSymbol) == -1) {
+             content.innerHTML = this.convertHtmlIntoString(content.innerHTML);
+ //         }
+        }
       }
     }
   }

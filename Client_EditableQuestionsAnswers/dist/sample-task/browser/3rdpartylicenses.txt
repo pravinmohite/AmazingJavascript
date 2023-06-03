@@ -233,6 +233,9 @@ SOFTWARE.
 
 
 
+ngx-pagination
+MIT
+
 prismjs
 MIT
 MIT LICENSE

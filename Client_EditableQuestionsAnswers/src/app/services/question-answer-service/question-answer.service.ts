@@ -8,6 +8,7 @@ import { DataStateService, QUESTION_ANSWER_LIST, QUESTION_TYPE_LIST } from '../d
 import { Meta } from "@angular/platform-browser";
 import { Title } from "@angular/platform-browser";
 import { DOCUMENT } from '@angular/common';
+import { IServerSide } from 'src/app/interfaces/IServerSide';
 
 function _window(): any {
   return window;
@@ -22,6 +23,7 @@ export class QuestionAnswerService {
   currentSearchString:String;
   questionTypeUrl:String="/api/questionType";
   questionAnswerUrl:String="/api/questionAnswer";
+  questionAnswerServerSideUrl:String="/api/questionAnswerServerSide";
   questionAnswerByTypeUrl = "/api/questionAnswerByType"
   questionAnswerByExperienceAndTypeUrl = "/api/questionAnswerByExperience";
   loginDetailsUrl:String="/api/loginDetails";
@@ -33,6 +35,7 @@ export class QuestionAnswerService {
   devDomain:any= this.isProd?this.prodUrl:"http://localhost:3000";
   finalquestionTypeUrl:any=this.devDomain+this.questionTypeUrl;
   finalQuestionAnswerUrl:any=this.devDomain+this.questionAnswerUrl;
+  finalQuestionAnswerServerSideUrl = this.devDomain + this.questionAnswerServerSideUrl;
   finalQuestionAnswerByTypeUrl = this.devDomain + this.questionAnswerByTypeUrl;
   finalQuestionAnswerByExperienceAndTypeUrl = this.devDomain + this.questionAnswerByExperienceAndTypeUrl;
   finalloginDetailsUrl:any=this.devDomain+this.loginDetailsUrl;
@@ -40,6 +43,7 @@ export class QuestionAnswerService {
   finalRelatedQuestionAnswerUrl = this.devDomain + this.relatedQuestionAnswerUrl;
   mockData=(questionAnswerList as any).default;
   questionAnswerData:any;
+  itemsPerPage = 5;
   private data=new BehaviorSubject(null);
   currentData=this.data.asObservable();
   confirmationText="Are you sure you want to delete";
@@ -50,6 +54,9 @@ export class QuestionAnswerService {
   platformId: Object;
   relatedQuestionAnswerCount = 4;
   pageHeaderClass = '.page-header';
+  serverSideObj: IServerSide ={
+    itemsPerPage: this.itemsPerPage
+  };
   constructor(
     private http:HttpClient,
     private loaderService:LoaderService,
@@ -128,6 +135,23 @@ export class QuestionAnswerService {
     });
   } 
 
+  getQuestionAnswerListServerSide(ServerSideObj: IServerSide) {  
+    return this.http.post(this.finalQuestionAnswerServerSideUrl, ServerSideObj).subscribe(response => {
+      this.questionAnswerData = response['result'];
+      this.data.next(response);
+    })
+  }
+
+  resetServerSideObj() {
+    this.serverSideObj = {
+      itemsPerPage: this.itemsPerPage
+    };
+    this.questionAnswerDetailPageEvent.next({
+      resetDropdown: true,
+      resetSearch: true
+    })
+  }
+
   addQuestionAnswer(data) {
     this.loaderService.display(true);
     this.http.post(this.finalQuestionAnswerUrl,data).subscribe(response=>{
@@ -199,7 +223,6 @@ export class QuestionAnswerService {
         this.data.next(response);
       });
     } 
-
     /*------------end get question answer by experience and type ---*/
 
     /*------------reusable functions----------------*/

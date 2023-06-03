@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { faTrash,faEdit, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { HightlightService } from 'src/app/services/highlight-service/hightlight.service';
 import {QuestionAnswerService} from './../../../services/question-answer-service/question-answer.service';
+import {IServerSide} from './../../../interfaces/IServerSide';
 
 
 @Component({
@@ -14,6 +15,7 @@ export class QuestionAnswerPanelComponent implements OnInit {
   @ViewChildren('codeContent') codeContentList:QueryList<any>;
   @Input() questionAnswerList;
   @Input() adminMode:boolean;
+  @Input() totalItems = 0;
   showQuestionAnswerModal:Boolean=false;
   showQuestionTypeModal:Boolean=false;
   searchKey: any;
@@ -22,6 +24,9 @@ export class QuestionAnswerPanelComponent implements OnInit {
   faTimes=faTimes;
   editedItem:any;
   showSearchTerm: boolean = false;
+  currentPage = 1;
+  itemsPerPage;
+  serverSideObj: IServerSide;
   constructor(
     private questionAnswerService:QuestionAnswerService,
     private route: ActivatedRoute,
@@ -29,7 +34,9 @@ export class QuestionAnswerPanelComponent implements OnInit {
     private highlightService: HightlightService,
     private renderer: Renderer2, 
     private elem: ElementRef
-    ) { }
+    ) { 
+      this.itemsPerPage = this.questionAnswerService.itemsPerPage;
+    }
   
   ngOnInit(): void {
     this.handleRouteParamChangeSubscription();
@@ -41,16 +48,16 @@ export class QuestionAnswerPanelComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if(changes.questionAnswerList.currentValue && changes.questionAnswerList.currentValue.length >0) {
+    if(changes.questionAnswerList.currentValue && changes.questionAnswerList.currentValue.length > 0) {
         this.highlightService.highlightAll();
     }
   }
 
   handleRouteParamChangeSubscription() {
     this.route.paramMap.subscribe(params => {
-      this.searchKey = params.get('searchKey');
-      this.questionAnswerService.setUrlSearchVal(this.searchKey);
-      this.searchKey ? this.showSearchTerm = true : null;     
+       this.questionAnswerService.serverSideObj.currentPage = params.get('pageNumber')?  params.get('pageNumber'): this.currentPage;
+       this.currentPage = this.questionAnswerService.serverSideObj.currentPage;
+       this.questionAnswerService.getQuestionAnswerListServerSide(this.questionAnswerService.serverSideObj); 
     });
   }
 
@@ -104,6 +111,13 @@ export class QuestionAnswerPanelComponent implements OnInit {
   clearSearch(){
     this.showSearchTerm = false;
     this.router.navigate(['']);
+  }
+
+  renderPage(event: number) {
+    this.currentPage = event;
+    this.questionAnswerService.serverSideObj.currentPage = this.currentPage;
+    this.router.navigate(["interview-questions/page", this.currentPage]);
+    //this.fetchStudents();
   }
 
 }

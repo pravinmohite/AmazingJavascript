@@ -10,11 +10,13 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  allQuestionTypesText = 'All';
   questionTypes:any;
   faFacebook = faFacebookF;
   faTwitter = faTwitter;
   faBars = faBars;
   searchVal = '';
+  questionTypeVal = this.allQuestionTypesText;
   showQuestionTypeDropdown = true;
   @Output('sidebarStatus') sidebarStatus = new EventEmitter();
   @Output('openAboutUs') openAboutUs = new EventEmitter();
@@ -36,7 +38,7 @@ export class HeaderComponent implements OnInit {
     this.questionAnswerService.getUrlSearchVal().subscribe((searchVal:string) => {
       this.searchVal = searchVal;
       if(searchVal && searchVal != ''){
-        setTimeout(() => this.searchByQuestion(searchVal),1000);
+        setTimeout(() => this.searchByQuestionAnswer(searchVal),1000);
       }
     })
   }
@@ -47,14 +49,30 @@ export class HeaderComponent implements OnInit {
 
   handleQuestionAnswerDetailPageEvent() {
     this.questionAnswerService.questionAnswerDetailPageEvent.subscribe(data=>{
-       if(data){
-         this.hideQuestionTypeDropdown = data['hideQuestionTypeDropdown'];
-         this.hideSearchInput = data['hideSearchInput']
-       } else {
-        this.hideSearchInput = false;
-        this.hideQuestionTypeDropdown = false;
-       }
+       this.checkAndHideSearchAndDropdown(data);
+       this.checkAndResetSearchAndDropdown(data);
     })
+  }
+
+  checkAndHideSearchAndDropdown(data) {
+    if(data){
+      this.hideQuestionTypeDropdown = data['hideQuestionTypeDropdown'];
+      this.hideSearchInput = data['hideSearchInput']
+    } else {
+     this.hideSearchInput = false;
+     this.hideQuestionTypeDropdown = false;
+    }
+  }
+
+  checkAndResetSearchAndDropdown(data) {
+    if (data) {
+      if (data['resetSearch']) {
+        this.searchVal = "";
+      }
+      if (data['resetDropdown']) {
+        this.questionTypeVal = this.allQuestionTypesText;
+      }
+    }
   }
 
   openSiderBar(): void{
@@ -66,14 +84,20 @@ export class HeaderComponent implements OnInit {
     });
   }
   onOptionsSelected(value) {
-    this.questionAnswerService.filterDataByQuestionType(value);
+    if(value.toLowerCase() == this.allQuestionTypesText.toLocaleLowerCase()) {
+       value = null;
+    }
+    this.questionAnswerService.serverSideObj.questionType = value;
+    this.questionAnswerService.getQuestionAnswerListServerSide(this.questionAnswerService.serverSideObj);
   }
-  searchByQuestion(value) {
-    this.questionAnswerService.filterDataBySearchString(value);
+  searchByQuestionAnswer(value) {
+    //this.questionAnswerService.filterDataBySearchString(value);
+     this.questionAnswerService.serverSideObj.searchTerm = value;
+     this.questionAnswerService.getQuestionAnswerListServerSide(this.questionAnswerService.serverSideObj);
   }
   checkEnterKeyPressed(value,event) {
     if(event.key=="Enter") {
-      this.searchByQuestion(value)
+      this.searchByQuestionAnswer(value)
     }
   }
   openAboutusModal(): void{

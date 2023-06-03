@@ -13,6 +13,7 @@ export class AngularInterviewQuestionsComponent implements OnInit {
   questionAnswerList:any;
   questionTypeFromUrl: any;
   experienceFromUrl: any;
+  totalItems: any;
   constructor(
     private route: ActivatedRoute,
     private questionAnswerService:QuestionAnswerService,
@@ -20,6 +21,7 @@ export class AngularInterviewQuestionsComponent implements OnInit {
     private highlightService: HightlightService,
     ) {
       this.handleRouteDataSubscription();
+      this.handleRouteParamMapSubscription();
      }
 
   ngOnInit(): void {
@@ -28,22 +30,29 @@ export class AngularInterviewQuestionsComponent implements OnInit {
 
   handleGetQuestionAnswerListSubscription() {
     this.questionAnswerService.currentData.subscribe((data)=>{
-      this.questionAnswerList=data;
-      this.loaderService.display(false);
-      this.highlightService.hightLightAgain();
+      if (data && data['result']) {
+        this.questionAnswerList = data['result'];
+        this.totalItems = data['totalItems'];
+        this.loaderService.display(false);
+        this.highlightService.hightLightAgain();
+      }
    })
    this.checkRouteParamsDataAndGetQuestionAnswer();
   }
 
   checkRouteParamsDataAndGetQuestionAnswer() {
      if(this.experienceFromUrl || this.experienceFromUrl == 0) {
-      this.questionAnswerService.getQuestionAnswerByExperienceAndType(this.experienceFromUrl);
+      this.questionAnswerService.resetServerSideObj();
+      //this.questionAnswerService.getQuestionAnswerByExperienceAndType(this.experienceFromUrl);
+      this.questionAnswerService.serverSideObj.experience = this.experienceFromUrl;
       this.questionAnswerService.questionAnswerDetailPageEvent.next({
         hideQuestionTypeDropdown: false,
         hideSearchInput: false
      });
      } else if(this.questionTypeFromUrl) {
-       this.questionAnswerService.getQuestionAnswerByType(this.questionTypeFromUrl);
+      this.questionAnswerService.resetServerSideObj();
+   //    this.questionAnswerService.getQuestionAnswerByType(this.questionTypeFromUrl);
+       this.questionAnswerService.serverSideObj.questionType = this.questionTypeFromUrl;
        this.questionAnswerService.questionAnswerDetailPageEvent.next({
           hideQuestionTypeDropdown: true,
           hideSearchInput: false
@@ -57,6 +66,16 @@ export class AngularInterviewQuestionsComponent implements OnInit {
     this.route.data.subscribe(response=> {
        this.experienceFromUrl = response.experience;
        this.questionTypeFromUrl = response.type;
+    })
+  }
+
+  resetServerSideObj() {
+    this.questionAnswerService.resetServerSideObj();
+  }
+
+  handleRouteParamMapSubscription() {
+    this.route.paramMap.subscribe(data=>{
+      console.log('data',data);
     })
   }
 }

@@ -25,9 +25,11 @@ export class InterviewQuestionsPanelComponent implements OnInit {
   ngOnInit(): void {
     if(this.platformId && localStorage.getItem('loggedIn')=="true") {
       this.questionAnswerService.currentData.subscribe((data)=>{
-      this.questionAnswerList=data;
-      this.loaderService.display(false);
-      this.highlightService.hightLightAgain();
+        if (data && data['result']) {
+          this.questionAnswerList = data['result'];
+          this.loaderService.display(false);
+          this.highlightService.hightLightAgain();
+        }
      })
      this.questionAnswerService.getQuestionAnswerList();
    }
