@@ -707,9 +707,44 @@ greet("Alice");  // Output: Hello, Alice!
 </code>
 </pre>
 </div>
-<b>Non-primitive</b> data types, such as objects, arrays, and functions, are passed by reference, meaning that when you assign them to a variable or pass them as arguments to functions, you are working with a reference to the original value stored in memory. Primitive data types, on the other hand, are passed by value, meaning that when you assign them to a variable or pass them as arguments, a copy of the value is created.</div></div></div><div _ngcontent-sc68="" class="affiliate-ads-container"></div></div><div _ngcontent-sc68=""><div _ngcontent-sc68="" class="panel-item"><div _ngcontent-sc68="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc68="" class="row"><div _ngcontent-sc68="" class="col-xl-10 col-md-9"><span _ngcontent-sc68="">3. <h3 _ngcontent-sc68="" class="question-text">Difference between ng add and npm install</h3></span></div><div _ngcontent-sc68="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc68="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc68="" class="panel-body"><div _ngcontent-sc68="" class="panel-body-content">“Ng add” would install a package and along with that it would run any installation scripts present in that package which can be used to edit the app configurations(like updating angular.json file) or installing additional dependencies
+<b>Non-primitive</b> data types, such as objects, arrays, and functions, are passed by reference, meaning that when you assign them to a variable or pass them as arguments to functions, you are working with a reference to the original value stored in memory. Primitive data types, on the other hand, are passed by value, meaning that when you assign them to a variable or pass them as arguments, a copy of the value is created.</div></div></div><div _ngcontent-sc68="" class="affiliate-ads-container"></div></div><div _ngcontent-sc68=""><div _ngcontent-sc68="" class="panel-item"><div _ngcontent-sc68="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc68="" class="row"><div _ngcontent-sc68="" class="col-xl-10 col-md-9"><span _ngcontent-sc68="">3. <h3 _ngcontent-sc68="" class="question-text">Difference between ng add and npm install</h3></span></div><div _ngcontent-sc68="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc68="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc68="" class="panel-body"><div _ngcontent-sc68="" class="panel-body-content">The main difference between <b>`ng add`</b> and <b>`npm install`</b> lies in their purpose and functionality within the Angular ecosystem.
 
-“Npm install” just installs a package</div></div></div><div _ngcontent-sc68="" class="affiliate-ads-container"></div></div><div _ngcontent-sc68=""><div _ngcontent-sc68="" class="panel-item"><div _ngcontent-sc68="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc68="" class="row"><div _ngcontent-sc68="" class="col-xl-10 col-md-9"><span _ngcontent-sc68="">4. <h3 _ngcontent-sc68="" class="question-text">what are custom directives in Angular and how to create them</h3></span></div><div _ngcontent-sc68="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc68="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc68="" class="panel-body"><div _ngcontent-sc68="" class="panel-body-content">Custom directives are a feature in Angular that allow developers to extend the functionality of HTML by creating their own custom HTML elements or attributes. With custom directives, developers can define their own behavior, such as adding event listeners, modifying the DOM, or manipulating data.
+<b>1. `ng add`:</b> This is a command specific to the Angular CLI (Command Line Interface). It is used to add new packages, libraries, or schematics to an Angular project. When you run `ng add`, it performs several tasks automatically, such as installing the necessary packages, configuring the project, and making any required changes to the project's files. The `ng add` command is often used to quickly integrate third-party libraries or extensions into an Angular project with minimal effort.
+
+   Suppose you want to add the Angular Material library to your Angular project. Instead of manually configuring and installing Angular Material, you can use the `ng add` command to simplify the process. Here's how you would do it:
+
+<div class="code-snippet">
+<pre><code class="language-typescript">
+   ng add @angular/material
+</code>
+</pre>
+</div>
+
+   When you run this command, the Angular CLI will perform the following tasks:
+   - Install the `@angular/material` package and its dependencies using `npm install`.
+   - Configure the project to use Angular Material by updating the `angular.json` file.
+   - Import and configure the necessary modules and styles in the project's files (e.g., `app.module.ts` and `styles.scss`).
+
+   <b>`ng add`</b> is a convenient way to add Angular-specific packages or schematics to your project while automating the necessary setup steps.
+
+<b>2. `npm install`:</b> This is a general command provided by npm (Node Package Manager) for installing packages from the npm registry. It is not specific to Angular but is used across various JavaScript and Node.js projects. When you run `npm install `, it installs the specified package and its dependencies into the project. It typically updates the `package.json` file to include the installed package as a dependency. However, `npm install` does not perform any specific configuration or modification of the project's files.
+
+ Let's say you want to install the `lodash` library, which is a popular utility library for JavaScript. In this case, you would use the `npm install` command directly, as follows:
+
+<div class="code-snippet">
+<pre><code class="language-typescript">
+   npm install lodash
+</code>
+</pre>
+</div>
+   Running this command will:
+   - Fetch the `lodash` package and its dependencies from the npm registry.
+   - Install the package locally within your project's `node_modules` directory.
+   - Update the `package.json` file to include `lodash` as a dependency.
+
+   <b>`npm install`</b> is a general-purpose command used to install any package from the npm registry into your project, regardless of the specific framework or library being used.
+
+In summary, <b>`ng add`</b> is a specialized command within the Angular CLI that automates the installation and configuration of packages specifically designed for Angular projects. On the other hand, <b>`npm install`</b> is a general command provided by npm to install packages from the npm registry into any JavaScript or Node.js project, including Angular projects.</div></div></div><div _ngcontent-sc68="" class="affiliate-ads-container"></div></div><div _ngcontent-sc68=""><div _ngcontent-sc68="" class="panel-item"><div _ngcontent-sc68="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc68="" class="row"><div _ngcontent-sc68="" class="col-xl-10 col-md-9"><span _ngcontent-sc68="">4. <h3 _ngcontent-sc68="" class="question-text">what are custom directives in Angular and how to create them</h3></span></div><div _ngcontent-sc68="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc68="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc68="" class="panel-body"><div _ngcontent-sc68="" class="panel-body-content">Custom directives are a feature in Angular that allow developers to extend the functionality of HTML by creating their own custom HTML elements or attributes. With custom directives, developers can define their own behavior, such as adding event listeners, modifying the DOM, or manipulating data.
 
 To create a custom directive in Angular, follow these steps:
 
@@ -754,30 +789,180 @@ To use this directive in a template, simply add the appHighlight attribute to an
 </code>
 </pre>
 </div>
-When the template is rendered, the HighlightDirective will be applied to the <p> element, changing its background color to yellow.</p></div></div></div><div _ngcontent-sc68="" class="affiliate-ads-container"></div></div><div _ngcontent-sc68=""><div _ngcontent-sc68="" class="panel-item"><div _ngcontent-sc68="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc68="" class="row"><div _ngcontent-sc68="" class="col-xl-10 col-md-9"><span _ngcontent-sc68="">5. <h3 _ngcontent-sc68="" class="question-text">Difference between get and post methods</h3></span></div><div _ngcontent-sc68="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc68="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc68="" class="panel-body"><div _ngcontent-sc68="" class="panel-body-content"><b>GET Requests :</b>
-GET is used to request data from a specified resource.
-GET requests can be cached
-GET requests remain in the browser history
-GET requests can be bookmarked
-GET requests should never be used when dealing with sensitive data
-GET requests have length restrictions
-GET requests are only used to request data (not modify)
+When the template is rendered, the HighlightDirective will be applied to the <p> element, changing its background color to yellow.</p></div></div></div><div _ngcontent-sc68="" class="affiliate-ads-container"></div></div><div _ngcontent-sc68=""><div _ngcontent-sc68="" class="panel-item"><div _ngcontent-sc68="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc68="" class="row"><div _ngcontent-sc68="" class="col-xl-10 col-md-9"><span _ngcontent-sc68="">5. <h3 _ngcontent-sc68="" class="question-text">Difference between get and post methods</h3></span></div><div _ngcontent-sc68="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc68="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc68="" class="panel-body"><div _ngcontent-sc68="" class="panel-body-content">The main differences between the HTTP <b>`GET`</b> and <b>`POST`</b> methods are their intended purposes and the way they handle data:
 
-<b>POST requests :</b>
-POST is used to send data to a server to create/update a resource.
-POST requests are never cached
-POST requests do not remain in the browser history
-POST requests cannot be bookmarked
-POST requests have no restrictions on data length</div></div></div><div _ngcontent-sc68="" class="affiliate-ads-container"></div></div><div _ngcontent-sc68=""><div _ngcontent-sc68="" class="panel-item"><div _ngcontent-sc68="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc68="" class="row"><div _ngcontent-sc68="" class="col-xl-10 col-md-9"><span _ngcontent-sc68="">6. <h3 _ngcontent-sc68="" class="question-text">Difference between post and put methods</h3></span></div><div _ngcontent-sc68="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc68="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc68="" class="panel-body"><div _ngcontent-sc68="" class="panel-body-content"><b>POST method :</b>
-POST is used to send data to a server to create/update a resource.
-POST requests are never cached
-POST requests do not remain in the browser history
-POST requests cannot be bookmarked
-POST requests have no restrictions on data length
+<b>1. Purpose:</b>
 
-<b>PUT method :</b>
-PUT is used to send data to a server to create/update a resource.
-The difference between POST and PUT is that PUT requests are idempotent. That is, calling the same PUT request multiple times will always produce the same result. In contrast, calling a POST request repeatedly have side effects of creating the same resource multiple times.</div></div></div><div _ngcontent-sc68="" class="affiliate-ads-container"></div></div><div _ngcontent-sc68=""><div _ngcontent-sc68="" class="panel-item"><div _ngcontent-sc68="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc68="" class="row"><div _ngcontent-sc68="" class="col-xl-10 col-md-9"><span _ngcontent-sc68="">7. <h3 _ngcontent-sc68="" class="question-text">Explain the canActivateChild route guard</h3></span></div><div _ngcontent-sc68="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc68="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc68="" class="panel-body"><div _ngcontent-sc68="" class="panel-body-content">The <b>canActivateChild</b> route guard in Angular allows you to check if a user is allowed to activate child routes. It is used to protect child routes of a particular route from being activated if certain conditions are not met.
+   - `GET`: The `GET` method is used to retrieve data from a server. It is meant for reading or fetching a resource without modifying it on the server.
+   - `POST`: The `POST` method is used to send data to the server to create or update a resource. It is meant for submitting data, such as form submissions, to be processed by the server.
+
+<b>2. Data Handling:</b>
+
+   - `GET`: Data is appended to the URL as query parameters. For example, `https://example.com/api/users?id=123`. This makes the data visible in the URL and is limited in size due to URL length restrictions. It is suitable for passing small amounts of data, but it's not recommended for sensitive or large data.
+   - `POST`: Data is sent in the body of the HTTP request, which is not visible in the URL. This allows for sending larger amounts of data, and there are no URL length restrictions. It is suitable for sensitive or large data, such as JSON payloads.
+
+<b>3. Caching:</b>
+
+   - `GET`: `GET` requests can be cached by the browser or intermediate proxies since they are considered safe and idempotent. The same `GET` request can be repeated multiple times without any side effects.
+   - `POST`: By default, `POST` requests are not cached because they may have side effects on the server, such as creating or updating resources. However, caching can be explicitly enabled for `POST` requests using appropriate cache headers.
+
+<b>4. Idempotence:</b>
+
+   - `GET`: `GET` requests are idempotent, meaning that making the same `GET` request multiple times should have the same result. It should not modify any data on the server.
+   - `POST`: `POST` requests are not idempotent since they typically result in the creation or modification of a resource on the server. Making the same `POST` request multiple times may create multiple resources or have different outcomes.
+
+<b>5. Security:</b>
+
+   - `GET`: Since `GET` requests append data to the URL, the data becomes visible in browser history, server logs, and can be bookmarked. It is not recommended to send sensitive data via `GET` requests as it can be easily exposed.
+   - `POST`: Data sent via `POST` requests is included in the body and is not directly visible in browser history or server logs, offering better security for sensitive information.
+
+<b>Example :</b>
+
+Here are examples that demonstrate the difference between the `GET` and `POST` methods:
+
+<b>1. `GET` Method Example:</b>
+
+   Let's say you have a RESTful API that provides information about users. To retrieve the details of a specific user with the ID "123", you would use a `GET` request. Here's an example using JavaScript's `fetch` API:
+
+<div class="code-snippet">
+<pre><code class="language-typescript">
+   fetch('https://example.com/api/users/123', {
+     method: 'GET'
+   })
+     .then(response =&gt; response.json())
+     .then(data =&gt; {
+       console.log(data);
+     })
+     .catch(error =&gt; {
+       console.error('Error:', error);
+     });
+</code>
+</pre>
+</div>
+
+   In this example, the `GET` request is made to the URL `https://example.com/api/users/123`, indicating that you want to retrieve user information for the user with the ID "123". The server will respond with the requested user data.
+
+<b>2. `POST` Method Example:</b>
+
+   Suppose you have a contact form on a website, and you want to send the form data to a server for processing. In this case, you would use a `POST` request to submit the data. Here's an example using JavaScript's `fetch` API:
+
+<div class="code-snippet">
+<pre><code class="language-typescript">
+   const formData = {
+     name: 'John Doe',
+     email: 'john@example.com',
+     message: 'Hello, World!'
+   };
+
+   fetch('https://example.com/api/contact', {
+     method: 'POST',
+     headers: {
+       'Content-Type': 'application/json'
+     },
+     body: JSON.stringify(formData)
+   })
+     .then(response =&gt; response.json())
+     .then(data =&gt; {
+       console.log(data);
+     })
+     .catch(error =&gt; {
+       console.error('Error:', error);
+     });
+</code>
+</pre>
+</div>
+In this example, the <b>`POST`</b> request is made to the URL `https://example.com/api/contact` with the form data serialized as JSON in the request body. The server will process the submitted data, such as storing it in a database or sending an email.
+
+In summary, the <b>`GET`</b> method is used for retrieving data without modifying it, while the `POST` method is used for sending data to create or update a resource. `GET` requests append data to the URL, have caching advantages, and are idempotent. <b>`POST`</b> requests send data in the request body, are not cached by default, and are not idempotent.</div></div></div><div _ngcontent-sc68="" class="affiliate-ads-container"></div></div><div _ngcontent-sc68=""><div _ngcontent-sc68="" class="panel-item"><div _ngcontent-sc68="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc68="" class="row"><div _ngcontent-sc68="" class="col-xl-10 col-md-9"><span _ngcontent-sc68="">6. <h3 _ngcontent-sc68="" class="question-text">Difference between post and put methods</h3></span></div><div _ngcontent-sc68="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc68="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc68="" class="panel-body"><div _ngcontent-sc68="" class="panel-body-content">The main differences between the HTTP <b>`POST`</b> and <b>`PUT`</b> methods are their intended purposes and the way they handle data:
+
+<b>1. Purpose:</b>
+
+   - `POST`: The `POST` method is used to send data to the server to create a new resource. It is often used when submitting forms or sending data that needs to be processed and stored on the server. Each `POST` request typically creates a new resource on the server, and the server assigns a unique identifier to it.
+   - `PUT`: The `PUT` method is used to send data to the server to update an existing resource or create a resource at a specific URL. It is used when you know the exact location of the resource you want to update or create. A `PUT` request can either update an existing resource or create a new one if it doesn't already exist at the specified URL.
+
+<b>2. Idempotence:</b>
+   - `POST`: `POST` requests are not idempotent. Sending the same `POST` request multiple times may result in the creation of multiple resources with different identifiers or cause repeated side effects on the server.
+   - `PUT`: `PUT` requests are idempotent. Making the same `PUT` request multiple times will have the same outcome, ensuring that the resource on the server is updated or created consistently.
+
+<b>3. Data Handling:</b>
+   - `POST`: Data is sent in the body of the HTTP request, typically as form data or serialized JSON/XML. The server processes this data and performs the necessary actions to create a new resource.
+   - `PUT`: Data is sent in the body of the HTTP request, similar to the `POST` method. However, in a `PUT` request, the data represents the complete updated representation of the resource. The server uses this data to replace the existing resource or create a new one.
+
+<b>4. URL Convention:</b>
+   - `POST`: The URL for a `POST` request typically points to a collection endpoint or a general resource endpoint. For example, `https://example.com/api/users` to create a new user.
+   - `PUT`: The URL for a `PUT` request usually points to a specific resource or a unique identifier for that resource. For example, `https://example.com/api/users/123` to update the user with the ID "123".
+
+<b>5. Safe Operations:</b>
+   - `POST`: `POST` requests are not considered safe operations as they can result in the creation of new resources or have side effects on the server.
+   - `PUT`: `PUT` requests are not considered safe operations either, as they can update or create resources on the server.
+
+<b>Example: </b>
+
+Here are examples that demonstrate the difference between the `POST` and `PUT` methods:
+
+<b>1. `POST` Method Example:</b>
+
+   Let's say you have an API that handles blog posts. To create a new blog post, you would use a `POST` request. Here's an example using JavaScript's `fetch` API:
+
+<div class="code-snippet">
+<pre><code class="language-typescript">
+   const newPost = {
+     title: 'My New Blog Post',
+     content: 'This is the content of my new blog post.'
+   };
+
+   fetch('https://example.com/api/posts', {
+     method: 'POST',
+     headers: {
+       'Content-Type': 'application/json'
+     },
+     body: JSON.stringify(newPost)
+   })
+     .then(response =&gt; response.json())
+     .then(data =&gt; {
+       console.log(data);
+     })
+     .catch(error =&gt; {
+       console.error('Error:', error);
+     });
+</code>
+</pre>
+</div>
+ In this example, the `POST` request is made to the URL `https://example.com/api/posts`, indicating that you want to create a new blog post. The server will process the request, create a new blog post with the provided data (`newPost`), and respond with the created post details.
+
+<b>2. `PUT` Method Example:</b>
+
+   Suppose you have an API that manages user profiles, and you want to update an existing user's information. To achieve that, you would use a `PUT` request. Here's an example using JavaScript's `fetch` API:
+
+<div class="code-snippet">
+<pre><code class="language-typescript">
+   const updatedUser = {
+     name: 'Jane Doe',
+     email: 'jane@example.com'
+   };
+
+   fetch('https://example.com/api/users/123', {
+     method: 'PUT',
+     headers: {
+       'Content-Type': 'application/json'
+     },
+     body: JSON.stringify(updatedUser)
+   })
+     .then(response =&gt; response.json())
+     .then(data =&gt; {
+       console.log(data);
+     })
+     .catch(error =&gt; {
+       console.error('Error:', error);
+     });
+</code>
+</pre>
+</div>
+ In this example, the `PUT` request is made to the URL `https://example.com/api/users/123`, indicating that you want to update the user with the ID "123". The server will process the request, replace the existing user's information with the provided data (`updatedUser`), and respond with the updated user details.
+
+<b>Conclusion: </b>
+
+In summary, the `POST` method is used to send data to create a new resource, while the `PUT` method is used to send data to update an existing resource or create a new one at a specific URL. `POST` requests create new resources, are not idempotent, and send data representing the resource to be created. `PUT` requests update or create resources, are idempotent, and send data representing the complete updated representation of the resource.</div></div></div><div _ngcontent-sc68="" class="affiliate-ads-container"></div></div><div _ngcontent-sc68=""><div _ngcontent-sc68="" class="panel-item"><div _ngcontent-sc68="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc68="" class="row"><div _ngcontent-sc68="" class="col-xl-10 col-md-9"><span _ngcontent-sc68="">7. <h3 _ngcontent-sc68="" class="question-text">Explain the canActivateChild route guard</h3></span></div><div _ngcontent-sc68="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc68="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc68="" class="panel-body"><div _ngcontent-sc68="" class="panel-body-content">The <b>canActivateChild</b> route guard in Angular allows you to check if a user is allowed to activate child routes. It is used to protect child routes of a particular route from being activated if certain conditions are not met.
 
 When a user navigates to a child route, Angular checks if there is an associated canActivateChild guard in the parent route's route configuration. If there is, Angular executes the guard before activating the child route.
 
@@ -847,47 +1032,67 @@ export class AppRoutingModule { }
 </div>
 In this example, the canActivateChild property is set to an array containing the AuthGuard service. This guards the child route with the AuthGuard.
 
-Still confused? if yes, check link <a href="https://www.tektutorialshub.com/angular/angular-canactivatechild-example/" target="_blank">canActivateChild - tektutorialshub</a> for explanation</div></div></div><div _ngcontent-sc68="" class="affiliate-ads-container"></div></div><div _ngcontent-sc68=""><div _ngcontent-sc68="" class="panel-item"><div _ngcontent-sc68="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc68="" class="row"><div _ngcontent-sc68="" class="col-xl-10 col-md-9"><span _ngcontent-sc68="">8. <h3 _ngcontent-sc68="" class="question-text"> How to create custom events in JavaScript </h3></span></div><div _ngcontent-sc68="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc68="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc68="" class="panel-body"><div _ngcontent-sc68="" class="panel-body-content">step 1 - create custom event :
+Still confused? if yes, check link <a href="https://www.tektutorialshub.com/angular/angular-canactivatechild-example/" target="_blank">canActivateChild - tektutorialshub</a> for explanation</div></div></div><div _ngcontent-sc68="" class="affiliate-ads-container"></div></div><div _ngcontent-sc68=""><div _ngcontent-sc68="" class="panel-item"><div _ngcontent-sc68="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc68="" class="row"><div _ngcontent-sc68="" class="col-xl-10 col-md-9"><span _ngcontent-sc68="">8. <h3 _ngcontent-sc68="" class="question-text"> How to create custom events in JavaScript </h3></span></div><div _ngcontent-sc68="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc68="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc68="" class="panel-body"><div _ngcontent-sc68="" class="panel-body-content"><b>Custom events</b> are events that are created by developers to handle specific scenarios or to extend the capabilities of the built-in events. Custom events allow you to define and trigger events that are not natively available in the browser or the DOM.
+
+The ability to create <b>custom events</b> gives you more flexibility in designing event-driven systems and enables you to build modular, reusable components that communicate with each other using custom events.
+
+Custom events can be useful in various scenarios, such as:
+
+<b>1. Communication between components:</b> 
+
+Custom events provide a way for different components of an application to communicate and exchange information. Components can listen for custom events and respond accordingly.
+
+<b>2. Application-level events:</b> 
+
+You can create custom events to represent application-level events, such as "applicationInitialized" or "userLoggedOut." These events can be triggered at specific points in your application and can be used to trigger actions or update the UI.
+
+<b>3. Event-driven architecture:</b> 
+
+Custom events facilitate an event-driven architecture, where different parts of your application can be decoupled and communicate through events. This promotes loose coupling and improves the modularity and maintainability of your codebase.
+
+To work with custom events, you can use the <b>`CustomEvent` constructor</b> and the <b>`dispatchEvent()`</b> method to create and trigger custom events. Additionally, you can use the <b>`addEventListener()`</b> method to listen for and handle custom events.
+
+Here's a step-by-step guide on how to create custom events:
+
+<b>1.</b> Create an event using the `CustomEvent` constructor:
 
 <div class="code-snippet">
-<code>
- let happyEvent = new Event("vireshIsHappy",{bubble: true, cancellable: true})
- or
- let event = new CustomEvent("vireshIsHappy",{details: {reason: "viresh is happy
-becoz is going to hong kong" },bubble: true, cancellable: true})
+<pre><code class="language-typescript">
+   const myEvent = new CustomEvent('myEvent', {
+     detail: { key: 'value' },
+     bubbles: true, // Specifies whether the event should bubble up through the DOM tree (optional)
+     cancelable: true // Specifies whether the event can be canceled with preventDefault() (optional)
+   });
 </code>
+</pre>
 </div>
-step 2 - attach event to an html element and add event handler :
+In the example above, we create a custom event named <b>`'myEvent'`</b>. The event can carry additional data in the `detail` property, which is an optional object. The `bubbles` and `cancelable` properties determine the behavior of the event during event propagation and allow for event cancellation if desired.
+
+<b>2.</b> Dispatch the custom event on an element:
 
 <div class="code-snippet">
-<code>
- let element = document.getElementById("xyz")
- element.addEventListener("vireshIsHappy", handleHappyViresh , false);
+<pre><code class="language-typescript">
+   const element = document.getElementById('myElement');
+   element.dispatchEvent(myEvent);
 </code>
+</pre>
 </div>
-step 3 - fire the event
+In this step, we select the desired HTML element on which the event should be dispatched. Here, we use <b>`document.getElementById('myElement')`</b> to obtain the element with the ID `'myElement'`. Then, we call the <b>`dispatchEvent()`</b> method on the element, passing in the custom event `myEvent` as the argument.
+
+<b>3.</b> Listen for the custom event:
 
 <div class="code-snippet">
-<code>
-element.dispatchEvent(happyEvent);
-//functions
-function handleHappyViresh (event){
- console.log(event);
-}
+<pre><code class="language-typescript">
+   const element = document.getElementById('myElement');
+   element.addEventListener('myEvent', event =&gt; {
+     console.log('Custom event triggered!', event.detail);
+   });
 </code>
+</pre>
 </div>
-Note that-
-for step 1 : the event name i.e "vireshIsHappy" is required , the second paramenter
-is optional . Prefer to use the CustomEvent constructor because it gives an
-additional property i.e. "details" by which we can add additional details to the event
-object
-for step 2 : event can can be attached to any element , even directly to the document
-as : document.addEventListener(happyEvent);
-the second parameter to the addEventListener() i.e. handleHappyViresh is the event
-Handler , the 3rd parameter is boolean which specifies the phase when the handler
-should be executed , 'true' means the handler will be executed in the capturing
-phase of the event 'false' means the event will be handler will be executed in the
-bubbling phase of the event.</div></div></div><div _ngcontent-sc68="" class="affiliate-ads-container"></div></div><div _ngcontent-sc68=""><div _ngcontent-sc68="" class="panel-item"><div _ngcontent-sc68="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc68="" class="row"><div _ngcontent-sc68="" class="col-xl-10 col-md-9"><span _ngcontent-sc68="">9. <h3 _ngcontent-sc68="" class="question-text">Difference between Ng serve and npm start</h3></span></div><div _ngcontent-sc68="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc68="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc68="" class="panel-body"><div _ngcontent-sc68="" class="panel-body-content"><b>`ng serve`</b> and <b>`npm start`</b> are both commands used in web development, but they serve different purposes depending on the context.
+Finally, we register an event listener on the element to capture and handle the custom event. In this example, when the <b>`'myEvent'`</b> event is triggered, the provided callback function will execute. You can access the additional data passed in the event's `detail` property using `event.detail`.
+
+You have created a <b>custom event</b>, dispatched it on an element, and set up an event listener to respond to the event. You can adapt this approach to meet your specific use cases and define custom behavior for your events in JavaScript.</div></div></div><div _ngcontent-sc68="" class="affiliate-ads-container"></div></div><div _ngcontent-sc68=""><div _ngcontent-sc68="" class="panel-item"><div _ngcontent-sc68="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc68="" class="row"><div _ngcontent-sc68="" class="col-xl-10 col-md-9"><span _ngcontent-sc68="">9. <h3 _ngcontent-sc68="" class="question-text">Difference between Ng serve and npm start</h3></span></div><div _ngcontent-sc68="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc68="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc68="" class="panel-body"><div _ngcontent-sc68="" class="panel-body-content"><b>`ng serve`</b> and <b>`npm start`</b> are both commands used in web development, but they serve different purposes depending on the context.
 
 <b>1. `ng serve`:</b> This command is specific to projects built with Angular, a popular JavaScript framework for building web applications. When you run `ng serve`, it starts the development server provided by the Angular CLI (Command Line Interface). The server compiles your Angular application and serves it locally, allowing you to view and interact with your application in a web browser. It also enables live reloading, which means that any changes you make to your code will be automatically reflected in the browser without the need for a manual refresh. `ng serve` is commonly used during the development phase of an Angular project.
 
@@ -1373,8 +1578,8 @@ const squared2 = numbers.map(num =&gt; num * num);
 </div>
 In the example above, the arrow function `num =&gt; num * num` provides a more concise and readable syntax compared to the traditional function expression. It also inherits the `this` value from the surrounding context, which can be useful in certain scenarios.
 
-Overall, arrow functions enhance code readability, simplify `this` handling, and provide a more concise syntax for writing functions, making them a popular choice in modern JavaScript development.</div></div></div><div _ngcontent-sc68="" class="affiliate-ads-container"></div></div><!----><!----></div><div _ngcontent-sc68="" class="pagination-container d-flex justify-content-center"><pagination-controls _ngcontent-sc68=""><pagination-template><nav role="navigation" aria-label="Pagination"><ul class="ngx-pagination"><li class="pagination-previous disabled"><!----><span aria-disabled="true"> Previous <span class="show-for-sr">page</span></span><!----></li><!----><li class="small-screen"> 1 / 13 </li><li class="current"><!----><span aria-live="polite"><span class="show-for-sr">You're on page </span><span>1</span></span><!----><!----></li><li class=""><a tabindex="0"><span class="show-for-sr">page </span><span>2</span></a><!----><!----></li><li class=""><a tabindex="0"><span class="show-for-sr">page </span><span>3</span></a><!----><!----></li><li class=""><a tabindex="0"><span class="show-for-sr">page </span><span>4</span></a><!----><!----></li><li class="ellipsis"><a tabindex="0"><span class="show-for-sr">page </span><span>...</span></a><!----><!----></li><li class=""><a tabindex="0"><span class="show-for-sr">page </span><span>13</span></a><!----><!----></li><!----><li class="pagination-next"><a tabindex="0"> Next <span class="show-for-sr">page</span></a><!----><!----></li><!----></ul><!----></nav></pagination-template></pagination-controls></div></article></div><div _ngcontent-sc68="" class="col-md-3 col-12 relation-questions-container"><div _ngcontent-sc68="" class="related-questionanswer-template"><app-related-interview-questions _ngcontent-sc68="" _nghost-sc65=""><div _ngcontent-sc65="" class="panel-container related-questionanswer-container"><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"> Related questions </div><div _ngcontent-sc65="" class="panel-body open"><div _ngcontent-sc65="" class="panel-body-content"><div _ngcontent-sc65="" class="related-questions-container"><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/how-do-you-use-the-retry%2528%2529-operator-in-rxjs,-and-what-is-its-purpose%3F"> How do you use the retry() operator in RxJS, and what is its purpose? </a></article><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/some-important-points-related-to-accessibility"> Some important points related to accessibility </a></article><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/what-is-view-state-and-session-state"> What is view state and session state </a></article><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/how-to-generate-a-component-using-cli-command-without-creating-its-spec-file"> How to generate a component using cli command without creating its spec file </a></article><!----><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/frontend-developer-interview-questions-for-freshers"> Front End Developer Interview Questions for Freshers </a></article><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/frontend-developer-interview-questions-for-3-years-experience"> Front End Developer Interview Questions for 3 years experience </a></article><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/frontend-developer-interview-questions-for-5-years-experience"> Front End Developer Interview Questions for 5 years experience </a></article><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/top-50%2B-angular-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 50+ Angular interview questions and answers </a></article><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/top-20%2B-html5-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 20+ HTML5 interview questions and answers </a></article><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/top-20%2B-css3-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 20+ CSS3 interview questions and answers </a></article><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/top-100%2B-javascript-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 100+ Javascript interview questions and answers </a></article></div></div></div></div></div></app-related-interview-questions></div></div></div></div><!----><!----></app-question-answer-panel></app-angular-interview-questions><!----></div><!----><app-footer _ngcontent-sc62="" _nghost-sc61=""><footer _ngcontent-sc61="" id="contact" class="footer"><div _ngcontent-sc61="" class="footer-info"><div _ngcontent-sc61="" class="text copyright-info"><div _ngcontent-sc61="" class="row copyright-links-container"><div _ngcontent-sc61="" class="col-md-7 copy-right-container"><span _ngcontent-sc61="">© 2023 frontendinterviewquestions.com</span></div><div _ngcontent-sc61="" class="col-md-5 links-container"><a _ngcontent-sc61="" class="privacy-policy-link" href="/privacy-policy">Privacy Policy</a><a _ngcontent-sc61="" class="privacy-policy-link" href="/disclaimer">Disclaimer</a><a _ngcontent-sc61="" class="privacy-policy-link" href="/contact-us">Contact Us</a></div></div></div></div></footer></app-footer></div></app-root>
-<script src="runtime.7c9354c9d7078097.js" type="module"></script><script src="polyfills.01c6a84ce69b6f6d.js" type="module"></script><script src="main.8244d02a703bab78.js" type="module"></script>
+Overall, arrow functions enhance code readability, simplify `this` handling, and provide a more concise syntax for writing functions, making them a popular choice in modern JavaScript development.</div></div></div><div _ngcontent-sc68="" class="affiliate-ads-container"></div></div><!----><!----></div><div _ngcontent-sc68="" class="pagination-container d-flex justify-content-center"><pagination-controls _ngcontent-sc68=""><pagination-template><nav role="navigation" aria-label="Pagination"><ul class="ngx-pagination"><li class="pagination-previous disabled"><!----><span aria-disabled="true"> Previous <span class="show-for-sr">page</span></span><!----></li><!----><li class="small-screen"> 1 / 13 </li><li class="current"><!----><span aria-live="polite"><span class="show-for-sr">You're on page </span><span>1</span></span><!----><!----></li><li class=""><a tabindex="0"><span class="show-for-sr">page </span><span>2</span></a><!----><!----></li><li class=""><a tabindex="0"><span class="show-for-sr">page </span><span>3</span></a><!----><!----></li><li class=""><a tabindex="0"><span class="show-for-sr">page </span><span>4</span></a><!----><!----></li><li class="ellipsis"><a tabindex="0"><span class="show-for-sr">page </span><span>...</span></a><!----><!----></li><li class=""><a tabindex="0"><span class="show-for-sr">page </span><span>13</span></a><!----><!----></li><!----><li class="pagination-next"><a tabindex="0"> Next <span class="show-for-sr">page</span></a><!----><!----></li><!----></ul><!----></nav></pagination-template></pagination-controls></div></article></div><div _ngcontent-sc68="" class="col-md-3 col-12 relation-questions-container"><div _ngcontent-sc68="" class="related-questionanswer-template"><app-related-interview-questions _ngcontent-sc68="" _nghost-sc65=""><div _ngcontent-sc65="" class="panel-container related-questionanswer-container"><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"> Related questions </div><div _ngcontent-sc65="" class="panel-body open"><div _ngcontent-sc65="" class="panel-body-content"><div _ngcontent-sc65="" class="related-questions-container"><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/what's-the-difference-between-first-class-function-and-higher-order-function-%3F"> what's the difference between first class function and higher order function ? </a></article><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/how-do-you-use-the-retry%2528%2529-operator-in-rxjs,-and-what-is-its-purpose%3F"> How do you use the retry() operator in RxJS, and what is its purpose? </a></article><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/what-things-to-be-considered-while-reviewing-a-pull-request-%3F--%3Cb%3Eimportant%3C%2Fb%3E"> what things to be considered while reviewing a pull request ?  &lt;b&gt;important&lt;/b&gt; </a></article><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/what-is-temporal-dead-zone-%3F"> what is temporal dead zone ? </a></article><!----><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/frontend-developer-interview-questions-for-freshers"> Front End Developer Interview Questions for Freshers </a></article><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/frontend-developer-interview-questions-for-3-years-experience"> Front End Developer Interview Questions for 3 years experience </a></article><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/frontend-developer-interview-questions-for-5-years-experience"> Front End Developer Interview Questions for 5 years experience </a></article><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/top-50%2B-angular-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 50+ Angular interview questions and answers </a></article><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/top-20%2B-html5-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 20+ HTML5 interview questions and answers </a></article><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/top-20%2B-css3-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 20+ CSS3 interview questions and answers </a></article><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/top-100%2B-javascript-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 100+ Javascript interview questions and answers </a></article></div></div></div></div></div></app-related-interview-questions></div></div></div></div><!----><!----></app-question-answer-panel></app-angular-interview-questions><!----></div><!----><app-footer _ngcontent-sc62="" _nghost-sc61=""><footer _ngcontent-sc61="" id="contact" class="footer"><div _ngcontent-sc61="" class="footer-info"><div _ngcontent-sc61="" class="text copyright-info"><div _ngcontent-sc61="" class="row copyright-links-container"><div _ngcontent-sc61="" class="col-md-7 copy-right-container"><span _ngcontent-sc61="">© 2023 frontendinterviewquestions.com</span></div><div _ngcontent-sc61="" class="col-md-5 links-container"><a _ngcontent-sc61="" class="privacy-policy-link" href="/privacy-policy">Privacy Policy</a><a _ngcontent-sc61="" class="privacy-policy-link" href="/disclaimer">Disclaimer</a><a _ngcontent-sc61="" class="privacy-policy-link" href="/contact-us">Contact Us</a></div></div></div></div></footer></app-footer></div></app-root>
+<script src="runtime.10b7e5b3ddb999ea.js" type="module"></script><script src="polyfills.01c6a84ce69b6f6d.js" type="module"></script><script src="main.450547e3894e3ce4.js" type="module"></script>
 
 
 <script id="serverApp-state" type="application/json">{}</script></body><!-- This page was prerendered with Angular Universal --></html>

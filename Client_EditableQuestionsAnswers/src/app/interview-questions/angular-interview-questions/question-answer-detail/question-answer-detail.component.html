@@ -4,9 +4,9 @@
         <div class="panel-header" role="img" aria-label="frontend interview questions">
             <div class="row">
                 <div class="col-xl-10 col-md-9">
-                    <span>
-                        <h3 class="question-text" [innerHtml]="questionAnswerItem.question"></h3>
-                    </span>
+                    <header>
+                        <h1 class="question-text" [innerHtml]="questionAnswerItem.question"></h1>
+                    </header>
                 </div>
                 <div class="col-xl-2 col-md-3 action-btns">
                     <fa-icon *ngIf="adminMode" class="hand-cursor edit-icon" [icon]="faEdit"

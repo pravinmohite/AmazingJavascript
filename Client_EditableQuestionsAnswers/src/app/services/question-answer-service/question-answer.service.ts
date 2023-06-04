@@ -156,21 +156,22 @@ export class QuestionAnswerService {
   addQuestionAnswer(data) {
     this.loaderService.display(true);
     this.http.post(this.finalQuestionAnswerUrl,data).subscribe(response=>{
-      this.getQuestionAnswerList();
+     // this.getQuestionAnswerList();
+     this.getQuestionAnswerListServerSide(this.serverSideObj);
     })
   }
 
   deleteQuestionAnswer(id) {
     this.loaderService.display(true);
     this.http.delete(this.finalQuestionAnswerUrl+"/"+id).subscribe(response=>{
-      this.getQuestionAnswerList();
+      this.getQuestionAnswerListServerSide(this.serverSideObj);
     })
   }
 
   updateQuestionAnswer(data) {
     this.loaderService.display(true);
     this.http.patch(this.finalQuestionAnswerUrl+'/'+data._id,data).subscribe(response=>{
-      this.getQuestionAnswerList();
+      this.getQuestionAnswerListServerSide(this.serverSideObj);
     })
   }
 
