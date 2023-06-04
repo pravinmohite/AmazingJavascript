@@ -46,9 +46,10 @@
               Search results not found
           </div>
       </div>
-        <div class="d-flex justify-content-center">
+        <div class="pagination-container d-flex justify-content-center">
           <pagination-controls
             (pageChange)="renderPage($event)"
+            [maxSize]="maxSize"
           ></pagination-controls>
         </div>
       </article>

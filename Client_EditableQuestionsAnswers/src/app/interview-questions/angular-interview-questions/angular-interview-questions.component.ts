@@ -21,7 +21,6 @@ export class AngularInterviewQuestionsComponent implements OnInit {
     private highlightService: HightlightService,
     ) {
       this.handleRouteDataSubscription();
-      this.handleRouteParamMapSubscription();
      }
 
   ngOnInit(): void {
@@ -35,6 +34,7 @@ export class AngularInterviewQuestionsComponent implements OnInit {
         this.totalItems = data['totalItems'];
         this.loaderService.display(false);
         this.highlightService.hightLightAgain();
+        this.questionAnswerService.scrollToTheTopOfThePage();
       }
    })
    this.checkRouteParamsDataAndGetQuestionAnswer();
@@ -43,7 +43,6 @@ export class AngularInterviewQuestionsComponent implements OnInit {
   checkRouteParamsDataAndGetQuestionAnswer() {
      if(this.experienceFromUrl || this.experienceFromUrl == 0) {
       this.questionAnswerService.resetServerSideObj();
-      //this.questionAnswerService.getQuestionAnswerByExperienceAndType(this.experienceFromUrl);
       this.questionAnswerService.serverSideObj.experience = this.experienceFromUrl;
       this.questionAnswerService.questionAnswerDetailPageEvent.next({
         hideQuestionTypeDropdown: false,
@@ -51,7 +50,6 @@ export class AngularInterviewQuestionsComponent implements OnInit {
      });
      } else if(this.questionTypeFromUrl) {
       this.questionAnswerService.resetServerSideObj();
-   //    this.questionAnswerService.getQuestionAnswerByType(this.questionTypeFromUrl);
        this.questionAnswerService.serverSideObj.questionType = this.questionTypeFromUrl;
        this.questionAnswerService.questionAnswerDetailPageEvent.next({
           hideQuestionTypeDropdown: true,
@@ -71,11 +69,5 @@ export class AngularInterviewQuestionsComponent implements OnInit {
 
   resetServerSideObj() {
     this.questionAnswerService.resetServerSideObj();
-  }
-
-  handleRouteParamMapSubscription() {
-    this.route.paramMap.subscribe(data=>{
-      console.log('data',data);
-    })
   }
 }

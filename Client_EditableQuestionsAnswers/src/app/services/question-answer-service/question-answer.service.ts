@@ -43,7 +43,6 @@ export class QuestionAnswerService {
   finalRelatedQuestionAnswerUrl = this.devDomain + this.relatedQuestionAnswerUrl;
   mockData=(questionAnswerList as any).default;
   questionAnswerData:any;
-  itemsPerPage = 5;
   private data=new BehaviorSubject(null);
   currentData=this.data.asObservable();
   confirmationText="Are you sure you want to delete";
@@ -54,6 +53,8 @@ export class QuestionAnswerService {
   platformId: Object;
   relatedQuestionAnswerCount = 4;
   pageHeaderClass = '.page-header';
+  itemsPerPage = 20;
+  maxSize = 6;
   serverSideObj: IServerSide ={
     itemsPerPage: this.itemsPerPage
   };

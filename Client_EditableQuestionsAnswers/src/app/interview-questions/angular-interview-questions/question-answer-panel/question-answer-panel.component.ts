@@ -26,6 +26,7 @@ export class QuestionAnswerPanelComponent implements OnInit {
   showSearchTerm: boolean = false;
   currentPage = 1;
   itemsPerPage;
+  maxSize;
   serverSideObj: IServerSide;
   constructor(
     private questionAnswerService:QuestionAnswerService,
@@ -36,6 +37,7 @@ export class QuestionAnswerPanelComponent implements OnInit {
     private elem: ElementRef
     ) { 
       this.itemsPerPage = this.questionAnswerService.itemsPerPage;
+      this.maxSize = this.questionAnswerService.maxSize;
     }
   
   ngOnInit(): void {
@@ -43,12 +45,9 @@ export class QuestionAnswerPanelComponent implements OnInit {
     this.handleRouteDataSubscription();
   }
 
-  ngAfterViewInit() {
-    this.questionAnswerService.scrollToTheTopOfThePage();
-  }
-
   ngOnChanges(changes: SimpleChanges) {
     if(changes.questionAnswerList.currentValue && changes.questionAnswerList.currentValue.length > 0) {
+        this.currentPage = this.questionAnswerService.serverSideObj.currentPage;
         this.highlightService.highlightAll();
     }
   }
@@ -117,7 +116,5 @@ export class QuestionAnswerPanelComponent implements OnInit {
     this.currentPage = event;
     this.questionAnswerService.serverSideObj.currentPage = this.currentPage;
     this.router.navigate(["interview-questions/page", this.currentPage]);
-    //this.fetchStudents();
   }
-
 }

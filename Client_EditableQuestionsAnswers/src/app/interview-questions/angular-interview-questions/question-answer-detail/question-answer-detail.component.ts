@@ -33,10 +33,6 @@ export class QuestionAnswerDetailComponent implements OnInit {
      this.routeParamEvent();
   }
 
-  ngAfterViewInit() {
-    this.questionAnswerService.scrollToTheTopOfThePage();
-  }
-
   routeParamEvent() {
     this.route.paramMap.subscribe(params => {
       if(params) {
@@ -66,6 +62,7 @@ export class QuestionAnswerDetailComponent implements OnInit {
       this.setTitle(this.questionAnswerItem.question)
       this.updateDescription(this.questionAnswerItem.answer);
       this.highlightService.highlightAll();
+      this.questionAnswerService.scrollToTheTopOfThePage();
     })
   }
 
@@ -86,5 +83,4 @@ export class QuestionAnswerDetailComponent implements OnInit {
   deleteQuestionAnswer(item) {
     console.log('deleteditem', item);
   }
-
 }

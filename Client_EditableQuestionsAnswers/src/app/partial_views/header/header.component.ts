@@ -22,6 +22,7 @@ export class HeaderComponent implements OnInit {
   @Output('openAboutUs') openAboutUs = new EventEmitter();
   hideQuestionTypeDropdown = false;
   hideSearchInput = false;
+  initialPageNumber = 1;
   constructor(
     private questionAnswerService:QuestionAnswerService,
     private route: ActivatedRoute,
@@ -87,13 +88,18 @@ export class HeaderComponent implements OnInit {
     if(value.toLowerCase() == this.allQuestionTypesText.toLocaleLowerCase()) {
        value = null;
     }
+    this.setCurrentPageToInitialPage();
     this.questionAnswerService.serverSideObj.questionType = value;
     this.questionAnswerService.getQuestionAnswerListServerSide(this.questionAnswerService.serverSideObj);
   }
   searchByQuestionAnswer(value) {
-    //this.questionAnswerService.filterDataBySearchString(value);
+     this.setCurrentPageToInitialPage();
      this.questionAnswerService.serverSideObj.searchTerm = value;
      this.questionAnswerService.getQuestionAnswerListServerSide(this.questionAnswerService.serverSideObj);
+  }
+
+  setCurrentPageToInitialPage() {
+    this.questionAnswerService.serverSideObj.currentPage = this.initialPageNumber;
   }
   checkEnterKeyPressed(value,event) {
     if(event.key=="Enter") {
