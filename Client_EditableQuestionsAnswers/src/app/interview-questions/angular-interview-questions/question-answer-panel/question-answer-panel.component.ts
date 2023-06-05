@@ -16,6 +16,7 @@ export class QuestionAnswerPanelComponent implements OnInit {
   @Input() questionAnswerList;
   @Input() adminMode:boolean;
   @Input() totalItems = 0;
+  @Input() currentPage = 1;
   showQuestionAnswerModal:Boolean=false;
   showQuestionTypeModal:Boolean=false;
   searchKey: any;
@@ -24,7 +25,6 @@ export class QuestionAnswerPanelComponent implements OnInit {
   faTimes=faTimes;
   editedItem:any;
   showSearchTerm: boolean = false;
-  currentPage = 1;
   itemsPerPage;
   maxSize;
   serverSideObj: IServerSide;
@@ -41,7 +41,7 @@ export class QuestionAnswerPanelComponent implements OnInit {
     }
   
   ngOnInit(): void {
-    this.handleRouteParamChangeSubscription();
+   // this.handleRouteParamChangeSubscription();
     this.handleRouteDataSubscription();
   }
 
@@ -50,14 +50,6 @@ export class QuestionAnswerPanelComponent implements OnInit {
         this.currentPage = this.questionAnswerService.serverSideObj.currentPage;
         this.highlightService.highlightAll();
     }
-  }
-
-  handleRouteParamChangeSubscription() {
-    this.route.paramMap.subscribe(params => {
-       this.questionAnswerService.serverSideObj.currentPage = params.get('pageNumber')?  params.get('pageNumber'): this.currentPage;
-       this.currentPage = this.questionAnswerService.serverSideObj.currentPage;
-       this.questionAnswerService.getQuestionAnswerListServerSide(this.questionAnswerService.serverSideObj); 
-    });
   }
 
   handleRouteDataSubscription() {

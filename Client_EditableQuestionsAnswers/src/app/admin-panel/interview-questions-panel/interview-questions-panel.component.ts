@@ -31,7 +31,7 @@ export class InterviewQuestionsPanelComponent implements OnInit {
           this.highlightService.hightLightAgain();
         }
      })
-     this.questionAnswerService.getQuestionAnswerList();
+     this.questionAnswerService.getQuestionAnswerListServerSide();
    }
    else {
      this.router.navigateByUrl('/admin-panel');

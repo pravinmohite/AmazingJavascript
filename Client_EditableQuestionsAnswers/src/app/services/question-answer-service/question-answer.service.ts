@@ -54,9 +54,11 @@ export class QuestionAnswerService {
   relatedQuestionAnswerCount = 4;
   pageHeaderClass = '.page-header';
   itemsPerPage = 20;
+  currentPage = 1;
   maxSize = 6;
   serverSideObj: IServerSide ={
-    itemsPerPage: this.itemsPerPage
+    itemsPerPage: this.itemsPerPage,
+    currentPage : this.currentPage
   };
   constructor(
     private http:HttpClient,
@@ -136,8 +138,11 @@ export class QuestionAnswerService {
     });
   } 
 
-  getQuestionAnswerListServerSide(ServerSideObj: IServerSide) {  
-    return this.http.post(this.finalQuestionAnswerServerSideUrl, ServerSideObj).subscribe(response => {
+  getQuestionAnswerListServerSide(serverSideObj?: IServerSide) { 
+    if(!serverSideObj) {
+      serverSideObj = this.serverSideObj;
+    }
+    return this.http.post(this.finalQuestionAnswerServerSideUrl, serverSideObj).subscribe(response => {
       this.questionAnswerData = response['result'];
       this.data.next(response);
     })
@@ -145,7 +150,8 @@ export class QuestionAnswerService {
 
   resetServerSideObj() {
     this.serverSideObj = {
-      itemsPerPage: this.itemsPerPage
+      itemsPerPage: this.itemsPerPage,
+      currentPage: this.currentPage
     };
     this.questionAnswerDetailPageEvent.next({
       resetDropdown: true,
