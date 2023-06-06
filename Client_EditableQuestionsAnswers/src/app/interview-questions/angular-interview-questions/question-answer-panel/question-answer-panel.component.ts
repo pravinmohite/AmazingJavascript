@@ -54,7 +54,9 @@ export class QuestionAnswerPanelComponent implements OnInit {
 
   handleRouteDataSubscription() {
     this.route.data.subscribe(response=>{
-       this.questionAnswerService.setTitle(response.title);
+       if(response && response.title) {
+         this.questionAnswerService.setTitle(response.title);
+       }
     })
   }
 
