@@ -154,16 +154,12 @@
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-the-features-of-react-?</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
-</url>
-<url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/list-some-of-the-major-advantages-of-react</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-react-and-what-are-its-key-features?</loc>
+  <lastmod>2023-06-07T14:45:59+00:00</lastmod>
 </url>
 <url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-the-limitations-of-react-?</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
+  <lastmod>2023-06-07T14:45:59+00:00</lastmod>
 </url>
 <url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-generate-a-component-using-cli-command-without-creating-its-spec-file</loc>
@@ -1083,5 +1079,9 @@
 <url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-angular-change-detection-and-how-does-it-work?</loc>
   <lastmod>2023-05-30T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-the-differences-between-react-functional-components-and-class-components?</loc>
+  <lastmod>2023-06-07T14:45:59+00:00</lastmod>
 </url>
 </urlset>

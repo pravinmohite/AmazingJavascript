@@ -36,7 +36,6 @@ export class AngularInterviewQuestionsComponent implements OnInit {
 
   getQuestionAnswerServerSideIfNoParams() {
     if (!this.pageNumberParamsValue && !this.experienceFromUrl && !this.questionTypeFromUrl) {
-      console.log('should get called only once');
       this.questionAnswerService.getQuestionAnswerListServerSide();
     }
   }
