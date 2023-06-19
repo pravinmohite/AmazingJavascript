@@ -1,26 +1,23 @@
-.question-type{
+.question-type {
     min-height: 30px;
 }
 
-#social-address-links{
+#social-address-links {
     list-style: none;
     padding-left: 0;
     display: inline;
 }
 
-.social-link-item:nth-child(2){
-    margin-left: 20px;
-}
-
-.social-link-item{
+.social-link-item {
     display: inline-block;
+    margin: 0px 5px;
 }
 
-#about-us-and-social-links{
+#about-us-and-social-links {
     padding-left: 10%;
 }
 
-#follow-us-container{
+#follow-us-container {
     display: inline-block;
     margin-left: 20px;
     border: 1px solid lightgrey;
@@ -28,26 +25,26 @@
     border-radius: 11px;
 }
 
-#about-us-label{
+#about-us-label {
     vertical-align: middle;
     cursor: pointer;
 }
 
-#about-us-label:hover{
+#about-us-label:hover {
     text-decoration: underline;
 }
 
-#menubars{
+#menubars {
     display: none;
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 768px) {
 
-    #about-us-and-social-links{
+    #about-us-and-social-links {
         display: none;
     }
 
-    #menubars{
+    #menubars {
         display: inline;
         float: right;
         font-size: 1.2em;

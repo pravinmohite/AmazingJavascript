@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { faTwitter,  faFacebookF } from '@fortawesome/free-brands-svg-icons';
+import { faTwitter,  faFacebookF, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-sidebar',
@@ -11,6 +11,7 @@ export class SidebarComponent implements OnInit {
   faTimes = faTimes;
   faFacebook = faFacebookF;
   faTwitter = faTwitter;
+  faLinkedin = faLinkedin;
   constructor() { }
   @Input('isSideBarOpen') isSideBarOpen;
   @Output('sidebarStatus') sidebarStatus = new EventEmitter();

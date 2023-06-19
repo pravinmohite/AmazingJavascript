@@ -1,9 +1,9 @@
-.sidebar-open{
+.sidebar-open {
     right: 0;
     animation: openSidebar 0.8s;
 }
 
-.sider-bar{
+.sider-bar {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -12,18 +12,18 @@
     width: 180px;
 }
 
-.sidebar-closed{
+.sidebar-closed {
     animation: closeSidebar 0.8s;
     right: -180px;
 }
 
-.sider-bar-initially-closed{
+.sider-bar-initially-closed {
     right: -180px;
 }
 
-.sidebar-background{
+.sidebar-background {
     z-index: 1;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     position: fixed;
     top: 0;
     bottom: 0;
@@ -31,24 +31,34 @@
     right: 0;
 }
 
-.sidebar-background-hidden{
+.sidebar-background-hidden {
     background: transparent;
     position: static;
 }
 
 @keyframes openSidebar {
-    0%{right: -180px}
-    100%{right: 0}
+    0% {
+        right: -180px
+    }
+
+    100% {
+        right: 0
+    }
 }
 
 @keyframes closeSidebar {
-    0%{right: 0;}
-    100%{right: -180px;}
+    0% {
+        right: 0;
+    }
+
+    100% {
+        right: -180px;
+    }
 }
 
-#contact-us-label{
+#contact-us-label {
     font-weight: 600;
-    margin-top: 20px;
+    margin: 20px 0px 10px 0px;
 }
 
 .router-outlet-container {

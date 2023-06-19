@@ -301,6 +301,11 @@ body {
 
         .panel-body-content {
           padding: 10px;
+
+          h3 {
+            font-size: 1.25em !important;
+            margin-bottom: 0px !important;
+          }
         }
       }
     }
@@ -313,7 +318,7 @@ body {
       }
     }
 
-    h3 {
+    h3, h2 {
       &.question-text {
         font-size: 1em !important;
         display: inline;

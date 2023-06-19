@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {QuestionAnswerService} from "../../services/question-answer-service/question-answer.service";
-import { faTwitter,  faFacebookF, faInstagramSquare } from '@fortawesome/free-brands-svg-icons';
+import { faTwitter,  faFacebookF, faInstagramSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
   questionTypes:any;
   faFacebook = faFacebookF;
   faTwitter = faTwitter;
+  faLinkedin = faLinkedin;
   faBars = faBars;
   searchVal = '';
   questionTypeVal = this.allQuestionTypesText;

@@ -2,6 +2,7 @@ export const topFrontendInterviewQuestions = {
     path: 'top-200+-frontend-developer-interview-questions-and-answers',
     title: 'Top 200+ Frontend Developer Interview Questions And Answers',
     headingTitle: 'Top 200+ Frontend Developer Interview Questions And Answers',
+    type: 'all'
 }
 
 export const topHTML5InterviewQuestions = {

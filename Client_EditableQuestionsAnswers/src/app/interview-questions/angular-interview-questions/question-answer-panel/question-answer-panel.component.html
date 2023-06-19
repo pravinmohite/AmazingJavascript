@@ -26,7 +26,7 @@
               <div class="panel-header" role="img" aria-label="frontend interview questions">
                 <div class="row">
                   <div class="col-xl-10 col-md-9">
-                    <span>{{i+1 + (currentPage-1)*itemsPerPage}}. <h3 class="question-text" [innerHtml]="questionAnswerItem.question"></h3></span>
+                    <span>{{i+1 + (currentPage-1)*itemsPerPage}}. <h2 class="question-text" [innerHtml]="questionAnswerItem.question"></h2></span>
                   </div>
                   <div class="col-xl-2 col-md-3 action-btns">
                     <fa-icon *ngIf="adminMode" class="hand-cursor edit-icon" [icon]="faEdit" (click)="editQuestionAnswer(questionAnswerItem)"></fa-icon><fa-icon *ngIf="adminMode" class="hand-cursor delete-icon" [icon]="faTrash" (click)="deleteQuestionAnswer(questionAnswerItem._id)"></fa-icon><button class="showHideAnswer hand-cursor btn-show-hide" (click)="toggleShowHideAnswer(questionAnswerItem)">{{questionAnswerItem.buttonText?questionAnswerItem.buttonText:"Show"}}</button>

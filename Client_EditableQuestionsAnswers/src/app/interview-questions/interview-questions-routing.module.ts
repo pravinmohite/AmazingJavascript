@@ -7,11 +7,12 @@ import * as UIConstants from './../utils/constants';
 
 const routes: Routes = [
   {
-    path: UIConstants.topFresherFrontendInterviewQuestions.path, 
+    path: UIConstants.topFrontendInterviewQuestions.path, 
     component: AngularInterviewQuestionsComponent,
     data: {
-      title: UIConstants.topFresherFrontendInterviewQuestions.title,
-      headingTitle: UIConstants.topFresherFrontendInterviewQuestions.headingTitle,
+      title: UIConstants.topFrontendInterviewQuestions.title,
+      headingTitle: UIConstants.topFrontendInterviewQuestions.headingTitle,
+      type: UIConstants.topFrontendInterviewQuestions.type
     }
   },
   {
