@@ -54,3 +54,11 @@
 .router-outlet-container {
     min-height: 80vh !important;
 }
+
+::ng-deep {
+    .modal {
+        .modal-content {
+            font-family: sans-serif !important;
+        }
+    }
+}
