@@ -7,40 +7,47 @@ import * as UIConstants from './../utils/constants';
 
 const routes: Routes = [
   {
-    path: UIConstants.topFrontendInterviewQuestionsPath, 
-    component: AngularInterviewQuestionsComponent,
-    data: {title: UIConstants.topFrontendInterviewQuestionsTitle}
-  },
-  {
-    path: UIConstants.topHTML5InterviewQuestionsPath, 
+    path: UIConstants.topFresherFrontendInterviewQuestions.path, 
     component: AngularInterviewQuestionsComponent,
     data: {
-      title: UIConstants.topHTML5InterviewQuestionsTitle,
-      type: UIConstants.html5Type
+      title: UIConstants.topFresherFrontendInterviewQuestions.title,
+      headingTitle: UIConstants.topFresherFrontendInterviewQuestions.headingTitle,
     }
   },
   {
-    path: UIConstants.topCSS3InterviewQuestionsPath, 
+    path: UIConstants.topHTML5InterviewQuestions.path, 
     component: AngularInterviewQuestionsComponent,
     data: {
-      title: UIConstants.topCSS3InterviewQuestionsTitle,
-      type: UIConstants.css3Type
+      title: UIConstants.topHTML5InterviewQuestions.title,
+      headingTitle: UIConstants.topHTML5InterviewQuestions.headingTitle,
+      type: UIConstants.topHTML5InterviewQuestions.type
     }
   },
   {
-    path: UIConstants.topJavascriptInterviewQuestionsPath, 
+    path: UIConstants.topCSS3InterviewQuestions.path, 
     component: AngularInterviewQuestionsComponent,
     data: {
-      title: UIConstants.topJavascriptInterviewQuestionsTitle,
-      type: UIConstants.javascriptType
+      title: UIConstants.topCSS3InterviewQuestions.title,
+      headingTitle: UIConstants.topCSS3InterviewQuestions.headingTitle,
+      type: UIConstants.topCSS3InterviewQuestions.type
     }
   },
   {
-    path: UIConstants.topAngularInterviewQuestionsPath, 
+    path: UIConstants.topJavascriptInterviewQuestions.path, 
     component: AngularInterviewQuestionsComponent,
     data: {
-      title: UIConstants.topAngularInterviewQuestionsTitle,
-      type: UIConstants.angularType
+      title: UIConstants.topJavascriptInterviewQuestions.title,
+      headingTitle: UIConstants.topJavascriptInterviewQuestions.headingTitle,
+      type: UIConstants.topJavascriptInterviewQuestions.type
+    }
+  },
+  {
+    path: UIConstants.topAngularInterviewQuestions.path, 
+    component: AngularInterviewQuestionsComponent,
+    data: {
+      title: UIConstants.topAngularInterviewQuestions.title,
+      headingTitle: UIConstants.topAngularInterviewQuestions.headingTitle,
+      type: UIConstants.topAngularInterviewQuestions.type
     }
   },
   {
@@ -48,6 +55,7 @@ const routes: Routes = [
     component: AngularInterviewQuestionsComponent,
     data: {
       title: UIConstants.topFresherFrontendInterviewQuestions.title,
+      headingTitle: UIConstants.topFresherFrontendInterviewQuestions.headingTitle,
       experience: UIConstants.topFresherFrontendInterviewQuestions.experience,
       type: UIConstants.topFresherFrontendInterviewQuestions.type
     }
@@ -57,6 +65,7 @@ const routes: Routes = [
     component: AngularInterviewQuestionsComponent,
     data: {
       title: UIConstants.topThreeYearsExperienceFrontendInterviewQuestions.title,
+      headingTitle: UIConstants.topThreeYearsExperienceFrontendInterviewQuestions.headingTitle,
       experience: UIConstants.topThreeYearsExperienceFrontendInterviewQuestions.experience,
       type: UIConstants.topThreeYearsExperienceFrontendInterviewQuestions.type
     }
@@ -66,6 +75,7 @@ const routes: Routes = [
     component: AngularInterviewQuestionsComponent,
     data: {
       title: UIConstants.topFiveYearsExperienceFrontendInterviewQuestions.title,
+      headingTitle: UIConstants.topFiveYearsExperienceFrontendInterviewQuestions.headingTitle,
       experience: UIConstants.topFiveYearsExperienceFrontendInterviewQuestions.experience,
       type: UIConstants.topFiveYearsExperienceFrontendInterviewQuestions.type
     }

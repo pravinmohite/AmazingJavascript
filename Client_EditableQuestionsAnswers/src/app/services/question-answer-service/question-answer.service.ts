@@ -60,7 +60,7 @@ export class QuestionAnswerService {
     itemsPerPage: this.itemsPerPage,
     currentPage : this.currentPage
   };
-  defaultTitle = 'Frontend interview questions';
+  defaultTitle = 'Frontend Interview Questions';
   constructor(
     private http:HttpClient,
     private loaderService:LoaderService,

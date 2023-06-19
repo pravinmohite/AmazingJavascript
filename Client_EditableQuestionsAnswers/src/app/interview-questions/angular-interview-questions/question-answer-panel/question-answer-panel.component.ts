@@ -28,6 +28,7 @@ export class QuestionAnswerPanelComponent implements OnInit {
   itemsPerPage;
   maxSize;
   serverSideObj: IServerSide;
+  headingTitle: string;
   constructor(
     private questionAnswerService:QuestionAnswerService,
     private route: ActivatedRoute,
@@ -38,10 +39,10 @@ export class QuestionAnswerPanelComponent implements OnInit {
     ) { 
       this.itemsPerPage = this.questionAnswerService.itemsPerPage;
       this.maxSize = this.questionAnswerService.maxSize;
+      this.headingTitle = this.questionAnswerService.defaultTitle;
     }
   
   ngOnInit(): void {
-   // this.handleRouteParamChangeSubscription();
     this.handleRouteDataSubscription();
   }
 
@@ -52,10 +53,15 @@ export class QuestionAnswerPanelComponent implements OnInit {
     }
   }
 
+  setHeadingTitle(title) {
+    this.headingTitle = title;
+  }
+
   handleRouteDataSubscription() {
     this.route.data.subscribe(response=>{
        if(response && response.title) {
          this.questionAnswerService.setTitle(response.title);
+         this.setHeadingTitle(response.headingTitle)
        }
     })
   }
