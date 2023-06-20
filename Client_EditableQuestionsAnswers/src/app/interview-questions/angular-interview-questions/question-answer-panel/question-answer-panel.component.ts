@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ViewChildren, QueryList, ElementRef, Renderer2, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { faTrash,faEdit, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faTrash,faEdit, faTimes, faExternalLinkSquareAlt } from '@fortawesome/free-solid-svg-icons';
 import { HightlightService } from 'src/app/services/highlight-service/hightlight.service';
 import {QuestionAnswerService} from './../../../services/question-answer-service/question-answer.service';
 import {IServerSide} from './../../../interfaces/IServerSide';
@@ -23,12 +23,14 @@ export class QuestionAnswerPanelComponent implements OnInit {
   faTrash=faTrash;
   faEdit=faEdit;
   faTimes=faTimes;
+  faExternalLinkSquareAlt = faExternalLinkSquareAlt;
   editedItem:any;
   showSearchTerm: boolean = false;
   itemsPerPage;
   maxSize;
   serverSideObj: IServerSide;
   headingTitle: string;
+  openNewTabText: string;
   constructor(
     private questionAnswerService:QuestionAnswerService,
     private route: ActivatedRoute,
@@ -40,6 +42,7 @@ export class QuestionAnswerPanelComponent implements OnInit {
       this.itemsPerPage = this.questionAnswerService.itemsPerPage;
       this.maxSize = this.questionAnswerService.maxSize;
       this.headingTitle = this.questionAnswerService.defaultTitle;
+      this.openNewTabText = this.questionAnswerService.openNewTabText;
     }
   
   ngOnInit(): void {
@@ -116,5 +119,10 @@ export class QuestionAnswerPanelComponent implements OnInit {
     this.currentPage = event;
     this.questionAnswerService.serverSideObj.currentPage = this.currentPage;
     this.router.navigate(["interview-questions/page", this.currentPage]);
+  }
+
+  getQuestionAnswerLink(question) {
+    let result = this.questionAnswerService.formatAndReturnFullUrl(question);
+    return result;
   }
 }

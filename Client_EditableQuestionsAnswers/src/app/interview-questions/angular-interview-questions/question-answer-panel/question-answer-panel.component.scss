@@ -61,6 +61,19 @@
     min-height: 70vh !important;
 }
 
+.panel-body-content {
+    position: relative;
+    .open-linkseperate-container {
+        position: absolute;
+        right: 5px;
+        bottom: 0;
+
+        fa-icon {
+            color: $open-newtab-iconcolor !important;
+        }
+    }
+}
+
 .pagination-container {
     margin-top: 30px;
 

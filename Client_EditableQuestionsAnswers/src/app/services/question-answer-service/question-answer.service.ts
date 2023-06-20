@@ -61,6 +61,7 @@ export class QuestionAnswerService {
     currentPage : this.currentPage
   };
   defaultTitle = 'Frontend Interview Questions';
+  openNewTabText = 'open this answer seperately in new tab';
   constructor(
     private http:HttpClient,
     private loaderService:LoaderService,
@@ -363,6 +364,13 @@ export class QuestionAnswerService {
        }
     }
      return result;
+  }
+
+  formatAndReturnFullUrl(question) {
+    //let result = this.getWindow().location.href + '/' + this.formatQuestionUrl(question);
+    let result = this.formatQuestionUrl(question);
+    console.log('result', result);
+    return result;
   }
 
   checkIfPresent(str ,item) {
