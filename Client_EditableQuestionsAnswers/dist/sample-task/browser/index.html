@@ -1416,7 +1416,7 @@ A cold observable starts emitting values when a subscription is made. Each subsc
 For example:
 
 <div class="code-snippet">
-<code>
+<pre><code class="language-typescript">
 import { Observable } from 'rxjs';
 
 const coldObservable = new Observable(observer =&gt; {
@@ -1429,11 +1429,11 @@ const coldObservable = new Observable(observer =&gt; {
 coldObservable.subscribe(value =&gt; console.log('Subscriber 1:', value));
 coldObservable.subscribe(value =&gt; console.log('Subscriber 2:', value));
 </code>
-</div>
+</pre></div>
 Output:
 
 <div class="code-snippet">
-<code>
+<pre><code class="language-typescript">
 Observable logic
 Subscriber 1: 1
 Subscriber 1: 2
@@ -1443,6 +1443,7 @@ Subscriber 2: 1
 Subscriber 2: 2
 Subscriber 2: 3
 </code>
+</pre>
 </div>
 In the example above, each subscriber triggers the execution of the observable logic separately, and both subscribers receive the complete sequence of emitted values.
 
@@ -1453,10 +1454,10 @@ A hot observable, on the other hand, emits values regardless of subscriptions. I
 For example:
 
 <div class="code-snippet">
-<code>
+<pre><code class="language-html">
 import { Subject } from 'rxjs';
 
-const hotObservable = new Subject();
+const hotObservable = new Subject&lt;number&gt;();
 
 hotObservable.next(1);
 hotObservable.next(2);
@@ -1471,12 +1472,14 @@ hotObservable.subscribe(value =&gt; console.log('Subscriber 2:', value));
 
 hotObservable.next(6);
 hotObservable.next(7);
-</code>
+&lt;/number&gt;</code>
+</pre>
 </div>
 Output:
 
 <div class="code-snippet">
-<code>
+<pre><code class="language-typescript">
+
 Subscriber 1: 4
 Subscriber 1: 5
 Subscriber 1: 6
@@ -1484,6 +1487,7 @@ Subscriber 1: 7
 Subscriber 2: 6
 Subscriber 2: 7
 </code>
+</pre>
 </div>
 In the example above, the hot observable starts emitting values immediately. Subscriber 1 subscribes after the first three values have been emitted and receives subsequent values. Subscriber 2 subscribes later and only receives values emitted after its subscription.
 
@@ -1499,7 +1503,7 @@ function doit(){
 }</h2></span></div><div _ngcontent-sc68="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc68="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc68="" class="panel-body"><div _ngcontent-sc68="" class="panel-body-content"><div _ngcontent-sc68="">Output of above will be undefined as inside function doit,variable 'a' will be hoisted at the top inside function scope and it will initialised as undefined.
 
 <div class="code-snippet">
-<code>
+<pre><code class="language-typescript">
 var a = 90;
 doit();
 function doit(){
@@ -1507,6 +1511,7 @@ function doit(){
   var a = 10;
 }
 </code>
+</pre>
 </div></div><div _ngcontent-sc68="" class="open-linkseperate-container"><a _ngcontent-sc68="" target="_blank" class="question-link" title="open this answer seperately in new tab" href="/interview-questions/what-will-be-the-output-of-the-below-code-"><fa-icon _ngcontent-sc68="" class="ng-fa-icon hand-cursor edit-icon"><svg role="img" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="external-link-square-alt" class="svg-inline--fa fa-external-link-square-alt fa-w-14" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M448 80v352c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48zm-88 16H248.029c-21.313 0-32.08 25.861-16.971 40.971l31.984 31.987L67.515 364.485c-4.686 4.686-4.686 12.284 0 16.971l31.029 31.029c4.687 4.686 12.285 4.686 16.971 0l195.526-195.526 31.988 31.991C358.058 263.977 384 253.425 384 231.979V120c0-13.255-10.745-24-24-24z"></path></svg></fa-icon></a></div></div></div></div><div _ngcontent-sc68="" class="affiliate-ads-container"></div></div><div _ngcontent-sc68=""><div _ngcontent-sc68="" class="panel-item"><div _ngcontent-sc68="" role="img" aria-label="frontend interview questions" class="panel-header"><div _ngcontent-sc68="" class="row"><div _ngcontent-sc68="" class="col-xl-10 col-md-9"><span _ngcontent-sc68="">19. <h2 _ngcontent-sc68="" class="question-text">Explain call(), bind() and apply() in JavaScript</h2></span></div><div _ngcontent-sc68="" class="col-xl-2 col-md-3 action-btns"><!----><!----><button _ngcontent-sc68="" class="showHideAnswer hand-cursor btn-show-hide">Show</button></div></div></div><div _ngcontent-sc68="" class="panel-body"><div _ngcontent-sc68="" class="panel-body-content"><div _ngcontent-sc68="">In JavaScript, <b>`call()`, `bind()`,</b> and <b>`apply()`</b> are methods available on functions and are used to manipulate how functions are invoked and bound to a specific context. Here's an explanation of each of these methods:
 
 <b>1. `call()`:</b>
@@ -1517,7 +1522,7 @@ Syntax: `function.call(context, arg1, arg2, ...)`
 Example:
 
 <div class="code-snippet">
-<code>
+<pre><code class="language-typescript">
 function greet(name) {
   console.log(`Hello, ${name}! My name is ${this.name}.`);
 }
@@ -1528,13 +1533,15 @@ const person = {
 
 greet.call(person, 'Bob');
 </code>
+</pre>
 </div>
 Output:
 
 <div class="code-snippet">
-<code>
+<pre><code class="language-html">
 Hello, Bob! My name is Alice.
 </code>
+</pre>
 </div>
 In the example above, `call()` is used to invoke the `greet()` function with the `person` object as the context. The first argument `person` sets `this` inside the function to refer to the `person` object.
 
@@ -1546,7 +1553,8 @@ Syntax: `function.bind(context, arg1, arg2, ...)`
 Example:
 
 <div class="code-snippet">
-<code>function greet(name) {
+<pre><code class="language-typescript">
+function greet(name) {
   console.log(`Hello, ${name}! My name is ${this.name}.`);
 }
 
@@ -1558,13 +1566,15 @@ const greetPerson = greet.bind(person);
 
 greetPerson('Bob');
 </code>
+</pre>
 </div>
 Output:
 
 <div class="code-snippet">
-<code>
+<pre><code class="language-html">
 Hello, Bob! My name is Alice.
 </code>
+</pre>
 </div>
 In the example above, `bind()` is used to create a new function `greetPerson` that has its `this` value bound to the `person` object. The resulting function `greetPerson` can be invoked later with the remaining arguments.
 
@@ -1576,7 +1586,7 @@ Syntax: `function.apply(context, [arg1, arg2, ...])`
 Example:
 
 <div class="code-snippet">
-<code>
+<pre><code class="language-typescript">
 function greet(name) {
   console.log(`Hello, ${name}! My name is ${this.name}.`);
 }
@@ -1586,14 +1596,17 @@ const person = {
 };
 
 greet.apply(person, ['Bob']);
+
 </code>
+</pre>
 </div>
 Output:
 
 <div class="code-snippet">
-<code>
+<pre><code class="language-html">
 Hello, Bob! My name is Alice.
 </code>
+</pre>
 </div>
 In the example above, `apply()` is used to invoke the `greet()` function with the `person` object as the context and an array containing the argument `'Bob'`.
 
@@ -1617,7 +1630,8 @@ These methods provide flexibility in managing the execution context (`this`) and
 Here's an example to illustrate some of these advantages:
 
 <div class="code-snippet">
-<code>
+<pre><code class="language-typescript">
+
 const numbers = [1, 2, 3, 4, 5];
 
 // Traditional function expression
@@ -1628,10 +1642,11 @@ const squared1 = numbers.map(function (num) {
 // Arrow function
 const squared2 = numbers.map(num =&gt; num * num);
 </code>
+</pre>
 </div>
 In the example above, the arrow function `num =&gt; num * num` provides a more concise and readable syntax compared to the traditional function expression. It also inherits the `this` value from the surrounding context, which can be useful in certain scenarios.
 
-Overall, arrow functions enhance code readability, simplify `this` handling, and provide a more concise syntax for writing functions, making them a popular choice in modern JavaScript development.</div><div _ngcontent-sc68="" class="open-linkseperate-container"><a _ngcontent-sc68="" target="_blank" class="question-link" title="open this answer seperately in new tab" href="/interview-questions/advantage-of-using-arrow-functions"><fa-icon _ngcontent-sc68="" class="ng-fa-icon hand-cursor edit-icon"><svg role="img" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="external-link-square-alt" class="svg-inline--fa fa-external-link-square-alt fa-w-14" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M448 80v352c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48zm-88 16H248.029c-21.313 0-32.08 25.861-16.971 40.971l31.984 31.987L67.515 364.485c-4.686 4.686-4.686 12.284 0 16.971l31.029 31.029c4.687 4.686 12.285 4.686 16.971 0l195.526-195.526 31.988 31.991C358.058 263.977 384 253.425 384 231.979V120c0-13.255-10.745-24-24-24z"></path></svg></fa-icon></a></div></div></div></div><div _ngcontent-sc68="" class="affiliate-ads-container"></div></div><!----><!----></div><div _ngcontent-sc68="" class="pagination-container d-flex justify-content-center"><pagination-controls _ngcontent-sc68=""><pagination-template><nav role="navigation" aria-label="Pagination"><ul class="ngx-pagination"><li class="pagination-previous disabled"><!----><span aria-disabled="true"> Previous <span class="show-for-sr">page</span></span><!----></li><!----><li class="small-screen"> 1 / 14 </li><li class="current"><!----><span aria-live="polite"><span class="show-for-sr">You're on page </span><span>1</span></span><!----><!----></li><li class=""><a tabindex="0"><span class="show-for-sr">page </span><span>2</span></a><!----><!----></li><li class=""><a tabindex="0"><span class="show-for-sr">page </span><span>3</span></a><!----><!----></li><li class=""><a tabindex="0"><span class="show-for-sr">page </span><span>4</span></a><!----><!----></li><li class="ellipsis"><a tabindex="0"><span class="show-for-sr">page </span><span>...</span></a><!----><!----></li><li class=""><a tabindex="0"><span class="show-for-sr">page </span><span>14</span></a><!----><!----></li><!----><li class="pagination-next"><a tabindex="0"> Next <span class="show-for-sr">page</span></a><!----><!----></li><!----></ul><!----></nav></pagination-template></pagination-controls></div></article></div><div _ngcontent-sc68="" class="col-md-3 col-12 relation-questions-container"><div _ngcontent-sc68="" class="related-questionanswer-template"><app-related-interview-questions _ngcontent-sc68="" _nghost-sc65=""><div _ngcontent-sc65="" class="panel-container related-questionanswer-container"><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"> Related questions </div><div _ngcontent-sc65="" class="panel-body open"><div _ngcontent-sc65="" class="panel-body-content"><div _ngcontent-sc65="" class="related-questions-container"><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/what-is-react-and-what-are-its-key-features%3F"> What is react and what are its key features? </a></article><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/what-is-temporal-dead-zone-%3F"> what is temporal dead zone ? </a></article><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/what-are-%E2%80%98set%E2%80%99-in-javascript"> What are ‘set’ in javascript </a></article><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/write-a-code-to-display-which-character-is-coming-how-many-times-in-a-given-string"> Write a code to display which character is coming how many times in a given string </a></article><!----><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/frontend-developer-interview-questions-for-freshers"> Front End Developer Interview Questions for Freshers </a></article><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/frontend-developer-interview-questions-for-3-years-experience"> Front End Developer Interview Questions For 3 Years Experience </a></article><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/frontend-developer-interview-questions-for-5-years-experience"> Front End Developer Interview Questions For 5 Years Experience </a></article><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/top-50%2B-angular-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 50+ Angular Interview Questions And Answers </a></article><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/top-20%2B-html5-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 20+ HTML5 Interview Questions And Answers </a></article><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/top-20%2B-css3-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 20+ CSS Interview Questions And Answers </a></article><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/top-100%2B-javascript-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 100+ Javascript Interview Questions And Answers </a></article></div></div></div></div></div></app-related-interview-questions></div></div></div></div><!----><!----></app-question-answer-panel></app-angular-interview-questions><!----></div><!----><app-footer _ngcontent-sc62="" _nghost-sc61=""><footer _ngcontent-sc61="" id="contact" class="footer"><div _ngcontent-sc61="" class="footer-info"><div _ngcontent-sc61="" class="text copyright-info"><div _ngcontent-sc61="" class="row copyright-links-container"><div _ngcontent-sc61="" class="col-md-7 copy-right-container"><span _ngcontent-sc61="">© 2023 frontendinterviewquestions.com</span></div><div _ngcontent-sc61="" class="col-md-5 links-container"><a _ngcontent-sc61="" class="privacy-policy-link" href="/privacy-policy">Privacy Policy</a><a _ngcontent-sc61="" class="privacy-policy-link" href="/disclaimer">Disclaimer</a><a _ngcontent-sc61="" class="privacy-policy-link" href="/contact-us">Contact Us</a></div></div></div></div></footer></app-footer></div></app-root>
+Overall, arrow functions enhance code readability, simplify `this` handling, and provide a more concise syntax for writing functions, making them a popular choice in modern JavaScript development.</div><div _ngcontent-sc68="" class="open-linkseperate-container"><a _ngcontent-sc68="" target="_blank" class="question-link" title="open this answer seperately in new tab" href="/interview-questions/advantage-of-using-arrow-functions"><fa-icon _ngcontent-sc68="" class="ng-fa-icon hand-cursor edit-icon"><svg role="img" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="external-link-square-alt" class="svg-inline--fa fa-external-link-square-alt fa-w-14" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M448 80v352c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48zm-88 16H248.029c-21.313 0-32.08 25.861-16.971 40.971l31.984 31.987L67.515 364.485c-4.686 4.686-4.686 12.284 0 16.971l31.029 31.029c4.687 4.686 12.285 4.686 16.971 0l195.526-195.526 31.988 31.991C358.058 263.977 384 253.425 384 231.979V120c0-13.255-10.745-24-24-24z"></path></svg></fa-icon></a></div></div></div></div><div _ngcontent-sc68="" class="affiliate-ads-container"></div></div><!----><!----></div><div _ngcontent-sc68="" class="pagination-container d-flex justify-content-center"><pagination-controls _ngcontent-sc68=""><pagination-template><nav role="navigation" aria-label="Pagination"><ul class="ngx-pagination"><li class="pagination-previous disabled"><!----><span aria-disabled="true"> Previous <span class="show-for-sr">page</span></span><!----></li><!----><li class="small-screen"> 1 / 15 </li><li class="current"><!----><span aria-live="polite"><span class="show-for-sr">You're on page </span><span>1</span></span><!----><!----></li><li class=""><a tabindex="0"><span class="show-for-sr">page </span><span>2</span></a><!----><!----></li><li class=""><a tabindex="0"><span class="show-for-sr">page </span><span>3</span></a><!----><!----></li><li class=""><a tabindex="0"><span class="show-for-sr">page </span><span>4</span></a><!----><!----></li><li class="ellipsis"><a tabindex="0"><span class="show-for-sr">page </span><span>...</span></a><!----><!----></li><li class=""><a tabindex="0"><span class="show-for-sr">page </span><span>15</span></a><!----><!----></li><!----><li class="pagination-next"><a tabindex="0"> Next <span class="show-for-sr">page</span></a><!----><!----></li><!----></ul><!----></nav></pagination-template></pagination-controls></div></article></div><div _ngcontent-sc68="" class="col-md-3 col-12 relation-questions-container"><div _ngcontent-sc68="" class="related-questionanswer-template"><app-related-interview-questions _ngcontent-sc68="" _nghost-sc65=""><div _ngcontent-sc65="" class="panel-container related-questionanswer-container"><div _ngcontent-sc65="" class="panel-item"><div _ngcontent-sc65="" role="img" aria-label="frontend interview questions" class="panel-header"> Related questions </div><div _ngcontent-sc65="" class="panel-body open"><div _ngcontent-sc65="" class="panel-body-content"><div _ngcontent-sc65="" class="related-questions-container"><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/what-is-react-and-what-are-its-key-features%3F"> What is react and what are its key features? </a></article><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/what-is-the-significance-of-keys-in-react-lists"> What is the significance of keys in React lists </a></article><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/difference-between-pass-by-value-and-pass-by-reference"> Difference between pass by value and pass by reference </a></article><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/what-is-storybook-in-react-,-what-is-the-alternative-to-storybook-in-angular"> What is storybook in react , what is the alternative to storybook in angular </a></article><!----><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/frontend-developer-interview-questions-for-freshers"> Front End Developer Interview Questions for Freshers </a></article><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/frontend-developer-interview-questions-for-3-years-experience"> Front End Developer Interview Questions For 3 Years Experience </a></article><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/frontend-developer-interview-questions-for-5-years-experience"> Front End Developer Interview Questions For 5 Years Experience </a></article><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/top-50%2B-angular-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 50+ Angular Interview Questions And Answers </a></article><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/top-20%2B-html5-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 20+ HTML5 Interview Questions And Answers </a></article><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/top-20%2B-css3-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 20+ CSS Interview Questions And Answers </a></article><article _ngcontent-sc65="" class="related-question-item"><a _ngcontent-sc65="" class="question-link" href="/interview-questions/top-100%2B-javascript-interview-questions-and-answers;data=%5Bobject%20Object%5D"> Top 100+ Javascript Interview Questions And Answers </a></article></div></div></div></div></div></app-related-interview-questions></div></div></div></div><!----><!----></app-question-answer-panel></app-angular-interview-questions><!----></div><!----><app-footer _ngcontent-sc62="" _nghost-sc61=""><footer _ngcontent-sc61="" id="contact" class="footer"><div _ngcontent-sc61="" class="footer-info"><div _ngcontent-sc61="" class="text copyright-info"><div _ngcontent-sc61="" class="row copyright-links-container"><div _ngcontent-sc61="" class="col-md-7 copy-right-container"><span _ngcontent-sc61="">© 2023 frontendinterviewquestions.com</span></div><div _ngcontent-sc61="" class="col-md-5 links-container"><a _ngcontent-sc61="" class="privacy-policy-link" href="/privacy-policy">Privacy Policy</a><a _ngcontent-sc61="" class="privacy-policy-link" href="/disclaimer">Disclaimer</a><a _ngcontent-sc61="" class="privacy-policy-link" href="/contact-us">Contact Us</a></div></div></div></div></footer></app-footer></div></app-root>
 <script src="runtime.0343a8379f22bbe5.js" type="module"></script><script src="polyfills.01c6a84ce69b6f6d.js" type="module"></script><script src="main.67e7dae035628653.js" type="module"></script>
 
 
