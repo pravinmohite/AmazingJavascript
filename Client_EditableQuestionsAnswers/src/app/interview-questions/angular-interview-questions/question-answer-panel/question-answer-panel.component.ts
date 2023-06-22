@@ -4,6 +4,7 @@ import { faTrash,faEdit, faTimes, faExternalLinkSquareAlt } from '@fortawesome/f
 import { HightlightService } from 'src/app/services/highlight-service/hightlight.service';
 import {QuestionAnswerService} from './../../../services/question-answer-service/question-answer.service';
 import {IServerSide} from './../../../interfaces/IServerSide';
+import { RichSnippetService } from 'src/app/services/rich-snippet-service/rich-snippet.service';
 
 
 @Component({
@@ -36,6 +37,7 @@ export class QuestionAnswerPanelComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private highlightService: HightlightService,
+    private richSnippetService: RichSnippetService,
     private renderer: Renderer2, 
     private elem: ElementRef
     ) { 
@@ -53,7 +55,12 @@ export class QuestionAnswerPanelComponent implements OnInit {
     if(changes.questionAnswerList.currentValue && changes.questionAnswerList.currentValue.length > 0) {
         this.currentPage = this.questionAnswerService.serverSideObj.currentPage;
         this.highlightService.highlightAll();
+        this.setDataForRichSnippet(changes.questionAnswerList.currentValue);
     }
+  }
+
+  setDataForRichSnippet(questionAnswerList) {
+    this.richSnippetService.setRichSnippetData(questionAnswerList, this.renderer);
   }
 
   setHeadingTitle(title) {

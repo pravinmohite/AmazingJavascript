@@ -367,9 +367,7 @@ export class QuestionAnswerService {
   }
 
   formatAndReturnFullUrl(question) {
-    //let result = this.getWindow().location.href + '/' + this.formatQuestionUrl(question);
     let result = this.formatQuestionUrl(question);
-    console.log('result', result);
     return result;
   }
 

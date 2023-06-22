@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { faTrash,faEdit, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import { LoaderService } from 'src/app/services/loader-service/loader.service';
 import { QuestionAnswerService } from 'src/app/services/question-answer-service/question-answer.service';
 import { Title } from "@angular/platform-browser";
 import { HightlightService } from 'src/app/services/highlight-service/hightlight.service';
+import { RichSnippetService } from 'src/app/services/rich-snippet-service/rich-snippet.service';
 
 @Component({
   selector: 'app-question-answer-detail',
@@ -25,6 +26,8 @@ export class QuestionAnswerDetailComponent implements OnInit {
     private questionAnswerService: QuestionAnswerService,
     private title: Title,
     private highlightService: HightlightService,
+    private richSnippetService: RichSnippetService,
+    private renderer: Renderer2, 
   ) { 
     this.adminMode = this.questionAnswerService.isAdmin;
   }
@@ -46,8 +49,13 @@ export class QuestionAnswerDetailComponent implements OnInit {
     });
   }
 
+  setDataForRichSnippet() {
+    this.richSnippetService.setRichSnippetData([this.questionAnswerItem], this.renderer);
+  }
+
   setTitle(title) {
     this.questionAnswerService.setTitle(title);
+    this.setDataForRichSnippet();
   }
 
   updateDescription(description) {
