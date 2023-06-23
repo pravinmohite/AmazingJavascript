@@ -6,6 +6,7 @@ import { tap } from 'rxjs/operators';
 
 export const QUESTION_TYPE_LIST = makeStateKey('question-type-list');
 export const QUESTION_ANSWER_LIST = makeStateKey('question-answer-list');
+export const RELATED_QUESTION_LIST = makeStateKey('related-question-list');
 
 @Injectable({
   providedIn: 'root'

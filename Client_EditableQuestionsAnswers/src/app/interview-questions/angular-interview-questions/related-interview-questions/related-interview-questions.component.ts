@@ -59,8 +59,10 @@ export class RelatedInterviewQuestionsComponent implements OnInit {
   }
 
   formatQuestionUrl() {
-    for(const [index, item] of this.relatedQuestionAnswerList.entries()) {
-      this.relatedQuestionAnswerList[index]['questionUrl'] = this.questionAnswerService.formatQuestionUrl(item.question);
+    if(this.relatedQuestionAnswerList && this.relatedQuestionAnswerList.length >0) {
+      for(const [index, item] of this.relatedQuestionAnswerList.entries()) {
+        this.relatedQuestionAnswerList[index]['questionUrl'] = this.questionAnswerService.formatQuestionUrl(item.question);
+      }
     }
   }
 }

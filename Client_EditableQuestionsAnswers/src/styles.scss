@@ -232,9 +232,12 @@ body {
       margin-bottom: 10px;
 
       .panel-header {
-        padding: 10px;
         background-image: url($img-path+$background-img);
         color: $questions-theme-color;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;  
+        padding: 10px;   
         z-index: 1000;
         box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
         white-space: pre-wrap;

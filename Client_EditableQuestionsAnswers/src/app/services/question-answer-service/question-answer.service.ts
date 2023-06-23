@@ -4,7 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import * as questionAnswerList from '../../mockQuestionAnswerList.json';
 import {LoaderService} from './../../services/loader-service/loader.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DataStateService, QUESTION_ANSWER_LIST, QUESTION_TYPE_LIST } from '../data-state-service/data-state.service';
+import { DataStateService, QUESTION_ANSWER_LIST, QUESTION_TYPE_LIST, RELATED_QUESTION_LIST } from '../data-state-service/data-state.service';
 import { Meta } from "@angular/platform-browser";
 import { Title } from "@angular/platform-browser";
 import { DOCUMENT } from '@angular/common';
@@ -47,7 +47,7 @@ export class QuestionAnswerService {
   currentData=this.data.asObservable();
   confirmationText="Are you sure you want to delete";
   $urlSearchVal = new Subject();
-  isTransferStateActive = false;
+  isTransferStateActive = true;
   isAdmin = false;
   questionAnswerDetailPageEvent = new Subject();
   platformId: Object;
@@ -148,6 +148,16 @@ export class QuestionAnswerService {
       this.questionAnswerData = response['result'];
       this.data.next(response);
     })
+
+    // return this.dataStateService.checkAndGetData(
+    //   QUESTION_ANSWER_LIST,
+    //   this.http.post(this.finalQuestionAnswerServerSideUrl, serverSideObj),
+    //   [],
+    //   this.isTransferStateActive
+    // ).subscribe(response=>{
+    //   this.questionAnswerData=response;
+    //   this.data.next(response);
+    // });
   }
 
   resetServerSideObj() {
@@ -164,7 +174,6 @@ export class QuestionAnswerService {
   addQuestionAnswer(data) {
     this.loaderService.display(true);
     this.http.post(this.finalQuestionAnswerUrl,data).subscribe(response=>{
-     // this.getQuestionAnswerList();
      this.getQuestionAnswerListServerSide(this.serverSideObj);
     })
   }
@@ -189,6 +198,13 @@ export class QuestionAnswerService {
 
     getQuestionAnswerByParams(question) {
       return this.http.get(this.finalQuestionAnswerByParamsUrl+'/' + question);
+
+      // return this.dataStateService.checkAndGetData(
+      //   QUESTION_ANSWER_LIST,
+      //   this.http.get(this.finalQuestionAnswerByParamsUrl+'/' + question),
+      //   [],
+      //   this.isTransferStateActive
+      // );
     }
   
     
@@ -212,6 +228,13 @@ export class QuestionAnswerService {
     /*------------start for related question answer data ---*/
     getRelatedQuestionAnswer() {
       return this.http.get(this.finalRelatedQuestionAnswerUrl+'/'+ this.relatedQuestionAnswerCount);
+
+    /*  return this.dataStateService.checkAndGetData(
+        RELATED_QUESTION_LIST,
+        this.http.get(this.finalRelatedQuestionAnswerUrl+'/'+ this.relatedQuestionAnswerCount),
+        [],
+        this.isTransferStateActive
+      );*/
     } 
 
     /*------------end for related question answer data ---*/
@@ -266,10 +289,6 @@ export class QuestionAnswerService {
  }
 
  filterDataBySearchString(value) {
-  // let urlParam = this.route.snapshot.paramMap.get('searchKey');
-  // if(urlParam !== value){
-  //   this.router.navigate(['/frontend-interview-questions', value], { relativeTo: this.route });
-  // }
   this.currentSearchString = value;
   this.handleFilteringOfDataBySearchStringAndQuestionType();
  }

@@ -26,6 +26,7 @@
             "assets": [
               "src/favicon.ico",
               "src/ads.txt",
+              "src/robots.txt",
               "src/sitemap.xml",
               "src/assets"
             ],
@@ -39,7 +40,7 @@
             "development":{
               "optimization": true,
               "outputHashing": "all",
-              "sourceMap": false,
+              "sourceMap": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
