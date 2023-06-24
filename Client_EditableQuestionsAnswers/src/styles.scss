@@ -239,7 +239,7 @@ body {
         background-position: center center;  
         padding: 10px;   
         z-index: 1000;
-        box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+        box-shadow: 1px 1px 4px 1px $box-shadow-color;
         white-space: pre-wrap;
 
         fa-icon {
@@ -435,18 +435,28 @@ body {
     }
 
     .btn-outline-success {
-      @extend .btn-brown-yellow-hover;
-    }
+      @extend .header-search-btn;
+      
+        &:hover,
+        &:focus,
+        &:active {
+          @extend .header-search-btn;
+          box-shadow: 0px 0px 4px 4px $box-shadow-color !important;
+        }
+      }
   }
 
   .hand-cursor {
     cursor: pointer !important;
   }
 
-  .btn-brown-yellow-hover {
-    border-color: $searchBtn-theme-background;
+  .header-search-btn {
+    border-color: $searchBtn-theme-background !important;
     color: $searchBtn-theme-color;
     background-color: $searchBtn-theme-background;
+    box-shadow: 0px 0px 2px 2px $box-shadow-color !important;
+    white-space: pre-wrap;
+    @extend .hand-cursor;
   }
 
   pre {
