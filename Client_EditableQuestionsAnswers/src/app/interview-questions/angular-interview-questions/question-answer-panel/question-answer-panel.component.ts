@@ -43,12 +43,18 @@ export class QuestionAnswerPanelComponent implements OnInit {
     ) { 
       this.itemsPerPage = this.questionAnswerService.itemsPerPage;
       this.maxSize = this.questionAnswerService.maxSize;
-      this.headingTitle = this.questionAnswerService.defaultTitle;
       this.openNewTabText = this.questionAnswerService.openNewTabText;
+      this.setHeadingTitleIfEmpty();
     }
   
   ngOnInit(): void {
     this.handleRouteDataSubscription();
+  }
+
+  setHeadingTitleIfEmpty() {
+    if(!this.headingTitle) {
+      this.headingTitle = this.questionAnswerService.defaultTitle;
+    }
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -65,6 +71,7 @@ export class QuestionAnswerPanelComponent implements OnInit {
 
   setHeadingTitle(title) {
     this.headingTitle = title;
+    this.questionAnswerService.defaultTitle = title;
   }
 
   handleRouteDataSubscription() {
