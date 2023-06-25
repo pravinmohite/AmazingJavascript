@@ -442,8 +442,8 @@
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-an-impure</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/explain-pure-and-impure-pipe-in-angular</loc>
+  <lastmod>2023-06-25T14:45:59+00:00</lastmod>
 </url>
 <url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/in-css-flexbox-how-to-to-put-a-child-div-which-is-on-3rd-position-inside-the-parent-to-top-inside-the-parent-container</loc>
@@ -734,8 +734,8 @@
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what's-the-difference-between-first-class-function-and-higher-order-function-?</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-the-difference-between-first-class-function-and-higher-order-function</loc>
+  <lastmod>2023-06-25T14:45:59+00:00</lastmod>
 </url>
 <url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-a-unary-function-?</loc>
@@ -1203,5 +1203,21 @@
 <url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-optimize-an-angular-application</loc>
   <lastmod>2023-06-24T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-different-types-of-list-in-html</loc>
+  <lastmod>2023-06-25T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-create-a-checkbox-in-html</loc>
+  <lastmod>2023-06-25T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/explain-css-flexbox-with-example</loc>
+  <lastmod>2023-06-25T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/explain-pure-and-impure-pipe-in-angular</loc>
+  <lastmod>2023-06-25T14:45:59+00:00</lastmod>
 </url>
 </urlset>
