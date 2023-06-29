@@ -1,14 +1,15 @@
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
-import {BehaviorSubject, Observable, Subject} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import * as questionAnswerList from '../../mockQuestionAnswerList.json';
-import {LoaderService} from './../../services/loader-service/loader.service';
+import { LoaderService } from './../../services/loader-service/loader.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataStateService, QUESTION_ANSWER_LIST, QUESTION_TYPE_LIST, RELATED_QUESTION_LIST } from '../data-state-service/data-state.service';
 import { Meta } from "@angular/platform-browser";
 import { Title } from "@angular/platform-browser";
 import { DOCUMENT } from '@angular/common';
 import { IServerSide } from 'src/app/interfaces/IServerSide';
+import { makeStateKey } from '@angular/platform-browser';
 
 function _window(): any {
   return window;
@@ -18,34 +19,34 @@ function _window(): any {
   providedIn: 'root'
 })
 export class QuestionAnswerService {
-  filterData:any;
-  currentQuestionTypeSelected:String;
-  currentSearchString:String;
-  questionTypeUrl:String="/api/questionType";
-  questionAnswerUrl:String="/api/questionAnswer";
-  questionAnswerServerSideUrl:String="/api/questionAnswerServerSide";
+  filterData: any;
+  currentQuestionTypeSelected: String;
+  currentSearchString: String;
+  questionTypeUrl: String = "/api/questionType";
+  questionAnswerUrl: String = "/api/questionAnswer";
+  questionAnswerServerSideUrl: String = "/api/questionAnswerServerSide";
   questionAnswerByTypeUrl = "/api/questionAnswerByType"
   questionAnswerByExperienceAndTypeUrl = "/api/questionAnswerByExperience";
-  loginDetailsUrl:String="/api/loginDetails";
+  loginDetailsUrl: String = "/api/loginDetails";
   questionAnswerByParamsUrl = "/api/questionAnswerByParams";
   relatedQuestionAnswerUrl = "/api/relatedQuestionAnswer";
-  isProd:boolean = true;
-  prodUrl:String="https://frontendinterviewquestions.com";
+  isProd: boolean = true;
+  prodUrl: String = "https://frontendinterviewquestions.com";
   //prodUrl:String="https://64.227.118.130";
-  devDomain:any= this.isProd?this.prodUrl:"http://localhost:3000";
-  finalquestionTypeUrl:any=this.devDomain+this.questionTypeUrl;
-  finalQuestionAnswerUrl:any=this.devDomain+this.questionAnswerUrl;
+  devDomain: any = this.isProd ? this.prodUrl : "http://localhost:3000";
+  finalquestionTypeUrl: any = this.devDomain + this.questionTypeUrl;
+  finalQuestionAnswerUrl: any = this.devDomain + this.questionAnswerUrl;
   finalQuestionAnswerServerSideUrl = this.devDomain + this.questionAnswerServerSideUrl;
   finalQuestionAnswerByTypeUrl = this.devDomain + this.questionAnswerByTypeUrl;
   finalQuestionAnswerByExperienceAndTypeUrl = this.devDomain + this.questionAnswerByExperienceAndTypeUrl;
-  finalloginDetailsUrl:any=this.devDomain+this.loginDetailsUrl;
+  finalloginDetailsUrl: any = this.devDomain + this.loginDetailsUrl;
   finalQuestionAnswerByParamsUrl = this.devDomain + this.questionAnswerByParamsUrl;
   finalRelatedQuestionAnswerUrl = this.devDomain + this.relatedQuestionAnswerUrl;
-  mockData=(questionAnswerList as any).default;
-  questionAnswerData:any;
-  private data=new BehaviorSubject(null);
-  currentData=this.data.asObservable();
-  confirmationText="Are you sure you want to delete";
+  mockData = (questionAnswerList as any).default;
+  questionAnswerData: any;
+  private data = new BehaviorSubject(null);
+  currentData = this.data.asObservable();
+  confirmationText = "Are you sure you want to delete";
   $urlSearchVal = new Subject();
   isTransferStateActive = true;
   isAdmin = false;
@@ -56,15 +57,16 @@ export class QuestionAnswerService {
   itemsPerPage = 20;
   currentPage = 1;
   maxSize = 6;
-  serverSideObj: IServerSide ={
+  serverSideObj: IServerSide = {
     itemsPerPage: this.itemsPerPage,
-    currentPage : this.currentPage
+    currentPage: this.currentPage
   };
   defaultTitle = 'Frontend Interview Questions';
   openNewTabText = 'open this answer seperately in new tab';
+  questionAnswerList = 'question-answer-list';
   constructor(
-    private http:HttpClient,
-    private loaderService:LoaderService,
+    private http: HttpClient,
+    private loaderService: LoaderService,
     private dataStateService: DataStateService,
     private route: ActivatedRoute,
     private router: Router,
@@ -72,34 +74,34 @@ export class QuestionAnswerService {
     @Inject(DOCUMENT) public _doc: Document,
     private title: Title,
     private meta: Meta
-    
-    ) {
-      this.platformId = platformId;
-   }
 
-   /*---------------for login details-------------*/
+  ) {
+    this.platformId = platformId;
+  }
+
+  /*---------------for login details-------------*/
   getloginDetails() {
     return this.http.get(this.finalloginDetailsUrl);
   }
 
   addloginDetails(data) {
-    return this.http.post(this.finalloginDetailsUrl,data);
-  } 
+    return this.http.post(this.finalloginDetailsUrl, data);
+  }
 
-  setUrlSearchVal(urlSearchVal): void{
+  setUrlSearchVal(urlSearchVal): void {
     this.$urlSearchVal.next(urlSearchVal);
   }
 
-  getUrlSearchVal(): Observable<any>{
+  getUrlSearchVal(): Observable<any> {
     return this.$urlSearchVal;
   }
- 
+
   deleteloginDetails(id) {
-    return this.http.delete(this.finalloginDetailsUrl+"/"+id);
+    return this.http.delete(this.finalloginDetailsUrl + "/" + id);
   }
 
   updateloginDetails(data) {
-    return this.http.patch(this.finalloginDetailsUrl+"/"+data._id,data);
+    return this.http.patch(this.finalloginDetailsUrl + "/" + data._id, data);
   }
 
   /*---------------for question types----------*/
@@ -110,19 +112,19 @@ export class QuestionAnswerService {
       this.http.get(this.finalquestionTypeUrl),
       [],
       this.isTransferStateActive
-  );
-  } 
+    );
+  }
 
   addQuestionType(data) {
-    return this.http.post(this.finalquestionTypeUrl,data);
-  } 
- 
+    return this.http.post(this.finalquestionTypeUrl, data);
+  }
+
   deleteQuestionType(id) {
-    return this.http.delete(this.finalquestionTypeUrl+"/"+id);
+    return this.http.delete(this.finalquestionTypeUrl + "/" + id);
   }
 
   updateQuestionType(data) {
-    return this.http.patch(this.finalquestionTypeUrl+"/"+data._id,data)
+    return this.http.patch(this.finalquestionTypeUrl + "/" + data._id, data)
   };
 
   /*-------------start for question answer List----------*/
@@ -134,30 +136,30 @@ export class QuestionAnswerService {
       this.http.get(this.finalQuestionAnswerUrl),
       [],
       this.isTransferStateActive
-    ).subscribe(response=>{
-      this.questionAnswerData=response;
+    ).subscribe(response => {
+      this.questionAnswerData = response;
       this.data.next(response);
     });
-  } 
+  }
 
-  getQuestionAnswerListServerSide(serverSideObj?: IServerSide) { 
-    if(!serverSideObj) {
+  getQuestionAnswerListServerSide(serverSideObj?: IServerSide) {
+    if (!serverSideObj) {
       serverSideObj = this.serverSideObj;
     }
-    return this.http.post(this.finalQuestionAnswerServerSideUrl, serverSideObj).subscribe(response => {
-      this.questionAnswerData = response['result'];
-      this.data.next(response);
-    })
-
-    // return this.dataStateService.checkAndGetData(
-    //   QUESTION_ANSWER_LIST,
-    //   this.http.post(this.finalQuestionAnswerServerSideUrl, serverSideObj),
-    //   [],
-    //   this.isTransferStateActive
-    // ).subscribe(response=>{
-    //   this.questionAnswerData=response;
+    // return this.http.post(this.finalQuestionAnswerServerSideUrl, serverSideObj).subscribe(response => {
+    //   this.questionAnswerData = response['result'];
     //   this.data.next(response);
-    // });
+    // })
+
+    return this.dataStateService.checkAndGetData(
+      this.makeStateKeyFormatter(serverSideObj),
+      this.http.post(this.finalQuestionAnswerServerSideUrl, serverSideObj),
+      [],
+      this.isTransferStateActive
+    ).subscribe(response => {
+      this.questionAnswerData = response;
+      this.data.next(response);
+    });
   }
 
   resetServerSideObj() {
@@ -173,61 +175,61 @@ export class QuestionAnswerService {
 
   addQuestionAnswer(data) {
     this.loaderService.display(true);
-    this.http.post(this.finalQuestionAnswerUrl,data).subscribe(response=>{
-     this.getQuestionAnswerListServerSide(this.serverSideObj);
+    this.http.post(this.finalQuestionAnswerUrl, data).subscribe(response => {
+      this.getQuestionAnswerListServerSide(this.serverSideObj);
     })
   }
 
   deleteQuestionAnswer(id) {
     this.loaderService.display(true);
-    this.http.delete(this.finalQuestionAnswerUrl+"/"+id).subscribe(response=>{
+    this.http.delete(this.finalQuestionAnswerUrl + "/" + id).subscribe(response => {
       this.getQuestionAnswerListServerSide(this.serverSideObj);
     })
   }
 
   updateQuestionAnswer(data) {
     this.loaderService.display(true);
-    this.http.patch(this.finalQuestionAnswerUrl+'/'+data._id,data).subscribe(response=>{
+    this.http.patch(this.finalQuestionAnswerUrl + '/' + data._id, data).subscribe(response => {
       this.getQuestionAnswerListServerSide(this.serverSideObj);
     })
   }
 
-   /*-------------end for question answer List----------*/
+  /*-------------end for question answer List----------*/
 
-    /*------------start for question answer by params ---*/
+  /*------------start for question answer by params ---*/
 
-    getQuestionAnswerByParams(question) {
-      return this.http.get(this.finalQuestionAnswerByParamsUrl+'/' + question);
+  getQuestionAnswerByParams(question) {
+    //return this.http.get(this.finalQuestionAnswerByParamsUrl + '/' + question);
+    const finalUrl = this.finalQuestionAnswerByParamsUrl+'/' + question;
+    return this.dataStateService.checkAndGetData(
+      makeStateKey(finalUrl),
+      this.http.get(finalUrl),
+      [],
+      this.isTransferStateActive
+    );
+  }
 
-      // return this.dataStateService.checkAndGetData(
-      //   QUESTION_ANSWER_LIST,
-      //   this.http.get(this.finalQuestionAnswerByParamsUrl+'/' + question),
-      //   [],
-      //   this.isTransferStateActive
-      // );
-    }
-  
-    
-    addQuestionAnswerByParams(data) {
-      this.loaderService.display(true);
-      return this.http.post(this.finalQuestionAnswerByParamsUrl, data);
-    }
-  
-    deleteQuestionAnswerByParams(id) {
-      this.loaderService.display(true);
-      return this.http.delete(this.finalQuestionAnswerByParamsUrl+"/"+id);
-    }
-  
-    updateQuestionAnswerByParams(data) {
-      this.loaderService.display(true);
-      return this.http.patch(this.finalQuestionAnswerByParamsUrl+'/'+data._id,data);
-    }
-  
-    /*------------end for question answer by params ---*/
 
-    /*------------start for related question answer data ---*/
-    getRelatedQuestionAnswer() {
-      return this.http.get(this.finalRelatedQuestionAnswerUrl+'/'+ this.relatedQuestionAnswerCount);
+  addQuestionAnswerByParams(data) {
+    this.loaderService.display(true);
+    return this.http.post(this.finalQuestionAnswerByParamsUrl, data);
+  }
+
+  deleteQuestionAnswerByParams(id) {
+    this.loaderService.display(true);
+    return this.http.delete(this.finalQuestionAnswerByParamsUrl + "/" + id);
+  }
+
+  updateQuestionAnswerByParams(data) {
+    this.loaderService.display(true);
+    return this.http.patch(this.finalQuestionAnswerByParamsUrl + '/' + data._id, data);
+  }
+
+  /*------------end for question answer by params ---*/
+
+  /*------------start for related question answer data ---*/
+  getRelatedQuestionAnswer() {
+    return this.http.get(this.finalRelatedQuestionAnswerUrl + '/' + this.relatedQuestionAnswerCount);
 
     /*  return this.dataStateService.checkAndGetData(
         RELATED_QUESTION_LIST,
@@ -235,75 +237,89 @@ export class QuestionAnswerService {
         [],
         this.isTransferStateActive
       );*/
-    } 
+  }
 
-    /*------------end for related question answer data ---*/
+  /*------------end for related question answer data ---*/
 
-    /*------------start get question answer by type ----*/
-    getQuestionAnswerByType(type) {
-      return this.http.get(this.finalQuestionAnswerByTypeUrl+'/'+ type).subscribe(response=>{
-        this.questionAnswerData=response;
-        this.data.next(response);
+  /*------------start get question answer by type ----*/
+  getQuestionAnswerByType(type) {
+    return this.http.get(this.finalQuestionAnswerByTypeUrl + '/' + type).subscribe(response => {
+      this.questionAnswerData = response;
+      this.data.next(response);
+    });
+  }
+
+  /*------------end get question answer by type ---*/
+
+  /*------------start get question answer by experience and type ----*/
+  getQuestionAnswerByExperienceAndType(experience, type?) {
+    return this.http.get(this.finalQuestionAnswerByExperienceAndTypeUrl + '/' + experience + '/' + type).subscribe(response => {
+      this.questionAnswerData = response;
+      this.data.next(response);
+    });
+  }
+  /*------------end get question answer by experience and type ---*/
+
+  /*------------reusable functions----------------*/
+
+  makeStateKeyFormatter(serverSideObj) {
+    if (serverSideObj) {
+      let finalStateKey = '';
+      Object.keys(serverSideObj).map(key => {
+        if (finalStateKey == '') {
+          finalStateKey += serverSideObj[key];
+        } else {
+          finalStateKey += '-' + serverSideObj[key];
+        }
       });
-    } 
-
-    /*------------end get question answer by type ---*/
-
-    /*------------start get question answer by experience and type ----*/
-    getQuestionAnswerByExperienceAndType(experience, type?) {
-      return this.http.get(this.finalQuestionAnswerByExperienceAndTypeUrl+'/'+ experience + '/' + type).subscribe(response=>{
-        this.questionAnswerData=response;
-        this.data.next(response);
-      });
-    } 
-    /*------------end get question answer by experience and type ---*/
-
-    /*------------reusable functions----------------*/
+      return makeStateKey(finalStateKey);
+    }
+  }
 
   filterDataByQuestionType(type) {
-    this.currentQuestionTypeSelected=type;
+    this.currentQuestionTypeSelected = type;
     this.handleFilteringOfDataBySearchStringAndQuestionType();
- }
+  }
 
- handleFilteringOfDataBySearchStringAndQuestionType() {
-  if((!this.currentQuestionTypeSelected || this.currentQuestionTypeSelected.toUpperCase()=="ALL") && (this.currentSearchString==undefined || this.currentSearchString.trim()=="")) {
-    this.data.next(this.questionAnswerData);
-  }
-  else if(!this.currentQuestionTypeSelected || this.currentQuestionTypeSelected.toUpperCase()=="ALL" && (this.currentSearchString && this.currentSearchString.trim()!="")) {
-    this.filterData={};
-    this.filterData=this.questionAnswerData.filter((item,index)=>{
-      return item.question.toUpperCase().indexOf(this.currentSearchString.toUpperCase())>-1;
-     })
-     this.data.next(this.filterData);
-  }
-  else if(this.currentQuestionTypeSelected.toUpperCase()!="ALL" && (this.currentSearchString && this.currentSearchString.trim()!="")) {
+  handleFilteringOfDataBySearchStringAndQuestionType() {
+    if ((!this.currentQuestionTypeSelected || this.currentQuestionTypeSelected.toUpperCase() == "ALL") && (this.currentSearchString == undefined || this.currentSearchString.trim() == "")) {
+      this.data.next(this.questionAnswerData);
+    }
+    else if (!this.currentQuestionTypeSelected || this.currentQuestionTypeSelected.toUpperCase() == "ALL" && (this.currentSearchString && this.currentSearchString.trim() != "")) {
+      this.filterData = {};
+      this.filterData = this.questionAnswerData.filter((item, index) => {
+        return item.question.toUpperCase().indexOf(this.currentSearchString.toUpperCase()) > -1;
+      })
+      this.data.next(this.filterData);
+    }
+    else if (this.currentQuestionTypeSelected.toUpperCase() != "ALL" && (this.currentSearchString && this.currentSearchString.trim() != "")) {
       this.filterDataByQuestionTypeAndSearchString();
+    }
+    else {
+      this.filterData = {}
+      this.filterData = this.questionAnswerData.filter((item, index) => {
+        return item.questionType.toUpperCase() == this.currentQuestionTypeSelected.toUpperCase();
+      })
+      this.data.next(this.filterData);
+    }
   }
-  else {
-    this.filterData={}
-    this.filterData=this.questionAnswerData.filter((item,index)=>{
-      return item.questionType.toUpperCase()==this.currentQuestionTypeSelected.toUpperCase();
+
+  filterDataBySearchString(value) {
+    this.currentSearchString = value;
+    this.handleFilteringOfDataBySearchStringAndQuestionType();
+  }
+
+  filterDataByQuestionTypeAndSearchString() {
+    this.filterData = {}
+    this.filterData = this.questionAnswerData.filter((item, index) => {
+      return ((item.question.toUpperCase().indexOf(this.currentSearchString.toUpperCase()) > -1) && (item.questionType.toUpperCase() == this.currentQuestionTypeSelected.toUpperCase()));
     })
     this.data.next(this.filterData);
   }
- }
-
- filterDataBySearchString(value) {
-  this.currentSearchString = value;
-  this.handleFilteringOfDataBySearchStringAndQuestionType();
- }
-
- filterDataByQuestionTypeAndSearchString() {
-  this.filterData={}
-  this.filterData=this.questionAnswerData.filter((item,index)=>{
-    return ((item.question.toUpperCase().indexOf(this.currentSearchString.toUpperCase())>-1) && (item.questionType.toUpperCase()==this.currentQuestionTypeSelected.toUpperCase()));
-   })
-   this.data.next(this.filterData);
- }
 
   confirmAction() {
-     let result=confirm(this.confirmationText);
-     return result;
+    let result = confirm(this.confirmationText);
+    return result;
   }
 
   setIsAdmin(isAdmin) {
@@ -321,68 +337,68 @@ export class QuestionAnswerService {
   }
 
   updateTag(tag, content) {
-    this.meta.updateTag({ 
+    this.meta.updateTag({
       name: tag,
       content: content
     });
   }
 
   updateProperty(property, content) {
-    let selector = this._doc.querySelector('meta[property="'+ property +'"');
-    if(selector && selector['content']) {
+    let selector = this._doc.querySelector('meta[property="' + property + '"');
+    if (selector && selector['content']) {
       selector['content'] = content;
     }
   }
 
   updateMetaTitle(title) {
     this.updateTag('title', title);
- //   this.updateProperty('og:title', title);
+    //   this.updateProperty('og:title', title);
   }
 
   updateKeywordsUrl(title) {
     this.updateKeywords(title);
-    if(this.platformId) {
+    if (this.platformId) {
       this.updateUrl(this.getWindow().location.href);
     }
   }
 
   updateDescription(description) {
-   this.updateTag('description', description);
- //  this.updateProperty('og:description', description);
+    this.updateTag('description', description);
+    //  this.updateProperty('og:description', description);
   }
 
   updateKeywords(keywords) {
     this.updateTag('keywords', keywords);
   }
 
-  updateUrl(url){
+  updateUrl(url) {
     this.updateTag('url', url);
   }
 
   formatQuestionUrl(question: string) {
-    let result='';
+    let result = '';
     question = question.toLowerCase();
-    for(let i=0;i< question.length ; i++ ){
-       switch(question[i]) {
-         case '(': 
-             result += '%28';
-             break;
-         case ')':
-             result += '%29';
-             break;
-         case ' ':
-             result += '-';    
-             break;  
-         case ':':
-             return result;
-         case '{':
-             return result;            
-          default:
-            result += question[i];
-            break;   
-       }
+    for (let i = 0; i < question.length; i++) {
+      switch (question[i]) {
+        case '(':
+          result += '%28';
+          break;
+        case ')':
+          result += '%29';
+          break;
+        case ' ':
+          result += '-';
+          break;
+        case ':':
+          return result;
+        case '{':
+          return result;
+        default:
+          result += question[i];
+          break;
+      }
     }
-     return result;
+    return result;
   }
 
   formatAndReturnFullUrl(question) {
@@ -390,16 +406,16 @@ export class QuestionAnswerService {
     return result;
   }
 
-  checkIfPresent(str ,item) {
-    if(str.indexOf(item)> -1) {
-       return true;
+  checkIfPresent(str, item) {
+    if (str.indexOf(item) > -1) {
+      return true;
     }
   }
 
   scrollToTheTopOfThePage() {
     if (this.platformId) {
       const element = this.getWindow().document.querySelector(this.pageHeaderClass);
-      if(element && element.scrollIntoView) {
+      if (element && element.scrollIntoView) {
         element.scrollIntoView();
       }
     }
