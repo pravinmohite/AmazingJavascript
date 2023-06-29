@@ -57,3 +57,108 @@ export const topFiveYearsExperienceFrontendInterviewQuestions = {
     experience: 5,
     type: 'all'
 }
+
+/*---javascript url pattern ---*/
+export const topFresherJavascriptInterviewQuestions = {
+    path: 'javascript-developer-interview-questions-for-freshers',
+    title: 'JavaScript Developer Interview Questions for Freshers',
+    headingTitle: 'JavaScript Developer Interview Questions for Freshers',
+    experience: 0,
+    type: 'Javascript'
+}
+
+export const topThreeYearsExperienceJavascriptInterviewQuestions = {
+    path: 'javascript-developer-interview-questions-for-3-years-experience',
+    title: 'JavaScript Developer Interview Questions For 3 Years Experience',
+    headingTitle: 'JavaScript Developer Interview Questions For 3 Years Experience',
+    experience: 3,
+    type: 'Javascript'
+}
+
+export const topFiveYearsExperienceJavascriptInterviewQuestions = {
+    path: 'javascript-developer-interview-questions-for-5-years-experience',
+    title: 'JavaScript Developer Interview Questions For 5 Years Experience',
+    headingTitle: 'JavaScript Developer Interview Questions For 5 Years Experience',
+    experience: 5,
+    type: 'Javascript'
+}
+/*---end javascript url pattern ---*/
+
+/*---Angular url pattern ---*/
+export const topFresherAngularInterviewQuestions = {
+    path: 'angular-developer-interview-questions-for-freshers',
+    title: 'Angular Developer Interview Questions for Freshers',
+    headingTitle: 'Angular Developer Interview Questions for Freshers',
+    experience: 0,
+    type: 'Angular'
+}
+
+export const topThreeYearsExperienceAngularInterviewQuestions = {
+    path: 'angular-developer-interview-questions-for-3-years-experience',
+    title: 'Angular Developer Interview Questions For 3 Years Experience',
+    headingTitle: 'Angular Developer Interview Questions For 3 Years Experience',
+    experience: 3,
+    type: 'Angular'
+}
+
+export const topFiveYearsExperienceAngularInterviewQuestions = {
+    path: 'angular-developer-interview-questions-for-5-years-experience',
+    title: 'Angular Developer Interview Questions For 5 Years Experience',
+    headingTitle: 'Angular Developer Interview Questions For 5 Years Experience',
+    experience: 5,
+    type: 'Angular'
+}
+/*---end Angular url pattern ---*/
+
+/*---CSS3 url pattern ---*/
+export const topFresherCssInterviewQuestions = {
+    path: 'css-developer-interview-questions-for-freshers',
+    title: 'CSS Developer Interview Questions for Freshers',
+    headingTitle: 'CSS Developer Interview Questions for Freshers',
+    experience: 0,
+    type: 'CSS3'
+}
+
+export const topThreeYearsExperienceCssInterviewQuestions = {
+    path: 'css-developer-interview-questions-for-3-years-experience',
+    title: 'CSS Developer Interview Questions For 3 Years Experience',
+    headingTitle: 'CSS Developer Interview Questions For 3 Years Experience',
+    experience: 0,
+    type: 'CSS3'
+}
+
+export const topFiveYearsExperienceCssInterviewQuestions = {
+    path: 'css-developer-interview-questions-for-5-years-experience',
+    title: 'CSS Developer Interview Questions For 5 Years Experience',
+    headingTitle: 'CSS Developer Interview Questions For 5 Years Experience',
+    experience: 0,
+    type: 'CSS3'
+}
+/*---end CSS3 url pattern ---*/
+
+
+/*---HTML5   url pattern ---*/
+export const topFresherHtml5InterviewQuestions = {
+    path: 'html5-developer-interview-questions-for-freshers',
+    title: 'HTML5 Developer Interview Questions for Freshers',
+    headingTitle: 'HTML5 Developer Interview Questions for Freshers',
+    experience: 0,
+    type: 'HTML5'
+}
+
+export const topThreeYearsExperienceHtml5InterviewQuestions = {
+    path: 'html5-developer-interview-questions-for-3-years-experience',
+    title: 'HTML5 Developer Interview Questions For 3 Years Experience',
+    headingTitle: 'HTML5 Developer Interview Questions For 3 Years Experience',
+    experience: 3,
+    type: 'HTML5'
+}
+
+export const topFiveYearsExperienceHtml5InterviewQuestions = {
+    path: 'html5-developer-interview-questions-for-5-years-experience',
+    title: 'HTML5 Developer Interview Questions For 5 Years Experience',
+    headingTitle: 'HTML5 Developer Interview Questions For 5 Years Experience',
+    experience: 5,
+    type: 'HTML5'
+}
+/*---end CSS3 url pattern ---*/

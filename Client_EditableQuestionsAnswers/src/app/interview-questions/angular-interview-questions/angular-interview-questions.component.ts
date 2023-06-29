@@ -54,7 +54,16 @@ export class AngularInterviewQuestionsComponent implements OnInit {
   }
 
   checkRouteParamsDataAndGetQuestionAnswer() {
-    if (this.experienceFromUrl || this.experienceFromUrl == 0) {
+    if ((this.experienceFromUrl || this.experienceFromUrl == 0) && this.questionTypeFromUrl) {
+      this.questionAnswerService.resetServerSideObj();
+      this.questionAnswerService.serverSideObj.experience = this.experienceFromUrl;
+      this.questionAnswerService.serverSideObj.questionType = this.questionTypeFromUrl;
+      this.questionAnswerService.questionAnswerDetailPageEvent.next({
+        hideQuestionTypeDropdown: true,
+        hideSearchInput: false
+      });
+      this.questionAnswerService.getQuestionAnswerListServerSide();
+    } else if (this.experienceFromUrl || this.experienceFromUrl == 0) {
       this.questionAnswerService.resetServerSideObj();
       this.questionAnswerService.serverSideObj.experience = this.experienceFromUrl;
       this.questionAnswerService.questionAnswerDetailPageEvent.next({

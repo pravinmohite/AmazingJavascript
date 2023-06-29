@@ -201,8 +201,9 @@ export class QuestionAnswerService {
   getQuestionAnswerByParams(question) {
     //return this.http.get(this.finalQuestionAnswerByParamsUrl + '/' + question);
     const finalUrl = this.finalQuestionAnswerByParamsUrl+'/' + question;
+    console.log('question param', question);
     return this.dataStateService.checkAndGetData(
-      makeStateKey(finalUrl),
+      makeStateKey(question),
       this.http.get(finalUrl),
       [],
       this.isTransferStateActive
