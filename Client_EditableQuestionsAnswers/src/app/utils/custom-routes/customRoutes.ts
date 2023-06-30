@@ -3,14 +3,18 @@ import { AngularInterviewQuestionsComponent } from "../../interview-questions/an
 import * as UIConstants from '../constants';
 import { customAngularRoutes } from "./custom-angular-routes/customAngularRoutes";
 import { customCssRoutes } from "./custom-css-routes/customCSSRoutes";
+import { customGitRoutes } from "./custom-git-routes/customGitRoutes";
 import { customHtmlRoutes } from "./custom-html-routes/customHtmlRoutes";
 import { customJavascriptRoutes } from "./custom-javascript-routes/customJavascriptRoutes";
+import { customTypescriptRoutes } from "./custom-typescript-routes/customTypescriptRoutes";
 
 export const customRoutes: Routes = [
     ...customAngularRoutes,
     ...customJavascriptRoutes,
     ...customCssRoutes,
     ...customHtmlRoutes,
+    ...customGitRoutes,
+    ...customTypescriptRoutes,
     {
         path: UIConstants.topFrontendInterviewQuestions.path,
         component: AngularInterviewQuestionsComponent,

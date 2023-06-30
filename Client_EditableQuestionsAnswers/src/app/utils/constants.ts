@@ -1,3 +1,4 @@
+export const currentYear = new Date().getFullYear();
 export const topFrontendInterviewQuestions = {
     path: 'top-200+-frontend-developer-interview-questions-and-answers',
     title: 'Top 200+ Frontend Developer Interview Questions And Answers',
@@ -32,6 +33,20 @@ export const topAngularInterviewQuestions = {
     title: 'Top 50+ Angular Interview Questions And Answers',
     headingTitle: 'Top 50+ Angular Interview Questions And Answers',
     type: 'Angular'
+}
+
+export const topGitInterviewQuestions = {
+    path: 'git-interview-questions-and-answers',
+    title: 'Top Git Interview Questions And Answers' + ' (' + currentYear + ')',
+    headingTitle: 'Top Git Interview Questions And Answers' + ' (' + currentYear + ')',
+    type: 'Git'
+}
+
+export const topTypescriptInterviewQuestions = {
+    path: 'typescript-interview-questions-and-answers',
+    title: 'Top Typescript Interview Questions And Answers' + ' (' + currentYear + ')',
+    headingTitle: 'Top Typescript Interview Questions And Answers' + ' (' + currentYear + ')',
+    type: 'TypeScript'
 }
 
 export const topFresherFrontendInterviewQuestions = {
