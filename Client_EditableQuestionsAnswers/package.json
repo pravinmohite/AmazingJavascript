@@ -11,7 +11,8 @@
     "dev:ssr": "ng run sample-task:serve-ssr",
     "serve:ssr": "node dist/sample-task/server/main.js",
     "build:ssr": "node --max_old_space_size=8192 ./node_modules/@angular/cli/bin/ng build && ng run sample-task:server",
-    "prerender": "ng run sample-task:prerender"
+    "prerender": "ng run sample-task:prerender",
+    "prerender-routes": "ng run sample-task:prerender --routes-file routes.txt"
   },
   "browser": {
     "fs": false,
