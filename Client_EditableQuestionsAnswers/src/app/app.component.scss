@@ -63,6 +63,7 @@
 
 .router-outlet-container {
     min-height: 80vh !important;
+    transition: 0.5s;
 }
 
 ::ng-deep {

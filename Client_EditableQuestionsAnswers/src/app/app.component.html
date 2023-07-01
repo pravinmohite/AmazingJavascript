@@ -11,7 +11,7 @@
         >
         </app-sidebar>
     </div>
-    <div class="router-outlet-container">
+    <div class="router-outlet-container" [style.opacity]="isServer ? 0 : 1">
       <router-outlet></router-outlet>
     </div>
     <!-- about us modal -->

@@ -12,6 +12,7 @@ export class AppComponent{
   modalRef?: BsModalRef;
   isSideBarUntouched:boolean = true;
   platformId: Object;
+  isServer: boolean;
 
   constructor(
     private modalService: BsModalService,
@@ -20,7 +21,16 @@ export class AppComponent{
   }
 
   ngOnInit() {
+    this.setIsServerValue();
     this.createWebStorageDemo();
+  }
+
+  setIsServerValue() {
+    if (isPlatformBrowser(this.platformId)) {
+      setTimeout(() => {
+        this.isServer = false;
+      })
+    }
   }
 
   createWebStorageDemo(): void{

@@ -202,7 +202,8 @@
           "options": {
             "routes": [
               "/"
-            ]
+            ],
+            "routesFile" : "routes.txt"
           },
           "configurations": {
             "production": {
