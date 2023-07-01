@@ -2,3 +2,4 @@
 /privacy-policy
 /disclaimer
 /contact-us
+/interview-questions/how-to-create-a-triangle-using-css
