@@ -1,4 +1,5 @@
 @import './../../../../assets/scss/variables.scss';
+@import './../../../../assets/scss/common.scss';
 
 .search-term-container {
     padding: 5px 10px;
@@ -22,33 +23,33 @@
     width: 100% !important;
 }
 
-.relation-questions-container {
-    &.col-12 {
-        float: left !important;
-    }
-    ::ng-deep {
-        .related-questionanswer-template {
-            .panel-container {
-                width: 90% !important;
+// .relation-questions-container {
+//     &.col-12 {
+//         float: left !important;
+//     }
+//     ::ng-deep {
+//         .related-questionanswer-template {
+//             .panel-container {
+//                 width: 90% !important;
     
-                @media screen and (min-width: 769px) {
-                    margin-top: 83px !important;
-                }
+//                 @media screen and (min-width: 769px) {
+//                     margin-top: 83px !important;
+//                 }
     
-                @media screen and (max-width: 768px) {
-                    width: 100% !important;
-                }
-            }
-        }
-    }
-}
+//                 @media screen and (max-width: 768px) {
+//                     width: 100% !important;
+//                 }
+//             }
+//         }
+//     }
+// }
 
-.main-questions-container {
-    min-height: 80vh !important;
-    &.col-12 {
-        float: left !important;
-    }
-}
+// .main-questions-container {
+//     min-height: 80vh !important;
+//     &.col-12 {
+//         float: left !important;
+//     }
+// }
 
 .empty-result {
     text-align: center;
