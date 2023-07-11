@@ -2,6 +2,14 @@
 @import './../../../../assets/scss/common.scss';
 
 .detail-relatedquestion-container {
+    ::ng-deep {
+        .panel-container {
+            @media screen and (min-width:769px) {
+               width: 90%;
+            }
+        }
+    }
+
     @media screen and (min-width:769px) {
         margin-top: 31px !important;
         float: left;

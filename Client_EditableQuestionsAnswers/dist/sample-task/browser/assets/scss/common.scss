@@ -1,7 +1,10 @@
 .main-questions-container {
     min-height: 80vh !important;
+
     &.col-12 {
-        float: left !important;
+        @media screen and (min-width: 769px) {
+            float: left !important;
+        }
     }
 }
 
@@ -9,15 +12,16 @@
     &.col-12 {
         float: left !important;
     }
+
     ::ng-deep {
         .related-questionanswer-template {
             .panel-container {
                 width: 90% !important;
-    
+
                 @media screen and (min-width: 769px) {
                     margin-top: 88px !important;
                 }
-    
+
                 @media screen and (max-width: 768px) {
                     width: 100% !important;
                 }
