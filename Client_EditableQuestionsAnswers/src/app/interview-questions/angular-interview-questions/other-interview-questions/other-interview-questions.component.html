@@ -1,0 +1,30 @@
+<!-- related list {{relatedQuestionAnswerList | json}} -->
+
+<div class="panel-container related-questionanswer-container">
+    <div class="panel-item">
+        <div class="panel-header" role="img" aria-label="frontend interview questions">
+            Other Important Topics
+        </div>
+        <div class="panel-body open">
+            <div class="panel-body-content">
+                <div class="related-questions-container">
+                    <article class="related-question-item">
+                      <a [routerLink]= "['/interview-questions/', topGitInterviewQuestions.path]" class="question-link">
+                        {{topGitInterviewQuestions.title}}
+                      </a>
+                    </article>
+                    <article class="related-question-item">
+                        <a [routerLink]= "['/interview-questions/', topTypescriptInterviewQuestions.path]" class="question-link">
+                            {{topTypescriptInterviewQuestions.title}}
+                        </a>
+                      </article>
+                      <article class="related-question-item">
+                        <a [routerLink]= "['/interview-questions/', topJavascriptCodingInterviewQuestions.path]" class="question-link">
+                            {{topJavascriptCodingInterviewQuestions.title}}
+                        </a>
+                      </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

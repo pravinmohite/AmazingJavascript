@@ -49,6 +49,13 @@ export const topTypescriptInterviewQuestions = {
     type: 'TypeScript'
 }
 
+export const topJavascriptCodingInterviewQuestions = {
+    path: 'javascript-coding-interview-questions-and-answers',
+    title: 'Top JavaScript Coding Interview Questions And Answers' + ' (' + currentYear + ')',
+    headingTitle: 'Top JavaScript Coding Interview Questions And Answers' + ' (' + currentYear + ')',
+    type: 'Coding questions'
+}
+
 export const topFresherFrontendInterviewQuestions = {
     path: 'frontend-developer-interview-questions-for-freshers',
     title: 'Front End Developer Interview Questions for Freshers',

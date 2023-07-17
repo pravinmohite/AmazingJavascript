@@ -12,6 +12,7 @@ import { QuestionAnswerDetailComponent } from './angular-interview-questions/que
 import { RelatedInterviewQuestionsComponent } from './angular-interview-questions/related-interview-questions/related-interview-questions.component';
 import { RouterModule } from '@angular/router';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { OtherInterviewQuestionsComponent } from './angular-interview-questions/other-interview-questions/other-interview-questions.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     AddEditQuestionTypesComponent,
     AffiliateAdsComponent,
     QuestionAnswerDetailComponent,
-    RelatedInterviewQuestionsComponent
+    RelatedInterviewQuestionsComponent,
+    OtherInterviewQuestionsComponent
   ],
   imports: [
     CommonModule,

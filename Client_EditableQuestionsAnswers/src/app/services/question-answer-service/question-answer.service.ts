@@ -5,9 +5,9 @@ import * as questionAnswerList from '../../mockQuestionAnswerList.json';
 import { LoaderService } from './../../services/loader-service/loader.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataStateService, QUESTION_ANSWER_LIST, QUESTION_TYPE_LIST, RELATED_QUESTION_LIST } from '../data-state-service/data-state.service';
-import { Meta } from "@angular/platform-browser";
+import { Meta, platformBrowser } from "@angular/platform-browser";
 import { Title } from "@angular/platform-browser";
-import { DOCUMENT } from '@angular/common';
+import { isPlatformBrowser, DOCUMENT } from '@angular/common';
 import { IServerSide } from 'src/app/interfaces/IServerSide';
 import { makeStateKey } from '@angular/platform-browser';
 
@@ -64,6 +64,14 @@ export class QuestionAnswerService {
   defaultTitle = 'Frontend Interview Questions';
   openNewTabText = 'open this answer seperately in new tab';
   questionAnswerList = 'question-answer-list';
+  canonicalUrlQuery = `link[rel='canonical']`;
+  metaOgTitleQuery = 'meta[property="og:title"]';
+  metaOgDescriptionQuery = 'meta[property="og:description"]';
+  ogTitleText = 'og:title';
+  ogDescriptionText = 'og:description'
+  titleMaxLength = 80;
+  metaDescriptionMaxLength = 155;
+  lengthOfDots = 3;
   constructor(
     private http: HttpClient,
     private loaderService: LoaderService,
@@ -200,7 +208,7 @@ export class QuestionAnswerService {
 
   getQuestionAnswerByParams(question) {
     //return this.http.get(this.finalQuestionAnswerByParamsUrl + '/' + question);
-    const finalUrl = this.finalQuestionAnswerByParamsUrl+'/' + question;
+    const finalUrl = this.finalQuestionAnswerByParamsUrl + '/' + question;
     console.log('question param', question);
     return this.dataStateService.checkAndGetData(
       makeStateKey(question),
@@ -331,10 +339,23 @@ export class QuestionAnswerService {
     return this._doc.defaultView;
   }
 
+  checkAndSetLength(text, length) {
+    if (text.length > length) {
+      text = text.substring(0, length - this.lengthOfDots) + '...';
+    }
+    return text;
+  }
+
   setTitle(title) {
-    this.title.setTitle(title);
-    this.updateMetaTitle(title);
-    this.updateKeywordsUrl(title);
+    if (isPlatformBrowser(this.platformId)) {
+      if (title) {
+        title = this.checkAndSetLength(title, this.titleMaxLength);
+        this.title.setTitle(title);
+        this.updateMetaTitle(title);
+        this.updateKeywordsUrl(title);
+        this.createLinkForCanonicalURL();
+      }
+    }
   }
 
   updateTag(tag, content) {
@@ -345,7 +366,13 @@ export class QuestionAnswerService {
   }
 
   updateProperty(property, content) {
-    let selector = this._doc.querySelector('meta[property="' + property + '"');
+    let selector;
+    if (property == this.ogTitleText) {
+      selector = this._doc.querySelector(this.metaOgTitleQuery);
+    }
+    else {
+      selector = this._doc.querySelector(this.metaOgDescriptionQuery);
+    }
     if (selector && selector['content']) {
       selector['content'] = content;
     }
@@ -353,7 +380,7 @@ export class QuestionAnswerService {
 
   updateMetaTitle(title) {
     this.updateTag('title', title);
-    //   this.updateProperty('og:title', title);
+    this.updateProperty(this.ogTitleText, title);
   }
 
   updateKeywordsUrl(title) {
@@ -364,8 +391,13 @@ export class QuestionAnswerService {
   }
 
   updateDescription(description) {
-    this.updateTag('description', description);
-    //  this.updateProperty('og:description', description);
+    if (this.platformId) {
+      if (description) {
+        description = this.checkAndSetLength(description, this.metaDescriptionMaxLength);
+        this.updateTag('description', description);
+        this.updateProperty(this.ogDescriptionText, description);
+      }
+    }
   }
 
   updateKeywords(keywords) {
@@ -374,6 +406,26 @@ export class QuestionAnswerService {
 
   updateUrl(url) {
     this.updateTag('url', url);
+  }
+
+  createLinkForCanonicalURL() {
+    if (this.platformId) {
+      let element = this.getCanonicalUrlElement();
+      if (element == null) {
+        let link: HTMLLinkElement = this._doc.createElement('link');
+        link.setAttribute('rel', 'canonical');
+        this._doc.head.appendChild(link);
+        link.setAttribute('href', this._doc.URL);
+      }
+      else {
+        element.setAttribute('href', this._doc.URL);
+      }
+    }
+  }
+
+  getCanonicalUrlElement() {
+    var element = this._doc.querySelector(this.canonicalUrlQuery) || null;
+    return element;
   }
 
   formatQuestionUrl(question: string) {
