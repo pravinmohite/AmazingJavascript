@@ -42,6 +42,8 @@ export class QuestionAnswerService {
   finalloginDetailsUrl: any = this.devDomain + this.loginDetailsUrl;
   finalQuestionAnswerByParamsUrl = this.devDomain + this.questionAnswerByParamsUrl;
   finalRelatedQuestionAnswerUrl = this.devDomain + this.relatedQuestionAnswerUrl;
+  adsUrl = '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
+  adsClientId = 'pub-8766887766994985';
   mockData = (questionAnswerList as any).default;
   questionAnswerData: any;
   private data = new BehaviorSubject(null);
@@ -72,6 +74,7 @@ export class QuestionAnswerService {
   titleMaxLength = 80;
   metaDescriptionMaxLength = 155;
   lengthOfDots = 3;
+  delayAds = 100;
   constructor(
     private http: HttpClient,
     private loaderService: LoaderService,
@@ -471,6 +474,23 @@ export class QuestionAnswerService {
       if (element && element.scrollIntoView) {
         element.scrollIntoView();
       }
+    }
+  }
+
+  loadAds() {
+    if (isPlatformBrowser(this.platformId)) {
+      const script = (this._doc as any).createElement('script');
+      script.src = this.adsUrl
+
+      script.onload = () => {
+        setTimeout(() => {
+          ((window as any).adsbygoogle || []).push({
+            google_ad_client: this.adsClientId,
+            enable_page_level_ads: true
+          });
+        }, this.delayAds);
+      }
+      this._doc.body.appendChild(script);
     }
   }
 }
