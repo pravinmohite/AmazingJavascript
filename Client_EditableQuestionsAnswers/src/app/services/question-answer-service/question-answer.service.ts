@@ -54,7 +54,7 @@ export class QuestionAnswerService {
   platformId: Object;
   relatedQuestionAnswerCount = 4;
   pageHeaderClass = '.page-header';
-  itemsPerPage = 20;
+  itemsPerPage = 10;
   currentPage = 1;
   maxSize = 6;
   serverSideObj: IServerSide = {
