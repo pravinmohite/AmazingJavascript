@@ -31,6 +31,9 @@ export class AppComponent {
   ngOnInit() {
     this.setIsServerValue();
     this.createWebStorageDemo();
+  }
+
+  ngAfterViewInit() {
     this.loadAds();
   }
 
