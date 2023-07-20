@@ -74,7 +74,7 @@ export class QuestionAnswerService {
   titleMaxLength = 80;
   metaDescriptionMaxLength = 155;
   lengthOfDots = 3;
-  delayAds = 1000;
+  delayAds = 2000;
   constructor(
     private http: HttpClient,
     private loaderService: LoaderService,
