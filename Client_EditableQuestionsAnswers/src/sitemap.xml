@@ -1460,4 +1460,12 @@
   <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-an-enum-in-typescript,-and-what-problem-does-it-solve</loc>
   <lastmod>2023-07-23T14:45:59+00:00</lastmod>
 </url>
+<url>
+  <loc>https://frontendinterviewquestions.com/interview-questions/what-does-the-%22as%22-keyword-do-in-typescript</loc>
+  <lastmod>2023-07-24T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://frontendinterviewquestions.com/interview-questions/how-do-you-ensure-type-safety-while-working-with-third-party-libraries-that-don't-have-typescript-support</loc>
+  <lastmod>2023-07-24T14:45:59+00:00</lastmod>
+</url>
 </urlset>
