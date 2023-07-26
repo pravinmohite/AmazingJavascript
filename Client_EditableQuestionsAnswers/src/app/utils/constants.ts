@@ -1,27 +1,27 @@
 export const currentYear = new Date().getFullYear();
 export const topFrontendInterviewQuestions = {
-    path: 'top-200+-frontend-developer-interview-questions-and-answers',
+    path: 'top-frontend-developer-interview-questions-and-answers',
     title: 'Top 200+ Frontend Developer Interview Questions And Answers',
     headingTitle: 'Top 200+ Frontend Developer Interview Questions And Answers',
     type: null
 }
 
 export const topHTML5InterviewQuestions = {
-    path: 'top-20+-html5-interview-questions-and-answers',
+    path: 'top-html5-interview-questions-and-answers',
     title: 'Top 20+ HTML5 Interview Questions And Answers',
     headingTitle: 'Top 20+ HTML5 Interview Questions And Answers',
     type: 'HTML5'
 }
 
 export const topCSS3InterviewQuestions = {
-    path: 'top-20+-css3-interview-questions-and-answers',
+    path: 'top-css3-interview-questions-and-answers',
     title: 'Top 20+ CSS Interview Questions And Answers',
     headingTitle: 'Top 20+ CSS Interview Questions And Answers',
     type: 'CSS3'
 }
 
 export const topJavascriptInterviewQuestions = {
-    path: 'top-100+-javascript-interview-questions-and-answers',
+    path: 'top-javascript-interview-questions-and-answers',
     title: 'Top 100+ Javascript Interview Questions And Answers',
     headingTitle: 'Top 100+ Javascript Interview Questions And Answers',
     type: 'Javascript'
@@ -29,7 +29,7 @@ export const topJavascriptInterviewQuestions = {
 
 
 export const topAngularInterviewQuestions = {
-    path: 'top-50+-angular-interview-questions-and-answers',
+    path: 'top-angular-interview-questions-and-answers',
     title: 'Top 50+ Angular Interview Questions And Answers',
     headingTitle: 'Top 50+ Angular Interview Questions And Answers',
     type: 'Angular'
