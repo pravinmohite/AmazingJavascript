@@ -22,7 +22,6 @@ export class DataStateService {
   }
 
   checkAndGetData(key: StateKey<string>, getDataObservable: Observable<any>, defaultValue: any = [], isTransferStateActive?) {
-    console.log('make state key', key, 'tstate', this.tstate);
     if(isTransferStateActive) {
       if (this.tstate.hasKey(key)) {
         return Observable.of(this.tstate.get(key, defaultValue));

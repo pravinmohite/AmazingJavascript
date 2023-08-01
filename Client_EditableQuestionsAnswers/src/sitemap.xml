@@ -390,10 +390,6 @@
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-storybook-in-react-,-what-is-the-alternative-to-storybook-in-angular</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
-</url>
-<url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-the-design-patterns-in-angular?</loc>
   <lastmod>2023-06-21T14:45:59+00:00</lastmod>
 </url>
@@ -438,7 +434,7 @@
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-create-a-custom-decorator-in-Angular</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-create-a-custom-decorator-in-Angular-or-JavaScript</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -450,8 +446,8 @@
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/can-we-rename-dist-folder</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/can-we-rename-dist-folder-in-angular-project</loc>
+  <lastmod>2023-07-28T14:45:59+00:00</lastmod>
 </url>
 <url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/what-would-happen-if-i-would-not-declare-doctype-in-html</loc>
@@ -598,8 +594,8 @@
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/if-there-is-a-package%28or-say-library%29-that-is-not-available-through-NPM-,-then-how-would-you-use-it-in-your-angular-application-?</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/if-there-is-a-package%28or-say-library%29-that-is-not-available-through-NPM-,-then-how-would-you-use-it-in-your-angular-application</loc>
+  <lastmod>2023-07-28T14:45:59+00:00</lastmod>
 </url>
 <url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-auth0-or-0auth-in-context-of-jwt-?</loc>
@@ -674,15 +670,15 @@
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-make-multiple-http-calls-in-parallel-in-angular-?</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-make-multiple-http-calls-in-parallel-in-angular</loc>
+  <lastmod>2023-07-28T14:45:59+00:00</lastmod>
 </url>
 <url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-a-module-in-typescript-?</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-use-a-service-only-for-a-specific-component-instead-of-the-whole-module-?</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-use-a-service-only-for-a-specific-component-instead-of-the-whole-module</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -714,8 +710,8 @@
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-show-error-messages-on-form-controls-?</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-show-error-messages-on-form-controls</loc>
+  <lastmod>2023-07-28T14:45:59+00:00</lastmod>
 </url>
 <url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/can-you-put-ngIf-and-ngfor-on-same-element</loc>
@@ -746,7 +742,7 @@
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-implement-treeshaking-in-angular-?</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-implement-treeshaking-in-angular</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -754,11 +750,11 @@
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-can-be-the-values-of-'providedin'-property-of-@injectable-decorator-?</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-can-be-the-values-of-'providedin'-property-of-@injectable-decorator</loc>
+  <lastmod>2023-07-28T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what's-the-difference-between-observable-and-Subject-?</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what's-the-difference-between-observable-and-Subject</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -794,7 +790,7 @@
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what's-the-difference-between-debounce-and-settimeout-?</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what's-the-difference-between-debounce-and-settimeout</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -871,11 +867,11 @@
   <lastmod>2023-05-08T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-do-you-handle-errors-in-rxjs-observables?</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-do-you-handle-errors-in-rxjs-observables</loc>
   <lastmod>2023-05-08T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-do-you-implement-backpressure-in-rxjs?</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-do-you-implement-backpressure-in-rxjs</loc>
   <lastmod>2023-05-08T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -883,15 +879,15 @@
   <lastmod>2023-05-08T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-do-you-use-the-retry%28%29-operator-in-rxjs,-and-what-is-its-purpose?</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-do-you-use-the-retry%28%29-operator-in-rxjs,-and-what-is-its-purpose</loc>
   <lastmod>2023-05-08T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/can-you-explain-what-is-the-purpose-of-using-schedulers-in-rxjs,-and-give-an-example-of-a-common-scheduler?</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/can-you-explain-what-is-the-purpose-of-using-schedulers-in-rxjs,-and-give-an-example-of-a-common-scheduler</loc>
   <lastmod>2023-05-08T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-the-difference-between-a-pipeable-operator-and-a-patch-operator-in-rxjs?</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-the-difference-between-a-pipeable-operator-and-a-patch-operator-in-rxjs</loc>
   <lastmod>2023-05-08T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -1021,7 +1017,7 @@
   <lastmod>2023-05-28T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-scss?</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-scss</loc>
   <lastmod>2023-05-29T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -1045,19 +1041,19 @@
   <lastmod>2023-05-30T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-services-in-angular?</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-services-in-angular</loc>
   <lastmod>2023-05-30T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-call-an-api-in-angular?</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-call-an-api-in-angular</loc>
   <lastmod>2023-05-30T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-the-difference-between-aot-and-jit?</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-the-difference-between-aot-and-jit</loc>
   <lastmod>2023-05-30T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-the-different-building-blocks-of-angular?</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-the-different-building-blocks-of-angular</loc>
   <lastmod>2023-05-30T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -1209,7 +1205,7 @@
   <lastmod>2023-06-25T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/explaing-unit-testing-in-angular</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/explain-unit-testing-in-angular</loc>
   <lastmod>2023-06-26T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -1491,5 +1487,9 @@
 <url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-memoization-in-javascript</loc>
   <lastmod>2023-07-27T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-storybook-in-angular</loc>
+  <lastmod>2023-07-28T14:45:59+00:00</lastmod>
 </url>
 </urlset>

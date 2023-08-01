@@ -1,3 +1,5 @@
+@import "./../../assets/scss/variables.scss";
+
 .main-questions-container {
     min-height: 80vh !important;
 
@@ -26,6 +28,22 @@
                     width: 100% !important;
                 }
             }
+        }
+    }
+}
+
+::ng-deep {
+    .question-link {
+        color: $question-link-color;
+
+        &:hover {
+            text-decoration: none !important;
+            background: $question-link-hoverbackground  !important;
+        }
+
+        &::before {
+            font-size: 15px;
+            color: $questions-theme-color;
         }
     }
 }
