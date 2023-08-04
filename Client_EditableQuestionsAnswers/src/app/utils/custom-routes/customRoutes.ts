@@ -54,6 +54,15 @@ export const customRoutes: Routes = [
         }
     },
     {
+        path: UIConstants.topJavascriptInterviewQuestions.pathOld,
+        component: AngularInterviewQuestionsComponent,
+        data: {
+            title: UIConstants.topJavascriptInterviewQuestions.title,
+            headingTitle: UIConstants.topJavascriptInterviewQuestions.headingTitle,
+            type: UIConstants.topJavascriptInterviewQuestions.type
+        }
+    },
+    {
         path: UIConstants.topAngularInterviewQuestions.path,
         component: AngularInterviewQuestionsComponent,
         data: {
