@@ -22,7 +22,7 @@ export const topCSS3InterviewQuestions = {
 
 export const topJavascriptInterviewQuestions = {
     path: 'top-javascript-interview-questions-and-answers',
-    pathOld: 'top-100%2B-javascript-interview-questions-and-answers',
+    pathOld: 'top-100+-javascript-interview-questions-and-answers',
     title: 'Top 100+ Javascript Interview Questions And Answers',
     headingTitle: 'Top 100+ Javascript Interview Questions And Answers',
     type: 'Javascript'
