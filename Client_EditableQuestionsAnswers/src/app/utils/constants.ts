@@ -145,7 +145,7 @@ export const topThreeYearsExperienceCssInterviewQuestions = {
     path: 'css-developer-interview-questions-for-3-years-experience',
     title: 'CSS Developer Interview Questions For 3 Years Experience',
     headingTitle: 'CSS Developer Interview Questions For 3 Years Experience',
-    experience: 0,
+    experience: 3,
     type: 'CSS3'
 }
 
@@ -153,7 +153,7 @@ export const topFiveYearsExperienceCssInterviewQuestions = {
     path: 'css-developer-interview-questions-for-5-years-experience',
     title: 'CSS Developer Interview Questions For 5 Years Experience',
     headingTitle: 'CSS Developer Interview Questions For 5 Years Experience',
-    experience: 0,
+    experience: 5,
     type: 'CSS3'
 }
 /*---end CSS3 url pattern ---*/
