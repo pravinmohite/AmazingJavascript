@@ -66,16 +66,16 @@ export const topFresherFrontendInterviewQuestions = {
 
 export const topThreeYearsExperienceFrontendInterviewQuestions = {
     path: 'frontend-developer-interview-questions-for-3-years-experience',
-    title: 'Front End Developer Interview Questions For 3 Years Experience',
-    headingTitle: 'Front End Developer Interview Questions For 3 Years Experience',
+    title: 'Front End Developer Interview Questions For 3 Years Of Experience',
+    headingTitle: 'Front End Developer Interview Questions For 3 Years Of Experience',
     experience: 3,
     type: 'all'
 }
 
 export const topFiveYearsExperienceFrontendInterviewQuestions = {
     path: 'frontend-developer-interview-questions-for-5-years-experience',
-    title: 'Front End Developer Interview Questions For 5 Years Experience',
-    headingTitle: 'Front End Developer Interview Questions For 5 Years Experience',
+    title: 'Front End Developer Interview Questions For 5 Years Of Experience',
+    headingTitle: 'Front End Developer Interview Questions For 5 Years Of Experience',
     experience: 5,
     type: 'all'
 }
@@ -91,16 +91,16 @@ export const topFresherJavascriptInterviewQuestions = {
 
 export const topThreeYearsExperienceJavascriptInterviewQuestions = {
     path: 'javascript-developer-interview-questions-for-3-years-experience',
-    title: 'JavaScript Developer Interview Questions For 3 Years Experience',
-    headingTitle: 'JavaScript Developer Interview Questions For 3 Years Experience',
+    title: 'JavaScript Developer Interview Questions For 3 Years Of Experience',
+    headingTitle: 'JavaScript Developer Interview Questions For 3 Years Of Experience',
     experience: 3,
     type: 'Javascript'
 }
 
 export const topFiveYearsExperienceJavascriptInterviewQuestions = {
     path: 'javascript-developer-interview-questions-for-5-years-experience',
-    title: 'JavaScript Developer Interview Questions For 5 Years Experience',
-    headingTitle: 'JavaScript Developer Interview Questions For 5 Years Experience',
+    title: 'JavaScript Developer Interview Questions For 5 Years Of Experience',
+    headingTitle: 'JavaScript Developer Interview Questions For 5 Years Of Experience',
     experience: 5,
     type: 'Javascript'
 }
@@ -117,16 +117,16 @@ export const topFresherAngularInterviewQuestions = {
 
 export const topThreeYearsExperienceAngularInterviewQuestions = {
     path: 'angular-developer-interview-questions-for-3-years-experience',
-    title: 'Angular Developer Interview Questions For 3 Years Experience',
-    headingTitle: 'Angular Developer Interview Questions For 3 Years Experience',
+    title: 'Angular Developer Interview Questions For 3 Years Of Experience',
+    headingTitle: 'Angular Developer Interview Questions For 3 Years Of Experience',
     experience: 3,
     type: 'Angular'
 }
 
 export const topFiveYearsExperienceAngularInterviewQuestions = {
     path: 'angular-developer-interview-questions-for-5-years-experience',
-    title: 'Angular Developer Interview Questions For 5 Years Experience',
-    headingTitle: 'Angular Developer Interview Questions For 5 Years Experience',
+    title: 'Angular Developer Interview Questions For 5 Years Of Experience',
+    headingTitle: 'Angular Developer Interview Questions For 5 Years Of Experience',
     experience: 5,
     type: 'Angular'
 }
@@ -143,16 +143,16 @@ export const topFresherCssInterviewQuestions = {
 
 export const topThreeYearsExperienceCssInterviewQuestions = {
     path: 'css-developer-interview-questions-for-3-years-experience',
-    title: 'CSS Developer Interview Questions For 3 Years Experience',
-    headingTitle: 'CSS Developer Interview Questions For 3 Years Experience',
+    title: 'CSS Developer Interview Questions For 3 Years Of Experience',
+    headingTitle: 'CSS Developer Interview Questions For 3 Years Of Experience',
     experience: 3,
     type: 'CSS3'
 }
 
 export const topFiveYearsExperienceCssInterviewQuestions = {
     path: 'css-developer-interview-questions-for-5-years-experience',
-    title: 'CSS Developer Interview Questions For 5 Years Experience',
-    headingTitle: 'CSS Developer Interview Questions For 5 Years Experience',
+    title: 'CSS Developer Interview Questions For 5 Years Of Experience',
+    headingTitle: 'CSS Developer Interview Questions For 5 Years Of Experience',
     experience: 5,
     type: 'CSS3'
 }
@@ -170,16 +170,16 @@ export const topFresherHtml5InterviewQuestions = {
 
 export const topThreeYearsExperienceHtml5InterviewQuestions = {
     path: 'html5-developer-interview-questions-for-3-years-experience',
-    title: 'HTML5 Developer Interview Questions For 3 Years Experience',
-    headingTitle: 'HTML5 Developer Interview Questions For 3 Years Experience',
+    title: 'HTML5 Developer Interview Questions For 3 Years Of Experience',
+    headingTitle: 'HTML5 Developer Interview Questions For 3 Years Of Experience',
     experience: 3,
     type: 'HTML5'
 }
 
 export const topFiveYearsExperienceHtml5InterviewQuestions = {
     path: 'html5-developer-interview-questions-for-5-years-experience',
-    title: 'HTML5 Developer Interview Questions For 5 Years Experience',
-    headingTitle: 'HTML5 Developer Interview Questions For 5 Years Experience',
+    title: 'HTML5 Developer Interview Questions For 5 Years Of Experience',
+    headingTitle: 'HTML5 Developer Interview Questions For 5 Years Of Experience',
     experience: 5,
     type: 'HTML5'
 }
