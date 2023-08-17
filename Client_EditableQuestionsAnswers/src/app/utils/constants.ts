@@ -183,4 +183,30 @@ export const topFiveYearsExperienceHtml5InterviewQuestions = {
     experience: 5,
     type: 'HTML5'
 }
-/*---end CSS3 url pattern ---*/
+/*---end HTML5 url pattern ---*/
+
+/*---Git   url pattern ---*/
+export const topFresherGitInterviewQuestions = {
+    path: 'git-interview-questions-for-freshers',
+    title: 'Git Interview Questions for Freshers',
+    headingTitle: 'Git Interview Questions for Freshers',
+    experience: 0,
+    type: 'Git'
+}
+
+export const topThreeYearsExperienceGitInterviewQuestions = {
+    path: 'git-interview-questions-for-3-years-experience',
+    title: 'Git Interview Questions For 3 Years Of Experience',
+    headingTitle: 'Git Interview Questions For 3 Years Of Experience',
+    experience: 3,
+    type: 'Git'
+}
+
+export const topFiveYearsExperienceGitInterviewQuestions = {
+    path: 'git-interview-questions-for-5-years-experience',
+    title: 'Git Interview Questions For 5 Years Of Experience',
+    headingTitle: 'Git Interview Questions For 5 Years Of Experience',
+    experience: 5,
+    type: 'Git'
+}
+/*---end Git url pattern ---*/

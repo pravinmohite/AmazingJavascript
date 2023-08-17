@@ -11,5 +11,35 @@ export const customGitRoutes: Routes = [
             headingTitle: UIConstants.topGitInterviewQuestions.headingTitle,
             type: UIConstants.topGitInterviewQuestions.type
         }
+    },
+    {
+        path: UIConstants.topFresherGitInterviewQuestions.path,
+        component: AngularInterviewQuestionsComponent,
+        data: {
+            title: UIConstants.topFresherGitInterviewQuestions.title,
+            headingTitle: UIConstants.topFresherGitInterviewQuestions.headingTitle,
+            experience: UIConstants.topFresherGitInterviewQuestions.experience,
+            type: UIConstants.topFresherGitInterviewQuestions.type
+        }
+    },
+    {
+        path: UIConstants.topThreeYearsExperienceGitInterviewQuestions.path,
+        component: AngularInterviewQuestionsComponent,
+        data: {
+            title: UIConstants.topThreeYearsExperienceGitInterviewQuestions.title,
+            headingTitle: UIConstants.topThreeYearsExperienceGitInterviewQuestions.headingTitle,
+            experience: UIConstants.topThreeYearsExperienceGitInterviewQuestions.experience,
+            type: UIConstants.topThreeYearsExperienceGitInterviewQuestions.type
+        }
+    },
+    {
+        path: UIConstants.topFiveYearsExperienceGitInterviewQuestions.path,
+        component: AngularInterviewQuestionsComponent,
+        data: {
+            title: UIConstants.topFiveYearsExperienceGitInterviewQuestions.title,
+            headingTitle: UIConstants.topFiveYearsExperienceGitInterviewQuestions.headingTitle,
+            experience: UIConstants.topFiveYearsExperienceGitInterviewQuestions.experience,
+            type: UIConstants.topFiveYearsExperienceGitInterviewQuestions.type
+        }
     }
 ];
