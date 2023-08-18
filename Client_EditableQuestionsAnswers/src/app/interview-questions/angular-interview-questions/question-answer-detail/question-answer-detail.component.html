@@ -29,7 +29,8 @@
                     <!-- <app-affiliate-ads></app-affiliate-ads> -->
                 </div>
             </div>
-            <app-other-interview-questions></app-other-interview-questions>
+            <app-other-interview-questions *ngIf="questionAnswerItem && questionAnswerItem.question && !questionAnswerItem.invalidQuestion">
+            </app-other-interview-questions>
             <div class="question-error-container" *ngIf="questionAnswerItem && questionAnswerItem.invalidQuestion">
                 <div class="error-content">
                     <div class="row">
