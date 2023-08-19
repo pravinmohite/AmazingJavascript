@@ -1,4 +1,5 @@
 export const currentYear = new Date().getFullYear();
+export const articleImagesPath = './../assets/images/article-images';
 export const topFrontendInterviewQuestions = {
     path: 'top-frontend-developer-interview-questions-and-answers',
     title: 'Top 200+ Frontend Developer Interview Questions And Answers',
@@ -61,7 +62,8 @@ export const topFresherFrontendInterviewQuestions = {
     title: 'Front End Developer Interview Questions for Freshers',
     headingTitle: 'Front End Developer Interview Questions for Freshers',
     experience: 0,
-    type: 'all'
+    type: 'all',
+    imgPath: articleImagesPath + '/' + 'frontend-developer-interview-questions-for-freshers.webp'
 }
 
 export const topThreeYearsExperienceFrontendInterviewQuestions = {

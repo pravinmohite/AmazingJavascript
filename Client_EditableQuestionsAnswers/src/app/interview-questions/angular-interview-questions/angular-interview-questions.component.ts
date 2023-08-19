@@ -16,6 +16,7 @@ export class AngularInterviewQuestionsComponent implements OnInit {
   totalItems: any;
   currentPage: any;
   pageNumberParamsValue: any;
+  articleFeaturedImgPath: any;
   constructor(
     private route: ActivatedRoute,
     private questionAnswerService: QuestionAnswerService,
@@ -86,6 +87,7 @@ export class AngularInterviewQuestionsComponent implements OnInit {
     this.route.data.subscribe(response => {
       this.experienceFromUrl = response.experience;
       this.questionTypeFromUrl = response.type;
+      this.articleFeaturedImgPath = response.imgPath;
     })
   }
 

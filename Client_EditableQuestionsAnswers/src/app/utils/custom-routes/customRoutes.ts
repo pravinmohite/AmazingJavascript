@@ -78,7 +78,8 @@ export const customRoutes: Routes = [
             title: UIConstants.topFresherFrontendInterviewQuestions.title,
             headingTitle: UIConstants.topFresherFrontendInterviewQuestions.headingTitle,
             experience: UIConstants.topFresherFrontendInterviewQuestions.experience,
-            type: UIConstants.topFresherFrontendInterviewQuestions.type
+            type: UIConstants.topFresherFrontendInterviewQuestions.type,
+            imgPath: UIConstants.topFresherFrontendInterviewQuestions.imgPath
         }
     },
     {

@@ -18,6 +18,7 @@ export class QuestionAnswerPanelComponent implements OnInit {
   @Input() adminMode:boolean;
   @Input() totalItems = 0;
   @Input() currentPage = 1;
+  @Input() articleFeaturedImgPath;
   showQuestionAnswerModal:Boolean=false;
   showQuestionTypeModal:Boolean=false;
   searchKey: any;

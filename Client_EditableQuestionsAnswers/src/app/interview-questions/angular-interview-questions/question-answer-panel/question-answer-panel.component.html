@@ -4,6 +4,9 @@
       <article class="panel-container multiple-questions-container" [ngClass]="{'admin-panel':adminMode}">
         <b>
           <h1 class="page-heading">{{headingTitle}}</h1>
+          <div class="featured-articleimg-container" *ngIf="articleFeaturedImgPath">
+            <img class="featured-article-img" alt="{{headingTitle}}" src={{articleFeaturedImgPath}}/>
+          </div>
         </b>
         <div class="row">
           <div class="col-12">
