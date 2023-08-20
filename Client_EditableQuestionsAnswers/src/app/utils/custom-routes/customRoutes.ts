@@ -32,7 +32,8 @@ export const customRoutes: Routes = [
         data: {
             title: UIConstants.topHTML5InterviewQuestions.title,
             headingTitle: UIConstants.topHTML5InterviewQuestions.headingTitle,
-            type: UIConstants.topHTML5InterviewQuestions.type
+            type: UIConstants.topHTML5InterviewQuestions.type,
+            imgPath: UIConstants.topHTML5InterviewQuestions.imgPath
         }
     },
     {
@@ -41,7 +42,8 @@ export const customRoutes: Routes = [
         data: {
             title: UIConstants.topCSS3InterviewQuestions.title,
             headingTitle: UIConstants.topCSS3InterviewQuestions.headingTitle,
-            type: UIConstants.topCSS3InterviewQuestions.type
+            type: UIConstants.topCSS3InterviewQuestions.type,
+            imgPath: UIConstants.topCSS3InterviewQuestions.imgPath
         }
     },
     {
@@ -50,7 +52,8 @@ export const customRoutes: Routes = [
         data: {
             title: UIConstants.topJavascriptInterviewQuestions.title,
             headingTitle: UIConstants.topJavascriptInterviewQuestions.headingTitle,
-            type: UIConstants.topJavascriptInterviewQuestions.type
+            type: UIConstants.topJavascriptInterviewQuestions.type,
+            imgPath: UIConstants.topJavascriptInterviewQuestions.imgPath
         }
     },
     {
@@ -59,7 +62,8 @@ export const customRoutes: Routes = [
         data: {
             title: UIConstants.topJavascriptInterviewQuestions.title,
             headingTitle: UIConstants.topJavascriptInterviewQuestions.headingTitle,
-            type: UIConstants.topJavascriptInterviewQuestions.type
+            type: UIConstants.topJavascriptInterviewQuestions.type,
+            imgPath: UIConstants.topJavascriptInterviewQuestions.imgPath
         }
     },
     {
@@ -68,7 +72,8 @@ export const customRoutes: Routes = [
         data: {
             title: UIConstants.topAngularInterviewQuestions.title,
             headingTitle: UIConstants.topAngularInterviewQuestions.headingTitle,
-            type: UIConstants.topAngularInterviewQuestions.type
+            type: UIConstants.topAngularInterviewQuestions.type,
+            imgPath: UIConstants.topAngularInterviewQuestions.imgPath
         }
     },
     {
@@ -89,7 +94,8 @@ export const customRoutes: Routes = [
             title: UIConstants.topThreeYearsExperienceFrontendInterviewQuestions.title,
             headingTitle: UIConstants.topThreeYearsExperienceFrontendInterviewQuestions.headingTitle,
             experience: UIConstants.topThreeYearsExperienceFrontendInterviewQuestions.experience,
-            type: UIConstants.topThreeYearsExperienceFrontendInterviewQuestions.type
+            type: UIConstants.topThreeYearsExperienceFrontendInterviewQuestions.type,
+            imgPath: UIConstants.topThreeYearsExperienceFrontendInterviewQuestions.imgPath
         }
     },
     {
@@ -99,7 +105,8 @@ export const customRoutes: Routes = [
             title: UIConstants.topFiveYearsExperienceFrontendInterviewQuestions.title,
             headingTitle: UIConstants.topFiveYearsExperienceFrontendInterviewQuestions.headingTitle,
             experience: UIConstants.topFiveYearsExperienceFrontendInterviewQuestions.experience,
-            type: UIConstants.topFiveYearsExperienceFrontendInterviewQuestions.type
+            type: UIConstants.topFiveYearsExperienceFrontendInterviewQuestions.type,
+            imgPath: UIConstants.topFiveYearsExperienceFrontendInterviewQuestions.imgPath
         }
     }
 ];
