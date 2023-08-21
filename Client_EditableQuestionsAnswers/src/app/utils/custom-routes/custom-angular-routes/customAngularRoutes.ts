@@ -10,7 +10,8 @@ export const customAngularRoutes: Routes = [
             title: UIConstants.topFresherAngularInterviewQuestions.title,
             headingTitle: UIConstants.topFresherAngularInterviewQuestions.headingTitle,
             experience: UIConstants.topFresherAngularInterviewQuestions.experience,
-            type: UIConstants.topFresherAngularInterviewQuestions.type
+            type: UIConstants.topFresherAngularInterviewQuestions.type,
+            imgPath: UIConstants.topFresherAngularInterviewQuestions.imgPath
         }
     },
     {
@@ -20,7 +21,8 @@ export const customAngularRoutes: Routes = [
             title: UIConstants.topThreeYearsExperienceAngularInterviewQuestions.title,
             headingTitle: UIConstants.topThreeYearsExperienceAngularInterviewQuestions.headingTitle,
             experience: UIConstants.topThreeYearsExperienceAngularInterviewQuestions.experience,
-            type: UIConstants.topThreeYearsExperienceAngularInterviewQuestions.type
+            type: UIConstants.topThreeYearsExperienceAngularInterviewQuestions.type,
+            imgPath: UIConstants.topThreeYearsExperienceAngularInterviewQuestions.imgPath
         }
     },
     {
@@ -30,7 +32,8 @@ export const customAngularRoutes: Routes = [
             title: UIConstants.topFiveYearsExperienceAngularInterviewQuestions.title,
             headingTitle: UIConstants.topFiveYearsExperienceAngularInterviewQuestions.headingTitle,
             experience: UIConstants.topFiveYearsExperienceAngularInterviewQuestions.experience,
-            type: UIConstants.topFiveYearsExperienceAngularInterviewQuestions.type
+            type: UIConstants.topFiveYearsExperienceAngularInterviewQuestions.type,
+            imgPath: UIConstants.topFiveYearsExperienceAngularInterviewQuestions.imgPath
         }
     }
 ];

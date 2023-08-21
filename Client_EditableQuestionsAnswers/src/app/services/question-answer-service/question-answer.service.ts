@@ -10,6 +10,7 @@ import { Title } from "@angular/platform-browser";
 import { isPlatformBrowser, DOCUMENT } from '@angular/common';
 import { IServerSide } from 'src/app/interfaces/IServerSide';
 import { makeStateKey } from '@angular/platform-browser';
+import * as UIConstants from './../../utils/constants';
 
 function _window(): any {
   return window;
@@ -64,6 +65,7 @@ export class QuestionAnswerService {
     currentPage: this.currentPage
   };
   defaultTitle = 'Frontend Interview Questions';
+  defaultArticleImg = UIConstants.topFrontendInterviewQuestions.imgPath;
   openNewTabText = 'open this answer seperately in new tab';
   questionAnswerList = 'question-answer-list';
   canonicalUrlQuery = `link[rel='canonical']`;

@@ -33,6 +33,7 @@ export class QuestionAnswerPanelComponent implements OnInit {
   serverSideObj: IServerSide;
   headingTitle: string;
   openNewTabText: string;
+  defaultArticleFeaturedImgPath: string;
   constructor(
     private questionAnswerService:QuestionAnswerService,
     private route: ActivatedRoute,
@@ -45,7 +46,6 @@ export class QuestionAnswerPanelComponent implements OnInit {
       this.itemsPerPage = this.questionAnswerService.itemsPerPage;
       this.maxSize = this.questionAnswerService.maxSize;
       this.openNewTabText = this.questionAnswerService.openNewTabText;
-      this.setHeadingTitleIfEmpty();
     }
   
   ngOnInit(): void {
@@ -55,6 +55,7 @@ export class QuestionAnswerPanelComponent implements OnInit {
   setHeadingTitleIfEmpty() {
     if(!this.headingTitle) {
       this.headingTitle = this.questionAnswerService.defaultTitle;
+      this.articleFeaturedImgPath = this.questionAnswerService.defaultArticleImg;
     }
   }
 
@@ -64,6 +65,10 @@ export class QuestionAnswerPanelComponent implements OnInit {
         this.highlightService.highlightAll();
         this.setDataForRichSnippet(changes.questionAnswerList.currentValue);
     }
+  }
+
+  ngAfterViewInit() {
+    this.setHeadingTitleIfEmpty();
   }
 
   setDataForRichSnippet(questionAnswerList) {

@@ -23,7 +23,8 @@ export const customRoutes: Routes = [
         data: {
             title: UIConstants.topFrontendInterviewQuestions.title,
             headingTitle: UIConstants.topFrontendInterviewQuestions.headingTitle,
-            type: UIConstants.topFrontendInterviewQuestions.type
+            type: UIConstants.topFrontendInterviewQuestions.type,
+            imgPath: UIConstants.topFrontendInterviewQuestions.imgPath
         }
     },
     {

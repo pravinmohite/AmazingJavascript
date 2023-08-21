@@ -2,10 +2,10 @@ export const currentYear = new Date().getFullYear();
 export const articleImagesPath = './../assets/images/article-images';
 export const topFrontendInterviewQuestions = {
     path: 'top-frontend-developer-interview-questions-and-answers',
-    title: 'Top 200+ Frontend Developer Interview Questions And Answers',
-    headingTitle: 'Top 200+ Frontend Developer Interview Questions And Answers',
+    title: 'Top 300+ Frontend Developer Interview Questions And Answers',
+    headingTitle: 'Top 300+ Frontend Developer Interview Questions And Answers',
     type: null,
-    imgPath: null
+    imgPath: articleImagesPath + '/' + 'Frontend-Interview-Questions-Top-300.webp'
 }
 
 export const topHTML5InterviewQuestions = {
@@ -137,7 +137,7 @@ export const topThreeYearsExperienceAngularInterviewQuestions = {
     headingTitle: 'Angular Developer Interview Questions For 3 Years Of Experience',
     experience: 3,
     type: 'Angular',
-    imgPath: null
+    imgPath: articleImagesPath + '/' + 'Angular-Interview-Questions-For-3-Years-Of-Experience.webp' 
 }
 
 export const topFiveYearsExperienceAngularInterviewQuestions = {
@@ -146,7 +146,7 @@ export const topFiveYearsExperienceAngularInterviewQuestions = {
     headingTitle: 'Angular Developer Interview Questions For 5 Years Of Experience',
     experience: 5,
     type: 'Angular',
-    imgPath: null
+    imgPath: articleImagesPath + '/' + 'Angular-Interview-Questions-For-5-Years-Of-Experience.webp' 
 }
 /*---end Angular url pattern ---*/
 
