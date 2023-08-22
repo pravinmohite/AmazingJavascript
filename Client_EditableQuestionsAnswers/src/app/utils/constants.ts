@@ -80,7 +80,7 @@ export const topThreeYearsExperienceFrontendInterviewQuestions = {
     headingTitle: 'Front End Developer Interview Questions For 3 Years Of Experience',
     experience: 3,
     type: 'all',
-    imgPath: null
+    imgPath: articleImagesPath + '/' + 'Frontend-interview-Questions-For-3-Years-Of-Experience.webp'
 }
 
 export const topFiveYearsExperienceFrontendInterviewQuestions = {
@@ -89,7 +89,7 @@ export const topFiveYearsExperienceFrontendInterviewQuestions = {
     headingTitle: 'Front End Developer Interview Questions For 5 Years Of Experience',
     experience: 5,
     type: 'all',
-    imgPath: null
+    imgPath: articleImagesPath + '/' + 'Frontend-interview-Questions-For-5-Years-Of-Experience.webp'
 }
 
 /*---javascript url pattern ---*/
