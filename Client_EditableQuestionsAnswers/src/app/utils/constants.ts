@@ -13,7 +13,7 @@ export const topHTML5InterviewQuestions = {
     title: 'Top 20+ HTML5 Interview Questions And Answers',
     headingTitle: 'Top 20+ HTML5 Interview Questions And Answers',
     type: 'HTML5',
-    imgPath: null
+    imgPath:  articleImagesPath + '/' + 'HTML-Interview-Questions-Top-25.webp'
 }
 
 export const topCSS3InterviewQuestions = {
