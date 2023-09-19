@@ -12,6 +12,10 @@ import { SidebarComponent } from './partial_views/sidebar/sidebar.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { SignupComponent } from './partial_views/modals/signup/signup.component';
 import { UserLoginComponent } from './partial_views/modals/user-login/user-login.component';
+import { FooterComponent } from './partial_views/footer/footer.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +24,8 @@ import { UserLoginComponent } from './partial_views/modals/user-login/user-login
     LoaderComponent,
     SidebarComponent,
     SignupComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -31,7 +36,14 @@ import { UserLoginComponent } from './partial_views/modals/user-login/user-login
     FormsModule,
     FontAwesomeModule,
     ReactiveFormsModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [],
   entryComponents: [SignupComponent],

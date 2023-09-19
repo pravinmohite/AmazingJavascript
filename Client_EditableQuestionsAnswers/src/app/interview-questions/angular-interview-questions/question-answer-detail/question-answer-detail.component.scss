@@ -1,8 +1,30 @@
 @import "./../../../../assets/scss/variables.scss";
+@import './../../../../assets/scss/common.scss';
+
+.detail-relatedquestion-container {
+    ::ng-deep {
+        .panel-container {
+            @media screen and (min-width:769px) {
+               width: 90%;
+            }
+        }
+    }
+
+    @media screen and (min-width:769px) {
+        margin-top: 31px !important;
+        float: left;
+    }
+}
 
 .question-answer-detailcontainer {
     &.panel-container {
         margin-top: 50px !important
+    }
+
+    header {
+        .question-text {
+            font-size: 1.5em !important;
+        }
     }
 }
 
@@ -17,17 +39,20 @@
         border-radius: 10px;
         position: absolute;
         top: 40%;
-        left: 50%;
+        left: 60%;
         transform: translate(-50%, -50%);
 
         @media screen and (max-width:768px) {
             width: 90%;
+            left: 50%;
         }
 
         .error-triangle-icon {
             font-size: 44px !important;
             color: $error-icon-color;
-            vertical-align: text-top;
+            //vertical-align: text-top;
+            width: 44px!important;
+            display: block;
         }
 
         .error-inner-content {

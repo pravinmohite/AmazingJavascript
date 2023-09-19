@@ -1,39 +1,99 @@
-<article class="panel-container" [ngClass]="{'admin-panel':adminMode}" >
-  <b>
-    <h2 class="page-heading">Front end interview questions</h2>
-    <h3 class="display-none">UI interview questions</h3>
-  </b>
-   <div class="row">
-    <div class="col-12">
-      <button class="col-md-3 col-5 btn add-questions-btn hand-cursor" *ngIf="adminMode" (click)='openAddQuestionAnswerPopup()'>+ Add Q/A</button>
-      <button class="col-md-3 col-6 btn add-questions-btn hand-cursor" *ngIf="adminMode" (click)='openAddQuestionTypePopup()'>+ Add/Edit Q/A type</button>
-    </div> 
-  </div> 
-   
-  <div *ngIf="showSearchTerm" class="badge badge-secondary badge-pill search-term-container">
-    <span class="search-text">{{searchKey}}</span>
-    <span class="badge badge-light clear-search" (click) = "clearSearch()"><fa-icon [icon]="faTimes"></fa-icon></span>
-  </div>
-  <div *ngFor="let questionAnswerItem of questionAnswerList;let i=index"> 
-    <div class="panel-item">
-      <div class="panel-header" role="img" aria-label="frontend interview questions">
-        <div class="row">
-          <div class="col-xl-10 col-md-9">
-            <span>{{i+1}}. <h3 class="question-text" [innerHtml]="questionAnswerItem.question"></h3></span>
+<div class="row">
+  <div class="col-12">
+    <div class="offset-md-1 col-md-8 col-12 main-questions-container">
+      <article class="panel-container multiple-questions-container" [ngClass]="{'admin-panel':adminMode}">
+        <b>
+          <h1 class="page-heading">{{headingTitle}}</h1>
+          <div class="featured-articleimg-container" *ngIf="articleFeaturedImgPath">
+            <img class="featured-article-img" alt="{{headingTitle}}" src={{articleFeaturedImgPath}}/>
           </div>
-          <div class="col-xl-2 col-md-3 action-btns">
-            <fa-icon *ngIf="adminMode" class="hand-cursor edit-icon" [icon]="faEdit" (click)="editQuestionAnswer(questionAnswerItem)"></fa-icon><fa-icon *ngIf="adminMode" class="hand-cursor delete-icon" [icon]="faTrash" (click)="deleteQuestionAnswer(questionAnswerItem._id)"></fa-icon><button class="showHideAnswer hand-cursor btn-show-hide" (click)="toggleShowHideAnswer(questionAnswerItem)">{{questionAnswerItem.buttonText?questionAnswerItem.buttonText:"Show"}}</button>
+        </b>
+        <div class="row">
+          <div class="col-12">
+            <button class="col-md-3 col-5 btn add-questions-btn hand-cursor" *ngIf="adminMode"
+              (click)='openAddQuestionAnswerPopup()'>+ Add Q/A</button>
+            <button class="col-md-3 col-6 btn add-questions-btn hand-cursor" *ngIf="adminMode"
+              (click)='openAddQuestionTypePopup()'>+ Add/Edit Q/A type</button>
           </div>
         </div>
-      </div>
-      <div class="panel-body" [ngClass]="{'open': questionAnswerItem.showAnswer ==true}">
-        <div class="panel-body-content" [innerHtml]="questionAnswerItem.answer"></div>
-      </div>
-    </div> 
-    <div class="affiliate-ads-container">
-      <app-affiliate-ads [index]="i" [totalItems]="questionAnswerList.length"></app-affiliate-ads>
+
+        <div *ngIf="showSearchTerm" class="badge badge-secondary badge-pill search-term-container">
+          <span class="search-text">{{searchKey}}</span>
+          <span class="badge badge-light clear-search" (click)="clearSearch()">
+            <fa-icon [icon]="faTimes"></fa-icon>
+          </span>
+        </div>
+        <div class="question-answer-container">
+          <div *ngFor="let questionAnswerItem of questionAnswerList | paginate : {
+              itemsPerPage: itemsPerPage,
+              currentPage: currentPage,
+              totalItems: totalItems
+            };let i=index">
+            <div class="panel-item">
+              <div class="panel-header" role="img" aria-label="frontend interview questions">
+                <div class="row">
+                  <div class="col-xl-10 col-md-9">
+                    <span>{{i+1 + (currentPage-1)*itemsPerPage}}. <h2 class="question-text"
+                        [innerHtml]="questionAnswerItem.question"></h2></span>
+                  </div>
+                  <div class="col-xl-2 col-md-3 action-btns">
+                    <fa-icon *ngIf="adminMode" class="hand-cursor edit-icon" [icon]="faEdit"
+                      (click)="editQuestionAnswer(questionAnswerItem)"></fa-icon>
+                    <fa-icon *ngIf="adminMode" class="hand-cursor delete-icon" [icon]="faTrash"
+                      (click)="deleteQuestionAnswer(questionAnswerItem._id)"></fa-icon><button
+                      class="showHideAnswer hand-cursor btn-show-hide"
+                      (click)="toggleShowHideAnswer(questionAnswerItem)">{{questionAnswerItem.buttonText?questionAnswerItem.buttonText:"Show"}}</button>
+                  </div>
+                </div>
+              </div>
+              <div class="panel-body" [ngClass]="{'open': questionAnswerItem.showAnswer ==true}">
+                <div class="panel-body-content">
+                  <div [innerHtml]="questionAnswerItem.answer">
+                  </div>
+                  <div class="open-linkseperate-container">
+                    <a [title]="openNewTabText" target="_blank"
+                      [routerLink]="['/interview-questions/', getQuestionAnswerLink(questionAnswerItem.question)]"
+                      class="question-link">
+                      <fa-icon class="hand-cursor edit-icon" [icon]="faExternalLinkSquareAlt"></fa-icon>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="affiliate-ads-container">
+              <!-- <app-affiliate-ads [index]="i" [totalItems]="questionAnswerList.length"></app-affiliate-ads> -->
+            </div>
+          </div>
+          <div class="empty-result" *ngIf="questionAnswerList && questionAnswerList.length==0">
+            Search results not found
+          </div>
+        </div>
+        <div class="pagination-container d-flex justify-content-center">
+          <pagination-controls (pageChange)="renderPage($event)" [maxSize]="maxSize"></pagination-controls>
+        </div>
+      </article>
+      <app-other-interview-questions></app-other-interview-questions>
     </div>
-  </div>  
-</article>
-<app-add-edit-interview-questions [editedItem]="editedItem" *ngIf="showQuestionAnswerModal" (popupEvent)="closeModal($event)"></app-add-edit-interview-questions>
-<app-add-edit-question-types *ngIf="showQuestionTypeModal" (popupEvent)="closeModal($event)"></app-add-edit-question-types>
+
+    <div class="col-md-3 col-12 relation-questions-container">
+      <div class="related-questionanswer-template">
+        <app-related-interview-questions></app-related-interview-questions>
+      </div>
+      <!-- <div class="related-questionanswer-template">
+        <app-other-interview-questions></app-other-interview-questions>
+      </div>    -->
+    </div>
+  </div>
+</div>
+<!-- <div class="row">
+  <div class="col-12">
+    <div class="offset-md-1 col-md-8 col-12 other-important-questionscontainer">
+      <app-other-interview-questions></app-other-interview-questions>
+    </div>
+  </div>
+</div> -->
+
+<app-add-edit-interview-questions [editedItem]="editedItem" *ngIf="showQuestionAnswerModal"
+  (popupEvent)="closeModal($event)"></app-add-edit-interview-questions>
+<app-add-edit-question-types *ngIf="showQuestionTypeModal" (popupEvent)="closeModal($event)">
+</app-add-edit-question-types>

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output, TemplateRef  } from '@angular/core';
 import {QuestionAnswerService} from "../../services/question-answer-service/question-answer.service";
-import { faTwitter,  faFacebookF, faInstagramSquare } from '@fortawesome/free-brands-svg-icons';
+import { faTwitter,  faFacebookF, faInstagramSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
@@ -13,15 +13,21 @@ import { UserLoginComponent } from '../modals/user-login/user-login.component';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  allQuestionTypesText = 'All';
   questionTypes:any;
   faFacebook = faFacebookF;
   faTwitter = faTwitter;
+  faLinkedin = faLinkedin;
   faBars = faBars;
   searchVal = '';
   modalRef?: BsModalRef;
+  questionTypeVal = this.allQuestionTypesText;
   showQuestionTypeDropdown = true;
   @Output('sidebarStatus') sidebarStatus = new EventEmitter();
   @Output('openAboutUs') openAboutUs = new EventEmitter();
+  hideQuestionTypeDropdown = false;
+  hideSearchInput = false;
+  initialPageNumber = 1;
   constructor(
     private questionAnswerService:QuestionAnswerService,
     private route: ActivatedRoute,
@@ -39,7 +45,7 @@ export class HeaderComponent implements OnInit {
     this.questionAnswerService.getUrlSearchVal().subscribe((searchVal:string) => {
       this.searchVal = searchVal;
       if(searchVal && searchVal != ''){
-        setTimeout(() => this.searchByQuestion(searchVal),1000);
+        setTimeout(() => this.searchByQuestionAnswer(searchVal),1000);
       }
     })
   }
@@ -50,8 +56,30 @@ export class HeaderComponent implements OnInit {
 
   handleQuestionAnswerDetailPageEvent() {
     this.questionAnswerService.questionAnswerDetailPageEvent.subscribe(data=>{
-       this.showQuestionTypeDropdown = false;
+       this.checkAndHideSearchAndDropdown(data);
+       this.checkAndResetSearchAndDropdown(data);
     })
+  }
+
+  checkAndHideSearchAndDropdown(data) {
+    if(data){
+      this.hideQuestionTypeDropdown = data['hideQuestionTypeDropdown'];
+      this.hideSearchInput = data['hideSearchInput']
+    } else {
+     this.hideSearchInput = false;
+     this.hideQuestionTypeDropdown = false;
+    }
+  }
+
+  checkAndResetSearchAndDropdown(data) {
+    if (data) {
+      if (data['resetSearch']) {
+        this.searchVal = "";
+      }
+      if (data['resetDropdown']) {
+        this.questionTypeVal = this.allQuestionTypesText;
+      }
+    }
   }
 
   openSiderBar(): void{
@@ -63,14 +91,25 @@ export class HeaderComponent implements OnInit {
     });
   }
   onOptionsSelected(value) {
-    this.questionAnswerService.filterDataByQuestionType(value);
+    if(value.toLowerCase() == this.allQuestionTypesText.toLocaleLowerCase()) {
+       value = null;
+    }
+    this.setCurrentPageToInitialPage();
+    this.questionAnswerService.serverSideObj.questionType = value;
+    this.questionAnswerService.getQuestionAnswerListServerSide(this.questionAnswerService.serverSideObj);
   }
-  searchByQuestion(value) {
-    this.questionAnswerService.filterDataBySearchString(value);
+  searchByQuestionAnswer(value) {
+     this.setCurrentPageToInitialPage();
+     this.questionAnswerService.serverSideObj.searchTerm = value;
+     this.questionAnswerService.getQuestionAnswerListServerSide(this.questionAnswerService.serverSideObj);
+  }
+
+  setCurrentPageToInitialPage() {
+    this.questionAnswerService.serverSideObj.currentPage = this.initialPageNumber;
   }
   checkEnterKeyPressed(value,event) {
     if(event.key=="Enter") {
-      this.searchByQuestion(value)
+      this.searchByQuestionAnswer(value)
     }
   }
   openAboutusModal(): void{

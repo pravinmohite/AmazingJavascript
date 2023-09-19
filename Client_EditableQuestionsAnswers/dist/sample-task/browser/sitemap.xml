@@ -10,16 +10,28 @@
   <lastmod>2023-03-30T14:45:59+00:00</lastmod>
 </url>
 <url>
+  <loc>https://www.frontendinterviewquestions.com/privacy-policy</loc>
+  <lastmod>2023-05-17T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/disclaimer</loc>
+  <lastmod>2023-05-20T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/contact-us</loc>
+  <lastmod>2023-05-20T14:45:59+00:00</lastmod>
+</url>
+<url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/new-features-of-html5</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
+  <lastmod>2023-05-31T14:45:59+00:00</lastmod>
 </url>
 <url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-the-data-types-in-javascript</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
+  <lastmod>2023-06-01T14:45:59+00:00</lastmod>
 </url>
 <url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/difference-between-ng-add-and-npm-install</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
+  <lastmod>2023-05-06T14:45:59+00:00</lastmod>
 </url>
 <url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-custom-directives-in-angular-and-how-to-create-them</loc>
@@ -27,11 +39,11 @@
 </url>
 <url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/difference-between-get-and-post-methods</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
+  <lastmod>2023-05-06T14:45:59+00:00</lastmod>
 </url>
 <url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/difference-between-post-and-put-methods</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
+  <lastmod>2023-05-06T14:45:59+00:00</lastmod>
 </url>
 <url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/explain-the-canactivatechild-route-guard</loc>
@@ -39,43 +51,43 @@
 </url>
 <url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-create-custom-events-in-javascript</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
+  <lastmod>2023-05-06T14:45:59+00:00</lastmod>
 </url>
 <url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/difference-between-ng-serve-and-npm-start</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
+  <lastmod>2023-06-06T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-bom-%28browser-object-model-%29-and-what-is-the-root-object-in-it</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-bom</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/difference-between-'dependencies'-and</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
+  <lastmod>2023-06-06T14:45:59+00:00</lastmod>
 </url>
 <url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-replay-subject-in-angular</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
+  <lastmod>2023-06-06T14:45:59+00:00</lastmod>
 </url>
 <url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/difference-between-for</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
+  <lastmod>2023-06-07T14:45:59+00:00</lastmod>
 </url>
 <url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-the-difference-between-adding-styles-and-scripts-in-angular.json-and-adding-styles-and-scripts-in-index.html</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
+  <lastmod>2023-06-07T14:45:59+00:00</lastmod>
 </url>
 <url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-mixins-in-scss</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
+  <lastmod>2023-06-07T14:45:59+00:00</lastmod>
 </url>
 <url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/what-will-be-the-output-of-the-below-code</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
+  <lastmod>2023-06-07T14:45:59+00:00</lastmod>
 </url>
 <url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/what-will-be-the-output-of-the-below-code</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
+  <lastmod>2023-06-07T14:45:59+00:00</lastmod>
 </url>
 <url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/difference-between-cold-observables-and-hot-observables</loc>
@@ -118,15 +130,15 @@
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/design-patterns-in-javascript</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-the-design-patterns-in-javascript?</loc>
+  <lastmod>2023-06-21T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/explain-prototypal-inheritance-in-javascript</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/explain-prototypal-inheritance-in-your-javascript</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
-</url>
-<url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/What-are-the-properties-inside-@ngModule-decorator</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-the-properties-inside-@ngModule-decorator</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -138,20 +150,16 @@
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-‘async’-and-‘await’-in-javascript</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-async-and-await-in-javascript</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-the-features-of-react-?</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
-</url>
-<url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/list-some-of-the-major-advantages-of-react</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-react-and-what-are-its-key-features?</loc>
+  <lastmod>2023-06-07T14:45:59+00:00</lastmod>
 </url>
 <url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-the-limitations-of-react-?</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
+  <lastmod>2023-06-07T14:45:59+00:00</lastmod>
 </url>
 <url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-generate-a-component-using-cli-command-without-creating-its-spec-file</loc>
@@ -182,7 +190,7 @@
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-the-lifecycle-hook-in-an-angular-component</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-the-lifecycle-hooks-in-an-angular-component</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -274,11 +282,7 @@
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/ What will be the output :
-
-function x() {return 2}
-alert(x());
-function x() {return 3}</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-will-be-the-output-:</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -290,7 +294,7 @@ function x() {return 3}</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/What-will-be-output-of-following-code</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-will-be-output-of-following-code</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -318,11 +322,11 @@ function x() {return 3}</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-maps-in-javascript</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-map-in-javascript</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/ What will be the output of following code</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-will-be-the-output-of-following-code</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -378,27 +382,19 @@ function x() {return 3}</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-bom-%28browser-object-model-%29-and-what-is-the-root-object-in-it</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
-</url>
-<url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-instanceof-operator</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/media-queries-were-introduced-in-which-version-of-css</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-media-queries</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-storybook-in-react-,-what-is-the-alternative-to-storybook-in-angular</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-the-design-patterns-in-angular?</loc>
+  <lastmod>2023-06-21T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/design-patterns-in-angular</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
-</url>
-<url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-new-features-in-css3</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-the-new-features-in-css3</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -422,7 +418,7 @@ function x() {return 3}</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what should be preferred for storing tokens - localstorage or session storage or cookies and why ?</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-should-be-preferred-for-storing-tokens-localstorage-or-session-storage-or-cookies-and-why</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -438,20 +434,20 @@ function x() {return 3}</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/How-to-create-a-custom-decorator-in-Angular</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-create-a-custom-decorator-in-Angular-or-JavaScript</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-an-impure</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/explain-pure-and-impure-pipe-in-angular</loc>
+  <lastmod>2023-06-25T14:45:59+00:00</lastmod>
 </url>
 <url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/in-css-flexbox-how-to-to-put-a-child-div-which-is-on-3rd-position-inside-the-parent-to-top-inside-the-parent-container</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/can-we-rename-dist-folder</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/can-we-rename-dist-folder-in-angular-project</loc>
+  <lastmod>2023-07-28T14:45:59+00:00</lastmod>
 </url>
 <url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/what-would-happen-if-i-would-not-declare-doctype-in-html</loc>
@@ -502,10 +498,6 @@ function x() {return 3}</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/write-a-function-reverseString%28str%29-to-reverse-a-string-using-recursive-strategy</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
-</url>
-<url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-hit-an-api-before-the-loading-of-the-appcomponent</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
@@ -534,7 +526,7 @@ function x() {return 3}</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-enumerable-and-non-enumerable-properties-of-javascript-object</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-enumerable-and-non-enumerable-properties-of-javascript-object-,-would-we-be-able-to-get-enumerable-properties-by-using-for-of-,for-in-loops-or-object.keys()-method</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -598,11 +590,11 @@ function x() {return 3}</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/if-there-is-a-package%28or-say-library%29-that-is-not-available-through-NPM-,-then-how-would-you-use-it-in-your-angular-application-?</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/if-there-is-a-package%28or-say-library%29-that-is-not-available-through-NPM-,-then-how-would-you-use-it-in-your-angular-application</loc>
+  <lastmod>2023-07-28T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/What-is-auth0-or-0auth-in-context-of-jwt-?</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-auth0-or-0auth-in-context-of-jwt-?</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -610,7 +602,7 @@ function x() {return 3}</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/Difference-between-‘.’-and-‘[]’-notation-of-defining-an-object-in-javascript</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/difference-between-‘.’-and-‘[]’-notation-of-defining-an-object-in-javascript</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -662,11 +654,11 @@ function x() {return 3}</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-micro-front-end-architecture-?</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-micro-frontend-architecture</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-tagging-in-git-?</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-tagging-in-git</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -674,15 +666,15 @@ function x() {return 3}</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-make-multiple-http-calls-in-parallel-in-angular-?</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-make-multiple-http-calls-in-parallel-in-angular</loc>
+  <lastmod>2023-07-28T14:45:59+00:00</lastmod>
 </url>
 <url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-a-module-in-typescript-?</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-use-a-service-only-for-a-specific-component-instead-of-the-whole-module-?</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-use-a-service-only-for-a-specific-component-instead-of-the-whole-module</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -702,20 +694,20 @@ function x() {return 3}</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-:root-in-css</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-root-in-css</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-the-types-of-forms-available-in-angular-?-explain-with-syntax-.</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-the-types-of-forms-available-in-angular-?-explain-with-syntax.</loc>
+  <lastmod>2023-06-21T14:45:59+00:00</lastmod>
 </url>
 <url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-dynamic-forms-and-how-to-create-them-in-angular</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-show-error-messages-on-form-controls-?</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-show-error-messages-on-form-controls</loc>
+  <lastmod>2023-07-28T14:45:59+00:00</lastmod>
 </url>
 <url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/can-you-put-ngIf-and-ngfor-on-same-element</loc>
@@ -734,8 +726,8 @@ function x() {return 3}</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what's-the-difference-between-first-class-function-and-higher-order-function-?</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-the-difference-between-first-class-function-and-higher-order-function</loc>
+  <lastmod>2023-06-25T14:45:59+00:00</lastmod>
 </url>
 <url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-a-unary-function-?</loc>
@@ -746,7 +738,7 @@ function x() {return 3}</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-implement-treeshaking-in-angular-?</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-implement-treeshaking-in-angular</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -754,11 +746,11 @@ function x() {return 3}</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-can-be-the-values-of-'providedin'-property-of-@injectable-decorator-?</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-can-be-the-values-of-'providedin'-property-of-@injectable-decorator</loc>
+  <lastmod>2023-07-28T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/What's-the-difference-between-observable-and-Subject-?</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what's-the-difference-between-observable-and-Subject</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -770,7 +762,7 @@ function x() {return 3}</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-things-to-be-considered-while-reviewing-a-pull-request-?</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-things-to-be-considered-while-reviewing-a-pull-request</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -778,7 +770,7 @@ function x() {return 3}</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/What-is-the-meaning-of-1.-div-~-p</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-the-meaning-of-1.-div-~-p--2.-div-+-p---3.-div-%3E-p-in-css</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -790,15 +782,11 @@ function x() {return 3}</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-solid-principles-?</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-temporal-dead-zone</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-temporal-dead-zone-?</loc>
-  <lastmod>2023-04-27T14:45:59+00:00</lastmod>
-</url>
-<url>
-  <loc>https://www.frontendinterviewquestions.com/interview-questions/what's-the-difference-between-debounce-and-settimeout-?</loc>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what's-the-difference-between-debounce-and-settimeout</loc>
   <lastmod>2023-04-27T14:45:59+00:00</lastmod>
 </url>
 <url>
@@ -836,5 +824,676 @@ function x() {return 3}</loc>
 <url>
   <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-the-difference-between-a-tag-and-an-attribute?</loc>
   <lastmod>2023-05-01T14:45:59+00:00</lastmod>
+</url>
+
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-create-a-triangle-using-css</loc>
+  <lastmod>2023-05-02T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-create-a-half-circle-using-css</loc>
+  <lastmod>2023-05-02T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-the-void-elements-in-html?</loc>
+  <lastmod>2023-05-03T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-the-various-formatting-tags-in-html?</loc>
+  <lastmod>2023-05-03T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/in-how-many-ways-you-can-display-html-elements?</loc>
+  <lastmod>2023-05-03T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-the-limitations-of-css?</loc>
+  <lastmod>2023-05-04T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-the-different-types-of-selectors-in-css?</loc>
+  <lastmod>2023-05-04T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-rxjs</loc>
+  <lastmod>2023-05-08T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-rxjs-key-features</loc>
+  <lastmod>2023-05-08T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-do-you-handle-errors-in-rxjs-observables</loc>
+  <lastmod>2023-05-08T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-do-you-implement-backpressure-in-rxjs</loc>
+  <lastmod>2023-05-08T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-the-purpose-of-operators-in-rxjs,-and-can-you-give-an-example-of-a-common-operator?</loc>
+  <lastmod>2023-05-08T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-do-you-use-the-retry%28%29-operator-in-rxjs,-and-what-is-its-purpose</loc>
+  <lastmod>2023-05-08T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/can-you-explain-what-is-the-purpose-of-using-schedulers-in-rxjs,-and-give-an-example-of-a-common-scheduler</loc>
+  <lastmod>2023-05-08T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-the-difference-between-a-pipeable-operator-and-a-patch-operator-in-rxjs</loc>
+  <lastmod>2023-05-08T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/in-how-many-ways-can-we-add-css-to-our-html-file?</loc>
+  <lastmod>2023-05-08T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-create-a-carousel-using-css</loc>
+  <lastmod>2023-05-08T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-the-difference-between-top-and-margin-top?</loc>
+  <lastmod>2023-05-09T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-the-difference-between-bottom-and-margin-bottom?</loc>
+  <lastmod>2023-05-09T14:45:59+00:00</lastmod>
+</url>
+
+
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-typeScript-and-how-is-it-different-from-javaScript?</loc>
+  <lastmod>2023-05-09T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-the-benefits-of-using-typeScript?</loc>
+  <lastmod>2023-05-09T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-do-you-declare-a-variable-in-typeScript?</loc>
+  <lastmod>2023-05-09T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-a-union-type-in-typeScript?</loc>
+  <lastmod>2023-05-09T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-do-you-define-an-interface-in-typeScript?</loc>
+  <lastmod>2023-05-09T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-do-you-use-generics-in-typeScript?</loc>
+  <lastmod>2023-05-09T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-the-difference-between-vh,-px-and-percent?</loc>
+  <lastmod>2023-05-12T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-the-difference-between-rem-and-em?</loc>
+  <lastmod>2023-05-12T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-a-namespace-in-typeScript,-and-how-can-you-use-it?</loc>
+  <lastmod>2023-05-12T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-can-you-use-decorators-in-typeScript?</loc>
+  <lastmod>2023-05-12T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-can-you-use-the-"public",-"private",-and-"protected"-modifiers-in-typeScript?</loc>
+  <lastmod>2023-05-12T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-a-type-assertion-in-typeScript,-and-how-can-you-use-it?</loc>
+  <lastmod>2023-05-12T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/top-frontend-developer-interview-questions-and-answers</loc>
+  <lastmod>2023-05-14T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/top-html5-interview-questions-and-answers</loc>
+  <lastmod>2023-05-14T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/top-css3-interview-questions-and-answers</loc>
+  <lastmod>2023-05-14T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/top-javascript-interview-questions-and-answers</loc>
+  <lastmod>2023-05-14T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/top-angular-interview-questions-and-answers</loc>
+  <lastmod>2023-05-14T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-do-i-prepare-for-frontend-interview?</loc>
+  <lastmod>2023-05-28T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-to-expect-in-an-frontend-interview</loc>
+  <lastmod>2023-05-28T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-the-hardest-part-of-frontend?</loc>
+  <lastmod>2023-05-28T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-the-frontend-checklist?</loc>
+  <lastmod>2023-05-28T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-skills-do-you-need-for-front-end?</loc>
+  <lastmod>2023-05-28T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/are-frontend-developer-interviews-hard?</loc>
+  <lastmod>2023-05-28T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-the-role-of-frontend?</loc>
+  <lastmod>2023-05-28T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-the-front-end-languages?</loc>
+  <lastmod>2023-05-28T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/is-frontend-more-difficult?</loc>
+  <lastmod>2023-05-28T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/explain-use-of-meta-tags-in-html</loc>
+  <lastmod>2023-05-28T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-scss</loc>
+  <lastmod>2023-05-29T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-git-and-what-are-the-most-useful-commands?</loc>
+  <lastmod>2023-05-29T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/why-git-is-most-popular?</loc>
+  <lastmod>2023-05-29T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-makes-a-good-ui-developer?</loc>
+  <lastmod>2023-05-29T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-angular-and-what-are-its-key-features?</loc>
+  <lastmod>2023-05-30T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-do-i-prepare-for-angular-interview?</loc>
+  <lastmod>2023-05-30T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-services-in-angular</loc>
+  <lastmod>2023-05-30T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-call-an-api-in-angular</loc>
+  <lastmod>2023-05-30T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-the-difference-between-aot-and-jit</loc>
+  <lastmod>2023-05-30T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-the-different-building-blocks-of-angular</loc>
+  <lastmod>2023-05-30T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-angular-change-detection-and-how-does-it-work?</loc>
+  <lastmod>2023-05-30T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-the-differences-between-react-functional-components-and-class-components?</loc>
+  <lastmod>2023-06-07T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/explain-the-concept-of-virtual-dom-in-react</loc>
+  <lastmod>2023-06-18T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-does-react-handle-state-management?</loc>
+  <lastmod>2023-06-18T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-jsx-in-react?-how-does-it-differ-from-html?</loc>
+  <lastmod>2023-06-18T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-react-hooks-and-what-are-their-benefits</loc>
+  <lastmod>2023-06-18T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/explain-the-concept-of-prop-drilling-and-how-to-avoid-it</loc>
+  <lastmod>2023-06-18T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-the-significance-of-keys-in-react-lists</loc>
+  <lastmod>2023-06-18T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-can-you-optimize-performance-in-a-react-application?</loc>
+  <lastmod>2023-06-19T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-critical-rendering-path?</loc>
+  <lastmod>2023-06-19T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-a-freeze-method-in-javascript?</loc>
+  <lastmod>2023-06-19T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-solid-principles-in-javascript?</loc>
+  <lastmod>2023-06-19T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-the-seal-method-in-javascript?</loc>
+  <lastmod>2023-06-19T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/difference-between-angular-and-react?</loc>
+  <lastmod>2023-06-19T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-zone-js-in-angular?</loc>
+  <lastmod>2023-06-19T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-create-a-change-detection-mechanism-of-javascript-framework</loc>
+  <lastmod>2023-06-20T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-watch-variable-changes-in-javascript</loc>
+  <lastmod>2023-06-20T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-functional-programming-in-javascript</loc>
+  <lastmod>2023-06-20T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-nfr-or-non-functional-requirements?</loc>
+  <lastmod>2023-06-20T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://frontendinterviewquestions.com/interview-questions/how-to-dynamically-create-form-fields-with-formarray-in-angular?</loc>
+  <lastmod>2023-06-21T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://frontendinterviewquestions.com/interview-questions/what-is-the-use-of-reflog-in-git</loc>
+  <lastmod>2023-06-21T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://frontendinterviewquestions.com/interview-questions/what-is-git-bisect-command</loc>
+  <lastmod>2023-06-21T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://frontendinterviewquestions.com/interview-questions/what-is-rollback-in-git</loc>
+  <lastmod>2023-06-21T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://frontendinterviewquestions.com/interview-questions/what-is-the-difference-between-git-and-github</loc>
+  <lastmod>2023-06-21T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://frontendinterviewquestions.com/interview-questions/what-is-the-difference-between-git's-%22merge%22-and-%22rebase%22-operations</loc>
+  <lastmod>2023-06-21T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-optimize-angular-application-using-onpush-change-detection-strategy</loc>
+  <lastmod>2023-06-23T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/can-event-triggered-in-parent-cause-change-detection-in-child-with-onpush-strategy-in-angular</loc>
+  <lastmod>2023-06-23T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/can-event-triggered-in-child-cause-change-detection-in-parent-with-onpush-strategy-in-angular</loc>
+  <lastmod>2023-06-23T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-the-purpose-of-the-doctype-declaration-in-html5</loc>
+  <lastmod>2023-06-23T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-data-attributes-in-html5-and-how-are-they-used</loc>
+  <lastmod>2023-06-23T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-ngzone-in-angular</loc>
+  <lastmod>2023-06-23T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-event-loop-in-javascript</loc>
+  <lastmod>2023-06-24T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-optimize-an-angular-application</loc>
+  <lastmod>2023-06-24T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-different-types-of-list-in-html</loc>
+  <lastmod>2023-06-25T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-create-a-checkbox-in-html</loc>
+  <lastmod>2023-06-25T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/explain-css-flexbox-with-example</loc>
+  <lastmod>2023-06-25T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/explain-pure-and-impure-pipe-in-angular</loc>
+  <lastmod>2023-06-25T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/explain-unit-testing-in-angular</loc>
+  <lastmod>2023-06-26T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-test-an-angular-service</loc>
+  <lastmod>2023-06-26T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-does-spyon-work-in-angular</loc>
+  <lastmod>2023-06-26T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-mock-http-request-in-angular</loc>
+  <lastmod>2023-06-26T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/frontend-developer-interview-questions-for-freshers</loc>
+  <lastmod>2023-06-26T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/frontend-developer-interview-questions-for-3-years-experience</loc>
+  <lastmod>2023-06-26T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/frontend-developer-interview-questions-for-5-years-experience</loc>
+  <lastmod>2023-06-26T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-the-difference-between-'from'-and-'of'-operator-in-rxjs</loc>
+  <lastmod>2023-06-27T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-convert-an-object-to-an-array-in-javascript</loc>
+  <lastmod>2023-06-27T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-deep-clone-in-javascript</loc>
+  <lastmod>2023-06-27T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-authguard-in-angular</loc>
+  <lastmod>2023-06-29T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/javascript-developer-interview-questions-for-freshers</loc>
+  <lastmod>2023-06-29T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/javascript-developer-interview-questions-for-3-years-experience</loc>
+  <lastmod>2023-06-29T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/javascript-developer-interview-questions-for-5-years-experience</loc>
+  <lastmod>2023-06-29T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/css-developer-interview-questions-for-freshers</loc>
+  <lastmod>2023-06-29T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/css-developer-interview-questions-for-3-years-experience</loc>
+  <lastmod>2023-06-29T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/css-developer-interview-questions-for-5-years-experience</loc>
+  <lastmod>2023-06-29T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/html5-developer-interview-questions-for-freshers</loc>
+  <lastmod>2023-06-29T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/html5-developer-interview-questions-for-3-years-experience</loc>
+  <lastmod>2023-06-29T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/html5-developer-interview-questions-for-5-years-experience</loc>
+  <lastmod>2023-06-29T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/angular-developer-interview-questions-for-freshers</loc>
+  <lastmod>2023-06-29T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/angular-developer-interview-questions-for-3-years-experience</loc>
+  <lastmod>2023-06-29T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/angular-developer-interview-questions-for-5-years-experience</loc>
+  <lastmod>2023-06-29T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/typescript-interview-questions-and-answers</loc>
+  <lastmod>2023-06-30T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/git-interview-questions-and-answers</loc>
+  <lastmod>2023-06-30T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://frontendinterviewquestions.com/interview-questions/how-to-segregate-0s-and-1s-in-an-array-in-javascript</loc>
+  <lastmod>2023-06-30T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-do-you-resolve-a-merge-conflict-in-git</loc>
+  <lastmod>2023-07-01T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-do-you-remove-a-file-from-a-git-repository</loc>
+  <lastmod>2023-07-01T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-the-purpose-of-the-'git-stash'-command</loc>
+  <lastmod>2023-07-01T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-do-you-undo-the-last-git-commit</loc>
+  <lastmod>2023-07-01T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-do-you-view-the-git-commit-history</loc>
+  <lastmod>2023-07-01T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-do-you-rename-a-branch-in-git</loc>
+  <lastmod>2023-07-01T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/explain-the-difference-between-'git-pull'-and-'git-fetch'</loc>
+  <lastmod>2023-07-01T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-does-git-handle-file-conflicts-when-merging-branches</loc>
+  <lastmod>2023-07-01T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-are-git-hooks,-and-how-can-they-be-used-in-a-repository</loc>
+  <lastmod>2023-07-01T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/describe-the-purpose-and-functionality-of-the-'.gitignore'-file</loc>
+  <lastmod>2023-07-01T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/explain-the-concept-of-%22cherry-picking%22-in-git-and-how-it-can-be-done</loc>
+  <lastmod>2023-07-01T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-flatten-an-array-in-javascript</loc>
+  <lastmod>2023-07-07T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/write-a-function-to-check-if-an-anagram-of-a-string-is-palindrome-or-not</loc>
+  <lastmod>2023-07-07T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-debounce-in-javascript</loc>
+  <lastmod>2023-07-07T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/write-a-code-to-check-if-two-strings-are-anagram-of-each-other</loc>
+  <lastmod>2023-07-07T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://frontendinterviewquestions.com/interview-questions/write-a-code-to-group-items-of-array-by-category</loc>
+  <lastmod>2023-07-07T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://frontendinterviewquestions.com/interview-questions/explain-ngaftercontentinit-hooks</loc>
+  <lastmod>2023-07-07T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://frontendinterviewquestions.com/interview-questions/explain-ngafterviewinit-hook-with-example</loc>
+  <lastmod>2023-07-07T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://frontendinterviewquestions.com/interview-questions/difference-between-ngaftercontentinit-and-ngafterviewinit</loc>
+  <lastmod>2023-07-07T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-get-the-maximum-count-of-consecutive-1's-in-an-array</loc>
+  <lastmod>2023-07-13T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-create-a-9-square-boxes-with-3-rows-and-3-columns</loc>
+  <lastmod>2023-07-13T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-an-execution-context-and-lexical-environment-in-javascript</loc>
+  <lastmod>2023-07-13T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-generator-function-in-javascript</loc>
+  <lastmod>2023-07-13T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-the-difference-between-active-and-focus-pseudo-classes</loc>
+  <lastmod>2023-07-13T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-view-encapsulation-in-angular</loc>
+  <lastmod>2023-07-15T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-the-use-of-polyfills</loc>
+  <lastmod>2023-07-15T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-scan-operator-in-rxjs</loc>
+  <lastmod>2023-07-15T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-reduce-operator-in-rxjs</loc>
+  <lastmod>2023-07-15T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-the-use-of-trackby-in-angular</loc>
+  <lastmod>2023-07-15T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-do-you-write-a-factorial-code-in-javascript</loc>
+  <lastmod>2023-07-15T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/given-an-integer-array,-find-the-subarray-with-the-largest-sum,-and-return-its-sum</loc>
+  <lastmod>2023-07-15T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-merge-two-sorted-arrays-in-javascript</loc>
+  <lastmod>2023-07-15T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-do-you-check-if-a-value-is-a-prime-number</loc>
+  <lastmod>2023-07-15T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-reverse-a-string-in-javascript-using-recursion</loc>
+  <lastmod>2023-07-15T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-to-create-a-9-square-boxes-with-3-rows-and-3-columns-using-css</loc>
+  <lastmod>2023-07-21T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-can-you-define-read-only-properties-in-typescript</loc>
+  <lastmod>2023-07-23T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-an-enum-in-typescript,-and-what-problem-does-it-solve</loc>
+  <lastmod>2023-07-23T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://frontendinterviewquestions.com/interview-questions/what-does-the-%22as%22-keyword-do-in-typescript</loc>
+  <lastmod>2023-07-24T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://frontendinterviewquestions.com/interview-questions/how-do-you-ensure-type-safety-while-working-with-third-party-libraries-that-don't-have-typescript-support</loc>
+  <lastmod>2023-07-24T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://frontendinterviewquestions.com/interview-questions/what-is-%22strict-mode%22-in-typescript,-and-why-is-it-important</loc>
+  <lastmod>2023-07-25T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://frontendinterviewquestions.com/interview-questions/how-do-you-handle-asynchronous-operations-with-types-in-typescript</loc>
+  <lastmod>2023-07-25T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://frontendinterviewquestions.com/interview-questions/what-are-declaration-files-in-typescript-and-why-are-they-useful</loc>
+  <lastmod>2023-07-25T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/how-can-you-implement-responsive-images</loc>
+  <lastmod>2023-07-27T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-the-use-of-function-currying-in-javascript</loc>
+  <lastmod>2023-07-27T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-memoization-in-javascript</loc>
+  <lastmod>2023-07-27T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-is-storybook-in-angular</loc>
+  <lastmod>2023-07-28T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://www.frontendinterviewquestions.com/interview-questions/what-will-be-the-output-of-following-code-snippet</loc>
+  <lastmod>2023-08-18T14:45:59+00:00</lastmod>
+</url>
+<url>
+  <loc>https://frontendinterviewquestions.com/interview-questions/what-will-be-the-output-of-below-code-snippet</loc>
+  <lastmod>2023-08-18T14:45:59+00:00</lastmod>
 </url>
 </urlset>

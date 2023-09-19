@@ -9,6 +9,10 @@ import { FormsModule } from '@angular/forms';
 import { AddEditQuestionTypesComponent } from './angular-interview-questions/add-edit-question-types/add-edit-question-types.component';
 import { AffiliateAdsComponent } from './angular-interview-questions/question-answer-panel/affiliate-ads/affiliate-ads.component';
 import { QuestionAnswerDetailComponent } from './angular-interview-questions/question-answer-detail/question-answer-detail.component';
+import { RelatedInterviewQuestionsComponent } from './angular-interview-questions/related-interview-questions/related-interview-questions.component';
+import { RouterModule } from '@angular/router';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { OtherInterviewQuestionsComponent } from './angular-interview-questions/other-interview-questions/other-interview-questions.component';
 
 @NgModule({
   declarations: [
@@ -17,13 +21,17 @@ import { QuestionAnswerDetailComponent } from './angular-interview-questions/que
     AddEditInterviewQuestionsComponent,
     AddEditQuestionTypesComponent,
     AffiliateAdsComponent,
-    QuestionAnswerDetailComponent
+    QuestionAnswerDetailComponent,
+    RelatedInterviewQuestionsComponent,
+    OtherInterviewQuestionsComponent
   ],
   imports: [
     CommonModule,
     InterviewQuestionsRoutingModule,
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    RouterModule,
+    NgxPaginationModule
   ],
   exports:[
     AngularInterviewQuestionsComponent,

@@ -4,7 +4,8 @@ const router = express.Router();
 const QuestionType = require('../models/questionType');
 const QuestionAnswer = require('../models/questionAnswer');
 const Login = require('../models/login');
-let loginEndPoint = "/loginDetails"
+let loginEndPoint = "/loginDetails";
+let defaultItemsPerPage = 10;
 
 /*--------crud for login details-----------*/
 router.get(loginEndPoint, (req, res, next) => {
@@ -168,6 +169,138 @@ router.patch('/questionAnswer/:id', (req, res, next) => {
 
 /*----end crud for question answer list-----------------*/
 
+/*----start get question answer by type --------------*/
+
+router.get('/questionAnswerByType/:type', (req, res, next) => {
+    QuestionAnswer.find((err, questionAnswerList) => {
+        let result = questionAnswerList.filter((item)=>{
+           if(item.questionType.toLowerCase() === req.params.type.toLocaleLowerCase()) {
+               return item;
+           }
+        })
+        if (!result || result.length == 0) {
+            let item = {
+                invalidQuestion: true
+            }
+            res.json(item);
+        }
+        else {
+            res.json(result);
+        }
+    })
+})
+
+
+/*----end get question answer by type ----------------*/
+
+/*----start get question answer by experience/rank --------------*/
+
+router.get('/questionAnswerByExperience/:experience/:type?', (req, res, next) => {
+    QuestionAnswer.find((err, questionAnswerList) => {
+        let result = questionAnswerList.filter((item)=>{
+           let difference = Math.abs(item.rank - req.params.experience);
+           if(req.params.type != 'undefined' && req.params.type != null) {
+            if((difference == 1 || item.rank == req.params.experience)  && item.questionType.toLowerCase() === req.params.type.toLocaleLowerCase()) {
+                return item;
+            }
+           } 
+           else if(difference == 1 || item.rank == req.params.experience) {
+              return item;
+           }
+        })
+        if (!result || result.length == 0) {
+            let item = {
+                invalidQuestion: true
+            }
+            res.json(item);
+        }
+        else {
+            res.json(result);
+        }
+    })
+})
+
+
+/*----end get question answer by type ----------------*/
+
+/*----start get question answer by experience/rank --------------*/
+
+checkExperience =(item, experience)=> {
+    if(experience == undefined || experience == null) {
+        return true;
+    }
+    let difference = Math.abs(item.rank - experience);
+    if(difference == 1 || item.rank == experience) {
+        return true;
+    }
+    return false;
+}
+
+checkQuestionType =(item, questionType)=> {
+    if(!questionType) {
+        return true;
+    }
+    if(item.questionType.toLowerCase() === questionType.toLocaleLowerCase()) {
+        return true;
+    }
+    return false;
+}
+
+checkSearchTerm =(item, searchTerm)=> {
+    if(!searchTerm) {
+        return true;
+    }
+    if(
+        item.question.toLowerCase().indexOf(searchTerm.toLocaleLowerCase())>-1 ||
+        item.answer.toLowerCase().indexOf(searchTerm.toLocaleLowerCase())>-1
+    ) {
+        return true;
+    }
+    return false;
+}
+
+checkPageNumberSize =(result, reqBody)=> {
+    if(!reqBody.currentPage && !reqBody.itemsPerPage) {
+        reqBody.currentPage = 1;
+        reqBody.itemsPerPage = defaultItemsPerPage;
+    }
+    let finalResult = result.slice((reqBody.currentPage-1) * reqBody.itemsPerPage, reqBody.currentPage * reqBody.itemsPerPage);
+    return finalResult;
+}
+
+router.post('/questionAnswerServerSide', (req, res, next) => {
+    QuestionAnswer.find((err, questionAnswerList) => {
+        let result = questionAnswerList.filter((item)=>{
+           if(
+               checkExperience(item, req.body.experience) &&
+               checkQuestionType(item, req.body.questionType) &&
+               checkSearchTerm(item, req.body.searchTerm) 
+            ) {
+                return item;
+            }
+        })
+        if (!result || result.length == 0) {
+            let totalItems = result.length;
+            const serverSideObj= {
+                result,
+                totalItems: totalItems
+            }
+            res.json(serverSideObj);
+        }
+        else {
+            let totalItems = result.length;
+            result = checkPageNumberSize(result, req.body);
+            const serverSideObj= {
+                result,
+                totalItems: totalItems
+            }
+            res.json(serverSideObj);
+        }
+    })
+})
+
+
+/*----end get question answer by type ----------------*/
 
 /*----crud for question answer by params-----------------*/
 
@@ -241,6 +374,29 @@ router.patch('/questionAnswerByParams/:id', (req, res, next) => {
 });
 
 /*----end crud for question answer list-----------------*/
+
+/*----get related(random) question answer -----*/
+
+router.get('/relatedQuestionAnswer/:count', (req, res, next) => {
+
+    QuestionAnswer.find((err, questionAnswerList) => {
+        const array = questionAnswerList;
+        const n = req.params.count ? req.params.count : 5; // number of elements we want to get
+        const shuffledArray = array.sort(() => 0.5 - Math.random()); // shuffles array
+        const randomItems = shuffledArray.slice(0, n); // gets first n elements after shuffle
+        if (!randomItems || randomItems.length == 0) {
+            let item = {
+                noRelatedQuestionFound: true
+            }
+            res.json(item);
+        }
+        else {
+            res.json(randomItems);
+        }
+    })
+})
+
+/*----end get related(random) question answer ---*/
 
 //update question answer
 

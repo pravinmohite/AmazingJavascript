@@ -41,3 +41,12 @@ ec2 server command prompt:-
   -> run universal Client
 
       pm2 start/restart dist/sample-task/server/main.js
+
+  For updating use restart i.e
+
+   -> run server
+     pm2 restart app.js
+
+  -> run universal Client
+
+      pm2 restart dist/sample-task/server/main.js

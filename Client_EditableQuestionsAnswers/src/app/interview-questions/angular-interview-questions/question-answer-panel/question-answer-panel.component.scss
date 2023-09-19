@@ -1,17 +1,120 @@
-.search-term-container{
+@import './../../../../assets/scss/variables.scss';
+@import './../../../../assets/scss/common.scss';
+
+.search-term-container {
     padding: 5px 10px;
     margin-bottom: 10px;
     display: inline-block;
 }
 
-.clear-search{
+.clear-search {
     margin-left: 5px;
     font-weight: bold;
-    cursor:pointer;
+    cursor: pointer;
 }
 
-.search-text{
+.search-text {
     display: inline-block;
     vertical-align: -2px;
     font-size: 14px
 }
+
+.multiple-questions-container {
+    width: 100% !important;
+}
+
+// .relation-questions-container {
+//     &.col-12 {
+//         float: left !important;
+//     }
+//     ::ng-deep {
+//         .related-questionanswer-template {
+//             .panel-container {
+//                 width: 90% !important;
+    
+//                 @media screen and (min-width: 769px) {
+//                     margin-top: 83px !important;
+//                 }
+    
+//                 @media screen and (max-width: 768px) {
+//                     width: 100% !important;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+// .main-questions-container {
+//     min-height: 80vh !important;
+//     &.col-12 {
+//         float: left !important;
+//     }
+// }
+
+.empty-result {
+    text-align: center;
+    border: solid 1px $answer-th-boxshadowcolor;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 2px 2px $answer-th-boxshadowcolor;
+}
+
+.question-answer-container {
+    min-height: 70vh !important;
+}
+
+.panel-body-content {
+    position: relative;
+    .open-linkseperate-container {
+        position: absolute;
+        right: 4px;
+        bottom: -2px;
+
+        fa-icon {
+            color: $open-newtab-iconcolor !important;
+        }
+    }
+}
+
+.pagination-container {
+    margin-top: 30px;
+
+    ::ng-deep {
+        .ngx-pagination {
+            @media screen and (max-width: 768px) {
+                padding-left: 0px !important;;
+            }
+
+            .pagination-previous {
+                a {
+                    @media screen and (max-width: 768px) {
+                        padding: 0px 2px !important;;
+                    }
+                }
+            }
+
+            .pagination-next {
+                a {
+                    @media screen and (max-width: 768px) {
+                        padding: 0px 2px !important;;
+                    }
+                }
+            }
+
+            li {
+                a {
+                    @media screen and (max-width: 768px) {
+                        padding: 0px 6px;
+                    }
+                }
+            }
+
+            .current {
+                background-color: $pagination-count-color !important;
+            }
+        }
+    }
+}
+
+
+

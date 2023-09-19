@@ -1,5 +1,6 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
+import { HightlightService } from 'src/app/services/highlight-service/hightlight.service';
 import {QuestionAnswerService} from "../../../services/question-answer-service/question-answer.service";
 import {LoaderService} from './../../../services/loader-service/loader.service';
 
@@ -15,7 +16,13 @@ export class AddEditInterviewQuestionsComponent implements OnInit {
   @Input() editedItem;
   editMode:Boolean=true;
   @Output() popupEvent=new EventEmitter();
-  constructor(private questionAnswerService:QuestionAnswerService,private loaderService:LoaderService) { 
+  tempDiv = 'div';
+  constructor(
+    private questionAnswerService:QuestionAnswerService,
+    private loaderService:LoaderService,
+    private cd: ChangeDetectorRef,
+    private highlightService: HightlightService
+    ) { 
   }
 
   ngOnInit(): void {
@@ -23,6 +30,7 @@ export class AddEditInterviewQuestionsComponent implements OnInit {
       this.editMode=false;
     this.interviewQuestion=JSON.parse(JSON.stringify(this.editedItem));
     this.getQuestionTypes();
+    this.cd.detectChanges();
   }
   getQuestionTypes(){
     this.loaderService.display(true);
@@ -34,7 +42,16 @@ export class AddEditInterviewQuestionsComponent implements OnInit {
   closeAddEditPopup() {
     this.popupEvent.emit('closeQuestionAnswerPopup');
   }
+
+  convertCodeContentHtmlIntoString() {
+    var tempElement = document.createElement(this.tempDiv);
+    tempElement.innerHTML = this.interviewQuestion.answer; 
+    this.highlightService.convertHtmlIntoStringForCodeContent(tempElement);
+    this.interviewQuestion.answer = tempElement.innerHTML;
+  }
+  
   saveInterviewQuestionAnswer() {
+    this.convertCodeContentHtmlIntoString();
     if(this.editMode) {
       this.questionAnswerService.updateQuestionAnswer(this.interviewQuestion);
     }

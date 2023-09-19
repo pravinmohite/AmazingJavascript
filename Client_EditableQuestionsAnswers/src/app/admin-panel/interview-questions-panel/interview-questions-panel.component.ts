@@ -2,6 +2,7 @@ import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import {QuestionAnswerService} from '../../services/question-answer-service/question-answer.service';
 import { Router } from '@angular/router';
 import {LoaderService} from './../../services/loader-service/loader.service';
+import { HightlightService } from 'src/app/services/highlight-service/hightlight.service';
 
 @Component({
   selector: 'app-interview-questions-panel',
@@ -15,7 +16,8 @@ export class InterviewQuestionsPanelComponent implements OnInit {
   constructor(
     private questionAnswerService:QuestionAnswerService,
     private router:Router,private loaderService:LoaderService,
-    @Inject(PLATFORM_ID) platformId: Object
+    @Inject(PLATFORM_ID) platformId: Object,
+    private highlightService: HightlightService
   ) {
       this.platformId = platformId;
   }
@@ -23,10 +25,13 @@ export class InterviewQuestionsPanelComponent implements OnInit {
   ngOnInit(): void {
     if(this.platformId && localStorage.getItem('loggedIn')=="true") {
       this.questionAnswerService.currentData.subscribe((data)=>{
-      this.questionAnswerList=data;
-      this.loaderService.display(false);
+        if (data && data['result']) {
+          this.questionAnswerList = data['result'];
+          this.loaderService.display(false);
+          this.highlightService.hightLightAgain();
+        }
      })
-     this.questionAnswerService.getQuestionAnswerList();
+     this.questionAnswerService.getQuestionAnswerListServerSide();
    }
    else {
      this.router.navigateByUrl('/admin-panel');

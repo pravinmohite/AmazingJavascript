@@ -11,8 +11,9 @@
         >
         </app-sidebar>
     </div>
-    <router-outlet></router-outlet>
-
+    <div class="router-outlet-container" [style.opacity]="isServer ? 0 : 1">
+      <router-outlet></router-outlet>
+    </div>
     <!-- about us modal -->
     <ng-template #template>
         <div class="modal-header">
@@ -23,12 +24,12 @@
         </div>
         <div class="modal-body">
             <div>
-                We are two passionate UI developers. This website is our attempt to help our fellow UI developers 
+                At frontendinterviewquestions.com, we publish updated frontend interview questions and their answers .This website is our attempt to help our fellow UI developers 
                 to prepare for interviews and grow in their career. In future we will keep on adding more sections 
                 to this website to help better.
             </div>
             <div class = "contact-us-container">
-             <div id="contact-us-label">Contact Us</div>
+             <div id="contact-us-label">Contact Us :</div>
              <div>For any queries or suggestions please contact us at following addresses:</div>
              <ul>
                  <li>vireshkhandelwal93@gmail.com</li>
@@ -37,5 +38,6 @@
             </div>
         </div>
     </ng-template>
+    <app-footer></app-footer>
 </div>
 
