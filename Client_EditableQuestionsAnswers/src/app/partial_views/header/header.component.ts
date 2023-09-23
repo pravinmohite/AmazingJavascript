@@ -24,6 +24,7 @@ export class HeaderComponent implements OnInit {
   hideQuestionTypeDropdown = false;
   hideSearchInput = false;
   initialPageNumber = 1;
+  isKeyWordSearch:boolean = false;
   constructor(
     private questionAnswerService:QuestionAnswerService,
     private route: ActivatedRoute,
@@ -93,7 +94,8 @@ export class HeaderComponent implements OnInit {
     this.questionAnswerService.serverSideObj.questionType = value;
     this.questionAnswerService.getQuestionAnswerListServerSide(this.questionAnswerService.serverSideObj);
   }
-  searchByQuestionAnswer(value) {
+  searchByQuestionAnswer(value, isKeyWordSearch?:boolean) {
+     this.isKeyWordSearch = isKeyWordSearch ? true : false;
      this.setCurrentPageToInitialPage();
      this.questionAnswerService.serverSideObj.searchTerm = value;
      this.questionAnswerService.getQuestionAnswerListServerSide(this.questionAnswerService.serverSideObj);
@@ -109,5 +111,10 @@ export class HeaderComponent implements OnInit {
   }
   openAboutusModal(): void{
     this.openAboutUs.emit()
+  }
+
+  handleClearSearch(event): void{
+    this.isKeyWordSearch = false;
+    this.searchByQuestionAnswer('');
   }
 }

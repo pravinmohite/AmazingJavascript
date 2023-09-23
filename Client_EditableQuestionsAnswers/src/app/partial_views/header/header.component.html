@@ -15,7 +15,17 @@
     </div>
     <div class="form-inline col-md-5" [ngClass]="{'invisible d-none d-md-block': hideSearchInput }">
         <!-- <form #myForm= "ngForm"> -->
-          <input name = "searchVal" #searchString [(ngModel)] = "searchVal" class="form-control mr-sm-2 col-md-8" type="text" (keydown)="checkEnterKeyPressed(searchString.value,$event)" placeholder="Search" aria-label="Search">
+          <input 
+            name = "searchVal"
+            #searchString 
+            [(ngModel)] = "searchVal" 
+            class="form-control mr-sm-2 col-md-8" 
+            type="search" 
+            (keydown)="checkEnterKeyPressed(searchString.value,$event)" 
+            (search) = "handleClearSearch($event)"
+            placeholder="Search" 
+            aria-label="Search"
+          >
           <button class="btn btn-outline-success my-2 my-sm-0 col-md-2 hand-cursor" (click)="searchByQuestionAnswer(searchString.value)">Search</button>
         <!-- </form> -->
     </div>
