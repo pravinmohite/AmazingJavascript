@@ -46,7 +46,7 @@ export const topGitInterviewQuestions = {
     title: 'Top Git Interview Questions And Answers' + ' (' + currentYear + ')',
     headingTitle: 'Top Git Interview Questions And Answers' + ' (' + currentYear + ')',
     type: 'Git',
-    imgPath: null
+    imgPath: articleImagesPath + '/' + 'Git-Interview-Questions.webp'
 }
 
 export const topTypescriptInterviewQuestions = {
@@ -54,7 +54,7 @@ export const topTypescriptInterviewQuestions = {
     title: 'Top Typescript Interview Questions And Answers' + ' (' + currentYear + ')',
     headingTitle: 'Top Typescript Interview Questions And Answers' + ' (' + currentYear + ')',
     type: 'TypeScript',
-    imgPath: null
+    imgPath: articleImagesPath + '/' + 'TypeScript-Interview-Questions.webp'
 }
 
 export const topJavascriptCodingInterviewQuestions = {

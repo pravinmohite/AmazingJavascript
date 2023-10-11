@@ -9,7 +9,8 @@ export const customTypescriptRoutes: Routes = [
         data: {
             title: UIConstants.topTypescriptInterviewQuestions.title,
             headingTitle: UIConstants.topTypescriptInterviewQuestions.headingTitle,
-            type: UIConstants.topTypescriptInterviewQuestions.type
+            type: UIConstants.topTypescriptInterviewQuestions.type,
+            imgPath: UIConstants.topTypescriptInterviewQuestions.imgPath
         }
     }
 ];

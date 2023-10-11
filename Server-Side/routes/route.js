@@ -3,8 +3,10 @@ const router = express.Router();
 
 const QuestionType = require('../models/questionType');
 const QuestionAnswer = require('../models/questionAnswer');
+const UserPost = require('../models/userPost');
 const Login = require('../models/login');
 let loginEndPoint = "/loginDetails";
+let signUpEndPoint = "/signUp";
 let defaultItemsPerPage = 10;
 let signUpEndPoint = "/signUp";
 
@@ -93,6 +95,26 @@ router.patch(loginEndPoint + '/:id', (req, res, next) => {
         }
     })
 })
+
+/*----------Sign Up-------------- */
+router.post(signUpEndPoint, (req, res, next) => {
+    //logic to add
+    let newLogin = new Login({
+        username: req.body.username,
+        password: req.body.password,
+        isAdmin: req.body.isAdmin
+    })
+    newLogin.save((err, signUpDetails) => {
+        if (err) {
+            res.json({ msg: 'failed to add login details' });
+        }
+        else {
+            res.json(req.body);
+        }
+    })
+})
+
+/*----------End Sign Up---------- */
 
 /*----crud for question types-----------------*/
 

@@ -9,7 +9,8 @@ export const customGitRoutes: Routes = [
         data: {
             title: UIConstants.topGitInterviewQuestions.title,
             headingTitle: UIConstants.topGitInterviewQuestions.headingTitle,
-            type: UIConstants.topGitInterviewQuestions.type
+            type: UIConstants.topGitInterviewQuestions.type,
+            imgPath: UIConstants.topGitInterviewQuestions.imgPath
         }
     },
     {
@@ -19,7 +20,8 @@ export const customGitRoutes: Routes = [
             title: UIConstants.topFresherGitInterviewQuestions.title,
             headingTitle: UIConstants.topFresherGitInterviewQuestions.headingTitle,
             experience: UIConstants.topFresherGitInterviewQuestions.experience,
-            type: UIConstants.topFresherGitInterviewQuestions.type
+            type: UIConstants.topFresherGitInterviewQuestions.type,
+            imgPath: UIConstants.topFresherGitInterviewQuestions.imgPath
         }
     },
     {
@@ -29,7 +31,8 @@ export const customGitRoutes: Routes = [
             title: UIConstants.topThreeYearsExperienceGitInterviewQuestions.title,
             headingTitle: UIConstants.topThreeYearsExperienceGitInterviewQuestions.headingTitle,
             experience: UIConstants.topThreeYearsExperienceGitInterviewQuestions.experience,
-            type: UIConstants.topThreeYearsExperienceGitInterviewQuestions.type
+            type: UIConstants.topThreeYearsExperienceGitInterviewQuestions.type,
+            imgPath: UIConstants.topThreeYearsExperienceGitInterviewQuestions.imgPath
         }
     },
     {
@@ -39,7 +42,8 @@ export const customGitRoutes: Routes = [
             title: UIConstants.topFiveYearsExperienceGitInterviewQuestions.title,
             headingTitle: UIConstants.topFiveYearsExperienceGitInterviewQuestions.headingTitle,
             experience: UIConstants.topFiveYearsExperienceGitInterviewQuestions.experience,
-            type: UIConstants.topFiveYearsExperienceGitInterviewQuestions.type
+            type: UIConstants.topFiveYearsExperienceGitInterviewQuestions.type,
+            imgPath: UIConstants.topFiveYearsExperienceGitInterviewQuestions.imgPath
         }
     }
 ];
