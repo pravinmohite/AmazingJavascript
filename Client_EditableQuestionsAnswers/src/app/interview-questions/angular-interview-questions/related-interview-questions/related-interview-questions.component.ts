@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LoaderService } from 'src/app/services/loader-service/loader.service';
 import { QuestionAnswerService } from 'src/app/services/question-answer-service/question-answer.service';
+import { HightlightService } from 'src/app/services/highlight-service/hightlight.service';
 import * as UIConstants from './../../../utils/constants';
 
 @Component({
@@ -23,7 +24,8 @@ export class RelatedInterviewQuestionsComponent implements OnInit {
     private loaderService: LoaderService,
     private questionAnswerService: QuestionAnswerService,
     private route: ActivatedRoute,
-    private cd: ChangeDetectorRef
+    private cd: ChangeDetectorRef,
+    private highlightService: HightlightService
   ) { 
      this.setQuestionTitleByExperience();
   }
@@ -59,9 +61,11 @@ export class RelatedInterviewQuestionsComponent implements OnInit {
   }
 
   formatQuestionUrl() {
-    if(this.relatedQuestionAnswerList && this.relatedQuestionAnswerList.length >0) {
-      for(const [index, item] of this.relatedQuestionAnswerList.entries()) {
+    if (this.relatedQuestionAnswerList && this.relatedQuestionAnswerList.length > 0) {
+      for (const [index, item] of this.relatedQuestionAnswerList.entries()) {
         this.relatedQuestionAnswerList[index]['questionUrl'] = this.questionAnswerService.formatQuestionUrl(item.question);
+        // Call addQuestionMarkIfNotPresentCondition to add a question mark if needed
+        this.relatedQuestionAnswerList[index]['question'] = this.questionAnswerService.addQuestionMarkIfNotPresentCondition(item.question);
       }
     }
   }

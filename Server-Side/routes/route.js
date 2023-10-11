@@ -6,6 +6,7 @@ const QuestionAnswer = require('../models/questionAnswer');
 const Login = require('../models/login');
 let loginEndPoint = "/loginDetails";
 let defaultItemsPerPage = 10;
+let signUpEndPoint = "/signUp";
 
 /*--------crud for login details-----------*/
 router.get(loginEndPoint, (req, res, next) => {
@@ -14,19 +15,54 @@ router.get(loginEndPoint, (req, res, next) => {
     })
 })
 
-
 router.post(loginEndPoint, (req, res, next) => {
+    Login.find((err, existingCredentials) => {
+        let result = existingCredentials.find(function (item) {
+            if (req.body.username === item.username && req.body.password === item.password) {
+                return item;
+            }
+        });
+        if (!result || result.length == 0) {
+            let item = {
+                invalidUser: true
+            }
+            res.json(item);
+        }
+        else {
+            res.json(result);
+        }
+    })
+})
+
+// router.post(loginEndPoint, (req, res, next) => {
+//     //logic to add
+//     let newLogin = new Login({
+//         username: req.body.username,
+//         password: req.body.password
+//     })
+//     newLogin.save((err, questionType) => {
+//         if (err) {
+//             res.json({ msg: 'failed to add login details' });
+//         }
+//         else {
+//             res.json({ msg: 'login details added successfully' });
+//         }
+//     })
+// })
+
+router.post(signUpEndPoint, (req, res, next) => {
     //logic to add
     let newLogin = new Login({
         username: req.body.username,
-        password: req.body.password
+        password: req.body.password,
+        isAdmin: req.body.isAdmin,
     })
     newLogin.save((err, questionType) => {
         if (err) {
-            res.json({ msg: 'failed to add login details' });
+            res.json({ msg: 'failed to register' });
         }
         else {
-            res.json({ msg: 'login details added successfully' });
+            res.json(req.body);
         }
     })
 })

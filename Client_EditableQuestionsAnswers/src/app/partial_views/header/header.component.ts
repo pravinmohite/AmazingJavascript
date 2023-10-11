@@ -1,8 +1,9 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {QuestionAnswerService} from "../../services/question-answer-service/question-answer.service";
-import { faTwitter,  faFacebookF, faInstagramSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faTwitter, faFacebookF, faInstagramSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faBars, faSignInAlt, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute, Router } from '@angular/router';
+// import { SharedPopupService } from 'src/app/shared-popup.service';
 
 @Component({
   selector: 'app-header',
@@ -15,7 +16,9 @@ export class HeaderComponent implements OnInit {
   faFacebook = faFacebookF;
   faTwitter = faTwitter;
   faLinkedin = faLinkedin;
+  faSignInAlt = faSignInAlt;
   faBars = faBars;
+  faUserCircle = faUserCircle;
   searchVal = '';
   questionTypeVal = this.allQuestionTypesText;
   showQuestionTypeDropdown = true;
@@ -24,7 +27,6 @@ export class HeaderComponent implements OnInit {
   hideQuestionTypeDropdown = false;
   hideSearchInput = false;
   initialPageNumber = 1;
-  isKeyWordSearch:boolean = false;
   constructor(
     private questionAnswerService:QuestionAnswerService,
     private route: ActivatedRoute,
@@ -36,7 +38,9 @@ export class HeaderComponent implements OnInit {
     this.getUrlSearchValue();
     this.handleSubscriptions();
   }
-
+  // openPopup(): void {
+  //   this.sharedPopupService.openPopup();
+  // }
   getUrlSearchValue() {
     this.questionAnswerService.getUrlSearchVal().subscribe((searchVal:string) => {
       this.searchVal = searchVal;
@@ -94,8 +98,7 @@ export class HeaderComponent implements OnInit {
     this.questionAnswerService.serverSideObj.questionType = value;
     this.questionAnswerService.getQuestionAnswerListServerSide(this.questionAnswerService.serverSideObj);
   }
-  searchByQuestionAnswer(value, isKeyWordSearch?:boolean) {
-     this.isKeyWordSearch = isKeyWordSearch ? true : false;
+  searchByQuestionAnswer(value) {
      this.setCurrentPageToInitialPage();
      this.questionAnswerService.serverSideObj.searchTerm = value;
      this.questionAnswerService.getQuestionAnswerListServerSide(this.questionAnswerService.serverSideObj);
@@ -111,10 +114,5 @@ export class HeaderComponent implements OnInit {
   }
   openAboutusModal(): void{
     this.openAboutUs.emit()
-  }
-
-  handleClearSearch(event): void{
-    this.isKeyWordSearch = false;
-    this.searchByQuestionAnswer('');
   }
 }

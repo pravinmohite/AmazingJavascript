@@ -5,7 +5,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { InterviewQuestionsModule } from '../interview-questions/interview-questions.module';
 import { InterviewQuestionsPanelComponent } from './interview-questions-panel/interview-questions-panel.component';
 import { LoginComponent } from './login/login.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,8 @@ import {FormsModule} from '@angular/forms';
     FormsModule,
     AdminPanelRoutingModule,
     FontAwesomeModule,
-    InterviewQuestionsModule
+    InterviewQuestionsModule,    
+    ReactiveFormsModule
   ],
 })
 export class AdminPanelModule { }

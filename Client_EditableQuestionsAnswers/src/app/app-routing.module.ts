@@ -29,6 +29,10 @@ let routes: Routes = [
     path: "contact-us", 
     loadChildren: () => import('./contact-us/contact-us.module').then(m => m.ContactUsModule)
   },
+  {
+    path: "user-login",
+    loadChildren: () => import('./admin-panel/admin-panel.module').then(m => m.AdminPanelModule)
+  },
   // {
   //   path: "interview-questions/searchKey/:searchKey", 
   //   loadChildren: () => import('./interview-questions/interview-questions.module').then(m => m.InterviewQuestionsModule)

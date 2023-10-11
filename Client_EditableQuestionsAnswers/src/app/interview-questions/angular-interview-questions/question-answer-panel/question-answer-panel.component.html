@@ -33,8 +33,9 @@
               <div class="panel-header" role="img" aria-label="frontend interview questions">
                 <div class="row">
                   <div class="col-xl-10 col-md-9">
+                    <!-- test item -->
                     <span>{{i+1 + (currentPage-1)*itemsPerPage}}. <h2 class="question-text"
-                        [innerHtml]="questionAnswerItem.question"></h2></span>
+                        [innerHtml]="addQuestionMarkIfNotPresent(questionAnswerItem.question)"></h2></span>
                   </div>
                   <div class="col-xl-2 col-md-3 action-btns">
                     <fa-icon *ngIf="adminMode" class="hand-cursor edit-icon" [icon]="faEdit"

@@ -31,7 +31,8 @@ export class QuestionAnswerService {
   loginDetailsUrl: String = "/api/loginDetails";
   questionAnswerByParamsUrl = "/api/questionAnswerByParams";
   relatedQuestionAnswerUrl = "/api/relatedQuestionAnswer";
-  isProd: boolean = true;
+  signUpUrl = "/api/signUp";
+  isProd: boolean = false;
   prodUrl: String = "https://frontendinterviewquestions.com";
   //prodUrl:String="https://64.227.118.130";
   devDomain: any = this.isProd ? this.prodUrl : "http://localhost:3000";
@@ -43,6 +44,7 @@ export class QuestionAnswerService {
   finalloginDetailsUrl: any = this.devDomain + this.loginDetailsUrl;
   finalQuestionAnswerByParamsUrl = this.devDomain + this.questionAnswerByParamsUrl;
   finalRelatedQuestionAnswerUrl = this.devDomain + this.relatedQuestionAnswerUrl;
+  finalsignUpUrl = this.devDomain + this.signUpUrl;
   adsUrl = '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
   adsClientId = 'pub-8766887766994985';
   mockData = (questionAnswerList as any).default;
@@ -92,6 +94,11 @@ export class QuestionAnswerService {
     this.platformId = platformId;
   }
 
+  /*---------------for signup details------------*/
+  signUp(data) {
+    return this.http.post(this.finalsignUpUrl, data);
+  }
+  /*----------------end--------------------------*/
   /*---------------for login details-------------*/
   getloginDetails() {
     return this.http.get(this.finalloginDetailsUrl);
@@ -494,4 +501,18 @@ export class QuestionAnswerService {
       this._doc.body.appendChild(script);
     }
   }
+
+  //add "?" at the end of question if not present
+  addQuestionMarkIfNotPresentCondition(question: string): string {
+    const trimmedQuestion = question.trim();
+    const lastCharacter = trimmedQuestion.charAt(trimmedQuestion.length - 1);
+
+    if (lastCharacter !== '?' && lastCharacter !== '.' && lastCharacter !== ':') {
+      return trimmedQuestion + ' ?';
+    }
+
+    return trimmedQuestion;
+  }
+
+
 }

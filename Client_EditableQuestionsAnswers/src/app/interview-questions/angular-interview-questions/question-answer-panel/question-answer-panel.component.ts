@@ -145,4 +145,9 @@ export class QuestionAnswerPanelComponent implements OnInit {
     let result = this.questionAnswerService.formatAndReturnFullUrl(question);
     return result;
   }
+
+ //add "?" at the end of question, if not present
+  addQuestionMarkIfNotPresent(question: string): string {
+    return this.questionAnswerService.addQuestionMarkIfNotPresentCondition(question);
+  }
 }
