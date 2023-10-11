@@ -8,7 +8,6 @@ const Login = require('../models/login');
 let loginEndPoint = "/loginDetails";
 let signUpEndPoint = "/signUp";
 let defaultItemsPerPage = 10;
-let signUpEndPoint = "/signUp";
 
 /*--------crud for login details-----------*/
 router.get(loginEndPoint, (req, res, next) => {
