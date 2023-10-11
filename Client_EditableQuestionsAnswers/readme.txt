@@ -11,8 +11,8 @@ mongodb:-"C:\Program Files\MongoDB\Server\3.4\bin\mongod.exe" --dbpath I:\Passio
 
     {
         "_id": "5fae892ef40fa01a6460d4a4",
-        "username": "ajsadmin@gmail.com",
-        "password": "cool@1234",
+        "username": "test",
+        "password": "test",
         "__v": 0
     }
 
