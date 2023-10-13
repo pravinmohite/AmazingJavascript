@@ -9,6 +9,97 @@ let loginEndPoint = "/loginDetails";
 let signUpEndPoint = "/signUp";
 let defaultItemsPerPage = 10;
 
+
+/*-----------------crud for USER POST-----------------------------*/
+
+router.post('/userPostServerSide', (req, res, next) => {
+    UserPost.find((err, userPostList) => {
+        let result = userPostList.filter((item)=>{
+           if(
+              // checkExperience(item, req.body.experience) &&
+               checkQuestionType(item, req.body.questionType) &&
+               checkSearchTerm(item, req.body.searchTerm) 
+            ) {
+                return item;
+            }
+        })
+        if (!result || result.length == 0) {
+            let totalItems = result.length;
+            const serverSideObj= {
+                result,
+                totalItems: totalItems
+            }
+            res.json(serverSideObj);
+        }
+        else {
+            let totalItems = result.length;
+            result = checkPageNumberSize(result, req.body);
+            const serverSideObj= {
+                result,
+                totalItems: totalItems
+            }
+            res.json(serverSideObj);
+        }
+    })
+})
+
+router.get('/userPost', (req, res, next) => {
+    //res.send('retrieving the userPost list');
+    UserPost.find((err, userPostList) => {
+        res.json(userPostList);
+    })
+})
+
+router.post('/userPost', (req, res, next) => {
+    //logic to add
+    let newUserPost = new UserPost({
+        question: req.body.question,
+        answer: req.body.answer,
+        questionType: req.body.questionType,
+        userId: req.body.userId
+    })
+    newUserPost.save((err, userPost) => {
+        if (err) {
+            res.json({ msg: 'failed to add UserPost' });
+        }
+        else {
+            res.json({ msg: 'UserPost added successfully' });
+        }
+    })
+})
+
+router.delete('/userPost/:id', (req, res, next) => {
+    UserPost.remove({ _id: req.params.id }, (err, result) => {
+        if (err) {
+            res.json(err);
+        }
+        else {
+            res.json(result);
+        }
+    })
+})
+
+router.patch('/userPost/:id', (req, res, next) => {
+
+    UserPost.updateOne({ _id: req.params.id }, {
+        $set: {
+            question: req.body.question,
+            answer: req.body.answer,
+            questionType: req.body.questionType,
+        }
+    }, (err, result) => {
+        if (err) {
+            res.json(err);
+        }
+        else {
+            res.json(result);
+        }
+    });
+
+});
+
+/*-------------------end crud for userPost--------------------------------*/
+
 /*--------crud for login details-----------*/
 router.get(loginEndPoint, (req, res, next) => {
     Login.find((err, existingCredentials) => {

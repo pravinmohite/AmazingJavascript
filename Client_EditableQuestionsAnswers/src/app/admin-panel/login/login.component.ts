@@ -106,20 +106,20 @@ export class LoginComponent implements OnInit {
               if (matchingUser) {
                 console.log('isAdmin:', matchingUser.isAdmin); // Debugging line
 
-                alert('Login successful!');
+                // alert('Login successful!');
                 this.questionAnswerService.setIsAdmin(matchingUser.isAdmin);
                 localStorage.setItem('loggedIn', 'true');
                 if (matchingUser.isAdmin) {
                   // Admin login
-                  alert('Admin login successful!');
+                  // alert('Admin login successful!');
                   this.router.navigateByUrl('/admin-panel/updateInterviewQuestions');
                 } else {
                   // Regular user login
-                  alert('User login successful!');
-                  this.router.navigateByUrl('/updateInterviewQuestions');
+                  // alert('User login successful!');
+                  this.router.navigate(['/userPost']);
                 }
                 // Login successful
-                alert('Login successful!');
+                // alert('Login successful!');
                 this.questionAnswerService.setIsAdmin(false);
                 localStorage.setItem('loggedIn', 'true');
                 // this.redirectToUpdateQuestions();

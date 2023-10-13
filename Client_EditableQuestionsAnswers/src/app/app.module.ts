@@ -13,6 +13,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { FooterComponent } from './partial_views/footer/footer.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 
 @NgModule({
@@ -21,7 +22,7 @@ import { environment } from '../environments/environment';
     HeaderComponent,
     LoaderComponent,
     SidebarComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -30,7 +31,7 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    FontAwesomeModule,
+    FontAwesomeModule,AngularEditorModule,
     ModalModule.forRoot(),
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     ServiceWorkerModule.register('ngsw-worker.js', {

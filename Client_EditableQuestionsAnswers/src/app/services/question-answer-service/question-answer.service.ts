@@ -25,7 +25,10 @@ export class QuestionAnswerService {
   currentSearchString: String;
   questionTypeUrl: String = "/api/questionType";
   questionAnswerUrl: String = "/api/questionAnswer";
+  userPostUrl: String = "/api/userPost"; //userPost
   questionAnswerServerSideUrl: String = "/api/questionAnswerServerSide";
+  userPostServerSideUrl: String = "/api/userPostServerSide";//userPost
+
   questionAnswerByTypeUrl = "/api/questionAnswerByType"
   questionAnswerByExperienceAndTypeUrl = "/api/questionAnswerByExperience";
   loginDetailsUrl: String = "/api/loginDetails";
@@ -38,7 +41,10 @@ export class QuestionAnswerService {
   devDomain: any = this.isProd ? this.prodUrl : "http://localhost:3000";
   finalquestionTypeUrl: any = this.devDomain + this.questionTypeUrl;
   finalQuestionAnswerUrl: any = this.devDomain + this.questionAnswerUrl;
+  finalUserPostUrl: any = this.devDomain + this.userPostUrl;  //userPost
   finalQuestionAnswerServerSideUrl = this.devDomain + this.questionAnswerServerSideUrl;
+  finalUserPostServerSideUrl = this.devDomain + this.userPostServerSideUrl;//userPost
+
   finalQuestionAnswerByTypeUrl = this.devDomain + this.questionAnswerByTypeUrl;
   finalQuestionAnswerByExperienceAndTypeUrl = this.devDomain + this.questionAnswerByExperienceAndTypeUrl;
   finalloginDetailsUrl: any = this.devDomain + this.loginDetailsUrl;
@@ -49,6 +55,7 @@ export class QuestionAnswerService {
   adsClientId = 'pub-8766887766994985';
   mockData = (questionAnswerList as any).default;
   questionAnswerData: any;
+  userPostData: any; //user post
   private data = new BehaviorSubject(null);
   currentData = this.data.asObservable();
   confirmationText = "Are you sure you want to delete";
@@ -56,6 +63,8 @@ export class QuestionAnswerService {
   isTransferStateActive = true;
   isAdmin = false;
   questionAnswerDetailPageEvent = new Subject();
+  userPostDetailPageEvent = new Subject(); //userPost
+
   platformId: Object;
   relatedQuestionAnswerCount = 4;
   pageHeaderClass = '.page-header';
@@ -70,6 +79,7 @@ export class QuestionAnswerService {
   defaultArticleImg = UIConstants.topFrontendInterviewQuestions.imgPath;
   openNewTabText = 'open this answer seperately in new tab';
   questionAnswerList = 'question-answer-list';
+  userPostList = 'user-post-list'; //userPost
   canonicalUrlQuery = `link[rel='canonical']`;
   metaOgTitleQuery = 'meta[property="og:title"]';
   metaOgDescriptionQuery = 'meta[property="og:description"]';
@@ -94,6 +104,75 @@ export class QuestionAnswerService {
     this.platformId = platformId;
   }
 
+
+   /*-------------start for user post List----------*/
+
+   getUserPostList() {
+    this.loaderService.display(true);
+    return this.dataStateService.checkAndGetData(
+      QUESTION_ANSWER_LIST,
+      this.http.get(this.finalUserPostUrl),
+      [],
+      this.isTransferStateActive
+    ).subscribe(response => {
+      this.userPostData = response;
+      this.data.next(response);
+    });
+  }
+
+  getUserPostListServerSide(serverSideObj?: IServerSide) {
+    if (!serverSideObj) {
+      serverSideObj = this.serverSideObj;
+    }
+    // return this.http.post(this.finalUserPostServerSideUrl, serverSideObj).subscribe(response => {
+    //   this.UserPostData = response['result'];
+    //   this.data.next(response);
+    // })
+
+    return this.dataStateService.checkAndGetData(
+      this.makeStateKeyFormatter(serverSideObj),
+      this.http.post(this.finalUserPostServerSideUrl, serverSideObj),
+      [],
+      this.isTransferStateActive
+    ).subscribe(response => {
+      this.userPostData = response;
+      this.data.next(response);
+    });
+  }
+
+  resetServerSideUserPostObj() {
+    this.serverSideObj = {
+      itemsPerPage: this.itemsPerPage,
+      currentPage: this.currentPage
+    };
+    this.userPostDetailPageEvent.next({
+      resetDropdown: true,
+      resetSearch: true
+    })
+  }
+
+  addUserPost(data) {
+    this.loaderService.display(true);
+    this.http.post(this.finalUserPostUrl, data).subscribe(response => {
+      this.getUserPostListServerSide(this.serverSideObj);
+    })
+  }
+
+  deleteUserPost(id) {
+    this.loaderService.display(true);
+    this.http.delete(this.finalUserPostUrl + "/" + id).subscribe(response => {
+      this.getUserPostListServerSide(this.serverSideObj);
+    })
+  }
+
+  updateUserPost(data) {
+    this.loaderService.display(true);
+    this.http.patch(this.finalUserPostUrl + '/' + data._id, data).subscribe(response => {
+      this.getUserPostListServerSide(this.serverSideObj);
+    })
+  }
+
+  /*-------------end for userpost List----------*/
   /*---------------for signup details------------*/
   signUp(data) {
     return this.http.post(this.finalsignUpUrl, data);

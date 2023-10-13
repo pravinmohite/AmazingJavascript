@@ -1,0 +1,29 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { UserPostRoutingModule } from './user-post-routing.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from '../app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+import { UserBlogPopupComponent } from '../user-blog-popup/user-blog-popup.component';
+import { UserPostComponent } from './user-post.component';
+
+
+@NgModule({
+  declarations: [
+    UserPostComponent, 
+    UserBlogPopupComponent,
+  ],
+  imports: [
+    CommonModule,
+    UserPostRoutingModule,
+    FontAwesomeModule,
+    FormsModule,
+    AppRoutingModule,
+    HttpClientModule, 
+    AngularEditorModule
+  ]
+})
+export class UserPostModule { }

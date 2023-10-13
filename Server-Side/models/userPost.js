@@ -12,6 +12,10 @@ const UserPostSchema=mongoose.Schema({
     questionType:{
         type:String,
         required:true
+    },
+    userId:{
+        type: String,
+        required: false
     }
 })
 

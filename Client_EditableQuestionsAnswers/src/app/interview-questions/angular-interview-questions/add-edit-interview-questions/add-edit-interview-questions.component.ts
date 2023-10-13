@@ -103,9 +103,12 @@ export class AddEditInterviewQuestionsComponent implements OnInit {
     this.tempSattu = formattedAnswer;
     let parser = new DOMParser();
     this.tempSattu = parser.parseFromString(this.tempSattu, 'text/html');
-    let value = this.tempSattu.querySelector('font').attributes.color.value;
-    formattedAnswer = formattedAnswer.replace(/<font[^>]*>/g, '<span style="color:'+ value +'">').replace(/<\/font>/g, '</span>');
-   
+    let fontTag = this.tempSattu.querySelector('font');
+    let value;
+    if(fontTag) {
+        value = fontTag.attributes.color.value;
+        formattedAnswer = formattedAnswer.replace(/<font[^>]*>/g, '<span style="color:'+ value +'">').replace(/<\/font>/g, '</span>');
+    }
     return formattedAnswer;
   }
 

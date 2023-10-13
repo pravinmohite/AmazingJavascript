@@ -32,7 +32,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     FontAwesomeModule,
     FormsModule,
     RouterModule,
-    NgxPaginationModule
+    NgxPaginationModule,
   ],
   exports:[
     AngularInterviewQuestionsComponent,

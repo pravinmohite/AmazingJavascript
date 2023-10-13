@@ -1,0 +1,35 @@
+<div class="container">
+
+  <button (click)="openPopup()">Add Article</button>
+
+  <app-user-blog-popup [editedItem]="editedItem" (closePopup)="closePopup()" *ngIf="showPopup"></app-user-blog-popup>
+
+</div>
+<div class="row">
+  <div class="col-12">
+
+    <div *ngFor="let item of userBlogItems">
+      <div class="offset-md-1 col-md-8 col-12 main-questions-container">
+        <!-- Display each saved item here using item.question and item.answer -->
+        <div class="panel-container question-answer-detailcontainer">
+          <div class="panel-item">
+            <div class="panel-header" role="img" aria-label="frontend interview questions">
+              <div class="row">
+                <div class="col-xl-10 col-md-9">
+                  <header>
+                    <h1 class="question-text" [innerHtml]="item.question"></h1>
+                  </header>
+                </div>
+                <!-- Other elements for actions here -->
+              </div>
+            </div>
+            <div class="panel-body" [ngClass]="{'open': true}">
+              <div class="panel-body-content" [innerHtml]="item.answer"></div>
+            </div>
+          </div>
+        </div>
+        <!-- Other HTML elements for saved items here -->
+      </div>
+    </div>
+  </div>
+</div>

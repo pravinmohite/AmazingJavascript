@@ -33,6 +33,10 @@ let routes: Routes = [
     path: "user-login",
     loadChildren: () => import('./admin-panel/admin-panel.module').then(m => m.AdminPanelModule)
   },
+  {
+    path: "userPost",
+    loadChildren: () => import('./user-post/user-post.module').then(m => m.UserPostModule)
+  },
   // {
   //   path: "interview-questions/searchKey/:searchKey", 
   //   loadChildren: () => import('./interview-questions/interview-questions.module').then(m => m.InterviewQuestionsModule)
