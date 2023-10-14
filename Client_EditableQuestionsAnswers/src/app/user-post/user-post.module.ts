@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { UserBlogPopupComponent } from '../user-blog-popup/user-blog-popup.component';
 import { UserPostComponent } from './user-post.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { UserPostComponent } from './user-post.component';
     FormsModule,
     AppRoutingModule,
     HttpClientModule, 
-    AngularEditorModule
+    AngularEditorModule,
+    NgxPaginationModule
   ]
 })
 export class UserPostModule { }

@@ -1,14 +1,11 @@
-<div class="container">
-
-  <button (click)="openPopup()">Add Article</button>
-
-  <app-user-blog-popup [editedItem]="editedItem" (closePopup)="closePopup()" *ngIf="showPopup"></app-user-blog-popup>
-
+<div class="offset-md-1 col-md-8 col-12 AddArticle">
+  <button class="btn add-questions-btn hand-cursor" (click)="openPopup()">+ Add Article</button>
+  <app-user-blog-popup [editedItem]="editedItem" (closePopup)="closePopup($event)"
+    *ngIf="showPopup"></app-user-blog-popup>
 </div>
 <div class="row">
   <div class="col-12">
-
-    <div *ngFor="let item of userBlogItems">
+    <div *ngFor="let item of userBlogItems | paginate: paginationConfig">
       <div class="offset-md-1 col-md-8 col-12 main-questions-container">
         <!-- Display each saved item here using item.question and item.answer -->
         <div class="panel-container question-answer-detailcontainer">
@@ -17,14 +14,24 @@
               <div class="row">
                 <div class="col-xl-10 col-md-9">
                   <header>
-                    <h1 class="question-text" [innerHtml]="item.question"></h1>
+                    <h1 class="question-text" [innerHtml]="addQuestionMarkIfNotPresent(item.question)"></h1>
                   </header>
                 </div>
-                <!-- Other elements for actions here -->
+                <!-- Edit button -->
+                <div class="col-xl-2 col-md-3 action-btns text-right">
+                  <div class="col-md-7">
+                    <fa-icon class="hand-cursor edit-icon" [icon]="faEdit" (click)="editArticle(item)"></fa-icon>
+                  </div>
+
+                  <button class="col-md-5 showHideAnswer hand-cursor btn-show-hide"
+                    (click)="toggleShowHideAnswer(item)">{{item.buttonText?item.buttonText:"Show"}}</button>
+                </div>
               </div>
             </div>
-            <div class="panel-body" [ngClass]="{'open': true}">
-              <div class="panel-body-content" [innerHtml]="item.answer"></div>
+            <div class="panel-body" [ngClass]="{'open': item.showAnswer ==true}">
+              <div class="panel-body" [ngClass]="{'open': true}">
+                <div class="panel-body-content" [innerHtml]="item.answer"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -32,4 +39,8 @@
       </div>
     </div>
   </div>
+</div>
+<div class=" offset-md-1 col-md-8 col-12 pagination-container d-flex justify-content-center">
+  <pagination-controls (pageChange)="paginationConfig.currentPage = $event"
+    [id]="paginationConfig.id"></pagination-controls>
 </div>

@@ -107,17 +107,27 @@ export class QuestionAnswerService {
 
    /*-------------start for user post List----------*/
 
-   getUserPostList() {
+  //  getUserPostList() {
+  //   this.loaderService.display(true);
+  //   return this.dataStateService.checkAndGetData(
+  //     QUESTION_ANSWER_LIST,
+  //     this.http.get(this.finalUserPostUrl),
+  //     [],
+  //     this.isTransferStateActive
+  //   ).subscribe(response => {
+  //     this.userPostData = response;
+  //     this.data.next(response);
+  //   });
+  // }
+
+  getUserPostList(): Observable<any[]> {
     this.loaderService.display(true);
     return this.dataStateService.checkAndGetData(
       QUESTION_ANSWER_LIST,
       this.http.get(this.finalUserPostUrl),
       [],
       this.isTransferStateActive
-    ).subscribe(response => {
-      this.userPostData = response;
-      this.data.next(response);
-    });
+    );
   }
 
   getUserPostListServerSide(serverSideObj?: IServerSide) {
