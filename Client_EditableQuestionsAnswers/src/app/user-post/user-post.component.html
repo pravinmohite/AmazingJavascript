@@ -1,7 +1,7 @@
 <div class="offset-md-1 col-md-8 col-12 AddArticle">
   <button class="btn add-questions-btn hand-cursor" (click)="openPopup()">+ Add Article</button>
-  <app-user-blog-popup [editedItem]="editedItem" (closePopup)="closePopup($event)"
-    *ngIf="showPopup"></app-user-blog-popup>
+  <app-add-edit-user-post [editedItem]="editedItem" (closePopup)="closePopup($event)"
+    *ngIf="showPopup"></app-add-edit-user-post>
 </div>
 <div class="row">
   <div class="col-12">
