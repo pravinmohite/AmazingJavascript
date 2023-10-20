@@ -33,10 +33,10 @@
 
     <div class="col-md-1 userlogins">
       <li class="social-link-item">
-        <a aria-label="" routerLink="user-post"  class="login">
+        <a aria-label="" routerLink="user-post" class="login">
           Add Article
         </a>
-        
+
 
       </li>
     </div>
@@ -65,8 +65,28 @@
         </ul>
       </div>
     </div>
-
-    <div class="col-md-1 userlogins">
+    userName: {{userName}}
+    <div *ngIf="userName" class="offset-lg-2 offset-md-2 col-1 btn-group d-none d-md-block loggedin-user" dropdown>
+      <button id="button-basic" dropdownToggle type="button" class="btn btn-default dropdown-toggle"
+        aria-controls="dropdown-basic">
+        {{userName}}
+        <span class="caret"></span>
+        <fa-icon [icon]="faUserCircle"></fa-icon>
+      </button>
+      <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
+        <li role="menuitem">
+          <a class="dropdown-item" (click)="logOut()" href="javascript:void(0)">Logout</a>
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="!userName && !this.loginPage" class="login-link-container d-none d-md-block col-md-1 ">
+      <a class="login-link" routerLink="admin-panel">
+        Login test
+        <fa-icon [icon]="faUserCircle">
+        </fa-icon>
+      </a>
+    </div>
+    <!-- <div class="col-md-1 userlogins">
       <li class="social-link-item">
         <a aria-label="" routerLink="admin-panel" class="login">
           Login
@@ -74,10 +94,6 @@
         </a>
 
       </li>
-    </div>
+    </div> -->
   </div>
 </header>
-
-
-
-

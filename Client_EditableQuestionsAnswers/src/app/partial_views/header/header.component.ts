@@ -12,6 +12,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   allQuestionTypesText = 'All';
+  userName: string;
+  userDetails: any;
+  loginPage: boolean;
+
   questionTypes:any;
   faFacebook = faFacebookF;
   faTwitter = faTwitter;
@@ -32,7 +36,7 @@ export class HeaderComponent implements OnInit {
   userDetail: string[] = ['Apple', 'Banana', 'Cherry', 'Date', 'Fig'];
   constructor(
     private questionAnswerService:QuestionAnswerService,
-    private route: ActivatedRoute,
+    private route: Router,
   ) { 
   }
 
@@ -40,10 +44,45 @@ export class HeaderComponent implements OnInit {
     this.getQuestionTypes();
     this.getUrlSearchValue();
     this.handleSubscriptions();
+    this.setUserDetails();
+    this.handleUserLoggedInSubscriptions();
   }
   // openPopup(): void {
   //   this.sharedPopupService.openPopup();
   // }
+
+  logOut() {
+    this.questionAnswerService.removeUserDetails();
+    this.removeUserName();
+    this.navigateToLoginPage();
+  }
+
+  removeUserName() {
+    this.userName = '';
+  }
+
+  handleUserLoggedInSubscriptions() {
+    this.questionAnswerService.userLoggedIn.subscribe(data => {
+      this.userName = data['userName'];
+      this.userDetails = data;
+    //  this.getCartItemsByPrivileges();
+    })
+  }
+
+  setUserDetails() {
+    if (!this.userName && this.questionAnswerService.userDetails) {
+      this.userName = this.questionAnswerService.userDetails.userName;
+      this.userDetails = this.questionAnswerService.userDetails;
+    }
+    else {
+      this.userDetails = {
+        visitor: true
+      }
+    }
+  }
+  navigateToLoginPage() {
+    this.route.navigate(['/admin-panel']);
+  }
   getUrlSearchValue() {
     this.questionAnswerService.getUrlSearchVal().subscribe((searchVal:string) => {
       this.searchVal = searchVal;
