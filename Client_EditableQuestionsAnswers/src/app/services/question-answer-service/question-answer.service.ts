@@ -64,6 +64,8 @@ export class QuestionAnswerService {
   isAdmin = false;
   questionAnswerDetailPageEvent = new Subject();
   userPostDetailPageEvent = new Subject(); //userPost
+  private userPostSubject = new BehaviorSubject(null);
+  currentUserPostSubject = this.userPostSubject.asObservable();
 
   platformId: Object;
   relatedQuestionAnswerCount = 4;
@@ -72,6 +74,10 @@ export class QuestionAnswerService {
   currentPage = 1;
   maxSize = 6;
   serverSideObj: IServerSide = {
+    itemsPerPage: this.itemsPerPage,
+    currentPage: this.currentPage
+  };
+  userPostServerSideObj: IServerSide = {
     itemsPerPage: this.itemsPerPage,
     currentPage: this.currentPage
   };
@@ -107,28 +113,28 @@ export class QuestionAnswerService {
 
    /*-------------start for user post List----------*/
 
-  //  getUserPostList() {
-  //   this.loaderService.display(true);
-  //   return this.dataStateService.checkAndGetData(
-  //     QUESTION_ANSWER_LIST,
-  //     this.http.get(this.finalUserPostUrl),
-  //     [],
-  //     this.isTransferStateActive
-  //   ).subscribe(response => {
-  //     this.userPostData = response;
-  //     this.data.next(response);
-  //   });
-  // }
-
-  getUserPostList(): Observable<any[]> {
+   getUserPostList() {
     this.loaderService.display(true);
     return this.dataStateService.checkAndGetData(
       QUESTION_ANSWER_LIST,
       this.http.get(this.finalUserPostUrl),
       [],
       this.isTransferStateActive
-    );
+    ).subscribe(response => {
+      this.userPostData = response;
+      this.data.next(response);
+    });
   }
+
+  // getUserPostList(): Observable<any[]> {
+  //   this.loaderService.display(true);
+  //   return this.dataStateService.checkAndGetData(
+  //     QUESTION_ANSWER_LIST,
+  //     this.http.get(this.finalUserPostUrl),
+  //     [],
+  //     this.isTransferStateActive
+  //   );
+  // }
 
   getUserPostListServerSide(serverSideObj?: IServerSide) {
     if (!serverSideObj) {
@@ -146,7 +152,7 @@ export class QuestionAnswerService {
       this.isTransferStateActive
     ).subscribe(response => {
       this.userPostData = response;
-      this.data.next(response);
+      this.userPostSubject.next(response);
     });
   }
 

@@ -27,6 +27,9 @@ export class HeaderComponent implements OnInit {
   hideQuestionTypeDropdown = false;
   hideSearchInput = false;
   initialPageNumber = 1;
+
+  selectedDetail: string;
+  userDetail: string[] = ['Apple', 'Banana', 'Cherry', 'Date', 'Fig'];
   constructor(
     private questionAnswerService:QuestionAnswerService,
     private route: ActivatedRoute,

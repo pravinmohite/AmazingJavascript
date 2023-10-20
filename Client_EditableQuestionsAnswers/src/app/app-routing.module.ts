@@ -34,7 +34,7 @@ let routes: Routes = [
     loadChildren: () => import('./admin-panel/admin-panel.module').then(m => m.AdminPanelModule)
   },
   {
-    path: "userPost",
+    path: "user-post",
     loadChildren: () => import('./user-post/user-post.module').then(m => m.UserPostModule)
   },
   // {
