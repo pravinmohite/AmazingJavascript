@@ -388,7 +388,7 @@ export class QuestionAnswerService {
           finalStateKey += '-' + serverSideObj[key];
         }
       });
-      finalStateKey + '-' + identifier;
+      finalStateKey += '-' + identifier;
       return makeStateKey(finalStateKey);
     }
   }
