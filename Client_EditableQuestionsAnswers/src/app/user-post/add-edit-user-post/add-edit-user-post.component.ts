@@ -141,7 +141,7 @@ export class AddEditUserPostComponent implements OnInit {
       // Wrap right-aligned content in a <div> with the 'text-left' class
       this.interviewQuestion.answer = this.interviewQuestion.answer.replace(/<p style="text-align: left;">/g, '<div class="text-left">')
         .replace(/<\/p>/g, '</div>');
-  
+      this.setUserIdBeforeSave(this.interviewQuestion);
       if (this.editMode) {
         this.questionAnswerService.updateUserPost(this.interviewQuestion);
       } else {
@@ -153,10 +153,12 @@ export class AddEditUserPostComponent implements OnInit {
       this.closeAddEditPopup();
       console.log('Interview Question after save:', this.interviewQuestion);
     }
-  
-  
-    // angular editor
-    form: FormGroup;
+
+    setUserIdBeforeSave(interviewQuestionObj) {
+      if(this.questionAnswerService.userDetails && this.questionAnswerService.userDetails._id) {
+        interviewQuestionObj.userId = this.questionAnswerService.userDetails._id;
+      }
+    }
   
     updateAnswer() {
       this.interviewQuestion.answer = ''; // Assigning a value to the answer property

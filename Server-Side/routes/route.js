@@ -9,9 +9,7 @@ let loginEndPoint = "/loginDetails";
 let signUpEndPoint = "/signUp";
 let defaultItemsPerPage = 10;
 
-
-/*-----------------crud for USER POST-----------------------------*/
-
+/*---------------For user post server side ----------------------*/
 router.post('/userPostServerSide', (req, res, next) => {
     UserPost.find((err, userPostList) => {
         let result = userPostList.filter((item)=>{
@@ -42,6 +40,42 @@ router.post('/userPostServerSide', (req, res, next) => {
         }
     })
 })
+/*---------------End For user post server side ----------------------*/
+/*---------------For user post by user id server side ----------------------*/
+router.post('/userPostByUserIdServerSide/:userId', (req, res, next) => {
+    UserPost.find((err, userPostList) => {
+        let result = userPostList.filter((item)=>{
+           if(
+               checkUserId(item, req.params.userId) &&
+              // checkExperience(item, req.body.experience) &&
+               checkQuestionType(item, req.body.questionType) &&
+               checkSearchTerm(item, req.body.searchTerm) 
+            ) {
+                return item;
+            }
+        })
+        if (!result || result.length == 0) {
+            let totalItems = result.length;
+            const serverSideObj= {
+                result,
+                totalItems: totalItems
+            }
+            res.json(serverSideObj);
+        }
+        else {
+            let totalItems = result.length;
+            result = checkPageNumberSize(result, req.body);
+            const serverSideObj= {
+                result,
+                totalItems: totalItems
+            }
+            res.json(serverSideObj);
+        }
+    })
+})
+/*----------------end user post by user id server side ----------------------*/
+
+/*-----------------crud for USER POST-----------------------------*/
 
 router.get('/userPost', (req, res, next) => {
     //res.send('retrieving the userPost list');
@@ -371,7 +405,17 @@ router.get('/questionAnswerByExperience/:experience/:type?', (req, res, next) =>
 
 /*----end get question answer by type ----------------*/
 
-/*----start get question answer by experience/rank --------------*/
+/*----start get question answer by experience/rank/ userId --------------*/
+
+checkUserId = (item, userId) => {
+    if(userId == undefined || userId == null) {
+        return true;
+    }
+    if(item.userId == userId) {
+       return true;
+    }
+    return false;
+}
 
 checkExperience =(item, experience)=> {
     if(experience == undefined || experience == null) {

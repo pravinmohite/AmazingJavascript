@@ -23,8 +23,10 @@ export class UserPostComponent implements OnInit {
   totalItems = 0;
   currentPage = 1;
   itemsPerPage;
+  pageNumberParamsValue: string;
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
     private loaderService: LoaderService,
     private questionAnswerService: QuestionAnswerService,
   ) {
@@ -36,14 +38,28 @@ export class UserPostComponent implements OnInit {
     this.fetchUserPosts();
     this.paginationConfig.totalItems = this.userPostItems.length;
     this.handleUserPostSubscription();
+    this.handleRouteParamChangeSubscription();
   }
 
   handleUserPostSubscription() {
     this.questionAnswerService.currentUserPostSubject.subscribe(response => {
       if (response && response['result'])
         this.userPostItems = response['result'];
+        this.totalItems = response.totalItems;
     })
   }
+
+  handleRouteParamChangeSubscription() {
+    this.route.paramMap.subscribe(params => {
+       this.pageNumberParamsValue =params.get('pageNumber');
+       if(this.pageNumberParamsValue) {
+          this.questionAnswerService.userPostServerSideObj.currentPage = this.pageNumberParamsValue? this.pageNumberParamsValue: this.currentPage;
+          this.currentPage = this.questionAnswerService.userPostServerSideObj.currentPage;
+          this.questionAnswerService.getUserPostListServerSide(this.questionAnswerService.userPostServerSideObj); 
+       }
+    });
+  }
+
   toggleShowHideAnswer(item) {
     if (!item.showAnswer) {
       item.showAnswer = true;
