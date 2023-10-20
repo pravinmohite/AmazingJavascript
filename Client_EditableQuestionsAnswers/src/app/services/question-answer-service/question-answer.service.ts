@@ -95,6 +95,8 @@ export class QuestionAnswerService {
   metaDescriptionMaxLength = 155;
   lengthOfDots = 3;
   delayAds = 2000;
+  userDetails: any;
+  userLoggedIn = new Subject();
   constructor(
     private http: HttpClient,
     private loaderService: LoaderService,
@@ -607,6 +609,28 @@ export class QuestionAnswerService {
     }
 
     return trimmedQuestion;
+  }
+
+  setUserDetails(userDetails) {
+    localStorage.setItem('userDetails', JSON.stringify(userDetails));
+    this.userDetails = userDetails;
+    this.userLoggedInEvent(userDetails);
+  }
+
+  getUserDetails() {
+    let retrievedDetails = localStorage.getItem('userDetails');
+    if (retrievedDetails) {
+      this.userDetails = JSON.parse(retrievedDetails);
+    }
+  }
+
+  userLoggedInEvent(userDetails) {
+    this.userLoggedIn.next(userDetails);
+  }
+
+  removeUserDetails() {
+    localStorage.removeItem('userDetails');
+    localStorage.removeItem('loggedIn');
   }
 
 
