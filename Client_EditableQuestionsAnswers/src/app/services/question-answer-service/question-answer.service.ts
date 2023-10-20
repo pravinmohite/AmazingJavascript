@@ -97,6 +97,7 @@ export class QuestionAnswerService {
   delayAds = 2000;
   userDetails: any;
   userLoggedIn = new Subject();
+  userPostIdentifier = 'userPost';
   constructor(
     private http: HttpClient,
     private loaderService: LoaderService,
@@ -142,13 +143,8 @@ export class QuestionAnswerService {
     if (!serverSideObj) {
       serverSideObj = this.serverSideObj;
     }
-    // return this.http.post(this.finalUserPostServerSideUrl, serverSideObj).subscribe(response => {
-    //   this.UserPostData = response['result'];
-    //   this.data.next(response);
-    // })
-
     return this.dataStateService.checkAndGetData(
-      this.makeStateKeyFormatter(serverSideObj),
+      this.makeStateKeyFormatter(serverSideObj, this.userPostIdentifier),
       this.http.post(this.finalUserPostServerSideUrl, serverSideObj),
       [],
       this.isTransferStateActive
@@ -172,6 +168,7 @@ export class QuestionAnswerService {
   addUserPost(data) {
     this.loaderService.display(true);
     this.http.post(this.finalUserPostUrl, data).subscribe(response => {
+      this.loaderService.display(false);
       this.getUserPostListServerSide(this.serverSideObj);
     })
   }
@@ -179,6 +176,7 @@ export class QuestionAnswerService {
   deleteUserPost(id) {
     this.loaderService.display(true);
     this.http.delete(this.finalUserPostUrl + "/" + id).subscribe(response => {
+      this.loaderService.display(false);
       this.getUserPostListServerSide(this.serverSideObj);
     })
   }
@@ -186,6 +184,7 @@ export class QuestionAnswerService {
   updateUserPost(data) {
     this.loaderService.display(true);
     this.http.patch(this.finalUserPostUrl + '/' + data._id, data).subscribe(response => {
+      this.loaderService.display(false);
       this.getUserPostListServerSide(this.serverSideObj);
     })
   }
@@ -379,7 +378,7 @@ export class QuestionAnswerService {
 
   /*------------reusable functions----------------*/
 
-  makeStateKeyFormatter(serverSideObj) {
+  makeStateKeyFormatter(serverSideObj, identifier?) {
     if (serverSideObj) {
       let finalStateKey = '';
       Object.keys(serverSideObj).map(key => {
@@ -389,6 +388,7 @@ export class QuestionAnswerService {
           finalStateKey += '-' + serverSideObj[key];
         }
       });
+      finalStateKey + '-' + identifier;
       return makeStateKey(finalStateKey);
     }
   }

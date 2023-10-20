@@ -2,6 +2,7 @@ import { Component, Inject, PLATFORM_ID, TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { isPlatformBrowser, DOCUMENT } from '@angular/common';
 import { QuestionAnswerService } from './services/question-answer-service/question-answer.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,7 @@ export class AppComponent {
   adsClientId: any;
 
   constructor(
+    private router: Router,
     private modalService: BsModalService,
     private questionAnswerService: QuestionAnswerService,
     @Inject(PLATFORM_ID) platformId: Object,
@@ -31,6 +33,7 @@ export class AppComponent {
   ngOnInit() {
     this.setIsServerValue();
     this.createWebStorageDemo();
+    this.checkAndSetLoggedInDetails();
   }
 
   ngAfterViewInit() {
@@ -40,6 +43,15 @@ export class AppComponent {
   loadAds() {
     this.questionAnswerService.loadAds();
   }
+
+  checkAndSetLoggedInDetails() {
+    if(localStorage.getItem('loggedIn')=="true") {
+       this.questionAnswerService.getUserDetails();
+    }
+    else {
+      this.router.navigateByUrl('/login');
+    }
+   }
 
   setIsServerValue() {
     if (isPlatformBrowser(this.platformId)) {
