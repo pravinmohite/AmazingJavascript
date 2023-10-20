@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { QuestionAnswerService } from '../services/question-answer-service/question-answer.service';
 import { LoaderService } from '../services/loader-service/loader.service';
-import { Observable } from 'rxjs'; // Import Observable
+import { Observable, Subscription } from 'rxjs'; // Import Observable
 import { faTrash, faEdit, faTimes, faExternalLinkSquareAlt } from '@fortawesome/free-solid-svg-icons';
 import { PaginationInstance } from 'ngx-pagination';
 import { HightlightService } from 'src/app/services/highlight-service/hightlight.service';
@@ -24,6 +24,7 @@ export class UserPostComponent implements OnInit {
   currentPage = 1;
   itemsPerPage;
   pageNumberParamsValue: string;
+  routeParamsSubscription: Subscription;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -35,29 +36,31 @@ export class UserPostComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.fetchUserPosts();
-    this.paginationConfig.totalItems = this.userPostItems.length;
     this.handleUserPostSubscription();
     this.handleRouteParamChangeSubscription();
   }
 
   handleUserPostSubscription() {
     this.questionAnswerService.currentUserPostSubject.subscribe(response => {
-      if (response && response['result'])
+      if (response && response['result']) {
         this.userPostItems = response['result'];
         this.totalItems = response.totalItems;
-    })
+      }
+    });
   }
 
   handleRouteParamChangeSubscription() {
-    this.route.paramMap.subscribe(params => {
-       this.pageNumberParamsValue =params.get('pageNumber');
-       if(this.pageNumberParamsValue) {
-          this.questionAnswerService.userPostServerSideObj.currentPage = this.pageNumberParamsValue? this.pageNumberParamsValue: this.currentPage;
+    this.route.params.subscribe(params =>{
+        this.pageNumberParamsValue = params['pageNumber'];
+        if (this.pageNumberParamsValue) {
+          this.questionAnswerService.userPostServerSideObj.currentPage = this.pageNumberParamsValue ? this.pageNumberParamsValue : this.currentPage;
           this.currentPage = this.questionAnswerService.userPostServerSideObj.currentPage;
-          this.questionAnswerService.getUserPostListServerSide(this.questionAnswerService.userPostServerSideObj); 
-       }
-    });
+          this.questionAnswerService.getUserPostListServerSide(this.questionAnswerService.userPostServerSideObj);
+        }
+        else {
+          this.fetchUserPosts();
+        }
+      });
   }
 
   toggleShowHideAnswer(item) {
@@ -72,33 +75,23 @@ export class UserPostComponent implements OnInit {
   }
   fetchUserPosts() {
     this.questionAnswerService.getUserPostListServerSide(this.questionAnswerService.userPostServerSideObj);
-    //  this.loaderService.display(true);
-    // this.questionAnswerService.getUserPostList().subscribe((response: any) => {
-    //   this.userPostItems = response;
-    //   this.loaderService.display(false);
-    // });
   }
-  paginationConfig: PaginationInstance = {
-    id: 'userArticlesPagination',
-    itemsPerPage: 10, // Set the number of items per page
-    currentPage: 1, // Initialize the current page
-    totalItems: 0, // Total number of items (will be updated in the ngOnInit)
-  };
 
   renderPage(event: number) {
     this.currentPage = event;
     this.questionAnswerService.userPostServerSideObj.currentPage = this.currentPage;
     this.router.navigate(["user-post/page", this.currentPage]);
+    this.fetchUserPosts();
   }
 
   editArticle(data) {
     this.editedItem = data;
     this.showPopup = true;
   }
+
   openPopup() {
     this.showPopup = true;
     this.editedItem = {}
-    this.paginationConfig.currentPage = 1;
   }
 
   closePopup(event) {
@@ -112,4 +105,5 @@ export class UserPostComponent implements OnInit {
   addQuestionMarkIfNotPresent(question: string): string {
     return this.questionAnswerService.addQuestionMarkIfNotPresentCondition(question);
   }
+
 }
