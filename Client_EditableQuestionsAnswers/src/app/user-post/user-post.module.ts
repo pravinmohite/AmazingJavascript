@@ -10,12 +10,13 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 import { UserBlogPopupComponent } from '../user-blog-popup/user-blog-popup.component';
 import { UserPostComponent } from './user-post.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { AddEditUserPostComponent } from './add-edit-user-post/add-edit-user-post.component';
 
 
 @NgModule({
   declarations: [
     UserPostComponent, 
-    UserBlogPopupComponent,
+    UserBlogPopupComponent, AddEditUserPostComponent,
   ],
   imports: [
     CommonModule,
