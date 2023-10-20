@@ -616,14 +616,26 @@ export class QuestionAnswerService {
     this.userDetails = userDetails;
     this.userLoggedInEvent(userDetails);
   }
-
+  addUserDetails(data) {
+    let userDetails = this.userDetails;
+    data.userId = userDetails._id;
+    data.userName = userDetails.userName;
+  }
   getUserDetails() {
     let retrievedDetails = localStorage.getItem('userDetails');
     if (retrievedDetails) {
       this.userDetails = JSON.parse(retrievedDetails);
     }
   }
-
+  checkIfLoginPage() {
+    let url = window.location.href;
+    if (url.indexOf('login') > -1) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
   userLoggedInEvent(userDetails) {
     this.userLoggedIn.next(userDetails);
   }
