@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     if (this.platformId && localStorage.getItem('loggedIn') == "true") {
       this.questionAnswerService.setIsAdmin(true);
+      this.questionAnswerService.getUserDetails();
       // this.redirectToUpdateQuestions();
     }
   }
@@ -121,6 +122,7 @@ export class LoginComponent implements OnInit {
                 // Login successful
                 // alert('Login successful!');
                 this.questionAnswerService.setIsAdmin(false);
+                this.setLoggedInUserDetails(matchingUser);
                 localStorage.setItem('loggedIn', 'true');
                 // this.redirectToUpdateQuestions();
               } else {
@@ -142,6 +144,14 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  setLoggedInUserDetails(userDetails) {
+    const formattedUserDetails ={
+      userName: userDetails.username,
+      isAdmin: userDetails.isAdmin,
+      _id: userDetails._id
+    }
+    this.questionAnswerService.setUserDetails(formattedUserDetails);
+  }
 
   // Function to retrieve users
   getUsers() {
