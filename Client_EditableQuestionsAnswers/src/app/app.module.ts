@@ -14,7 +14,7 @@ import { FooterComponent } from './partial_views/footer/footer.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { AngularEditorModule } from '@kolkov/angular-editor';
-
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 @NgModule({
   declarations: [
@@ -33,13 +33,15 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     FormsModule,
     FontAwesomeModule,AngularEditorModule,
     ModalModule.forRoot(),
+    BsDropdownModule.forRoot(),
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
-    })
+    }),
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

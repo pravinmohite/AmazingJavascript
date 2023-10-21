@@ -18,6 +18,7 @@
               <div class="row">
                 <div class="col-xl-10 col-md-9">
                   <header>
+                    {{i+1 + (currentPage-1)*itemsPerPage}}. 
                     <h1 class="question-text" [innerHtml]="addQuestionMarkIfNotPresent(item.question)"></h1>
                   </header>
                 </div>

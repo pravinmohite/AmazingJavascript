@@ -14,7 +14,7 @@
 }
 
 #about-us-and-social-links {
-    padding-left: 10%;
+    padding-left: 4%;
 }
 
 #follow-us-container {
@@ -37,7 +37,18 @@
 #menubars {
     display: none;
 }
-
+.dropdown-menu{
+    cursor: pointer;
+}
+.dropdown-menu a{
+    color: #333;
+}
+.Article{
+cursor: pointer;
+}
+.login-link a, .Article a, .login-link{
+    color: #333;
+}
 @media screen and (max-width: 768px) {
 
     #about-us-and-social-links {

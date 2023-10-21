@@ -37,6 +37,10 @@ let routes: Routes = [
     path: "user-post",
     loadChildren: () => import('./user-post/user-post.module').then(m => m.UserPostModule)
   },
+  {
+    path: "my-post",
+    loadChildren: () => import('./my-post/my-post.module').then(m => m.MyPostModule)
+  },
   // {
   //   path: "interview-questions/searchKey/:searchKey", 
   //   loadChildren: () => import('./interview-questions/interview-questions.module').then(m => m.InterviewQuestionsModule)
