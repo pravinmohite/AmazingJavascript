@@ -18,16 +18,22 @@
               <div class="row">
                 <div class="col-xl-10 col-md-9">
                   <header>
-                    {{i+1 + (currentPage-1)*itemsPerPage}}. 
+                    {{i+1 + (currentPage-1)*itemsPerPage}}.
                     <h1 class="question-text" [innerHtml]="addQuestionMarkIfNotPresent(item.question)"></h1>
                   </header>
                 </div>
                 <!-- Edit button -->
                 <div class="col-xl-2 col-md-3 action-btns text-right">
-                  <div class="col-md-7">
+                  <div class="col-md-7 faIcon">
+                  <div class="col-md-6">
                     <fa-icon class="hand-cursor edit-icon" [icon]="faEdit" (click)="editArticle(item)"></fa-icon>
-                  </div>
 
+                  </div>
+                  <div class="col-md-6">
+                    <fa-icon class="hand-cursor trash-icon" [icon]="faTrash"
+                      (click)="deleteUserPost(item._id)"></fa-icon>
+                  </div>
+                </div>
                   <button class="col-md-5 showHideAnswer hand-cursor btn-show-hide"
                     (click)="toggleShowHideAnswer(item)">{{item.buttonText?item.buttonText:"Show"}}</button>
                 </div>
@@ -46,5 +52,5 @@
   </div>
 </div>
 <div class=" offset-md-1 col-md-8 col-12 pagination-container d-flex justify-content-center">
-    <pagination-controls (pageChange)="renderPage($event)" [maxSize]="maxSize"></pagination-controls>
+  <pagination-controls (pageChange)="renderPage($event)" [maxSize]="maxSize"></pagination-controls>
 </div>

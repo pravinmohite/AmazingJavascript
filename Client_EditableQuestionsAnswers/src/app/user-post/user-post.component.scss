@@ -1,7 +1,7 @@
 // @import './../../assets/scss/variables.scss';
 // @import './../../assets/scss/variables.scss'
 
-.add-questions-btn{
+.add-questions-btn {
     margin-bottom: 15px;
     background-color: #fff;
     color: #000;
@@ -10,6 +10,7 @@
     margin-right: 10px;
     width: 25%;
 }
+
 .btn {
     display: inline-block;
     font-weight: 400;
@@ -25,16 +26,19 @@
     font-size: 1rem;
     line-height: 1.5;
     border-radius: 0.25rem;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
-.AddArticle{
+
+.AddArticle {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.pagination-container{
-// background-color: #377d6e!important;
+
+.pagination-container {
+    // background-color: #377d6e!important;
 }
+
 .showHideAnswer {
     border: solid 1px gainsboro;
     color: gray;
@@ -45,15 +49,25 @@
     outline: 1px gainsboro;
     height: 28px;
 }
-.question-text{
+
+.question-text {
     font-size: 1em !important;
     display: inline;
 }
-.action-btns{
-display: flex;
-flex-direction: row;
+
+.action-btns {
+    display: flex;
+    flex-direction: row;
 }
-.edit-icon{
-padding: 0px 49px 0px 0px !important;
-// color: black !important;
+
+.faIcon {
+    display: flex;
+    flex-direction: row;
+    padding: 0px 49px 0px 0px !important;
+}
+
+.trash-icon {
+    color: #ce4545 !important;
+    // padding: 0px 49px 0px 0px !important;
+    // color: black !important;
 }

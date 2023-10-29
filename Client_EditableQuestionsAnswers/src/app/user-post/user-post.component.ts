@@ -19,6 +19,7 @@ export class UserPostComponent implements OnInit {
   lastFilledPopup: any;
   editMode: boolean = false;
   faEdit = faEdit;
+  faTrash = faTrash;
   maxSize: number;
   totalItems = 0;
   currentPage = 1;
@@ -88,7 +89,12 @@ export class UserPostComponent implements OnInit {
     this.editedItem = data;
     this.showPopup = true;
   }
-
+  deleteUserPost(id) {
+    let result=this.questionAnswerService.confirmAction();
+    if(result) {
+     this.questionAnswerService.deleteUserPost(id);
+    }
+  }
   openPopup() {
     this.showPopup = true;
     this.editedItem = {}
