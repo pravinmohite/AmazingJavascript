@@ -43,6 +43,7 @@ export class AddEditUserPostComponent implements OnInit {
       this.editMode = false;
     }
     this.getQuestionTypes();
+    this.highlightService.highlightAll();
   }
   getQuestionTypes() {
     this.loaderService.display(true);
