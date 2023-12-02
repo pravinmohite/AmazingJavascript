@@ -1,8 +1,8 @@
-import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { QuestionAnswerService } from '../services/question-answer-service/question-answer.service';
 import { LoaderService } from '../services/loader-service/loader.service';
 import { Observable, Subscription } from 'rxjs'; // Import Observable
-import { faTrash, faEdit, faTimes, faExternalLinkSquareAlt } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faEdit, faClock, faTimes, faExternalLinkSquareAlt } from '@fortawesome/free-solid-svg-icons';
 import { PaginationInstance } from 'ngx-pagination';
 import { HightlightService } from 'src/app/services/highlight-service/hightlight.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -13,6 +13,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./user-post.component.scss']
 })
 export class UserPostComponent implements OnInit {
+  @Input() isMyPost = false;
+  headingTitle = 'Top Front End Articles';
   showPopup: boolean = false;
   userPostItems: any[] = [];
   editedItem: any;
@@ -20,12 +22,15 @@ export class UserPostComponent implements OnInit {
   editMode: boolean = false;
   faEdit = faEdit;
   faTrash = faTrash;
+  faClock = faClock;
   maxSize: number;
   totalItems = 0;
   currentPage = 1;
   itemsPerPage;
   pageNumberParamsValue: string;
   routeParamsSubscription: Subscription;
+  userDetails: any;
+  confirmApproveText = "Are you sure you want to approve ?";
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -34,11 +39,13 @@ export class UserPostComponent implements OnInit {
   ) {
     this.itemsPerPage = this.questionAnswerService.itemsPerPage;
     this.maxSize = this.questionAnswerService.maxSize;
+    this.userDetails = this.questionAnswerService.userDetails;
   }
 
   ngOnInit(): void {
     this.handleUserPostSubscription();
     this.handleRouteParamChangeSubscription();
+    // this.handleRouteUrlChangeSubscription();
   }
 
   handleUserPostSubscription() {
@@ -51,7 +58,47 @@ export class UserPostComponent implements OnInit {
   }
 
   handleRouteParamChangeSubscription() {
+    const isLoggedInUserPost = this.route.snapshot?.params?.userName;
+    if(isLoggedInUserPost) {
+      this.getMyPostsData();
+    }
+    else {
+      this.getUserPosts();
+    }
+  }
+
+  getMyPostsData() {
     this.route.params.subscribe(params =>{
+      this.pageNumberParamsValue = params['pageNumber'];
+      if (this.pageNumberParamsValue) {
+        this.questionAnswerService.userPostServerSideObj.currentPage = this.pageNumberParamsValue ? this.pageNumberParamsValue : this.currentPage;
+        this.currentPage = this.questionAnswerService.userPostServerSideObj.currentPage;
+        this.questionAnswerService.getUserPostListByUserIdServerSide(this.questionAnswerService.userPostServerSideObj, this.userDetails._id);
+      }
+      else {
+        this.questionAnswerService.resetUserPostByUserIdServerSideObj();
+        this.fetchLoggedInUserPosts();
+      }
+    });
+  }
+
+  getUserPosts() {
+    this.route.params.subscribe(params =>{
+      this.pageNumberParamsValue = params['pageNumber'];
+      if (this.pageNumberParamsValue) {
+        this.questionAnswerService.userPostServerSideObj.currentPage = this.pageNumberParamsValue ? this.pageNumberParamsValue : this.currentPage;
+        this.currentPage = this.questionAnswerService.userPostServerSideObj.currentPage;
+        this.questionAnswerService.getUserPostListServerSide(this.questionAnswerService.userPostServerSideObj);
+      }
+      else {
+        this.questionAnswerService.resetUserPostServerSideObj();
+        this.fetchUserPosts();
+      }
+    });
+  }
+
+  handleRouteUrlChangeSubscription() {
+    this.route.url.subscribe(params =>{
         this.pageNumberParamsValue = params['pageNumber'];
         if (this.pageNumberParamsValue) {
           this.questionAnswerService.userPostServerSideObj.currentPage = this.pageNumberParamsValue ? this.pageNumberParamsValue : this.currentPage;
@@ -78,11 +125,27 @@ export class UserPostComponent implements OnInit {
     this.questionAnswerService.getUserPostListServerSide(this.questionAnswerService.userPostServerSideObj);
   }
 
+  fetchLoggedInUserPosts() {
+    this.questionAnswerService.getUserPostListByUserIdServerSide(this.questionAnswerService.userPostByUserIdServerSideObj, this.userDetails._id);
+  }
+
   renderPage(event: number) {
     this.currentPage = event;
-    this.questionAnswerService.userPostServerSideObj.currentPage = this.currentPage;
-    this.router.navigate(["user-post/page", this.currentPage]);
-    this.fetchUserPosts();
+    this.checkAndSetPaginationByUserIfPresent();
+  }
+
+  checkAndSetPaginationByUserIfPresent() {
+    let url = window.location.href;
+    if(url.indexOf(this.userDetails.userName) > -1) {
+      this.questionAnswerService.userPostByUserIdServerSideObj.currentPage = this.currentPage;
+      this.router.navigate(["user-posts/" + this.userDetails.userName + "/page", this.currentPage]);
+      this.fetchLoggedInUserPosts();
+    }
+    else {
+      this.questionAnswerService.userPostServerSideObj.currentPage = this.currentPage;
+      this.router.navigate(["user-posts/page", this.currentPage]);
+      this.fetchUserPosts();
+    }
   }
 
   editArticle(data) {
@@ -112,4 +175,11 @@ export class UserPostComponent implements OnInit {
     return this.questionAnswerService.addQuestionMarkIfNotPresentCondition(question);
   }
 
+  approveArticle(article) {
+    let result = this.questionAnswerService.confirmApproveAction();
+    if (result) {
+      article.isApproved = true;
+      this.questionAnswerService.updateUserPost(article);
+    }
+  }
 }

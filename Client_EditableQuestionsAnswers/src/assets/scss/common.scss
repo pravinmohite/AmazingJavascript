@@ -43,6 +43,10 @@
     }
 }
 
+.text-center {
+   text-align: center;
+}
+
 ::ng-deep {
     .question-link {
         color: $question-link-color;

@@ -34,12 +34,12 @@ let routes: Routes = [
     loadChildren: () => import('./admin-panel/admin-panel.module').then(m => m.AdminPanelModule)
   },
   {
-    path: "user-post",
+    path: "user-posts",
     loadChildren: () => import('./user-post/user-post.module').then(m => m.UserPostModule)
   },
   {
-    path: "my-post",
-    loadChildren: () => import('./my-post/my-post.module').then(m => m.MyPostModule)
+    path: "my-posts",
+    loadChildren: () => import('./user-post/user-post.module').then(m => m.UserPostModule)
   },
   // {
   //   path: "interview-questions/searchKey/:searchKey", 

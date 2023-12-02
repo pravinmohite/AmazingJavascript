@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserPostComponent } from './../user-post.component';
 
 @Component({
   selector: 'app-my-post',

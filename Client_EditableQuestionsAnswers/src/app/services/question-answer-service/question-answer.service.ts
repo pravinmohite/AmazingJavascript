@@ -28,6 +28,7 @@ export class QuestionAnswerService {
   userPostUrl: String = "/api/userPost"; //userPost
   questionAnswerServerSideUrl: String = "/api/questionAnswerServerSide";
   userPostServerSideUrl: String = "/api/userPostServerSide";//userPost
+  userPostByUserIdServerSideUrl: String = "/api/userPostByUserIdServerSide";//userPost
 
   questionAnswerByTypeUrl = "/api/questionAnswerByType"
   questionAnswerByExperienceAndTypeUrl = "/api/questionAnswerByExperience";
@@ -44,6 +45,7 @@ export class QuestionAnswerService {
   finalUserPostUrl: any = this.devDomain + this.userPostUrl;  //userPost
   finalQuestionAnswerServerSideUrl = this.devDomain + this.questionAnswerServerSideUrl;
   finalUserPostServerSideUrl = this.devDomain + this.userPostServerSideUrl;//userPost
+  finalUserPostByUserIdServerSideUrl = this.devDomain + this.userPostByUserIdServerSideUrl //userpostbyuserid
 
   finalQuestionAnswerByTypeUrl = this.devDomain + this.questionAnswerByTypeUrl;
   finalQuestionAnswerByExperienceAndTypeUrl = this.devDomain + this.questionAnswerByExperienceAndTypeUrl;
@@ -58,7 +60,8 @@ export class QuestionAnswerService {
   userPostData: any; //user post
   private data = new BehaviorSubject(null);
   currentData = this.data.asObservable();
-  confirmationText = "Are you sure you want to delete";
+  confirmationText = "Are you sure you want to delete ?";
+  confirmApproveText = "Are you sure you want to approve ?";
   $urlSearchVal = new Subject();
   isTransferStateActive = true;
   isAdmin = false;
@@ -81,6 +84,10 @@ export class QuestionAnswerService {
     itemsPerPage: this.itemsPerPage,
     currentPage: this.currentPage
   };
+  userPostByUserIdServerSideObj: IServerSide = {
+    itemsPerPage: this.itemsPerPage,
+    currentPage: this.currentPage
+  };
   defaultTitle = 'Frontend Interview Questions';
   defaultArticleImg = UIConstants.topFrontendInterviewQuestions.imgPath;
   openNewTabText = 'open this answer seperately in new tab';
@@ -98,6 +105,7 @@ export class QuestionAnswerService {
   userDetails: any;
   userLoggedIn = new Subject();
   userPostIdentifier = 'userPost';
+  userPostByUserIdIdentifier = 'userPostByUserId';
   constructor(
     private http: HttpClient,
     private loaderService: LoaderService,
@@ -143,9 +151,10 @@ export class QuestionAnswerService {
     if (!serverSideObj) {
       serverSideObj = this.serverSideObj;
     }
+    let updatedUrl = this.checkAndSetUrlIfUserIsAdmin();
     return this.dataStateService.checkAndGetData(
       this.makeStateKeyFormatter(serverSideObj, this.userPostIdentifier),
-      this.http.post(this.finalUserPostServerSideUrl, serverSideObj),
+      this.http.post(updatedUrl, serverSideObj),
       [],
       this.isTransferStateActive
     ).subscribe(response => {
@@ -154,8 +163,43 @@ export class QuestionAnswerService {
     });
   }
 
-  resetServerSideUserPostObj() {
-    this.serverSideObj = {
+  checkAndSetUrlIfUserIsAdmin() {
+    let updatedUrl = '';
+    if(this.userDetails.isAdmin) {
+      updatedUrl = this.finalUserPostServerSideUrl + "/"+ this.userDetails.isAdmin;
+      return updatedUrl;
+    }
+    return this.finalUserPostServerSideUrl;
+  }
+
+  getUserPostListByUserIdServerSide(serverSideObj?: IServerSide, userId?: string) {
+    if (!serverSideObj) {
+      serverSideObj = this.serverSideObj;
+    }
+    return this.dataStateService.checkAndGetData(
+      this.makeStateKeyFormatter(serverSideObj, this.userPostByUserIdIdentifier),
+      this.http.post(this.finalUserPostByUserIdServerSideUrl +'/' + userId, serverSideObj),
+      [],
+      this.isTransferStateActive
+    ).subscribe(response => {
+      this.userPostData = response;
+      this.userPostSubject.next(response);
+    });
+  }
+
+  resetUserPostServerSideObj() {
+    this.userPostServerSideObj = {
+      itemsPerPage: this.itemsPerPage,
+      currentPage: this.currentPage
+    };
+    this.userPostDetailPageEvent.next({
+      resetDropdown: true,
+      resetSearch: true
+    })
+  }
+
+  resetUserPostByUserIdServerSideObj() {
+    this.userPostByUserIdServerSideObj = {
       itemsPerPage: this.itemsPerPage,
       currentPage: this.currentPage
     };
@@ -198,6 +242,10 @@ export class QuestionAnswerService {
   /*---------------for login details-------------*/
   getloginDetails() {
     return this.http.get(this.finalloginDetailsUrl);
+  }
+
+  validateLoginDetails(data) {
+    return this.http.post(this.finalloginDetailsUrl, data);
   }
 
   addloginDetails(data) {
@@ -439,6 +487,11 @@ export class QuestionAnswerService {
     return result;
   }
 
+  confirmApproveAction() {
+    let result = confirm(this.confirmApproveText);
+    return result;
+  }
+
   setIsAdmin(isAdmin) {
     this.isAdmin = isAdmin;
   }
@@ -644,6 +697,5 @@ export class QuestionAnswerService {
     localStorage.removeItem('userDetails');
     localStorage.removeItem('loggedIn');
   }
-
 
 }

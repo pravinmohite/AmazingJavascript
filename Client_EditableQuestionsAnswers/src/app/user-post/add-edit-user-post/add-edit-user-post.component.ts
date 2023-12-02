@@ -24,6 +24,7 @@ export class AddEditUserPostComponent implements OnInit {
   editMode: Boolean = true;
   @Output() popupEvent = new EventEmitter();
   tempDiv = 'div';
+  isApprovedFlagDefault = false;
 
   tempSattu: any;
   constructor(
@@ -143,22 +144,32 @@ export class AddEditUserPostComponent implements OnInit {
     // Wrap right-aligned content in a <div> with the 'text-left' class
     this.interviewQuestion.answer = this.interviewQuestion.answer.replace(/<p style="text-align: left;">/g, '<div class="text-left">')
       .replace(/<\/p>/g, '</div>');
-    this.setUserIdBeforeSave(this.interviewQuestion);
+    this.setDetailsBeforeSave(this.interviewQuestion);
     if (this.editMode) {
       this.questionAnswerService.updateUserPost(this.interviewQuestion);
     } else {
       this.questionAnswerService.addUserPost(this.interviewQuestion);
     }
 
-
-
     this.closeAddEditPopup();
     console.log('Interview Question after save:', this.interviewQuestion);
   }
 
-  setUserIdBeforeSave(interviewQuestionObj) {
+  setDetailsBeforeSave(data) {
+    this.setUserIdAndIsAdminBeforeSave(data);
+    this.setIsApprovedFlag(data);
+  }
+
+  setIsApprovedFlag(data) {
+    if(!data.isApproved) {
+      data.isApproved = this.isApprovedFlagDefault;
+    }
+  }
+
+  setUserIdAndIsAdminBeforeSave(interviewQuestionObj) {
     if (this.questionAnswerService.userDetails && this.questionAnswerService.userDetails._id) {
       interviewQuestionObj.userId = this.questionAnswerService.userDetails._id;
+      interviewQuestionObj.isAdmin = this.questionAnswerService.userDetails.isAdmin;
     }
   }
 

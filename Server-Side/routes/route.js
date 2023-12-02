@@ -10,13 +10,14 @@ let signUpEndPoint = "/signUp";
 let defaultItemsPerPage = 10;
 
 /*---------------For user post server side ----------------------*/
-router.post('/userPostServerSide', (req, res, next) => {
+router.post('/userPostServerSide/:isAdmin?', (req, res, next) => {
     UserPost.find((err, userPostList) => {
         let result = userPostList.filter((item)=>{
            if(
               // checkExperience(item, req.body.experience) &&
                checkQuestionType(item, req.body.questionType) &&
-               checkSearchTerm(item, req.body.searchTerm) 
+               checkSearchTerm(item, req.body.searchTerm) &&
+               checkIfPostApprovedOrAdmin(item, req)
             ) {
                 return item;
             }
@@ -90,7 +91,9 @@ router.post('/userPost', (req, res, next) => {
         question: req.body.question,
         answer: req.body.answer,
         questionType: req.body.questionType,
-        userId: req.body.userId
+        userId: req.body.userId,
+        isApproved: req.body.isApproved,
+        isAdmin: req.body.isAdmin
     })
     newUserPost.save((err, userPost) => {
         if (err) {
@@ -120,6 +123,8 @@ router.patch('/userPost/:id', (req, res, next) => {
             question: req.body.question,
             answer: req.body.answer,
             questionType: req.body.questionType,
+            isApproved: req.body.isApproved,
+            isAdmin: req.body.isAdmin
         }
     }, (err, result) => {
         if (err) {
@@ -433,6 +438,13 @@ checkQuestionType =(item, questionType)=> {
         return true;
     }
     if(item.questionType.toLowerCase() === questionType.toLocaleLowerCase()) {
+        return true;
+    }
+    return false;
+}
+
+checkIfPostApprovedOrAdmin = (item, req) => {
+    if(item.isApproved || req.params?.isAdmin) {
         return true;
     }
     return false;

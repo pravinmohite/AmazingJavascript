@@ -11,12 +11,14 @@ import { UserBlogPopupComponent } from '../user-blog-popup/user-blog-popup.compo
 import { UserPostComponent } from './user-post.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AddEditUserPostComponent } from './add-edit-user-post/add-edit-user-post.component';
+import { MyPostComponent } from '../my-post/my-post.component';
 
 
 @NgModule({
   declarations: [
     UserPostComponent, 
     UserBlogPopupComponent, AddEditUserPostComponent,
+    MyPostComponent
   ],
   imports: [
     CommonModule,

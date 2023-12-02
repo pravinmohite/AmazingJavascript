@@ -34,6 +34,8 @@ export class HeaderComponent implements OnInit {
 
   selectedDetail: string;
   userDetail: string[] = ['Apple', 'Banana', 'Cherry', 'Date', 'Fig'];
+  interviewQuestionsPageUrl = 'interview-questions';
+  userPostsPageUrl = 'user-posts';
   constructor(
     private questionAnswerService:QuestionAnswerService,
     private route: Router,
@@ -80,6 +82,7 @@ export class HeaderComponent implements OnInit {
       }
     }
   }
+
   navigateToLoginPage() {
     this.route.navigate(['/admin-panel']);
   }
@@ -127,34 +130,98 @@ export class HeaderComponent implements OnInit {
   openSiderBar(): void{
     this.sidebarStatus.emit('open');
   }
-  getQuestionTypes(){
-    this.questionAnswerService.getQuestionTypes().subscribe(response=>{
-      this.questionTypes=response;
+
+  getQuestionTypes() {
+    this.questionAnswerService.getQuestionTypes().subscribe(response => {
+      this.questionTypes = response;
     });
   }
-  onOptionsSelected(value) {
-    if(value.toLowerCase() == this.allQuestionTypesText.toLocaleLowerCase()) {
-       value = null;
+
+  onOptionsSelectedInQuestionAnswerPage(value) {
+    if (value.toLowerCase() == this.allQuestionTypesText.toLocaleLowerCase()) {
+      value = null;
     }
-    this.setCurrentPageToInitialPage();
+    this.setCurrentPageToInitialPage(this.questionAnswerService.serverSideObj);
     this.questionAnswerService.serverSideObj.questionType = value;
     this.questionAnswerService.getQuestionAnswerListServerSide(this.questionAnswerService.serverSideObj);
   }
-  searchByQuestionAnswer(value) {
-     this.setCurrentPageToInitialPage();
-     this.questionAnswerService.serverSideObj.searchTerm = value;
-     this.questionAnswerService.getQuestionAnswerListServerSide(this.questionAnswerService.serverSideObj);
+
+  onOptionsSelectedInUserPostsPage(value) {
+    if (value.toLowerCase() == this.allQuestionTypesText.toLocaleLowerCase()) {
+      value = null;
+    }
+    this.setCurrentPageToInitialPage(this.questionAnswerService.userPostServerSideObj);
+    this.questionAnswerService.userPostServerSideObj.questionType = value;
+    this.questionAnswerService.getUserPostListServerSide(this.questionAnswerService.userPostServerSideObj);
   }
 
-  setCurrentPageToInitialPage() {
-    this.questionAnswerService.serverSideObj.currentPage = this.initialPageNumber;
+  onOptionsSelectedInLoggedInUserPostsPage(value) {
+    if (value.toLowerCase() == this.allQuestionTypesText.toLocaleLowerCase()) {
+      value = null;
+    }
+    this.setCurrentPageToInitialPage(this.questionAnswerService.userPostByUserIdServerSideObj);
+    this.questionAnswerService.userPostByUserIdServerSideObj.questionType = value;
+    this.questionAnswerService.getUserPostListByUserIdServerSide(this.questionAnswerService.userPostByUserIdServerSideObj, this.userDetails._id);
   }
-  checkEnterKeyPressed(value,event) {
-    if(event.key=="Enter") {
+
+  onOptionSelectedByCurrentPage(value) {
+    let url = window.location.href;
+    if(url.indexOf(this.interviewQuestionsPageUrl) > -1) {
+       this.onOptionsSelectedInQuestionAnswerPage(value);
+    }
+    else if(url.indexOf(this.userDetails.userName) > -1) {
+      this.onOptionsSelectedInLoggedInUserPostsPage(value);
+    }
+    else if(url.indexOf(this.userPostsPageUrl) > -1) {
+      this.onOptionsSelectedInUserPostsPage(value);
+    }
+  }
+  
+  searchByQuestionAnswer(value) {
+    this.setCurrentPageToInitialPage(this.questionAnswerService.serverSideObj);
+    this.questionAnswerService.serverSideObj.searchTerm = value;
+    this.questionAnswerService.getQuestionAnswerListServerSide(this.questionAnswerService.serverSideObj);
+  }
+
+  searchByUserPost(value) {
+    this.setCurrentPageToInitialPage(this.questionAnswerService.userPostServerSideObj);
+    this.questionAnswerService.userPostServerSideObj.searchTerm = value;
+    this.questionAnswerService.getUserPostListServerSide(this.questionAnswerService.userPostServerSideObj);
+  }
+
+  searchByLoggedInUserPost(value) {
+    this.setCurrentPageToInitialPage(this.questionAnswerService.userPostByUserIdServerSideObj);
+    this.questionAnswerService.userPostByUserIdServerSideObj.searchTerm = value;
+    this.questionAnswerService.getUserPostListByUserIdServerSide(this.questionAnswerService.userPostByUserIdServerSideObj, this.userDetails._id);
+  }
+
+  searchByCurrentPage(value) {
+    let url = window.location.href;
+    if (url.indexOf(this.interviewQuestionsPageUrl) > -1) {
+      this.searchByQuestionAnswer(value);
+    }
+    else if (url.indexOf(this.userDetails.userName) > -1) {
+      this.searchByLoggedInUserPost(value);
+    }
+    else if (url.indexOf(this.userPostsPageUrl) > -1) {
+      this.searchByUserPost(value);
+    }
+  }
+
+  setCurrentPageToInitialPage(obj) {
+    obj.currentPage = this.initialPageNumber;
+  }
+
+  checkEnterKeyPressed(value, event) {
+    if (event.key == "Enter") {
       this.searchByQuestionAnswer(value)
     }
   }
-  openAboutusModal(): void{
+  openAboutusModal(): void {
     this.openAboutUs.emit()
+  }
+
+  checkIfLoginPage() {
+    this.loginPage = this.questionAnswerService.checkIfLoginPage();
   }
 }

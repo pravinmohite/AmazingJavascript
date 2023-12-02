@@ -16,7 +16,15 @@ const UserPostSchema=mongoose.Schema({
     userId:{
         type: String,
         required: false
-    }
+    },
+    isAdmin: {
+        type:Boolean,
+        required: false
+    },
+    isApproved: {
+        type: Boolean,
+        required: false
+    },
 })
 
 const UserPost=module.exports=mongoose.model('UserPost',UserPostSchema)

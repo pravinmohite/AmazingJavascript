@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { MyPostComponent } from './my-post/my-post.component';
 import { UserPostComponent } from './user-post.component';
 
 const routes: Routes = [
@@ -9,6 +10,14 @@ const routes: Routes = [
     },
     {
       path: 'page/:pageNumber/:searchTerm/:questionType',
+      component: UserPostComponent,
+    },
+    {
+      path: ':userName',
+      component: UserPostComponent,
+    },
+    {
+      path: ':userName/page/:pageNumber',
       component: UserPostComponent,
     },
     {

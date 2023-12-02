@@ -1,18 +1,22 @@
-<div class="offset-md-1 col-md-8 col-12 AddArticle">
-  <button class="btn add-questions-btn hand-cursor" (click)="openPopup()">+ Add Article</button>
-  <app-add-edit-user-post [editedItem]="editedItem" (popupEvent)="closePopup($event)"
-    *ngIf="showPopup"></app-add-edit-user-post>
-</div>
-<div class="row">
-  <div class="col-12">
+<!-- <app-my-post></app-my-post> -->
+<div class="row main-questions-container">
+  <div class="col-12 panel-container ">
+    <div class="offset-md-1 col-md-8 col-12 add-articlebtn-container">
+      <b>
+        <h1 class="page-heading text-center">{{headingTitle}}</h1>
+      </b>
+      <button class="btn add-questions-btn hand-cursor" (click)="openPopup()">+ Add Article</button>
+      <app-add-edit-user-post [editedItem]="editedItem" (popupEvent)="closePopup($event)"
+        *ngIf="showPopup"></app-add-edit-user-post>
+    </div>
     <div *ngFor="let item of userPostItems | paginate : {
         itemsPerPage: itemsPerPage,
         currentPage: currentPage,
         totalItems: totalItems
       };let i=index">
-      <div class="offset-md-1 col-md-8 col-12 main-questions-container">
+      <div class="offset-md-1 col-md-8 col-12">
         <!-- Display each saved item here using item.question and item.answer -->
-        <div class="panel-container question-answer-detailcontainer">
+        <div class="question-answer-detailcontainer">
           <div class="panel-item">
             <div class="panel-header" role="img" aria-label="frontend interview questions">
               <div class="row">
@@ -27,15 +31,25 @@
                   <div class="col-md-7 faIcon">
                   <div class="col-md-6">
                     <fa-icon class="hand-cursor edit-icon" [icon]="faEdit" (click)="editArticle(item)"></fa-icon>
-
                   </div>
                   <div class="col-md-6">
                     <fa-icon class="hand-cursor trash-icon" [icon]="faTrash"
                       (click)="deleteUserPost(item._id)"></fa-icon>
                   </div>
                 </div>
-                  <button class="col-md-5 showHideAnswer hand-cursor btn-show-hide"
+                  <button class="showHideAnswer hand-cursor btn-show-hide"
                     (click)="toggleShowHideAnswer(item)">{{item.buttonText?item.buttonText:"Show"}}</button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <button class="hand-cursor btn btn-primary" *ngIf="userDetails.isAdmin && !item.isApproved"
+                  (click)="approveArticle(item)">Approve</button>
+                  </div>
+                  <div class="order-progress" *ngIf="!userDetails.isAdmin && !item.isApproved">
+                    <fa-icon class="hand-cursor fa-icon clock-icon" [icon]="faClock">
+                    </fa-icon>
+                    Pending confirmation
                 </div>
               </div>
             </div>

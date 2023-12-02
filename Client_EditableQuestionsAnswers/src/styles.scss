@@ -213,17 +213,6 @@ body {
       }
     }
 
-
-    .add-questions-btn {
-      margin-bottom: 15px;
-      background-color: white;
-      color: black;
-      margin-right: 10px;
-      border: solid 1px gainsboro;
-      box-shadow: 2px 2px 2px gainsboro;
-      margin-right: 10px;
-    }
-
     .panel-item {
       border: solid 1px gainsboro;
       margin-bottom: 10px;
@@ -325,6 +314,17 @@ body {
         display: inline;
       }
     }
+  }
+
+  .add-questions-btn {
+    margin-bottom: 15px;
+    background-color: white !important;
+    color: black !important;
+    margin-right: 10px;
+    border: solid 1px gainsboro !important;
+    box-shadow: 2px 2px 2px gainsboro;
+    margin-right: 10px;
+    cursor: pointer;
   }
 
   .login-panel-container {

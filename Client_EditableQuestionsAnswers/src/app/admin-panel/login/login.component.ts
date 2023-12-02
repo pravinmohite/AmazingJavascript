@@ -46,87 +46,88 @@ export class LoginComponent implements OnInit {
     this.userForm.get('confirmPassword').setValue('');
   }
 
-  submitForm() {
-    if (this.showRegistrationFields) {
-      // Registration logic
-      if (this.userForm.get('confirmPassword').hasError('passwordMismatch')) {
-        // Check for password mismatch error
-        alert('Password and Confirm Password should match!');
-        return; // Stop processing and exit the function
-      }
+  checkPasswordAndConfirmPasswordMatch() {
+    if (this.userForm.get('confirmPassword').hasError('passwordMismatch')) {
+      // Check for password mismatch error
+      alert('Password and Confirm Password should match!');
+      return; // Stop processing and exit the function
+    }
+  }
 
-      // Check if blur event conditions are satisfied for username and password
-      if (
-        this.userForm.get('username').hasError('minlength') ||
-        this.userForm.get('username').hasError('required') ||
-        this.userForm.get('password').hasError('required') ||
-        this.userForm.get('username').value.length < 3 ||
-        this.userForm.get('password').value.length < 3
-      ) {
-        alert('Minimum 3 alphabets or numbers required!');
-        return; // Stop processing and exit the function
-      }
+  checkUsernameAndPasswordLength() {
+        // Check if blur event conditions are satisfied for username and password
+        if (
+          this.userForm.get('username').hasError('minlength') ||
+          this.userForm.get('username').hasError('required') ||
+          this.userForm.get('password').hasError('required') ||
+          this.userForm.get('username').value.length < 3 ||
+          this.userForm.get('password').value.length < 3
+        ) {
+          alert('Minimum 3 alphabets or numbers required!');
+          return; 
+        }
+  }
 
-      if (this.userForm.valid) {
-        // If the form is valid, proceed with registration
-        const username = this.userForm.get('username').value;
-        const password = this.userForm.get('password').value;
+  validateSignUpDetails() {
+    this.checkPasswordAndConfirmPasswordMatch();
+    this.checkUsernameAndPasswordLength();
+  }
 
-        // Call the signUp API to register the user
-        this.questionAnswerService.signUp({ username, password, isAdmin: false }).subscribe(
-          (response: any) => {
-            if (response) {
-              // Registration successful
-              alert('Registration successful!');
-              this.isUserRegistered = true;
-              this.userForm.reset(); // Reset the form
-            } else {
-              alert('Registration failed: ' + response.message);
+  handleSignUp() {
+         // Registration logic
+        this.validateSignUpDetails();
+        if (this.userForm.valid) {
+          // If the form is valid, proceed with registration
+          this.login.username = this.userForm.get('username').value;
+          this.login.password =  this.userForm.get('password').value;
+  
+          // Call the signUp API to register the user
+          this.questionAnswerService.signUp(this.login).subscribe(
+            (response: any) => {
+              if (response) {
+                this.isUserRegistered = true;
+               // this.userForm.reset(); // Reset the form
+                this.handleLogin();
+              } else {
+                alert('Registration failed: ' + response.message);
+              }
+            },
+            (error) => {
+              alert('Registration failed: ' + error.message);
             }
-          },
-          (error) => {
-            alert('Registration failed: ' + error.message);
-          }
-        );
-      } else {
-        // Registration form validation failed
-        alert('Please fill in all required fields and ensure passwords match.');
-      }
-    } else {
+          );
+        } else {
+          // Registration form validation failed
+          alert('Please fill in all required fields and ensure passwords match.');
+        }
+  }
+
+  handleLogin() {
       // Login logic
       if (this.userForm.get('username').valid && this.userForm.get('password').valid) {
         // If the form is valid, proceed with login
-        const username = this.userForm.get('username').value;
-        const password = this.userForm.get('password').value;
+        this.login.username = this.userForm.get('username').value;
+        this.login.password =  this.userForm.get('password').value;
 
         // Call the getloginDetails API to retrieve registered user details
-        this.questionAnswerService.getloginDetails().subscribe(
+        this.questionAnswerService.validateLoginDetails(this.login).subscribe(
           (response: any) => {
             if (response) {
-              const matchingUser = response.find((user) => user.username === username && user.password === password);
-              if (matchingUser) {
-                console.log('isAdmin:', matchingUser.isAdmin); // Debugging line
-
-                // alert('Login successful!');
-                this.questionAnswerService.setIsAdmin(matchingUser.isAdmin);
-                localStorage.setItem('loggedIn', 'true');
-                if (matchingUser.isAdmin) {
-                  // Admin login
-                  // alert('Admin login successful!');
-                  this.router.navigateByUrl('/admin-panel/updateInterviewQuestions');
-                } else {
-                  // Regular user login
-                  // alert('User login successful!');
-                  this.router.navigate(['/userPost']);
-                }
-                // Login successful
-                // alert('Login successful!');
-                this.questionAnswerService.setIsAdmin(false);
-                this.setLoggedInUserDetails(matchingUser);
-                localStorage.setItem('loggedIn', 'true');
-                // this.redirectToUpdateQuestions();
+ //             const matchingUser = response.find((user) => user.username === username && user.password === password);
+              if (response) {
+                this.setPrivilegesOfUser(response);
+                // console.log('isAdmin:', response.isAdmin);
+                // this.questionAnswerService.setIsAdmin(response.isAdmin);
+                // localStorage.setItem('loggedIn', 'true');
+                // if (response.isAdmin) {
+                //   this.router.navigateByUrl('/admin-panel/updateInterviewQuestions');
+                // } else {
+                //   this.router.navigate(['/userPost']);
+                // }
+                // this.questionAnswerService.setIsAdmin(false);
+                // this.setLoggedInUserDetails(response);
+                // localStorage.setItem('loggedIn', 'true');
               } else {
-                // Login failed: Invalid credentials
                 alert('Login failed: Invalid username or password.');
               }
             } else {
@@ -141,7 +142,129 @@ export class LoginComponent implements OnInit {
         // Login form validation failed
         alert('Please fill in valid username and password.');
       }
+  }
+
+  submitForm() {
+    if (this.showRegistrationFields) {
+      this.handleSignUp();
+      // // Registration logic
+      // if (this.userForm.get('confirmPassword').hasError('passwordMismatch')) {
+      //   // Check for password mismatch error
+      //   alert('Password and Confirm Password should match!');
+      //   return; // Stop processing and exit the function
+      // }
+
+      // // Check if blur event conditions are satisfied for username and password
+      // if (
+      //   this.userForm.get('username').hasError('minlength') ||
+      //   this.userForm.get('username').hasError('required') ||
+      //   this.userForm.get('password').hasError('required') ||
+      //   this.userForm.get('username').value.length < 3 ||
+      //   this.userForm.get('password').value.length < 3
+      // ) {
+      //   alert('Minimum 3 alphabets or numbers required!');
+      //   return; // Stop processing and exit the function
+      // }
+
+      // if (this.userForm.valid) {
+      //   // If the form is valid, proceed with registration
+      //   const username = this.userForm.get('username').value;
+      //   const password = this.userForm.get('password').value;
+
+      //   // Call the signUp API to register the user
+      //   this.questionAnswerService.signUp({ username, password, isAdmin: false }).subscribe(
+      //     (response: any) => {
+      //       if (response) {
+      //         // Registration successful
+      //         alert('Registration successful!');
+      //         this.isUserRegistered = true;
+      //         this.userForm.reset(); // Reset the form
+      //       } else {
+      //         alert('Registration failed: ' + response.message);
+      //       }
+      //     },
+      //     (error) => {
+      //       alert('Registration failed: ' + error.message);
+      //     }
+      //   );
+      // } else {
+      //   // Registration form validation failed
+      //   alert('Please fill in all required fields and ensure passwords match.');
+      // }
+    } else {
+         this.handleLogin();
+//       // Login logic
+//       if (this.userForm.get('username').valid && this.userForm.get('password').valid) {
+//         // If the form is valid, proceed with login
+//         const username = this.userForm.get('username').value;
+//         const password = this.userForm.get('password').value;
+
+//         this.login.username = this.userForm.get('username').value;
+//         this.login.password =  this.userForm.get('password').value;
+
+//         // Call the getloginDetails API to retrieve registered user details
+//         this.questionAnswerService.validateLoginDetails(this.login).subscribe(
+//           (response: any) => {
+//             if (response) {
+//  //             const matchingUser = response.find((user) => user.username === username && user.password === password);
+//               if (response) {
+//                 this.setPrivilegesOfUser(response);
+//                 // console.log('isAdmin:', response.isAdmin);
+//                 // this.questionAnswerService.setIsAdmin(response.isAdmin);
+//                 // localStorage.setItem('loggedIn', 'true');
+//                 // if (response.isAdmin) {
+//                 //   this.router.navigateByUrl('/admin-panel/updateInterviewQuestions');
+//                 // } else {
+//                 //   this.router.navigate(['/userPost']);
+//                 // }
+//                 // this.questionAnswerService.setIsAdmin(false);
+//                 // this.setLoggedInUserDetails(response);
+//                 // localStorage.setItem('loggedIn', 'true');
+//               } else {
+//                 alert('Login failed: Invalid username or password.');
+//               }
+//             } else {
+//               alert('Login failed: ' + response.message);
+//             }
+//           },
+//           (error) => {
+//             alert('Login failed: ' + error.message);
+//           }
+//         );
+//       } else {
+//         // Login form validation failed
+//         alert('Please fill in valid username and password.');
+//       }
     }
+  }
+
+  setPrivilegesOfUser(response) {
+       // alert('Login successful!');
+       this.questionAnswerService.setIsAdmin(response.isAdmin);
+       localStorage.setItem('loggedIn', 'true');
+       if (response.isAdmin) {
+         this.router.navigateByUrl('/admin-panel/updateInterviewQuestions');
+       } else {
+         // Regular user login
+         // alert('User login successful!');
+         this.router.navigate(['/userPost']);
+       }
+       // Login successful
+       // alert('Login successful!');
+       this.questionAnswerService.setIsAdmin(false);
+       this.setLoggedInUserDetails(response);
+       localStorage.setItem('loggedIn', 'true');
+  }
+
+  validateLoginDetails() {
+    this.questionAnswerService.validateLoginDetails(this.login).subscribe(data=>{
+       if(data && data['invalidUser']) {
+         alert('incorrect credentials');
+       }
+       else {
+         this.setPrivilegesOfUser(data);
+       }
+     })
   }
 
   setLoggedInUserDetails(userDetails) {
