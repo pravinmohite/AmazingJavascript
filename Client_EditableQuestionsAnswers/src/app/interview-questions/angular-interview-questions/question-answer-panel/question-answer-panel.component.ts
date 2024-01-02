@@ -93,6 +93,7 @@ export class QuestionAnswerPanelComponent implements OnInit {
     if(!questionAnswerItem.showAnswer) {
       questionAnswerItem.showAnswer=true;
       questionAnswerItem.buttonText="Hide"
+      this.highlightService.highlightAll();
     }
     else {
      questionAnswerItem.showAnswer=false;
@@ -144,5 +145,10 @@ export class QuestionAnswerPanelComponent implements OnInit {
   getQuestionAnswerLink(question) {
     let result = this.questionAnswerService.formatAndReturnFullUrl(question);
     return result;
+  }
+
+ //add "?" at the end of question, if not present
+  addQuestionMarkIfNotPresent(question: string): string {
+    return this.questionAnswerService.addQuestionMarkIfNotPresentCondition(question);
   }
 }

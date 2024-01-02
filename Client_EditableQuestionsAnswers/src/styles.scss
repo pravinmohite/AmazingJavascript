@@ -213,17 +213,6 @@ body {
       }
     }
 
-
-    .add-questions-btn {
-      margin-bottom: 15px;
-      background-color: white;
-      color: black;
-      margin-right: 10px;
-      border: solid 1px gainsboro;
-      box-shadow: 2px 2px 2px gainsboro;
-      margin-right: 10px;
-    }
-
     .panel-item {
       border: solid 1px gainsboro;
       margin-bottom: 10px;
@@ -327,14 +316,26 @@ body {
     }
   }
 
+  .add-questions-btn {
+    margin-bottom: 15px;
+    background-color: white !important;
+    color: black !important;
+    margin-right: 10px;
+    border: solid 1px gainsboro !important;
+    box-shadow: 2px 2px 2px gainsboro;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+
   .login-panel-container {
     border: solid 1px gainsboro;
-    width: 40%;
+    width: 50%;
     margin: 8% auto 0px auto;
     padding: 30px;
 
     @media only screen and (max-width: 768px) {
-      width: 90%;
+      width: 100%;
+      padding: 15px !important;
     }
   }
 

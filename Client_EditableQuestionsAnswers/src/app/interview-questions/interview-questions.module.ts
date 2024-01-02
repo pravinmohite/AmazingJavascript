@@ -13,6 +13,7 @@ import { RelatedInterviewQuestionsComponent } from './angular-interview-question
 import { RouterModule } from '@angular/router';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { OtherInterviewQuestionsComponent } from './angular-interview-questions/other-interview-questions/other-interview-questions.component';
+import { AngularEditorModule, AngularEditorService } from '@kolkov/angular-editor';
 
 @NgModule({
   declarations: [
@@ -27,11 +28,14 @@ import { OtherInterviewQuestionsComponent } from './angular-interview-questions/
   ],
   imports: [
     CommonModule,
-    InterviewQuestionsRoutingModule,
+    InterviewQuestionsRoutingModule,AngularEditorModule,
     FontAwesomeModule,
     FormsModule,
     RouterModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+  ],
+  providers: [
+    { provide: AngularEditorService, useClass: AngularEditorService },
   ],
   exports:[
     AngularInterviewQuestionsComponent,

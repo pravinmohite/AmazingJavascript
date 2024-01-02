@@ -2,6 +2,7 @@
   "name": "sample-task",
   "version": "0.0.0",
   "scripts": {
+    "c-sattu": "ng serve",
     "ng": "ng",
     "start": "ng serve",
     "build": "node --max_old_space_size=8192 ./node_modules/@angular/cli/bin/ng build --configuration production",
@@ -29,6 +30,7 @@
     "@angular/compiler": "~13.3.10",
     "@angular/core": "~13.3.10",
     "@angular/forms": "~13.3.10",
+    "@angular/material": "^13.3.9",
     "@angular/platform-browser": "~13.3.10",
     "@angular/platform-browser-dynamic": "~13.3.10",
     "@angular/platform-server": "~13.3.10",
@@ -38,6 +40,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@kolkov/angular-editor": "^2.0.0",
     "@nguniversal/express-engine": "^13.0.1",
     "@schematics/angular": "^13.3.11",
     "body-parser": "^1.19.0",

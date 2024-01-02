@@ -9,6 +9,209 @@ let loginEndPoint = "/loginDetails";
 let signUpEndPoint = "/signUp";
 let defaultItemsPerPage = 10;
 
+/*---------------For user post server side ----------------------*/
+router.post('/userPostServerSide/:isAdmin?', (req, res, next) => {
+    UserPost.find((err, userPostList) => {
+        let result = userPostList.filter((item)=>{
+           if(
+              // checkExperience(item, req.body.experience) &&
+               checkQuestionType(item, req.body.questionType) &&
+               checkSearchTerm(item, req.body.searchTerm) &&
+               checkIfPostApprovedOrAdmin(item, req)
+            ) {
+                return item;
+            }
+        })
+        if (!result || result.length == 0) {
+            let totalItems = result.length;
+            const serverSideObj= {
+                result,
+                totalItems: totalItems
+            }
+            res.json(serverSideObj);
+        }
+        else {
+            let totalItems = result.length;
+            result = checkPageNumberSize(result, req.body);
+            const serverSideObj= {
+                result,
+                totalItems: totalItems
+            }
+            res.json(serverSideObj);
+        }
+    })
+})
+/*---------------End For user post server side ----------------------*/
+/*---------------For user post by user id server side ----------------------*/
+router.post('/userPostByUserIdServerSide/:userId', (req, res, next) => {
+    UserPost.find((err, userPostList) => {
+        let result = userPostList.filter((item)=>{
+           if(
+               checkUserId(item, req.params.userId) &&
+              // checkExperience(item, req.body.experience) &&
+               checkQuestionType(item, req.body.questionType) &&
+               checkSearchTerm(item, req.body.searchTerm) 
+            ) {
+                return item;
+            }
+        })
+        if (!result || result.length == 0) {
+            let totalItems = result.length;
+            const serverSideObj= {
+                result,
+                totalItems: totalItems
+            }
+            res.json(serverSideObj);
+        }
+        else {
+            let totalItems = result.length;
+            result = checkPageNumberSize(result, req.body);
+            const serverSideObj= {
+                result,
+                totalItems: totalItems
+            }
+            res.json(serverSideObj);
+        }
+    })
+})
+/*----------------end user post by user id server side ----------------------*/
+
+/*-----------------crud for USER POST-----------------------------*/
+
+router.get('/userPost', (req, res, next) => {
+    //res.send('retrieving the userPost list');
+    UserPost.find((err, userPostList) => {
+        res.json(userPostList);
+    })
+})
+
+router.post('/userPost', (req, res, next) => {
+    //logic to add
+    let newUserPost = new UserPost({
+        question: req.body.question,
+        answer: req.body.answer,
+        questionType: req.body.questionType,
+        userId: req.body.userId,
+        isApproved: req.body.isApproved,
+        isAdmin: req.body.isAdmin
+    })
+    newUserPost.save((err, userPost) => {
+        if (err) {
+            res.json({ msg: 'failed to add UserPost' });
+        }
+        else {
+            res.json({ msg: 'UserPost added successfully' });
+        }
+    })
+})
+
+router.delete('/userPost/:id', (req, res, next) => {
+    UserPost.remove({ _id: req.params.id }, (err, result) => {
+        if (err) {
+            res.json(err);
+        }
+        else {
+            res.json(result);
+        }
+    })
+})
+
+router.patch('/userPost/:id', (req, res, next) => {
+
+    UserPost.updateOne({ _id: req.params.id }, {
+        $set: {
+            question: req.body.question,
+            answer: req.body.answer,
+            questionType: req.body.questionType,
+            isApproved: req.body.isApproved,
+            isAdmin: req.body.isAdmin
+        }
+    }, (err, result) => {
+        if (err) {
+            res.json(err);
+        }
+        else {
+            res.json(result);
+        }
+    });
+
+});
+
+/*----crud for user post by params-----------------*/
+
+router.get('/userPostByParams/:id/:question', (req, res, next) => {
+    UserPost.find((err, userPostList) => {
+        let result = userPostList.find((item) => {
+            if (item.id.toLowerCase().indexOf(req.params.id.toLowerCase())>-1) {
+                return item;
+            }
+        })
+        if (!result || result.length == 0) {
+            let item = {
+                invalidQuestion: true
+            }
+            res.json(item);
+        }
+        else {
+            res.json(result);
+        }
+    })
+})
+
+router.post('/userPostByParams', (req, res, next) => {
+    //logic to add
+    let newUserPost = new UserPost({
+        question: req.body.question,
+        answer: req.body.answer,
+        questionType: req.body.questionType,
+      //  rank: req.body.rank
+
+    })
+    newUserPost.save((err, userPost) => {
+        if (err) {
+            res.json({ msg: 'failed to add question answer' });
+        }
+        else {
+            res.json({ msg: 'question answer added successfully' });
+        }
+    })
+})
+
+router.delete('/userPostByParams/:id', (req, res, next) => {
+    UserPost.remove({ _id: req.params.id }, (err, result) => {
+        if (err) {
+            res.json(err);
+        }
+        else {
+            res.json(result);
+        }
+    })
+})
+
+router.patch('/userPostByParams/:id', (req, res, next) => {
+
+    UserPost.updateOne({ _id: req.params.id }, {
+        $set: {
+            question: req.body.question,
+            answer: req.body.answer,
+            questionType: req.body.questionType,
+           // rank: req.body.rank
+        }
+    }, (err, result) => {
+        if (err) {
+            res.json(err);
+        }
+        else {
+            res.json(result);
+        }
+    });
+
+});
+
+/*----end crud for user post by param list-----------------*/
+
+/*-------------------end crud for userPost--------------------------------*/
+
 /*--------crud for login details-----------*/
 router.get(loginEndPoint, (req, res, next) => {
     Login.find((err, existingCredentials) => {
@@ -16,19 +219,54 @@ router.get(loginEndPoint, (req, res, next) => {
     })
 })
 
-
 router.post(loginEndPoint, (req, res, next) => {
+    Login.find((err, existingCredentials) => {
+        let result = existingCredentials.find(function (item) {
+            if (req.body.username === item.username && req.body.password === item.password) {
+                return item;
+            }
+        });
+        if (!result || result.length == 0) {
+            let item = {
+                invalidUser: true
+            }
+            res.json(item);
+        }
+        else {
+            res.json(result);
+        }
+    })
+})
+
+// router.post(loginEndPoint, (req, res, next) => {
+//     //logic to add
+//     let newLogin = new Login({
+//         username: req.body.username,
+//         password: req.body.password
+//     })
+//     newLogin.save((err, questionType) => {
+//         if (err) {
+//             res.json({ msg: 'failed to add login details' });
+//         }
+//         else {
+//             res.json({ msg: 'login details added successfully' });
+//         }
+//     })
+// })
+
+router.post(signUpEndPoint, (req, res, next) => {
     //logic to add
     let newLogin = new Login({
         username: req.body.username,
-        password: req.body.password
+        password: req.body.password,
+        isAdmin: req.body.isAdmin,
     })
     newLogin.save((err, questionType) => {
         if (err) {
-            res.json({ msg: 'failed to add login details' });
+            res.json({ msg: 'failed to register' });
         }
         else {
-            res.json({ msg: 'login details added successfully' });
+            res.json(req.body);
         }
     })
 })
@@ -245,7 +483,17 @@ router.get('/questionAnswerByExperience/:experience/:type?', (req, res, next) =>
 
 /*----end get question answer by type ----------------*/
 
-/*----start get question answer by experience/rank --------------*/
+/*----start get question answer by experience/rank/ userId --------------*/
+
+checkUserId = (item, userId) => {
+    if(userId == undefined || userId == null) {
+        return true;
+    }
+    if(item.userId == userId) {
+       return true;
+    }
+    return false;
+}
 
 checkExperience =(item, experience)=> {
     if(experience == undefined || experience == null) {
@@ -263,6 +511,13 @@ checkQuestionType =(item, questionType)=> {
         return true;
     }
     if(item.questionType.toLowerCase() === questionType.toLocaleLowerCase()) {
+        return true;
+    }
+    return false;
+}
+
+checkIfPostApprovedOrAdmin = (item, req) => {
+    if(item.isApproved || req.params?.isAdmin) {
         return true;
     }
     return false;

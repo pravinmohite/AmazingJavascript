@@ -12,7 +12,19 @@ const UserPostSchema=mongoose.Schema({
     questionType:{
         type:String,
         required:true
-    }
+    },
+    userId:{
+        type: String,
+        required: false
+    },
+    isAdmin: {
+        type:Boolean,
+        required: false
+    },
+    isApproved: {
+        type: Boolean,
+        required: false
+    },
 })
 
 const UserPost=module.exports=mongoose.model('UserPost',UserPostSchema)

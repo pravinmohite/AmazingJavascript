@@ -29,7 +29,7 @@ const app_folder = './../Client_EditableQuestionsAnswers/dist/sample-task/browse
 app.use(cors());
 
 //body-parser
-app.use(bodyparser.json());
+app.use(bodyparser.json({limit: '35mb'}));
 
 //static files
 app.use(express.static('./../Client_EditableQuestionsAnswers/dist'));

@@ -1,0 +1,89 @@
+<!-- <app-my-post></app-my-post> -->
+<div class="row main-questions-container">
+  <div class="col-12 panel-container ">
+    <div class="offset-md-1 col-md-8 col-12 main-questions-container add-articlebtn-container">
+      <b>
+        <h1 class="page-heading text-center">{{headingTitle}}</h1>
+      </b>
+      <button class="btn add-questions-btn hand-cursor" (click)="openPopup()">+ Add Article</button>
+      <app-add-edit-user-post [editedItem]="editedItem" (popupEvent)="closePopup($event)"
+        *ngIf="showPopup"></app-add-edit-user-post>
+        <div *ngFor="let item of userPostItems | paginate : {
+          itemsPerPage: itemsPerPage,
+          currentPage: currentPage,
+          totalItems: totalItems
+        };let i=index">
+          <!-- Display each saved item here using item.question and item.answer -->
+          <div class="question-answer-detailcontainer">
+            <div class="panel-item">
+              <div class="panel-header" role="img" aria-label="frontend interview questions">
+                <div class="row">
+                  <div class="col-xl-10 col-md-9">
+                    <header>
+                      {{i+1 + (currentPage-1)*itemsPerPage}}.
+                      <h1 class="question-text" [innerHtml]="addQuestionMarkIfNotPresent(item.question)"></h1>
+                    </header>
+                  </div>
+                  <!-- Edit button -->
+                  <div class="col-xl-2 col-md-3 action-btns text-right">
+                    <div class="col-md-7 faIcon">
+                      <div *ngIf="userDetails?.isAdmin || isLoggedInUserPost" class="col-md-6">
+                        <fa-icon class="hand-cursor edit-icon" [icon]="faEdit" (click)="editArticle(item)"></fa-icon>
+                      </div>
+                      <div *ngIf="userDetails?.isAdmin" class="col-md-6">
+                        <fa-icon class="hand-cursor trash-icon" [icon]="faTrash"
+                          (click)="deleteUserPost(item._id)"></fa-icon>
+                      </div>
+                    </div>
+                    <button class="showHideAnswer hand-cursor btn-show-hide"
+                      (click)="toggleShowHideAnswer(item)">{{item.buttonText?item.buttonText:"Show"}}</button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <button class="hand-cursor btn btn-primary" *ngIf="userDetails?.isAdmin && !item.isApproved"
+                    (click)="approveArticle(item)">Approve</button>
+                    </div>
+                    <div class="order-progress" *ngIf="!userDetails?.isAdmin && !item.isApproved">
+                      <fa-icon class="hand-cursor fa-icon clock-icon" [icon]="faClock">
+                      </fa-icon>
+                      Pending confirmation
+                  </div>
+                </div>
+              </div>
+              <div class="panel-body" [ngClass]="{'open': item.showAnswer ==true}">
+                <div class="panel-body" [ngClass]="{'open': true}">
+                  <div class="panel-body-content">
+                    <div [innerHtml]="item.answer">
+                    </div>
+                    <div class="open-linkseperate-container">
+                      <a [title]="openNewTabText" target="_blank"
+                        [routerLink]="['/user-posts/'+ item._id + '/', getQuestionAnswerLink(item.question)]"
+                        class="question-link">
+                        <fa-icon class="hand-cursor edit-icon" [icon]="faExternalLinkSquareAlt"></fa-icon>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Other HTML elements for saved items here -->
+        </div> 
+    </div>
+    <!-- <div class="offset-md-1 col-md-8 col-12">
+      
+    </div> -->
+    <div class="col-md-3 col-12 relation-questions-container">
+      <div class="related-questionanswer-template">
+        <app-related-user-posts></app-related-user-posts>
+      </div>
+      <!-- <div class="related-questionanswer-template">
+        <app-other-interview-questions></app-other-interview-questions>
+      </div>    -->
+    </div>
+  </div>
+</div>
+<div class=" offset-md-1 col-md-8 col-12 pagination-container d-flex justify-content-center">
+  <pagination-controls (pageChange)="renderPage($event)" [maxSize]="maxSize"></pagination-controls>
+</div>

@@ -1,8 +1,9 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {QuestionAnswerService} from "../../services/question-answer-service/question-answer.service";
-import { faTwitter,  faFacebookF, faInstagramSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faTwitter, faFacebookF, faInstagramSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faBars, faSignInAlt, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute, Router } from '@angular/router';
+// import { SharedPopupService } from 'src/app/shared-popup.service';
 
 @Component({
   selector: 'app-header',
@@ -11,11 +12,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   allQuestionTypesText = 'All';
+  userName: string;
+  userDetails: any;
+  loginPage: boolean;
+
   questionTypes:any;
   faFacebook = faFacebookF;
   faTwitter = faTwitter;
   faLinkedin = faLinkedin;
+  faSignInAlt = faSignInAlt;
   faBars = faBars;
+  faUserCircle = faUserCircle;
   searchVal = '';
   questionTypeVal = this.allQuestionTypesText;
   showQuestionTypeDropdown = true;
@@ -24,10 +31,14 @@ export class HeaderComponent implements OnInit {
   hideQuestionTypeDropdown = false;
   hideSearchInput = false;
   initialPageNumber = 1;
-  isKeyWordSearch:boolean = false;
+
+  selectedDetail: string;
+  userDetail: string[] = ['Apple', 'Banana', 'Cherry', 'Date', 'Fig'];
+  interviewQuestionsPageUrl = 'interview-questions';
+  userPostsPageUrl = 'user-posts';
   constructor(
     private questionAnswerService:QuestionAnswerService,
-    private route: ActivatedRoute,
+    private route: Router,
   ) { 
   }
 
@@ -35,8 +46,46 @@ export class HeaderComponent implements OnInit {
     this.getQuestionTypes();
     this.getUrlSearchValue();
     this.handleSubscriptions();
+    this.setUserDetails();
+    this.handleUserLoggedInSubscriptions();
+  }
+  // openPopup(): void {
+  //   this.sharedPopupService.openPopup();
+  // }
+
+  logOut() {
+    this.questionAnswerService.removeUserDetails();
+    this.removeUserName();
+    this.navigateToLoginPage();
   }
 
+  removeUserName() {
+    this.userName = '';
+  }
+
+  handleUserLoggedInSubscriptions() {
+    this.questionAnswerService.userLoggedIn.subscribe(data => {
+      this.userName = data['userName'];
+      this.userDetails = data;
+    //  this.getCartItemsByPrivileges();
+    })
+  }
+
+  setUserDetails() {
+    if (!this.userName && this.questionAnswerService.userDetails) {
+      this.userName = this.questionAnswerService.userDetails.userName;
+      this.userDetails = this.questionAnswerService.userDetails;
+    }
+    else {
+      this.userDetails = {
+        visitor: true
+      }
+    }
+  }
+
+  navigateToLoginPage() {
+    this.route.navigate(['/admin-panel']);
+  }
   getUrlSearchValue() {
     this.questionAnswerService.getUrlSearchVal().subscribe((searchVal:string) => {
       this.searchVal = searchVal;
@@ -81,40 +130,98 @@ export class HeaderComponent implements OnInit {
   openSiderBar(): void{
     this.sidebarStatus.emit('open');
   }
-  getQuestionTypes(){
-    this.questionAnswerService.getQuestionTypes().subscribe(response=>{
-      this.questionTypes=response;
+
+  getQuestionTypes() {
+    this.questionAnswerService.getQuestionTypes().subscribe(response => {
+      this.questionTypes = response;
     });
   }
-  onOptionsSelected(value) {
-    if(value.toLowerCase() == this.allQuestionTypesText.toLocaleLowerCase()) {
-       value = null;
+
+  onOptionsSelectedInQuestionAnswerPage(value) {
+    if (value.toLowerCase() == this.allQuestionTypesText.toLocaleLowerCase()) {
+      value = null;
     }
-    this.setCurrentPageToInitialPage();
+    this.setCurrentPageToInitialPage(this.questionAnswerService.serverSideObj);
     this.questionAnswerService.serverSideObj.questionType = value;
     this.questionAnswerService.getQuestionAnswerListServerSide(this.questionAnswerService.serverSideObj);
   }
-  searchByQuestionAnswer(value, isKeyWordSearch?:boolean) {
-     this.isKeyWordSearch = isKeyWordSearch ? true : false;
-     this.setCurrentPageToInitialPage();
-     this.questionAnswerService.serverSideObj.searchTerm = value;
-     this.questionAnswerService.getQuestionAnswerListServerSide(this.questionAnswerService.serverSideObj);
+
+  onOptionsSelectedInUserPostsPage(value) {
+    if (value.toLowerCase() == this.allQuestionTypesText.toLocaleLowerCase()) {
+      value = null;
+    }
+    this.setCurrentPageToInitialPage(this.questionAnswerService.userPostServerSideObj);
+    this.questionAnswerService.userPostServerSideObj.questionType = value;
+    this.questionAnswerService.getUserPostListServerSide(this.questionAnswerService.userPostServerSideObj);
   }
 
-  setCurrentPageToInitialPage() {
-    this.questionAnswerService.serverSideObj.currentPage = this.initialPageNumber;
+  onOptionsSelectedInLoggedInUserPostsPage(value) {
+    if (value.toLowerCase() == this.allQuestionTypesText.toLocaleLowerCase()) {
+      value = null;
+    }
+    this.setCurrentPageToInitialPage(this.questionAnswerService.userPostByUserIdServerSideObj);
+    this.questionAnswerService.userPostByUserIdServerSideObj.questionType = value;
+    this.questionAnswerService.getUserPostListByUserIdServerSide(this.questionAnswerService.userPostByUserIdServerSideObj, this.userDetails._id);
   }
-  checkEnterKeyPressed(value,event) {
-    if(event.key=="Enter") {
+
+  onOptionSelectedByCurrentPage(value) {
+    let url = window.location.href;
+    if(url.indexOf(this.interviewQuestionsPageUrl) > -1) {
+       this.onOptionsSelectedInQuestionAnswerPage(value);
+    }
+    else if(url.indexOf(this.userDetails.userName) > -1) {
+      this.onOptionsSelectedInLoggedInUserPostsPage(value);
+    }
+    else if(url.indexOf(this.userPostsPageUrl) > -1) {
+      this.onOptionsSelectedInUserPostsPage(value);
+    }
+  }
+  
+  searchByQuestionAnswer(value) {
+    this.setCurrentPageToInitialPage(this.questionAnswerService.serverSideObj);
+    this.questionAnswerService.serverSideObj.searchTerm = value;
+    this.questionAnswerService.getQuestionAnswerListServerSide(this.questionAnswerService.serverSideObj);
+  }
+
+  searchByUserPost(value) {
+    this.setCurrentPageToInitialPage(this.questionAnswerService.userPostServerSideObj);
+    this.questionAnswerService.userPostServerSideObj.searchTerm = value;
+    this.questionAnswerService.getUserPostListServerSide(this.questionAnswerService.userPostServerSideObj);
+  }
+
+  searchByLoggedInUserPost(value) {
+    this.setCurrentPageToInitialPage(this.questionAnswerService.userPostByUserIdServerSideObj);
+    this.questionAnswerService.userPostByUserIdServerSideObj.searchTerm = value;
+    this.questionAnswerService.getUserPostListByUserIdServerSide(this.questionAnswerService.userPostByUserIdServerSideObj, this.userDetails._id);
+  }
+
+  searchByCurrentPage(value) {
+    let url = window.location.href;
+    if (url.indexOf(this.interviewQuestionsPageUrl) > -1) {
+      this.searchByQuestionAnswer(value);
+    }
+    else if (url.indexOf(this.userDetails.userName) > -1) {
+      this.searchByLoggedInUserPost(value);
+    }
+    else if (url.indexOf(this.userPostsPageUrl) > -1) {
+      this.searchByUserPost(value);
+    }
+  }
+
+  setCurrentPageToInitialPage(obj) {
+    obj.currentPage = this.initialPageNumber;
+  }
+
+  checkEnterKeyPressed(value, event) {
+    if (event.key == "Enter") {
       this.searchByQuestionAnswer(value)
     }
   }
-  openAboutusModal(): void{
+  openAboutusModal(): void {
     this.openAboutUs.emit()
   }
 
-  handleClearSearch(event): void{
-    this.isKeyWordSearch = false;
-    this.searchByQuestionAnswer('');
+  checkIfLoginPage() {
+    this.loginPage = this.questionAnswerService.checkIfLoginPage();
   }
 }

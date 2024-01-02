@@ -16,7 +16,7 @@ const LoginSchema=mongoose.Schema({
     isAdmin: {
         type:Boolean,
         required: false
-    },
+    }
 })
 
 const Login=module.exports=mongoose.model('Login',LoginSchema)
