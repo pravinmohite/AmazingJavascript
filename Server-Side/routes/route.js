@@ -137,6 +137,79 @@ router.patch('/userPost/:id', (req, res, next) => {
 
 });
 
+/*----crud for user post by params-----------------*/
+
+router.get('/userPostByParams/:id/:question', (req, res, next) => {
+    UserPost.find((err, userPostList) => {
+        let result = userPostList.find((item) => {
+            if (item.id.toLowerCase().indexOf(req.params.id.toLowerCase())>-1) {
+                return item;
+            }
+        })
+        if (!result || result.length == 0) {
+            let item = {
+                invalidQuestion: true
+            }
+            res.json(item);
+        }
+        else {
+            res.json(result);
+        }
+    })
+})
+
+router.post('/userPostByParams', (req, res, next) => {
+    //logic to add
+    let newUserPost = new UserPost({
+        question: req.body.question,
+        answer: req.body.answer,
+        questionType: req.body.questionType,
+      //  rank: req.body.rank
+
+    })
+    newUserPost.save((err, userPost) => {
+        if (err) {
+            res.json({ msg: 'failed to add question answer' });
+        }
+        else {
+            res.json({ msg: 'question answer added successfully' });
+        }
+    })
+})
+
+router.delete('/userPostByParams/:id', (req, res, next) => {
+    UserPost.remove({ _id: req.params.id }, (err, result) => {
+        if (err) {
+            res.json(err);
+        }
+        else {
+            res.json(result);
+        }
+    })
+})
+
+router.patch('/userPostByParams/:id', (req, res, next) => {
+
+    UserPost.updateOne({ _id: req.params.id }, {
+        $set: {
+            question: req.body.question,
+            answer: req.body.answer,
+            questionType: req.body.questionType,
+           // rank: req.body.rank
+        }
+    }, (err, result) => {
+        if (err) {
+            res.json(err);
+        }
+        else {
+            res.json(result);
+        }
+    });
+
+});
+
+/*----end crud for user post by param list-----------------*/
+
 /*-------------------end crud for userPost--------------------------------*/
 
 /*--------crud for login details-----------*/

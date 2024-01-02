@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef, Input, OnInit, Output, Renderer2, ViewChild } from '@angular/core';
+import { Component, ChangeDetectorRef, Input, OnInit, Output, Renderer2, ViewChild, SimpleChange, OnChanges, NgZone, OnDestroy } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { HightlightService } from 'src/app/services/highlight-service/hightlight.service';
 import { QuestionAnswerService } from "../../../services/question-answer-service/question-answer.service";
@@ -21,13 +21,17 @@ export class AddEditInterviewQuestionsComponent implements OnInit {
   editMode: Boolean = true;
   @Output() popupEvent = new EventEmitter();
   tempDiv = 'div';
+  angularEditorLogo ="<button>Code button</button";
+  currentCodeContent: any;
+  currentElement: any;
 
-  tempSattu: any;
+  //tempSattu: any;
   constructor(
     private questionAnswerService: QuestionAnswerService,
     private loaderService: LoaderService,
     private cd: ChangeDetectorRef,
     private highlightService: HightlightService,
+    private ngZone: NgZone
   ) {
   }
 
@@ -36,10 +40,17 @@ export class AddEditInterviewQuestionsComponent implements OnInit {
       this.editMode = false;
     this.interviewQuestion = JSON.parse(JSON.stringify(this.editedItem));
     this.getQuestionTypes();
-    this.cd.detectChanges(); console.log('Initial Interview Question:', this.interviewQuestion);
-    // Call the highlightAll() method here
-    // this.highlightService.highlightAll();
+    this.cd.detectChanges(); 
   }
+
+  ngAfterViewInit(changes: SimpleChange) {
+    this.questionAnswerService.enableImageResizeInDiv('editor1')
+  }
+
+  ngOnDestroy() {
+    console.log('destroy call');
+  }
+
   getQuestionTypes() {
     this.loaderService.display(true);
     this.questionAnswerService.getQuestionTypes().subscribe(response => {
@@ -47,17 +58,10 @@ export class AddEditInterviewQuestionsComponent implements OnInit {
       this.loaderService.display(false);
     });
   }
+
   closeAddEditPopup() {
     this.popupEvent.emit('closeQuestionAnswerPopup');
   }
-
-  // convertCodeContentHtmlIntoString() {
-  //   var tempElement = document.createElement(this.tempDiv);
-  //   tempElement.innerHTML = this.interviewQuestion.answer;
-  //   this.highlightService.convertHtmlIntoStringForCodeContent(tempElement);
-  //   this.interviewQuestion.answer = tempElement.innerHTML;
-  // }
-
 
   addQuestionMarkIfNotPresent(question: string) {
     const trimmedQuestion = question.trim();
@@ -70,53 +74,9 @@ export class AddEditInterviewQuestionsComponent implements OnInit {
     return trimmedQuestion;
   }
 
-  convertAnswerHtmlIntoString(answer: string): string {
-    const tempElement = document.createElement(this.tempDiv);
-    tempElement.innerHTML = answer;
-    // Handle headings (h1 to h7zzzz)
-    const headings = tempElement.querySelectorAll('h1, h2, h3, h4, h5, h6, h7');
-    headings.forEach((heading: HTMLElement) => {
-      const textAlign = heading.style.textAlign;
-      if (textAlign === 'center') {
-        heading.outerHTML = `<div class="text-center">${heading.outerHTML}</div>`;
-      } else if (textAlign === 'right') {
-        heading.outerHTML = `<div class="text-right">${heading.outerHTML}</div>`;
-      } else if (textAlign === 'left') {
-        heading.outerHTML = `<div class="text-left">${heading.outerHTML}</div>`;
-      }
-    });
-
-
-    // Replace placeholders with corresponding code section tags
-    tempElement.innerHTML = tempElement.innerHTML
-      .replace(/&lt;scss&gt;/g, '<div class="code-snippet"><pre><code class="language-scss">')
-      .replace(/&lt;\/scss&gt;/g, '</code></pre></div>')
-      .replace(/&lt;html&gt;/g, '<div class="code-snippet"><pre><code class="language-html">')
-      .replace(/&lt;\/html&gt;/g, '</code></pre></div>')
-      .replace(/&lt;typescript&gt;/g, '<div class="code-snippet"><pre><code class="language-typescript">')
-      .replace(/&lt;\/typescript&gt;/g, '</code></pre></div>');
-
-    let formattedAnswer = tempElement.innerHTML;
-
-    // Additional adjustment to preserve line breaks within code sections
-    formattedAnswer = formattedAnswer.replace(/<p>/g, '\n').replace(/<\/p>/g, '');
-    this.tempSattu = formattedAnswer;
-    let parser = new DOMParser();
-    this.tempSattu = parser.parseFromString(this.tempSattu, 'text/html');
-    let fontTag = this.tempSattu.querySelector('font');
-    let value;
-    if(fontTag) {
-        value = fontTag.attributes.color.value;
-        formattedAnswer = formattedAnswer.replace(/<font[^>]*>/g, '<span style="color:'+ value +'">').replace(/<\/font>/g, '</span>');
-    }
-    return formattedAnswer;
-  }
-
-  saveInterviewQuestionAnswer() {
-    console.log('Interview Question before save:', this.interviewQuestion);
-
+  formatQuestionAnswer() {
     // Convert answer HTML into formatted string
-    this.interviewQuestion.answer = this.convertAnswerHtmlIntoString(this.interviewQuestion.answer);
+    this.interviewQuestion.answer = this.questionAnswerService.convertAnswerHtmlIntoString(this.interviewQuestion.answer, this.tempDiv);
     // Wrap center-aligned <img> elements in a <div> with the 'img-center' class
     this.interviewQuestion.answer = this.interviewQuestion.answer.replace(/<img style="display: block; margin: 0 auto;">/g, '<div class="img-center">')
       .replace(/<\/img>/g, '</div>');
@@ -138,7 +98,12 @@ export class AddEditInterviewQuestionsComponent implements OnInit {
     // Wrap right-aligned content in a <div> with the 'text-left' class
     this.interviewQuestion.answer = this.interviewQuestion.answer.replace(/<p style="text-align: left;">/g, '<div class="text-left">')
       .replace(/<\/p>/g, '</div>');
+    
+     // this.handleKeyUpAndScrollEventOnEditor();
+  }
 
+  saveInterviewQuestionAnswer() {
+    this.formatQuestionAnswer();
     if (this.editMode) {
       this.questionAnswerService.updateQuestionAnswer(this.interviewQuestion);
     } else {
@@ -146,7 +111,6 @@ export class AddEditInterviewQuestionsComponent implements OnInit {
     }
 
     this.closeAddEditPopup();
-    console.log('Interview Question after save:', this.interviewQuestion);
   }
 
 
@@ -209,9 +173,25 @@ export class AddEditInterviewQuestionsComponent implements OnInit {
   };
 
   onChange(event) {
-    console.log('changed');
     this.interviewQuestion.answer = event; // Manually update the answer
-    this.checkForImage();
+  }
+
+  insertCodeElementAtCursor(text) {
+    let selection: any = window.getSelection();
+    let range = selection.getRangeAt(0);
+    range.deleteContents();
+    let node = document.createElement('div');
+    node.innerHTML+= text;
+    range.insertNode(node);
+
+    for(let position = 0; position != text.length; position++)
+    {
+        selection.modify("move", "right", "character");
+    };
+  }
+
+  cleanUpTempCodeEditorAdded() {
+    console.log('cleanup');
   }
 
   onBlur(event) {
@@ -219,44 +199,12 @@ export class AddEditInterviewQuestionsComponent implements OnInit {
     this.interviewQuestion.answer = this.editor.textArea.nativeElement.innerHTML;
   }
 
-  checkForImage() {
-    const editorElement = this.editor.textArea.nativeElement; // Access the underlying textarea element
-    const images = editorElement.querySelectorAll('img'); // Select all images within the editoror
-
-    images.forEach((image) => {
-      image.classList.add('your-dynamic-class1'); // Add your class to the image element
-      this.makeResizable(image); // Call the method to make images resizable
-    });
+  addCodeBlock() {
+    this.questionAnswerService.addCodeBlock();
   }
 
-  makeResizable(image: HTMLImageElement) {
-    // Add resize functionality to the image
-    image.addEventListener('mousedown', (e) => {
-      e.preventDefault();
-      const initialWidth = image.clientWidth;
-      const initialHeight = image.clientHeight;
-      const startX = e.clientX;
-      const startY = e.clientY;
-
-      const resize = (e) => {
-        const width = initialWidth + e.clientX - startX;
-        const height = initialHeight + e.clientY - startY;
-        image.style.width = `${width}px`;
-        image.style.height = `${height}px`;
-      };
-
-      const stopResize = () => {
-        window.removeEventListener('mousemove', resize);
-        window.removeEventListener('mouseup', stopResize);
-      };
-
-      window.addEventListener('mousemove', resize);
-      window.addEventListener('mouseup', (e) => {
-        stopResize();
-        // Update the answer with modified content
-        this.interviewQuestion.answer = this.editor.textArea.nativeElement.innerHTML;
-      });
-    });
+  updateCode(value) {
+    console.log('updateCode value:', value);
   }
 
 }

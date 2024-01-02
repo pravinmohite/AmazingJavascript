@@ -1,0 +1,69 @@
+<div class="row">
+    <div class="col-12">
+        <div class="offset-md-1 col-md-8 col-12 main-questions-container">
+            <div class="panel-container question-answer-detailcontainer"
+                *ngIf="questionAnswerItem && questionAnswerItem.question && !questionAnswerItem.invalidQuestion">
+                <div class="panel-item">
+                    <div class="panel-header" role="img" aria-label="frontend interview questions">
+                        <div class="row">
+                            <div class="col-xl-10 col-md-9">
+                                <header>
+                                    <h1 class="question-text" [innerHtml]="questionAnswerItem.question"></h1>
+                                </header>
+                            </div>
+                            <div class="col-xl-2 col-md-3 action-btns">
+                                <fa-icon *ngIf="adminMode" class="hand-cursor edit-icon" [icon]="faEdit"
+                                    (click)="editQuestionAnswer(questionAnswerItem)">
+                                </fa-icon>
+                                <fa-icon *ngIf="adminMode" class="hand-cursor delete-icon" [icon]="faTrash"
+                                    (click)="deleteQuestionAnswer(questionAnswerItem._id)">
+                                </fa-icon>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body" [ngClass]="{'open': true}">
+                        <div class="panel-body-content" [innerHtml]="questionAnswerItem.answer"></div>
+                    </div>
+                </div>
+                <div class="affiliate-ads-container">
+                    <!-- <app-affiliate-ads></app-affiliate-ads> -->
+                </div>
+            </div>
+            <!-- <app-other-interview-questions *ngIf="questionAnswerItem && questionAnswerItem.question && !questionAnswerItem.invalidQuestion">
+            </app-other-interview-questions> -->
+            <div class="question-error-container" *ngIf="questionAnswerItem && questionAnswerItem.invalidQuestion">
+                <div class="error-content">
+                    <div class="row">
+                        <div class="col-2">
+                            <fa-icon class="hand-cursor error-triangle-icon" [icon]="faExclamationTriangle">
+                            </fa-icon>
+                        </div>
+                        <div class="col-10">
+                            <div class="error-header">
+                                <span>Page not found</span>
+                            </div>
+                            <div class="error-inner-content">
+                                <span>We're sorry, we couldn't find the page you requested.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="col-md-3 col-12 detail-relatedquestion-container">
+            <div class="related-questionanswer-template"
+                *ngIf="questionAnswerItem && questionAnswerItem.question && !questionAnswerItem.invalidQuestion">
+                <app-related-user-posts></app-related-user-posts>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="row">
+    <div class="col-12">
+        <div class="offset-md-1 col-md-8 col-12 other-important-questionscontainer">
+            <app-other-interview-questions></app-other-interview-questions>
+        </div>
+    </div>
+</div> -->

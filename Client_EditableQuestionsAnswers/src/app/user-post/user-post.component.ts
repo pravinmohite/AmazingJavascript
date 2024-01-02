@@ -23,6 +23,7 @@ export class UserPostComponent implements OnInit {
   faEdit = faEdit;
   faTrash = faTrash;
   faClock = faClock;
+  faExternalLinkSquareAlt = faExternalLinkSquareAlt;
   maxSize: number;
   totalItems = 0;
   currentPage = 1;
@@ -31,6 +32,8 @@ export class UserPostComponent implements OnInit {
   routeParamsSubscription: Subscription;
   userDetails: any;
   confirmApproveText = "Are you sure you want to approve ?";
+  isLoggedInUserPost: any;
+  openNewTabText: string;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -40,6 +43,7 @@ export class UserPostComponent implements OnInit {
     this.itemsPerPage = this.questionAnswerService.itemsPerPage;
     this.maxSize = this.questionAnswerService.maxSize;
     this.userDetails = this.questionAnswerService.userDetails;
+    this.openNewTabText = this.questionAnswerService.openNewTabText;
   }
 
   ngOnInit(): void {
@@ -58,8 +62,8 @@ export class UserPostComponent implements OnInit {
   }
 
   handleRouteParamChangeSubscription() {
-    const isLoggedInUserPost = this.route.snapshot?.params?.userName;
-    if(isLoggedInUserPost) {
+    this.isLoggedInUserPost = this.route.snapshot?.params?.userName;
+    if(this.isLoggedInUserPost) {
       this.getMyPostsData();
     }
     else {
@@ -121,7 +125,7 @@ export class UserPostComponent implements OnInit {
       item.buttonText = "Show"
     }
   }
-  fetchUserPosts() {
+   fetchUserPosts() {
     this.questionAnswerService.getUserPostListServerSide(this.questionAnswerService.userPostServerSideObj);
   }
 
@@ -138,7 +142,7 @@ export class UserPostComponent implements OnInit {
     let url = window.location.href;
     if(url.indexOf(this.userDetails.userName) > -1) {
       this.questionAnswerService.userPostByUserIdServerSideObj.currentPage = this.currentPage;
-      this.router.navigate(["user-posts/" + this.userDetails.userName + "/page", this.currentPage]);
+      this.router.navigate(["user-posts/author/" + this.userDetails.userName + "/page", this.currentPage]);
       this.fetchLoggedInUserPosts();
     }
     else {
@@ -171,6 +175,12 @@ export class UserPostComponent implements OnInit {
       this.showPopup = false;
     }
   }
+
+  getQuestionAnswerLink(question) {
+    let result = this.questionAnswerService.formatAndReturnFullUrl(question);
+    return result;
+  }
+
   addQuestionMarkIfNotPresent(question: string): string {
     return this.questionAnswerService.addQuestionMarkIfNotPresentCondition(question);
   }

@@ -45,11 +45,12 @@ let routes: Routes = [
   //   path: "interview-questions/searchKey/:searchKey", 
   //   loadChildren: () => import('./interview-questions/interview-questions.module').then(m => m.InterviewQuestionsModule)
   // },
-  { 
-    path: '**',
-    redirectTo: 'interview-questions', 
-    pathMatch: 'full' 
-  },
+  // { 
+  //   path: '**',
+  // //  redirectTo: 'interview-questions', 
+  //   redirectTo: 'user-posts', 
+  //   pathMatch: 'full' 
+  // },
 ]
 @NgModule({
   declarations: [],

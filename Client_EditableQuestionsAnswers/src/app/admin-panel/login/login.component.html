@@ -1,7 +1,7 @@
 <div class="container loginPannel-maincontainer">
-    <div class="loginPannel-container">
+    <div class="login-panel-container">
         <fieldset>
-            <legend class="login-register">{{ showRegistrationFields ? 'Register' : 'Login' }}:</legend>
+            <legend>{{ showRegistrationFields ? 'Register' : 'Login' }}:</legend>
             <form [formGroup]="userForm" (ngSubmit)="submitForm()">
                 <!-- Existing username and password fields -->
                 <div class="Sign-upContainer">
@@ -38,7 +38,7 @@
                     <label for="username" class="col-4 col-form-label"></label>
                     <div class="col-8">
                         <!-- Show the "Submit" button and the appropriate button based on registration mode -->
-                        <button type="submit" class="Submit-btn btn">Submit</button>
+                        <button type="submit" class="btn-outline-success Submit-btn btn">Submit</button>
                         <button *ngIf="showRegistrationFields" class="btn login-btn" (click)="toggleRegistrationFields()">Login</button>
                         <button *ngIf="!showRegistrationFields" class="btn login-btn" (click)="toggleRegistrationFields()">Register</button>
                     </div>
@@ -47,3 +47,30 @@
         </fieldset>
     </div>
 </div>
+
+
+
+<!-- <div class="login-panel-container">
+    <fieldset>
+        <legend>Login:</legend>
+        <div class="form-group row">
+        <label for="username" class="col-4 col-form-label">Username</label> 
+        <div class="col-8">
+            <input id="username" name="username" [(ngModel)]="login.username" placeholder="Enter your username" (keypress)="keyPressEvent($event)" type="text" class="form-control" required="required">
+        </div>
+        </div>
+        <div class="form-group row">
+        <label for="password" class="col-4 col-form-label">Password</label> 
+        <div class="col-8">
+            <input id="password" name="password" [(ngModel)]="login.password" (keypress)="keyPressEvent($event)" placeholder="Enter your password" type="password" class="form-control" required="required">
+        </div>
+        </div> 
+        <div class="form-group row">
+        <div class="offset-4 col-8">
+            <button type="submit" class="Submit-btn btn">Submit</button>
+            <button *ngIf="showRegistrationFields" class="btn login-btn" (click)="toggleRegistrationFields()">Login</button>
+            <button *ngIf="!showRegistrationFields" class="btn login-btn" (click)="toggleRegistrationFields()">Register</button>
+        </div>
+        </div>
+    </fieldset>
+</div>  -->

@@ -1,4 +1,4 @@
-<div class="modal">
+<div class="modal edit-modal">
   <div class="modal-content">
     <div>
       <fieldset>
@@ -12,19 +12,16 @@
         </div>
         <div class="form-group row">
           <label for="answer" class="col-3 col-form-label">Answer</label>
-          <div class="col-9">
-            
+          <div class="col-9">     
             <!-- angular editor -->
-            <div>             
+            <div>  
+              <button id="addCodeBlockBtn" class="btn btn-primary" title="Add code block" (click)="addCodeBlock()">Add code block</button>           
               <angular-editor #editor id="editor1" [(ngModel)]="interviewQuestion.answer" [config]="config1" (ngModelChange)="onChange($event)" (blur)="onBlur($event)">
               </angular-editor>
-              <p class="html">
-                <!-- HTML Output: {{ interviewQuestion.answer }} -->
-              </p>
             </div> 
             <!-- angular editor -->
             <textarea id="answer" [(ngModel)]="interviewQuestion.answer" placeholder="Enter Answer" name="answer"
-              cols="40" rows="5" class="form-control textarea "></textarea>
+              cols="40" rows="5" class="form-control textarea admin-text-area"></textarea>
           </div>
         </div>
 

@@ -49,7 +49,7 @@ export class AppComponent {
        this.questionAnswerService.getUserDetails();
     }
     else {
-      this.router.navigateByUrl('/login');
+     // this.router.navigateByUrl('/login');
     }
    }
 

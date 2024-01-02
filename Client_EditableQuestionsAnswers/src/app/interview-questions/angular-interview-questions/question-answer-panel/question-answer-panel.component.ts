@@ -93,6 +93,7 @@ export class QuestionAnswerPanelComponent implements OnInit {
     if(!questionAnswerItem.showAnswer) {
       questionAnswerItem.showAnswer=true;
       questionAnswerItem.buttonText="Hide"
+      this.highlightService.highlightAll();
     }
     else {
      questionAnswerItem.showAnswer=false;

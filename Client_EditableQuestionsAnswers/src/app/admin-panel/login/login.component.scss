@@ -1,3 +1,5 @@
+@import "./../../../assets/scss/common.scss";
+
 .invalid-input {
     border: 2px solid red;
 }
@@ -53,24 +55,24 @@
     transform: scale(0.95);
 }
 
-.Submit-btn {
-    border-radius: 10px;
-    color: white;
-    background-color: #333;
-    padding: 7px 18px;
-    // background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-}
+// .Submit-btn {
+//     border-radius: 10px;
+//     color: white;
+//     background-color: #333;
+//     padding: 7px 18px;
+//     // background-color: #007bff;
+//     color: #fff;
+//     border: none;
+//     cursor: pointer;
+//     transition: background-color 0.3s, transform 0.3s;
+// }
 
-.Submit-btn:active,
-.Submit-btn:focus,
-.Submit-btn:hover {
-    background-color: #333;
-    transform: scale(0.95);
-}
+// .Submit-btn:active,
+// .Submit-btn:focus,
+// .Submit-btn:hover {
+//     background-color: #333;
+//     transform: scale(0.95);
+// }
 @media screen and (max-width: 768px) {
     .loginPannel-container {
         width: 100%;

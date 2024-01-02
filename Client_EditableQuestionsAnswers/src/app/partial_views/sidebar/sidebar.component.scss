@@ -1,3 +1,5 @@
+@import "./../../../assets/scss/common.scss";
+
 #close-icon-container {
     display: inline;
     position: absolute;
@@ -16,18 +18,13 @@
     margin: 0px 5px;
 }
 
-#about-us-and-social-links {
-    padding-left: 10%;
-    margin-top: 40px;
-}
-
 #follow-us-container {
     border: 1px solid lightgrey;
     padding: 4px 10px;
     border-radius: 11px;
     width: fit-content;
-    margin-top: 4px;
-    margin-left: -1px;
+    margin-top: 10px;
+    margin-left: 4px;
 }
 
 #about-us-label {
@@ -37,4 +34,28 @@
 
 #about-us-label:hover {
     text-decoration: underline;
+}
+
+.sidebar-container {
+    margin-top: 35px;
+    max-height: 590px;
+    overflow: auto;
+    height: 100%;
+}
+
+.header-nav {
+    border-bottom: 1px solid #313e24;
+    color: #313e24!important;
+    padding: 12px;
+}
+
+.profile-dropdown {
+    text-align: left !important;
+}
+
+.header-links {
+    a {
+        color: black !important;
+        text-decoration: none;
+    }
 }
