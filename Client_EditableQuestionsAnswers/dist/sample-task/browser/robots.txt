@@ -1,2 +1,0 @@
-Sitemap: https://www.frontendinterviewquestions.com/sitemap.xml
-Sitemap: https://frontendinterviewquestions.com/sitemap.xml
