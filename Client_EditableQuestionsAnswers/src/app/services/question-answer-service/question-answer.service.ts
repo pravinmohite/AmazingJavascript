@@ -765,7 +765,7 @@ export class QuestionAnswerService {
     temp = parser.parseFromString(temp, 'text/html');
     let fontTag = temp.querySelector('font');
     let value;
-    if(fontTag) {
+    if(fontTag && fontTag.attributes && fontTag.attributes.color) {
         value = fontTag.attributes.color.value;
         formattedAnswer = formattedAnswer.replace(/<font[^>]*>/g, '<span style="color:'+ value +'">').replace(/<\/font>/g, '</span>');
     }

@@ -329,13 +329,18 @@ body {
 
   .login-panel-container {
     border: solid 1px gainsboro;
-    width: 50%;
-    margin: 8% auto 0px auto;
+    width: 40%;
+    margin: 10% auto 0px auto;
     padding: 30px;
 
-    @media only screen and (max-width: 768px) {
-      width: 100%;
-      padding: 15px !important;
+    @media only screen and (min-width: 400px) and (max-width: 768px) {
+      width: 94%;
+      padding: 8px!important;
+    }
+
+    @media only screen and (max-width: 400px) {
+      width: 94%;
+      padding: 8px!important;
     }
   }
 

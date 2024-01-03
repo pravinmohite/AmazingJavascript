@@ -141,7 +141,7 @@ export class AddEditUserPostComponent implements OnInit {
     spellcheck: true,
     minHeight: '5rem',
     maxHeight: 'auto',
-    placeholder: 'Enter Article Details here...',
+    placeholder: 'Enter Post Details here...',
     translate: 'no',
     sanitize: false,
     // toolbarPosition: 'top',

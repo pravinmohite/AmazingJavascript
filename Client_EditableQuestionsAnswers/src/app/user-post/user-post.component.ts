@@ -14,7 +14,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class UserPostComponent implements OnInit {
   @Input() isMyPost = false;
-  headingTitle = 'Top Front End Articles';
+  headingTitle = 'Top Front End Posts';
   showPopup: boolean = false;
   userPostItems: any[] = [];
   editedItem: any;

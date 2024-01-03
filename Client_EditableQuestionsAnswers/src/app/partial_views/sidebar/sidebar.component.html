@@ -41,8 +41,8 @@
     <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu"
       aria-labelledby="button-basic">
       <li role="menuitem">
-        <a class="dropdown-item" routerLink="user-posts/{{userName}}">My Posts</a>
-        <a class="dropdown-item" (click)="logOut()" href="javascript:void(0)">Logout</a>
+        <a class="dropdown-item" routerLink="user-posts/{{userName}}" (click)="closeSideBar()">My Posts</a>
+        <a class="dropdown-item" (click)="logOut();closeSideBar()" href="javascript:void(0)">Logout</a>
       </li>
     </ul>
   </div>
@@ -64,7 +64,7 @@
   <div class="col-md-12 header-nav">
     <span class="header-links">
       <a class="nav-links" routerLink="user-posts" class="login" (click)="closeSideBar()">
-        Articles
+        Posts
       </a>
     </span>
   </div>

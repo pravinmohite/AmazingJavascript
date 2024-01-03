@@ -14,7 +14,7 @@
 }
 
 #about-us-and-social-links {
-    padding-left: 3%;
+    padding-left: 0px;
 }
 
 #follow-us-container {
@@ -58,6 +58,10 @@ cursor: pointer;
 .user-circle-icon {
    width: 16px !important;
    display: inline-block !important;
+}
+
+.post-link {
+    padding-left: 40px;
 }
 
 @media screen and (max-width: 768px) {

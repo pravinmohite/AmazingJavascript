@@ -5,7 +5,7 @@
       <b>
         <h1 class="page-heading text-center">{{headingTitle}}</h1>
       </b>
-      <button class="btn add-questions-btn hand-cursor" (click)="openPopup()">+ Add Article</button>
+      <button class="btn add-questions-btn hand-cursor" (click)="openPopup()">+ Add Post</button>
       <app-add-edit-user-post [editedItem]="editedItem" (popupEvent)="closePopup($event)"
         *ngIf="showPopup"></app-add-edit-user-post>
         <div *ngFor="let item of userPostItems | paginate : {
