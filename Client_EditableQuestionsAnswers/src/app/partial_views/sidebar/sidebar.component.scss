@@ -59,3 +59,15 @@
         text-decoration: none;
     }
 }
+
+.loggedin-user {
+    .loggedin-user-name {
+        display: inline-block;
+        max-width: 110px;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+        margin-right: 5px;
+        vertical-align: middle;
+    }
+}

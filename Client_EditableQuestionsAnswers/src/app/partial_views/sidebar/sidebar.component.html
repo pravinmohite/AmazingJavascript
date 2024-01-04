@@ -34,7 +34,7 @@
   <div *ngIf="userName" class="col-md-12 header-nav btn-group loggedin-user" dropdown>
     <button id="button-basic" dropdownToggle type="button"
       class="no-padding btn btn-default dropdown-toggle profile-dropdown" aria-controls="dropdown-basic">
-      {{userName}}
+      <span class="loggedin-user-name" title="{{userName}}">{{userName}}</span>
       <span class="caret"></span>
       <fa-icon [icon]="faUserCircle"></fa-icon>
     </button>

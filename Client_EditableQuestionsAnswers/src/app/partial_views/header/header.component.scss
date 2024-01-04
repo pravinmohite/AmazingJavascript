@@ -1,3 +1,5 @@
+@import "./../../../assets/scss/common.scss";
+
 .question-type {
     min-height: 30px;
 }
@@ -14,7 +16,8 @@
 }
 
 #about-us-and-social-links {
-    padding-left: 0px;
+    @extend .no-padding-left;
+    @extend .no-padding-right;
 }
 
 #follow-us-container {
@@ -37,27 +40,47 @@
 #menubars {
     display: none;
 }
-.dropdown-menu{
+
+.dropdown-menu {
     cursor: pointer;
 }
-.dropdown-menu a{
+
+.dropdown-menu a {
     color: #333;
 }
-.Article{
-cursor: pointer;
+
+.Article {
+    cursor: pointer;
 }
 
-.login-link a, .Article a, .login-link{
+.login-link a,
+.Article a,
+.login-link {
     color: #333;
 }
 
 .loggedin-user {
-    margin-left: 40px;
+    text-align: right; 
+    @extend .no-padding-left;
+
+    .loggedin-user-name {
+        display: inline-block;
+        max-width: 98px;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+        margin-right: 5px;
+        vertical-align: middle;
+    }
+}
+
+.login-link-container {
+    text-align: right;
 }
 
 .user-circle-icon {
-   width: 16px !important;
-   display: inline-block !important;
+    width: 16px !important;
+    display: inline-block !important;
 }
 
 .post-link {
