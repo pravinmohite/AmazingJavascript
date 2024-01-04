@@ -37,7 +37,7 @@ export class QuestionAnswerService {
   userPostByParamsUrl = "/api/userPostByParams"; 
   relatedQuestionAnswerUrl = "/api/relatedQuestionAnswer";
   signUpUrl = "/api/signUp";
-  isProd: boolean = false;
+  isProd: boolean = true;
   prodUrl: String = "https://frontendinterviewquestions.com";
   //prodUrl:String="https://64.227.118.130";
   devDomain: any = this.isProd ? this.prodUrl : "http://localhost:3000";
