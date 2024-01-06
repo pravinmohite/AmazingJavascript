@@ -14,6 +14,7 @@ import { AddEditUserPostComponent } from './add-edit-user-post/add-edit-user-pos
 import { UserPostDetailComponent } from './user-post-detail/user-post-detail.component';
 import { OtherUserPostsComponent } from './other-user-posts/other-user-posts.component';
 import { RelatedUserPostsComponent } from './related-user-posts/related-user-posts.component';
+import { AlertModule } from 'ngx-bootstrap/alert';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,16 @@ import { RelatedUserPostsComponent } from './related-user-posts/related-user-pos
     AppRoutingModule,
     HttpClientModule, 
     AngularEditorModule,
-    NgxPaginationModule
-  ]
+    NgxPaginationModule,
+    AlertModule.forRoot()
+  ],
+  providers: [
+    { provide: AngularEditorService, useClass: AngularEditorService },
+  ],
+  exports: [
+    UserPostComponent,
+    RelatedUserPostsComponent,
+    UserPostDetailComponent
+  ],
 })
 export class UserPostModule { }

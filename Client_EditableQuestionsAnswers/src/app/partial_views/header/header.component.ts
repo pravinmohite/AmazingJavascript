@@ -86,6 +86,7 @@ export class HeaderComponent implements OnInit {
   navigateToLoginPage() {
     this.route.navigate(['/admin-panel']);
   }
+  
   getUrlSearchValue() {
     this.questionAnswerService.getUrlSearchVal().subscribe((searchVal:string) => {
       this.searchVal = searchVal;

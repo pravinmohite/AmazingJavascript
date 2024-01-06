@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnDestroy, OnInit, Renderer2, SimpleChanges } from '@angular/core';
 import { QuestionAnswerService } from '../services/question-answer-service/question-answer.service';
 import { LoaderService } from '../services/loader-service/loader.service';
 import { Observable, Subscription } from 'rxjs'; // Import Observable
@@ -6,6 +6,7 @@ import { faTrash, faEdit, faClock, faTimes, faExternalLinkSquareAlt } from '@for
 import { PaginationInstance } from 'ngx-pagination';
 import { HightlightService } from 'src/app/services/highlight-service/hightlight.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { RichSnippetService } from '../services/rich-snippet-service/rich-snippet.service';
 
 @Component({
   selector: 'app-user-post',
@@ -34,11 +35,15 @@ export class UserPostComponent implements OnInit {
   confirmApproveText = "Are you sure you want to approve ?";
   isLoggedInUserPost: any;
   openNewTabText: string;
+  showUserPostInfo = true;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
+    private highlightService: HightlightService,
     private loaderService: LoaderService,
+    private richSnippetService: RichSnippetService,
     private questionAnswerService: QuestionAnswerService,
+    private renderer: Renderer2, 
   ) {
     this.itemsPerPage = this.questionAnswerService.itemsPerPage;
     this.maxSize = this.questionAnswerService.maxSize;
@@ -52,11 +57,17 @@ export class UserPostComponent implements OnInit {
     // this.handleRouteUrlChangeSubscription();
   }
 
+  setDataForRichSnippet(userPostList) {
+    this.richSnippetService.setRichSnippetData(userPostList, this.renderer);
+  }
+
   handleUserPostSubscription() {
     this.questionAnswerService.currentUserPostSubject.subscribe(response => {
       if (response && response['result']) {
         this.userPostItems = response['result'];
         this.totalItems = response.totalItems;
+        this.highlightService.highlightAll();
+        this.setDataForRichSnippet(this.userPostItems);
       }
     });
   }
@@ -163,8 +174,18 @@ export class UserPostComponent implements OnInit {
     }
   }
   openPopup() {
-    this.showPopup = true;
-    this.editedItem = {}
+    if(this.userDetails && this.userDetails.userName) {
+      this.showPopup = true;
+      this.editedItem = {}
+    }
+    else {
+
+      this.questionAnswerService.navigateToLoginPage();
+      // setTimeout(()=> {
+      //   this.router.navigate(['/admin-panel']);
+      // }, 100)
+
+    }
   }
 
   closePopup(event) {
@@ -191,5 +212,10 @@ export class UserPostComponent implements OnInit {
       article.isApproved = true;
       this.questionAnswerService.updateUserPost(article);
     }
+  }
+
+  onClosed() {
+    this.showUserPostInfo = false;
+    //localStorage.setItem('showUserPostInfo', this.showUserPostInfo.toString());
   }
 }

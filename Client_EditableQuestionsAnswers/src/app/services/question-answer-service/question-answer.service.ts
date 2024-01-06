@@ -108,6 +108,8 @@ export class QuestionAnswerService {
   userPostIdentifier = 'userPost';
   userPostByUserIdIdentifier = 'userPostByUserId';
   defaultCodeBlock = `<div class="code-snippet"><pre><code class="language-typescript"></code></pre></div><br>`;
+  interviewQuestionsRoute = 'interview-questions';
+  QAAdminPanelRoute = '/admin-panel/updateInterviewQuestions'
   constructor(
     private http: HttpClient,
     private loaderService: LoaderService,
@@ -727,6 +729,7 @@ export class QuestionAnswerService {
   removeUserDetails() {
     localStorage.removeItem('userDetails');
     localStorage.removeItem('loggedIn');
+    this.userDetails = {};
   }
 
   convertAnswerHtmlIntoString(answer: string, tempDiv: any): string {
@@ -846,6 +849,23 @@ export class QuestionAnswerService {
   addCodeBlock() {
     let newText = this.defaultCodeBlock;
     this.insertCodeElementAtCursor(newText);
+  }
+
+  navigateToLoginPage() {
+    this.router.navigate(['/admin-panel']);
+  }
+
+  navigateToRelatedPost(path, data?) {
+    if(data) {
+      this.router.navigate([this.interviewQuestionsRoute + '/' + path, data]);
+    }
+    else {
+      this.router.navigate([this.interviewQuestionsRoute + '/' + path]);
+    }
+  }
+
+  navigateToQAAdminPanel() {
+    this.router.navigateByUrl(this.QAAdminPanelRoute);
   }
 
   enableImageResizeInDiv(id) {

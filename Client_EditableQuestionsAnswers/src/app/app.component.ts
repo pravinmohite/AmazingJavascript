@@ -2,7 +2,7 @@ import { Component, Inject, PLATFORM_ID, TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { isPlatformBrowser, DOCUMENT } from '@angular/common';
 import { QuestionAnswerService } from './services/question-answer-service/question-answer.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +20,7 @@ export class AppComponent {
 
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
     private modalService: BsModalService,
     private questionAnswerService: QuestionAnswerService,
     @Inject(PLATFORM_ID) platformId: Object,

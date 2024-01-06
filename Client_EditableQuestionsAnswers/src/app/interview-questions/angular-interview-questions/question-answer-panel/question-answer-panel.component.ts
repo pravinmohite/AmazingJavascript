@@ -34,6 +34,7 @@ export class QuestionAnswerPanelComponent implements OnInit {
   headingTitle: string;
   openNewTabText: string;
   defaultArticleFeaturedImgPath: string;
+  userDetails: any;
   constructor(
     private questionAnswerService:QuestionAnswerService,
     private route: ActivatedRoute,
@@ -46,10 +47,15 @@ export class QuestionAnswerPanelComponent implements OnInit {
       this.itemsPerPage = this.questionAnswerService.itemsPerPage;
       this.maxSize = this.questionAnswerService.maxSize;
       this.openNewTabText = this.questionAnswerService.openNewTabText;
+      this.userDetails = this.questionAnswerService.userDetails;
     }
   
   ngOnInit(): void {
     this.handleRouteDataSubscription();
+  }
+
+  navigateToQAAdminPanel() {
+    this.questionAnswerService.navigateToQAAdminPanel();
   }
 
   setHeadingTitleIfEmpty() {

@@ -6,17 +6,19 @@ import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {
+    path: '',
+    component: LoginComponent,
+    pathMatch: 'full',
+  },
+  {
     path: 'updateInterviewQuestions',
-    component: InterviewQuestionsPanelComponent
+    component: InterviewQuestionsPanelComponent,
+    pathMatch: 'full',
   },
   {
     path: 'admin-panel/updateInterviewQuestions',
-    component: InterviewQuestionsPanelComponent
-  },
-
-  {
-    path: '',
-    component: LoginComponent
+    component: InterviewQuestionsPanelComponent,
+    pathMatch: 'full',
   }
 ];
 

@@ -3,7 +3,12 @@
     <div class="offset-md-1 col-md-8 col-12 main-questions-container">
       <article class="panel-container multiple-questions-container" [ngClass]="{'admin-panel':adminMode}">
         <b>
-          <h1 class="page-heading">{{headingTitle}}</h1>
+          <h1 class="page-heading">
+            <button title="Open QA Admin Panel" class="btn btn-outline-success open-adminpanel-btn"  *ngIf="userDetails?.isAdmin && !adminMode">
+              <fa-icon class="hand-cursor edit-icon" [icon]="faEdit" (click)='navigateToQAAdminPanel()'></fa-icon>
+            </button>
+             {{headingTitle}}
+            </h1>
           <div class="featured-articleimg-container" *ngIf="articleFeaturedImgPath">
             <img class="featured-article-img" alt="{{headingTitle}}" src={{articleFeaturedImgPath}}/>
           </div>

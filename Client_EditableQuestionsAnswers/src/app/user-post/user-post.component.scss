@@ -74,3 +74,12 @@
     display: inline;
     margin: 10px 15px;
 }
+
+::ng-deep {
+    .user-post-info {
+        .alert-info {
+            z-index: 0 !important;
+        }
+    }
+}
+

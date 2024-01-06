@@ -5,6 +5,9 @@
       <b>
         <h1 class="page-heading text-center">{{headingTitle}}</h1>
       </b>
+      <alert *ngIf="showUserPostInfo" class="user-post-info text-center" type="info" [dismissible]="true" (onClosed)="onClosed()">
+        <strong>Added post</strong> will be shown here once it is approved, you can check the status in my post option in profile dropdown
+     </alert>
       <button class="btn add-questions-btn hand-cursor" (click)="openPopup()">+ Add Post</button>
       <app-add-edit-user-post [editedItem]="editedItem" (popupEvent)="closePopup($event)"
         *ngIf="showPopup"></app-add-edit-user-post>

@@ -13,6 +13,11 @@
     cursor: pointer;
 }
 
+.open-adminpanel-btn {
+    float: left;
+    @extend .hand-cursor;
+}
+
 .search-text {
     display: inline-block;
     vertical-align: -2px;

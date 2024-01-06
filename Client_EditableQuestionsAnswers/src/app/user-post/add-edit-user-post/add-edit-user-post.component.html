@@ -3,6 +3,9 @@
       <div>
         <fieldset>
           <legend>Add Post:</legend>
+          <alert *ngIf="showAddEditUserPostInfo" class="addedit-userpost-info text-center" type="info" [dismissible]="true" (onClosed)="onClosed()">
+            Inside <strong>code block</strong> use <strong>shift + Enter</strong> key to go to next line
+         </alert>
           <div class="form-group row">
             <label for="question" class="col-3 col-form-label">Title</label>
             <div class="col-9">

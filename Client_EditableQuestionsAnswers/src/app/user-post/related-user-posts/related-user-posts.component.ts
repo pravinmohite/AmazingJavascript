@@ -60,6 +60,10 @@ export class RelatedUserPostsComponent implements OnInit {
     })
   }
 
+  navigateToRelatedPost(path, data?) {
+    this.questionAnswerService.navigateToRelatedPost(path, data);
+  }
+
   // formatQuestionUrl() {
   //   if (this.relatedQuestionAnswerList && this.relatedQuestionAnswerList.length > 0) {
   //     for (const [index, item] of this.relatedQuestionAnswerList.entries()) {
