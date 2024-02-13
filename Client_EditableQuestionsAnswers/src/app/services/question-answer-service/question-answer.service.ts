@@ -107,9 +107,11 @@ export class QuestionAnswerService {
   userLoggedIn = new Subject();
   userPostIdentifier = 'userPost';
   userPostByUserIdIdentifier = 'userPostByUserId';
-  defaultCodeBlock = `<div class="code-snippet"><pre><code class="language-typescript"></code></pre></div><br>`;
+  defaultCodeBlock = `<div class="code-snippet"><pre><code class="language-typescript"></code></pre></div>`;
   interviewQuestionsRoute = 'interview-questions';
   QAAdminPanelRoute = '/admin-panel/updateInterviewQuestions'
+  tempContent: any;
+  nextSibling: any;
   constructor(
     private http: HttpClient,
     private loaderService: LoaderService,
@@ -866,6 +868,30 @@ export class QuestionAnswerService {
 
   navigateToQAAdminPanel() {
     this.router.navigateByUrl(this.QAAdminPanelRoute);
+  }
+
+  formatCodeSnippet(editor, content) {
+    
+    this.tempContent = editor.textArea.nativeElement.querySelectorAll('.code-snippet pre');
+    for(let currentTempContent of this.tempContent) {
+      this.formatCodeInsideCodeTag(currentTempContent)
+    }
+   
+    // this.nextSibling = this.tempContent.querySelector('[class^="language"]').nextElementSibling;
+
+    // this.tempContent.querySelector('[class^="language"]').innerHTML += this.nextSibling.innerHTML;
+    // this.nextSibling.remove();
+    
+    // console.log('temp content', this.tempContent);
+    // return content;
+  }
+
+  formatCodeInsideCodeTag(tempContent) {
+    this.nextSibling = tempContent.querySelector('[class^="language"]').nextSibling;
+    if(this.nextSibling) {
+      tempContent.querySelector('[class^="language"]').innerHTML += this.nextSibling.innerHTML;
+      this.nextSibling.remove();
+    }
   }
 
   enableImageResizeInDiv(id) {

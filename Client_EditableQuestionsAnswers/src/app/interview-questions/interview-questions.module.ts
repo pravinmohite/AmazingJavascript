@@ -14,6 +14,7 @@ import { RouterModule } from '@angular/router';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { OtherInterviewQuestionsComponent } from './angular-interview-questions/other-interview-questions/other-interview-questions.component';
 import { AngularEditorModule, AngularEditorService } from '@kolkov/angular-editor';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { AngularEditorModule, AngularEditorService } from '@kolkov/angular-edito
     AffiliateAdsComponent,
     QuestionAnswerDetailComponent,
     RelatedInterviewQuestionsComponent,
-    OtherInterviewQuestionsComponent
+    OtherInterviewQuestionsComponent,
   ],
   imports: [
     CommonModule,
@@ -33,6 +34,7 @@ import { AngularEditorModule, AngularEditorService } from '@kolkov/angular-edito
     FormsModule,
     RouterModule,
     NgxPaginationModule,
+    SharedModule
   ],
   providers: [
     { provide: AngularEditorService, useClass: AngularEditorService },

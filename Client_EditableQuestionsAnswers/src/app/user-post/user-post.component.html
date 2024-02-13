@@ -57,7 +57,7 @@
               <div class="panel-body" [ngClass]="{'open': item.showAnswer ==true}">
                 <div class="panel-body" [ngClass]="{'open': true}">
                   <div class="panel-body-content">
-                    <div [innerHtml]="item.answer">
+                    <div [innerHtml]="item.answer | safeHtml">
                     </div>
                     <div class="open-linkseperate-container">
                       <a [title]="openNewTabText" target="_blank"

@@ -189,24 +189,26 @@ export class AddEditUserPostComponent implements OnInit {
   };
 
   onChange(event) {
-    console.log('event data', event);
-    this.currentEventElement = event;
-      this.formatCodeBlockContent();
-      this.interviewQuestion.answer = event; // Manually update the answer
+    this.questionAnswerService.formatCodeSnippet(this.editor, event);
+    this.interviewQuestion.answer = event; // Manually update the answer
+    // console.log('event data', event);
+    // this.currentEventElement = event;
+    //   this.formatCodeBlockContent();
+    //   this.interviewQuestion.answer = event; // Manually update the answer
   }
 
-  formatCodeBlockContent() {
-    let currentElement = this.editor.textArea.nativeElement;
-    if(currentElement && currentElement.querySelector('pre code')) {
-    let codeOutsideCodeBlock = currentElement.querySelector('pre code').nextSibling;
-    if(codeOutsideCodeBlock) {
-      console.log('code outside block innerhtml', codeOutsideCodeBlock.innerHTML)
-      currentElement.querySelector('pre code').innerHTML += codeOutsideCodeBlock.innerHTML;
-      console.log('pre code innerhtml', currentElement.querySelector('pre code').innerHTML)
-      currentElement.querySelector('pre code').nextSibling.remove();
-    }
-   }
-  }
+  // formatCodeBlockContent() {
+  //   let currentElement = this.editor.textArea.nativeElement;
+  //   if(currentElement && currentElement.querySelector('pre code')) {
+  //   let codeOutsideCodeBlock = currentElement.querySelector('pre code').nextSibling;
+  //   if(codeOutsideCodeBlock) {
+  //     console.log('code outside block innerhtml', codeOutsideCodeBlock.innerHTML)
+  //     currentElement.querySelector('pre code').innerHTML += codeOutsideCodeBlock.innerHTML;
+  //     console.log('pre code innerhtml', currentElement.querySelector('pre code').innerHTML)
+  //     currentElement.querySelector('pre code').nextSibling.remove();
+  //   }
+  //  }
+  // }
 
   onBlur(event) {
     console.log('blur ' + event);

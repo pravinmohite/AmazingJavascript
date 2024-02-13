@@ -143,6 +143,15 @@
 }
 
 ::ng-deep {
+    .code-snippet {
+        pre {
+            code {
+                font-family: inherit !important;
+                font-weight: inherit !important;
+            }
+        }
+    }
+
     .question-link {
         color: $question-link-color;
 
@@ -197,6 +206,10 @@
 
         .angular-editor-textarea {
             min-height: 150px !important;
+
+            .code-snippet {
+                display: flex !important;
+            }
         }
 
         .angular-editor-placeholder {

@@ -36,6 +36,7 @@ export class HeaderComponent implements OnInit {
   userDetail: string[] = ['Apple', 'Banana', 'Cherry', 'Date', 'Fig'];
   interviewQuestionsPageUrl = 'interview-questions';
   userPostsPageUrl = 'user-posts';
+  isKeyWordSearch: boolean = false;
   constructor(
     private questionAnswerService:QuestionAnswerService,
     private route: Router,
@@ -178,7 +179,8 @@ export class HeaderComponent implements OnInit {
     }
   }
   
-  searchByQuestionAnswer(value) {
+  searchByQuestionAnswer(value, isKeyWordSearch?:boolean) {
+    this.isKeyWordSearch = isKeyWordSearch ? true : false;
     this.setCurrentPageToInitialPage(this.questionAnswerService.serverSideObj);
     this.questionAnswerService.serverSideObj.searchTerm = value;
     this.questionAnswerService.getQuestionAnswerListServerSide(this.questionAnswerService.serverSideObj);
@@ -218,6 +220,14 @@ export class HeaderComponent implements OnInit {
       this.searchByQuestionAnswer(value)
     }
   }
+
+  handleClearSearch(event): void{
+    if(event.currentTarget.value == '') {
+      this.isKeyWordSearch = false;
+      this.searchByQuestionAnswer('');
+    }
+  }
+  
   openAboutusModal(): void {
     this.openAboutUs.emit()
   }

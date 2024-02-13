@@ -15,6 +15,7 @@ import { UserPostDetailComponent } from './user-post-detail/user-post-detail.com
 import { OtherUserPostsComponent } from './other-user-posts/other-user-posts.component';
 import { RelatedUserPostsComponent } from './related-user-posts/related-user-posts.component';
 import { AlertModule } from 'ngx-bootstrap/alert';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AlertModule } from 'ngx-bootstrap/alert';
     HttpClientModule, 
     AngularEditorModule,
     NgxPaginationModule,
-    AlertModule.forRoot()
+    AlertModule.forRoot(),
+    SharedModule
   ],
   providers: [
     { provide: AngularEditorService, useClass: AngularEditorService },

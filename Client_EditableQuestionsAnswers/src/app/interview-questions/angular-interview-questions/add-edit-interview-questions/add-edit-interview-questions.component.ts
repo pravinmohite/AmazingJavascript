@@ -47,10 +47,6 @@ export class AddEditInterviewQuestionsComponent implements OnInit {
     this.questionAnswerService.enableImageResizeInDiv('editor1')
   }
 
-  ngOnDestroy() {
-    console.log('destroy call');
-  }
-
   getQuestionTypes() {
     this.loaderService.display(true);
     this.questionAnswerService.getQuestionTypes().subscribe(response => {
@@ -173,6 +169,7 @@ export class AddEditInterviewQuestionsComponent implements OnInit {
   };
 
   onChange(event) {
+    this.questionAnswerService.formatCodeSnippet(this.editor, event);
     this.interviewQuestion.answer = event; // Manually update the answer
   }
 

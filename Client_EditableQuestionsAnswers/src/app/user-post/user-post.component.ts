@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnDestroy, OnInit, Renderer2, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, Renderer2, SimpleChanges } from '@angular/core';
 import { QuestionAnswerService } from '../services/question-answer-service/question-answer.service';
 import { LoaderService } from '../services/loader-service/loader.service';
 import { Observable, Subscription } from 'rxjs'; // Import Observable
