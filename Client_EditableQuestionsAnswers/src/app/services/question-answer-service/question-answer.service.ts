@@ -676,12 +676,12 @@ export class QuestionAnswerService {
       script.src = this.adsUrl
 
       script.onload = () => {
-        setTimeout(() => {
+      //  setTimeout(() => {
           ((window as any).adsbygoogle || []).push({
             google_ad_client: this.adsClientId,
             enable_page_level_ads: true
           });
-        }, this.delayAds);
+    //    }, this.delayAds);
       }
       this._doc.body.appendChild(script);
     }
@@ -802,7 +802,7 @@ export class QuestionAnswerService {
   }
 
   checkIfHTMLCode(codeContent) {
-    if(codeContent.indexOf('<') > -1 || codeContent.indexOf('&lt;') > -1)  {
+    if((codeContent.indexOf('<') > -1 || codeContent.indexOf('&lt;') > -1) && !this.checkIfJavaScriptCode(codeContent))  {
       return true;
     }
     return false;

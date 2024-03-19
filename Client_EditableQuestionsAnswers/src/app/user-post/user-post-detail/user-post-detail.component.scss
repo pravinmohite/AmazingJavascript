@@ -4,6 +4,7 @@
 .detail-relatedquestion-container {
     ::ng-deep {
         .panel-container {
+
             @media screen and (min-width:769px) {
                width: 90%;
             }
@@ -17,13 +18,19 @@
 }
 
 .question-answer-detailcontainer {
-    &.panel-container {
-        margin-top: 50px !important
-    }
+    ::ng-deep {
+        &.panel-container {
+            margin-top: 50px !important;
+        }
 
-    header {
-        .question-text {
-            font-size: 1.5em !important;
+        ul {
+            list-style-type: none !important;
+        }
+
+        header {
+            .question-text {
+                font-size: 1.5em !important;
+            }
         }
     }
 }

@@ -49,6 +49,10 @@ export class QuestionAnswerDetailComponent implements OnInit {
     });
   }
 
+  addQuestionMarkIfNotPresent(question: string): string {
+    return this.questionAnswerService.addQuestionMarkIfNotPresentCondition(question);
+  }
+
   setDataForRichSnippet() {
     this.richSnippetService.setRichSnippetData([this.questionAnswerItem], this.renderer);
   }
