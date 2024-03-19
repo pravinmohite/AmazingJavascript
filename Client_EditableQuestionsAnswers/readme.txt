@@ -34,13 +34,13 @@ ec2 server command prompt:-
   screen
   node app.js 
 
-  ->Steps to run On digital ocean 
+  ->Steps to run On digital ocean first time
   -> run server
-     pm2 start/restart app.js
+     pm2 start app.js
 
   -> run universal Client
 
-      pm2 start/restart dist/sample-task/server/main.js
+      pm2 start dist/sample-task/server/main.js
 
   For updating use restart i.e
 
