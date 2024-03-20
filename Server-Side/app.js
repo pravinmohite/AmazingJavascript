@@ -30,6 +30,7 @@ app.use(cors());
 
 //body-parser
 app.use(bodyparser.json({limit: '35mb'}));
+app.use(bodyparser.urlencoded({limit: "50mb", extended: true, parameterLimit:50000}));
 
 //static files
 app.use(express.static('./../Client_EditableQuestionsAnswers/dist'));
