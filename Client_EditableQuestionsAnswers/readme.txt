@@ -30,6 +30,10 @@ ec2 server command prompt:-
 
   sudo rm -rf AmazingJavascript/ :- to delete a directory
 
+Restart nginx
+ 
+    sudo systemctl restart nginx
+
  Keep running your node application
   screen
   node app.js 
