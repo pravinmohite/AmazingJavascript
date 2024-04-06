@@ -7,7 +7,18 @@ mongodb:-"C:\Program Files\MongoDB\Server\3.4\bin\mongod.exe" --dbpath I:\Passio
 
 "C:\Program Files\MongoDB\Server\5.0\bin\mongod.exe" --dbpath I:\Passion_for_coding\data\db
 
-/api/loginDetails
+
+api/signUp
+
+{
+        "_id": "5fae892ef40fa01a6460d4a4",
+        "username": "testAdmin",
+        "password": "testAdmin",
+        "isAdmin": "true"
+}
+
+
+/api/loginDetails // will not work with signup functionality
 
     {
         "_id": "5fae892ef40fa01a6460d4a4",

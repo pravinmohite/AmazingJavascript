@@ -39,7 +39,7 @@ export class QuestionAnswerService {
   signUpUrl = "/api/signUp";
   isProd: boolean = true;
   prodUrl: String = "https://frontendinterviewquestions.com";
-  //prodUrl:String="https://64.227.118.130";
+  //prodUrl:String="http://64.227.118.130";
   devDomain: any = this.isProd ? this.prodUrl : "http://localhost:3000";
   finalquestionTypeUrl: any = this.devDomain + this.questionTypeUrl;
   finalQuestionAnswerUrl: any = this.devDomain + this.questionAnswerUrl;
@@ -873,10 +873,15 @@ export class QuestionAnswerService {
   formatCodeSnippet(editor, content) {
     
     this.tempContent = editor.textArea.nativeElement.querySelectorAll('.code-snippet pre');
-    for(let currentTempContent of this.tempContent) {
-      this.formatCodeInsideCodeTag(currentTempContent)
+    if(this.tempContent && this.tempContent.length > 0) {
+      for(let currentTempContent of this.tempContent) {
+        this.formatCodeInsideCodeTag(currentTempContent)
+      }  
     }
-   
+    else {
+      this.formatCodeCopiedFromExternalWebsites(editor);
+    }
+  
     // this.nextSibling = this.tempContent.querySelector('[class^="language"]').nextElementSibling;
 
     // this.tempContent.querySelector('[class^="language"]').innerHTML += this.nextSibling.innerHTML;
@@ -886,12 +891,45 @@ export class QuestionAnswerService {
     // return content;
   }
 
-  formatCodeInsideCodeTag(tempContent) {
-    this.nextSibling = tempContent.querySelector('[class^="language"]').nextSibling;
-    if(this.nextSibling) {
-      tempContent.querySelector('[class^="language"]').innerHTML += this.nextSibling.innerHTML;
-      this.nextSibling.remove();
+  formatCodeCopiedFromExternalWebsites(editor) {
+    let tempEditorContainer = editor.textArea.nativeElement;
+    let innerContent = tempEditorContainer.querySelectorAll('pre > span');
+    let tempContent = tempEditorContainer.querySelectorAll('pre');
+  //  let defaultCodeBlock = `<div class="code-snippet"><pre><code class="language-typescript"></code></pre></div>`;
+ //   editor.textArea.nativeElement.querySelectorAll('pre')[0].outerHTML =`<div class="code-snippet"><pre><code class="language-typescript">`+ innerContent +`</code></pre></div>`;
+    for(const [index,currentTempContent] of tempContent.entries()) {
+      this.formatCodeSnippetFromExternalWebsite(currentTempContent, innerContent, index)
     }
+  }
+
+  formatCodeSnippetFromExternalWebsite(tempContent, innerContent, index) {
+    console.log('external inner content', innerContent.textContent);
+    console.log('extenal temp content', tempContent);
+ //   innerContent[0].innerHTML = innerContent[0].innerHTML.replace(/<br\.*.*>/,"\n");
+    innerContent[index].innerHTML = innerContent[index].innerHTML.replace(/<br style="box-sizing: inherit;">/g,"\n");
+    tempContent.outerHTML =`<div class="code-snippet"><pre><code class="language-typescript">`+ innerContent[index].innerHTML +`</code></pre></div>`;
+    console.log('temp content outerhtml', tempContent);
+    // editor.textArea.nativeElement.querySelectorAll('pre')[0].outerHTML =`<div class="code-snippet"><pre><code class="language-typescript">`+ innerContent +`</code></pre></div>`;
+  }
+
+  formatCodeInsideCodeTag(tempContent) {
+    let actualCodeSnippet = tempContent.querySelector('[class^="language"]');
+    if(actualCodeSnippet) {
+      this.nextSibling = actualCodeSnippet?.nextSibling;
+      if(this.nextSibling && this.nextSibling.innerHTML) {
+        actualCodeSnippet.innerHTML += this.nextSibling.innerHTML;
+        this.nextSibling.remove();
+      }
+    }
+    else {
+      this.addCodeTagWithLanguageAttribute(tempContent);
+    }
+  }
+
+  addCodeTagWithLanguageAttribute(tempContent) {
+    let orgHtml = tempContent.innerHTML;
+    let newHtml = "<code class='language-typescript'>" + orgHtml + "</code>";
+    tempContent.innerHTML = newHtml;
   }
 
   enableImageResizeInDiv(id) {

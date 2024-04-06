@@ -22,7 +22,7 @@
                         </div>
                     </div>
                     <div class="panel-body" [ngClass]="{'open': true}">
-                        <div class="panel-body-content" [innerHtml]="questionAnswerItem.answer"></div>
+                        <div class="panel-body-content" [innerHtml]="questionAnswerItem.answer | safeHtml"></div>
                     </div>
                 </div>
                 <div class="affiliate-ads-container">

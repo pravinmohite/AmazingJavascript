@@ -148,6 +148,8 @@
             code {
                 font-family: inherit !important;
                 font-weight: inherit !important;
+                color: #ccc !important;
+                font-size: inherit !important;
             }
         }
     }
@@ -207,8 +209,18 @@
         .angular-editor-textarea {
             min-height: 150px !important;
 
+            ul {
+                list-style-type: none !important;
+            }
+
             .code-snippet {
                 display: flex !important;
+
+                pre {
+                    code {
+                        color: #ccc !important;
+                    }
+                }
             }
         }
 
