@@ -97,4 +97,8 @@ export class UserPostDetailComponent implements OnInit {
   deleteQuestionAnswer(item) {
     console.log('deleteditem', item);
   }
+
+  addQuestionMarkIfNotPresent(question: string): string {
+    return this.questionAnswerService.addQuestionMarkIfNotPresentCondition(question);
+  }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faPhoneSquare, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import * as UIConstants from './../../utils/constants';
 
 @Component({
   selector: 'app-footer',
@@ -10,6 +11,7 @@ export class FooterComponent implements OnInit {
 
   faPhoneSquare= faPhoneSquare;
   faEnvelope = faEnvelope;
+  currentYear = UIConstants.currentYear;
   constructor() { }
 
   ngOnInit(): void {

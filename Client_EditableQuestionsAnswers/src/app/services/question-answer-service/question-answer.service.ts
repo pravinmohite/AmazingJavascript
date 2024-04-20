@@ -809,7 +809,7 @@ export class QuestionAnswerService {
   }
 
   checkIfJavaScriptCode(codeContent) {
-     if(codeContent.indexOf('let') > -1 || codeContent.indexOf('const') > -1 || codeContent.indexOf('function') > -1)  {
+     if(codeContent.indexOf('let') > -1 || codeContent.indexOf('const') > -1 || codeContent.indexOf('function') > -1 || codeContent.indexOf('class') > -1)  {
         return true;
      }
      return false;
